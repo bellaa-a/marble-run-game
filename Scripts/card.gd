@@ -158,8 +158,24 @@ func move_to_hand(target_position: Vector2):
 	)
 
 func reveal_card(target_position: Vector2):
+
+	show()
+
 	position = target_position
-	scale = Vector2(1.5, 1.5)
+	scale = Vector2(1.4, 1.4)
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		self,
+		"scale",
+		Vector2(1.2, 1.2),
+		0.3
+	)
+
+	await tween.finished
 	
 	
 func disappear():

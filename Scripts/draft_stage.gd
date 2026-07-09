@@ -209,8 +209,7 @@ func show_opponent_cards():
 
 		cards[9+i].setup(card)
 
-		# show in middle first
-		cards[9+i].reveal_card(
+		await cards[9+i].reveal_card(
 			reveal_slots[i]
 		)
 
