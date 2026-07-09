@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="marble_run"
-run/main_scene="uid://cjb7xplamndqq"
+run/main_scene="uid://d0sodp77g58oq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://djtwn48eyhna1"
 

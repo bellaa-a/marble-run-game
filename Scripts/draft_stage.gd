@@ -151,6 +151,7 @@ func send_opponent_cards():
 
 
 func receive_opponent_cards(card_ids: Array[String]):
+	print("receive_opponent_cards called!", card_ids)
 
 	var opponent_slots = [
 		Vector2(75,240),
@@ -161,6 +162,7 @@ func receive_opponent_cards(card_ids: Array[String]):
 
 	for i in range(card_ids.size()):
 		var card = get_card_by_id(card_ids[i])
+		print(card)
 
 		cards[10+i].setup(card)
 		var tween = create_tween()
