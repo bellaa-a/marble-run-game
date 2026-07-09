@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var effect_layer = $EffectLayer
+@export var group_name : String
 
 var dragging_block: Node2D = null
 var dragging_card: DraftCard = null
