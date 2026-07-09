@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://63lbl2qyljt3"]
+[gd_scene load_steps=8 format=3 uid="uid://63lbl2qyljt3"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_7b5rg"]
 [ext_resource type="Script" uid="uid://vqj5k77scekf" path="res://Scripts/host_game.gd" id="1_flq1h"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="2_0cv17"]
 [ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="3_flq1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsbjw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dul1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3td4m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="HostGame" type="Node2D"]
 script = ExtResource("1_flq1h")
@@ -35,10 +44,18 @@ text = "Your game ID: "
 horizontal_alignment = 1
 
 [node name="RoomCode" type="LineEdit" parent="."]
-offset_left = 44.0
-offset_top = -27.0
-offset_right = 150.0
-offset_bottom = 9.0
+offset_left = 48.0
+offset_top = -36.0
+offset_right = 152.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0.19215687, 0.1254902, 0.09411765, 1)
+theme_override_colors/selection_color = Color(0.7058824, 0.8352941, 0.99607843, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsbjw")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_5dul1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3td4m")
+alignment = 1
 editable = false
 
 [node name="WaitingLabel" type="Label" parent="."]

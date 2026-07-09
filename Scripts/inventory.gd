@@ -47,3 +47,8 @@ func _on_block_drag_started(card: DraftCard):
 
 func _on_powerup_clicked(card: DraftCard):
 	Multiplayer.send_powerup(card.id)
+	
+	for hand_card in hand_cards:
+		if hand_card.card_data == card:
+			hand_card.use_card()
+			break

@@ -59,10 +59,18 @@ func finish_drag():
 
 		if placed_block.has_method("set_preview"):
 			placed_block.set_preview(false)
+		consume_card()
 
 	else:
 		placed_block.queue_free()
 
+func consume_card():
+
+	for card in $Inventory.hand_cards:
+		if card.card_data == dragging_card:
+			card.use_card()
+			return
+			
 
 func can_place_block(pos: Vector2) -> bool:
 	return true

@@ -11,6 +11,8 @@ signal powerup_clicked(card)
 @onready var card_button: TextureButton = $CardButton
 @onready var card_back: Sprite2D = $CardBack
 @onready var type: ColorRect = $Type
+@onready var question_mark: Sprite2D = $CardBack/QuestionMark
+@onready var used: Sprite2D = $CardBack/Used
 
 var normal_scale := Vector2.ONE
 var hover_scale := Vector2(1.4, 1.4)
@@ -30,7 +32,8 @@ func _ready():
 	add_to_group("cards")
 	pivot_offset = size / 2
 	normal_position = position
-	card_back.get_node("Used").visible = false
+	question_mark.visible = true
+	used.visible = false
 	
 	card_button.mouse_entered.connect(_on_mouse_entered)
 	card_button.mouse_exited.connect(_on_mouse_exited)
@@ -197,6 +200,7 @@ func set_selectable(value: bool):
 
 func set_revealed(value: bool):
 	card_back.visible = not value
+	question_mark.visible = not value
 
 
 func raise_card():
@@ -263,3 +267,11 @@ func _on_card_gui_input(event):
 
 				dragging = false
 				block_drag_started.emit(card_data)
+
+func use_card():
+	card_back.visible = true
+	card_button.disabled = true
+	card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	question_mark.visible = false
+	used.visible = true
