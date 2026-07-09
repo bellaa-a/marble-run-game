@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlnj3gmjer15v"]
+
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_5b1iv"]
+[ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="2_k0j6d"]
+[ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="3_0weji"]
+[ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
+
+[node name="BuildStage" type="Node2D"]
+script = ExtResource("1_ebcgw")
+
+[node name="Boarder" parent="." instance=ExtResource("1_5b1iv")]
+
+[node name="Pipe" parent="." instance=ExtResource("2_k0j6d")]
+position = Vector2(-109, -220)
+scale = Vector2(0.29214692, 0.524515)
+
+[node name="MultiplayerGoal" parent="." instance=ExtResource("3_0weji")]
+position = Vector2(0, 170)
+
+[node name="Inventory" parent="." instance=ExtResource("5_ebcgw")]
+
+[node name="EffectLayer" type="CanvasLayer" parent="."]

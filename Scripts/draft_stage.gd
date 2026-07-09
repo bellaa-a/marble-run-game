@@ -1,11 +1,5 @@
 extends Node2D
 
-const CARD_FOLDER = "res://Cards/"
-
-var block_cards: Array[DraftCard] = []
-var addon_cards: Array[DraftCard] = []
-var powerup_cards: Array[DraftCard] = []
-var necessary_cards: Array[DraftCard] = []
 var discarded_cards: Array[String] = []
 var pending_opponent_cards: Array[String] = []
 var num_cards := 9
@@ -45,10 +39,12 @@ var hand_positions := [
 ]
 
 func _ready():
-
+	Multiplayer.reset_match()
 	add_to_group("draft")
-	load_cards()
+	CardDatabase.load_cards()
 	generate_draft()
+	
+	Multiplayer.player_inventory.append("open_goal")
 	
 	for card in cards:
 		if card.in_hand:
@@ -70,7 +66,7 @@ func _ready():
 
 	
 func generate_draft():
-	cards[num_cards-1].setup(necessary_cards.pick_random())
+	cards[num_cards-1].setup(CardDatabase.necessary_cards.pick_random())
 	randomize()
 
 	var pairs = [0, 1, 2, 3]
@@ -83,20 +79,20 @@ func generate_draft():
 
 	for pair in pairs:
 		first = pair * 2
-		cards[first].setup(block_cards.pick_random())
-		cards[first + 1].setup(block_cards.pick_random())
+		cards[first].setup(CardDatabase.block_cards.pick_random())
+		cards[first + 1].setup(CardDatabase.block_cards.pick_random())
 
 	first = powerup_pair * 2
-	cards[first].setup(powerup_cards.pick_random())
-	cards[first + 1].setup(powerup_cards.pick_random())
+	cards[first].setup(CardDatabase.powerup_cards.pick_random())
+	cards[first + 1].setup(CardDatabase.powerup_cards.pick_random())
 
 	first = mixed_pair * 2
-	cards[first].setup(block_cards.pick_random())
-	cards[first + 1].setup(addon_cards.pick_random())
+	cards[first].setup(CardDatabase.block_cards.pick_random())
+	cards[first + 1].setup(CardDatabase.addon_cards.pick_random())
 
 
 	for i in range(8):
-		cards[i].pair_id = i / 2
+		cards[i].pair_id = i / 2 as int
 		cards[i].card_selected.connect(select_card)
 
 
@@ -126,6 +122,10 @@ func select_card(card):
 	
 	card.move_to_hand(hand_positions[pair])
 
+	Multiplayer.player_inventory.append(
+		card.card_data.id
+	)
+
 	# remove the other card
 	var other_card
 
@@ -154,7 +154,7 @@ func send_opponent_cards():
 
 	finished_picking = true
 
-	$Instructions.text = "Waiting for opponent..."
+	$Instructions.text = "Waiting for opponent to finish picking..."
 
 	Multiplayer.send_discarded_cards.rpc(discarded_cards)
 
@@ -168,6 +168,8 @@ func send_opponent_cards():
 func receive_opponent_cards(card_ids: Array[String]):
 
 	print("Received opponent cards:", card_ids)
+	for id in card_ids:
+		Multiplayer.player_inventory.append(id)
 
 	# Always store them first
 	pending_opponent_cards = card_ids
@@ -182,7 +184,8 @@ func receive_opponent_cards(card_ids: Array[String]):
 
 func show_opponent_cards():
 
-	$Instructions.text = "Opponent finished picking!"
+	$Instructions.text = "Here are the cards from your opponent!"
+	await get_tree().create_timer(1.0).timeout
 
 	var opponent_slots = [
 		Vector2(75,240),
@@ -193,7 +196,7 @@ func show_opponent_cards():
 
 	for i in range(pending_opponent_cards.size()):
 
-		var card = get_card_by_id(
+		var card = CardDatabase.get_card_by_id(
 			pending_opponent_cards[i]
 		)
 
@@ -220,56 +223,9 @@ func try_finish_draft():
 	print("Both players finished draft!")
 
 	# move to next stage here
-	# transition.fade_to_scene(...)
+	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
 	
 	
-func get_card_by_id(id: String) -> DraftCard:
-
-	for card in block_cards:
-		if card.id == id:
-			return card
-
-	for card in addon_cards:
-		if card.id == id:
-			return card
-
-	for card in powerup_cards:
-		if card.id == id:
-			return card
-
-	for card in necessary_cards:
-		if card.id == id:
-			return card
-
-	return null
-	
-
-func load_cards():
-	var dir = DirAccess.open(CARD_FOLDER)
-
-	if dir == null:
-		print("Could not find card folder")
-		return
-
-	for file in dir.get_files():
-		if file.ends_with(".tres"):
-			var card = load(CARD_FOLDER + file)
-
-			if card is DraftCard:
-				match card.type:
-					Enum.CardType.BLOCK:
-						block_cards.append(card)
-					Enum.CardType.ADDON:
-						addon_cards.append(card)
-					Enum.CardType.POWERUP:
-						powerup_cards.append(card)
-					Enum.CardType.NECESSARY:
-						necessary_cards.append(card)
-
-	print("Loaded:")
-	print("  Blocks:", block_cards.size())
-	print("  Addons:", addon_cards.size())
-	print("  Powerups:", powerup_cards.size())
 
 func reveal_pair(pair: int):
 	cards[pair * 2].set_revealed(true)

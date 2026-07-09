@@ -1,6 +1,8 @@
 extends Control
 
 signal card_selected(card)
+signal block_drag_started(card)
+signal powerup_clicked(card)
 
 @export var in_hand : bool = false
 @onready var icon: TextureRect = $Icon
@@ -18,16 +20,21 @@ var moving_to_hand := false
 var dissapearing := false
 var card_data: DraftCard
 
+var dragging := false
+var drag_threshold := 30
+var mouse_down_pos := Vector2.ZERO
+
 
 func _ready():
 	add_to_group("cards")
 	pivot_offset = size / 2
 	normal_position = position
+	card_back.get_node("Used").visible = false
 	
 	card_button.mouse_entered.connect(_on_mouse_entered)
 	card_button.mouse_exited.connect(_on_mouse_exited)
-	
 	card_button.pressed.connect(_on_pressed)
+	card_button.gui_input.connect(_on_card_gui_input)
 	
 
 func _on_pressed():
@@ -206,3 +213,29 @@ func set_selected_layer(value: bool):
 		z_index = 10
 	else:
 		z_index = 0
+
+
+func _on_card_gui_input(event):
+
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+
+			if event.pressed:
+				mouse_down_pos = event.position
+				dragging = true
+
+			else:
+				dragging = false
+
+				if card_data.type == Enum.CardType.POWERUP:
+					powerup_clicked.emit(card_data)
+
+	elif event is InputEventMouseMotion and dragging:
+
+		if mouse_down_pos.distance_to(event.position) > drag_threshold:
+
+			if card_data.type == Enum.CardType.BLOCK \
+			or card_data.type == Enum.CardType.ADDON:
+
+				dragging = false
+				block_drag_started.emit(card_data)

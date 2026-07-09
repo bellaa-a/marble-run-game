@@ -14,6 +14,8 @@ var lobby_id := 0
 var lobby_code := ""
 var join_error := ""
 var game_started := false
+var player_inventory: Array[String] = []
+var build_stage: Node = null
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -422,3 +424,25 @@ func _notification(what):
 		leave_lobby()
 
 		get_tree().quit()
+
+
+func reset_match():
+	player_inventory.clear()
+
+
+@rpc("any_peer")
+func use_powerup(card_id: String):
+	if build_stage == null:
+		return
+
+	var card = CardDatabase.get_card_by_id(card_id)
+	var effect = card.effect_scene.instantiate()
+	build_stage.effect_layer.add_child(effect)
+	effect.activate()
+
+
+func get_opponent_id() -> int:
+	for id in multiplayer.get_peers():
+		return id
+	
+	return -1
