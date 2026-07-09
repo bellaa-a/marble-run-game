@@ -26,7 +26,7 @@ func begin_drag(card: DraftCard):
 	dragging_block = card.scene.instantiate()
 	
 	# Add as preview object
-	$Board.add_child(dragging_block)
+	add_child(dragging_block)
 
 	# Make it transparent / ghost version
 	if dragging_block.has_method("set_preview"):
@@ -63,12 +63,4 @@ func finish_drag():
 
 
 func can_place_block(pos: Vector2) -> bool:
-
-	# inside build area?
-	if not $Board.get_rect().has_point(pos):
-		return false
-
-	# touching another block?
-	# your collision checks here
-
 	return true
