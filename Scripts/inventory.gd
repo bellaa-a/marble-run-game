@@ -32,9 +32,7 @@ func load_inventory():
 
 		hand_cards[i].block_drag_started.connect(_on_block_drag_started)
 		hand_cards[i].powerup_clicked.connect(_on_powerup_clicked)
-
-		add_child(hand_cards[i])
-		
+				
 
 func _on_block_drag_started(card: DraftCard):
 	get_parent().begin_drag(card)
