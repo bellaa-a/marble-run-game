@@ -23,6 +23,8 @@ func _process(_delta):
 		
 		
 func begin_drag(card):
+	if Multiplayer.player_inventory[card.inventory_index]["used"]:
+		return
 
 	dragging_card = card
 
@@ -67,6 +69,7 @@ func finish_drag():
 			placed_block.set_preview(false)
 
 		dragging_card.use_card()
+		Multiplayer.player_inventory[dragging_card.inventory_index]["used"] = true
 
 	else:
 		placed_block.queue_free()

@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var hand_cards = [
 	$Card1,
 	$Card2,
@@ -27,11 +26,19 @@ func load_inventory():
 
 	for i in range(Multiplayer.player_inventory.size()):
 
+		var inventory_card = Multiplayer.player_inventory[i]
+
 		var card_data = CardDatabase.get_card_by_id(
-			Multiplayer.player_inventory[i]
+			inventory_card["id"]
 		)
 
+		if inventory_card["used"]:
+			hand_cards[i].use_card()
+
 		hand_cards[i].setup(card_data)
+		hand_cards[i].inventory_index = i
+		if inventory_card.used:
+			hand_cards[i].use_card()
 		hand_cards[i].show()
 
 		if not hand_cards[i].block_drag_started.is_connected(_on_block_drag_started):
@@ -51,4 +58,5 @@ func _on_powerup_clicked(card: DraftCard):
 	for hand_card in hand_cards:
 		if hand_card.card_data == card:
 			hand_card.use_card()
+			Multiplayer.player_inventory[hand_card.inventory_index]["used"] = true
 			break

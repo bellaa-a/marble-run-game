@@ -44,7 +44,7 @@ func _ready():
 	CardDatabase.load_cards()
 	generate_draft()
 	
-	Multiplayer.player_inventory.append("open_goal")
+	Multiplayer.player_inventory.append({"id": "open_goal", "used": false})
 	
 	for card in cards:
 		if card.in_hand:
@@ -122,9 +122,10 @@ func select_card(card):
 	
 	card.move_to_hand(hand_positions[pair])
 
-	Multiplayer.player_inventory.append(
-		card.card_data.id
-	)
+	Multiplayer.player_inventory.append({
+		"id": card.card_data.id,
+		"used": false
+	})
 
 	# remove the other card
 	var other_card
@@ -168,7 +169,10 @@ func receive_opponent_cards(card_ids: Array[String]):
 
 	print("Received opponent cards:", card_ids)
 	for id in card_ids:
-		Multiplayer.player_inventory.append(id)
+		Multiplayer.player_inventory.append({
+		"id": id,
+		"used": false
+	})
 
 	# Always store them first
 	pending_opponent_cards = card_ids

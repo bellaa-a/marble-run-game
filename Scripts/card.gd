@@ -22,10 +22,10 @@ var pair_id: int
 var moving_to_hand := false
 var dissapearing := false
 var card_data: DraftCard
-
 var dragging := false
 var drag_threshold := 30
 var mouse_down_pos := Vector2.ZERO
+var inventory_index := -1
 
 
 func _ready():
@@ -47,6 +47,9 @@ func _on_pressed():
 
 func setup(card: DraftCard):
 	card_data = card
+	card_back.visible = false
+	question_mark.visible = true
+	used.visible = false
 	
 	icon.texture = card.icon
 	icon.size = card.icon_size

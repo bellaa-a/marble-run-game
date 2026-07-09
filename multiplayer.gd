@@ -15,7 +15,7 @@ signal join_failed(message)
 var lobby_id := 0
 var lobby_code := ""
 var game_started := false
-var player_inventory: Array[String] = []
+var player_inventory: Array[Dictionary] = []
 
 var build_stage: Node = null
 var rooms: Node = null
