@@ -142,7 +142,7 @@ func select_card(card):
 
 
 func send_opponent_cards():
-	GameState.send_discarded_cards.rpc(discarded_cards)
+	Multiplayer.send_discarded_cards.rpc(discarded_cards)
 
 
 func receive_opponent_cards(card_ids: Array[String]):
