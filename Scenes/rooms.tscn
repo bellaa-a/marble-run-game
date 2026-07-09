@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gqh6awmbt076"]
+[gd_scene load_steps=5 format=3 uid="uid://gqh6awmbt076"]
 
 [ext_resource type="Script" uid="uid://cda6h2w0xnwa7" path="res://Scripts/rooms.gd" id="1_1gecx"]
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_i8ier"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_ohuli"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="4_i8ier"]
 
 [node name="Rooms" type="Node2D"]
 script = ExtResource("1_1gecx")
@@ -65,6 +66,17 @@ offset_right = 259.0
 offset_bottom = 38.0
 theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
 horizontal_alignment = 1
+
+[node name="Confirm" type="Label" parent="."]
+offset_left = 116.0
+offset_top = 18.0
+offset_right = 259.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0.6584438, 0.2293905, 1)
+horizontal_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i8ier")
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

@@ -13,10 +13,12 @@ signal lobby_ready
 var lobby_id := 0
 var lobby_code := ""
 var join_error := ""
+var join_confirm := ""
 var game_started := false
 var player_inventory: Array[String] = []
 
 var build_stage: Node = null
+var rooms: Node = null
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -258,31 +260,27 @@ func _on_lobby_match_list(
 		lobbies.size()
 	)
 
-
 	if lobbies.size() == 0:
 
 		join_error = "Invalid room code"
 		return
 
-
 	var found_lobby = lobbies[0]
-
 
 	var members = Steam.getNumLobbyMembers(
 		found_lobby
 	)
-
 
 	if members >= 2:
 
 		join_error = "Room is full"
 		return
 
-
 	print(
 		"Joining lobby:",
 		found_lobby
 	)
+	join_confirm = "Joining room..."
 
 	Steam.joinLobby(
 		found_lobby
