@@ -54,7 +54,8 @@ func _on_peer_connected(id):
 
 	print("Opponent connected! Peer ID:", id)
 
-	if multiplayer.is_server():
+	if multiplayer.is_server() and multiplayer.get_peers().size() == 1:
+		print("Starting game setup")
 		randomize_layout()
 
 
@@ -91,7 +92,7 @@ func randomize_layout():
 	)
 
 
-@rpc("authority", "call_local")
+@rpc("authority", "call_local", "reliable")
 func sync_layout(
 	pipe_pos: Vector2,
 	goal_pos: Vector2
@@ -111,7 +112,7 @@ func sync_layout(
 # Card Sync
 # -------------------------
 
-@rpc("any_peer", "call_remote")
+@rpc("any_peer", "call_remote", "reliable")
 func send_discarded_cards(cards: Array[String]):
 
 	print(
@@ -314,9 +315,6 @@ func _on_lobby_joined(
 	else:
 
 		print("Failed to start Steam client")
-
-
-	check_lobby_ready()
 
 
 # -------------------------
