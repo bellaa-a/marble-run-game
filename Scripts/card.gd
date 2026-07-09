@@ -135,35 +135,32 @@ func move_to_hand(target_position: Vector2):
 	in_hand = true
 	moving_to_hand = true
 	set_selected_layer(true)
-	
-	# reset scale immediately
+
+	normal_position = target_position
+
 	scale = normal_scale
-	
-	# prevent hover events during movement
 	set_interactable(false)
-	
+
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
-	
+
 	tween.tween_property(
 		self,
 		"position",
 		target_position,
 		0.3
 	)
-	
+
 	tween.finished.connect(func():
-		normal_position = target_position
 		moving_to_hand = false
-		
-		# allow hover again
 		set_interactable(true)
 	)
 
 func reveal_card(target_position: Vector2):
 	revealing = true
 	set_interactable(false)
+	normal_position = position
 	
 	show()
 

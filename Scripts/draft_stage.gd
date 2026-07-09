@@ -224,8 +224,6 @@ func show_opponent_cards():
 
 	for i in range(pending_opponent_cards.size()):
 
-		cards[9+i].scale = Vector2.ONE
-
 		cards[9+i].move_to_hand(
 			opponent_slots[i]
 		)
