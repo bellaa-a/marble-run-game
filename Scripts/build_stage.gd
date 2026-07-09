@@ -43,8 +43,8 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 
-			if not event.pressed and dragging_block:
-				finish_drag()
+			#if not event.pressed and dragging_block:
+			finish_drag()
 				
 
 func finish_drag():

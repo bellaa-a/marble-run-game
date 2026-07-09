@@ -285,9 +285,6 @@ func _on_card_gui_input(event):
 				block_drag_started.emit(card_data)
 
 func use_card():
-	card_back.visible = true
-	card_button.disabled = true
-	card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+	card_back.visible = true	
 	question_mark.visible = false
 	used.visible = true
