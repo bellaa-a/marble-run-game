@@ -168,8 +168,6 @@ func receive_opponent_cards(card_ids: Array[String]):
 
 	$Instructions.text = "Opponent finished picking!"
 
-	try_finish_draft()
-
 	var opponent_slots = [
 		Vector2(75,240),
 		Vector2(150,240),
@@ -177,18 +175,28 @@ func receive_opponent_cards(card_ids: Array[String]):
 		Vector2(300,240),
 	]
 
+	var last_tween_time := 0.0
+
 	for i in range(card_ids.size()):
+
 		var card = get_card_by_id(card_ids[i])
 		print(card)
 
 		cards[9+i].setup(card)
-		var tween = create_tween()
-		tween.tween_property(
-			cards[9 + i],
-			"position",
-			opponent_slots[i],
-			0.4
-		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+		cards[9+i].move_to_hand(
+			opponent_slots[i]
+		)
+
+		last_tween_time = max(
+			last_tween_time,
+			0.3
+		)
+
+
+	await get_tree().create_timer(last_tween_time).timeout
+
+	try_finish_draft()
 		
 func try_finish_draft():
 
@@ -202,6 +210,7 @@ func try_finish_draft():
 
 	# move to next stage here
 	# transition.fade_to_scene(...)
+	
 	
 func get_card_by_id(id: String) -> DraftCard:
 
