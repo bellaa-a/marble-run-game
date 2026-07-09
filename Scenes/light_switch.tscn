@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://nfuerqd5q0hu"]
+
+[ext_resource type="Script" uid="uid://b28plc40ihv32" path="res://Scripts/light_switch.gd" id="1_85wjn"]
+[ext_resource type="Texture2D" uid="uid://dq1qudh7qgeqf" path="res://Assets/LightSwitch.png" id="3_mowpt"]
+[ext_resource type="Texture2D" uid="uid://cw5b8u8i38167" path="res://Assets/LightSwitch2.png" id="4_nrtdx"]
+[ext_resource type="Texture2D" uid="uid://cisapkva208j" path="res://Assets/IceShadow.png" id="5_bxkef"]
+
+[node name="LightSwitch" type="Node2D" unique_id=1366944472]
+script = ExtResource("1_85wjn")
+
+[node name="On" type="Sprite2D" parent="." unique_id=625020808]
+position = Vector2(-267, -170)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_mowpt")
+
+[node name="Off" type="Sprite2D" parent="." unique_id=16789157]
+visible = false
+position = Vector2(-266.3, -170)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_nrtdx")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1961292704]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(-299, -169.43011)
+rotation = 1.5707964
+scale = Vector2(0.32501146, 0.9068437)
+texture = ExtResource("5_bxkef")
+
+[node name="Press" type="Button" parent="." unique_id=1469520380]
+offset_left = -272.0
+offset_top = -181.0
+offset_right = -261.0
+offset_bottom = -159.0
+flat = true
+
+[connection signal="pressed" from="Press" to="." method="_on_press_pressed"]

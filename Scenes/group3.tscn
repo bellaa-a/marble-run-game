@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://do174ggju34u4"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_0qixq"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_tegxj"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="4_0qixq"]
+[ext_resource type="PackedScene" uid="uid://xxt47xwwatka" path="res://Scenes/gravity1.tscn" id="5_1jnyf"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="5_s0ib6"]
+[ext_resource type="PackedScene" uid="uid://djr405x7aohqp" path="res://Scenes/gravity2.tscn" id="6_tegxj"]
+[ext_resource type="PackedScene" uid="uid://cbjt2cls7tbbx" path="res://Scenes/gravity3.tscn" id="7_0qixq"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="7_6ccfl"]
+[ext_resource type="PackedScene" uid="uid://befian3oyou6y" path="res://Scenes/gravity4.tscn" id="8_m0nfc"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="9_0qixq"]
+
+[node name="Group3" type="Node2D" unique_id=73723833]
+script = ExtResource("1_0qixq")
+group_name = "gravity"
+next_scene_path = "uid://b4b32idtl70r8"
+last_scene_path = "uid://bmfxtfnkxciv5"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("4_0qixq")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_tegxj")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("7_6ccfl")]
+level_one_scene = ExtResource("5_1jnyf")
+level_two_scene = ExtResource("6_tegxj")
+level_three_scene = ExtResource("7_0qixq")
+level_four_scene = ExtResource("8_m0nfc")
+label_text = "3. Upside Down"
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("9_0qixq")]
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("5_s0ib6")]

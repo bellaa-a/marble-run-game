@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://dsfq5o02dkbl7"]
+
+[ext_resource type="Texture2D" uid="uid://niygydtku5br" path="res://Assets/flip.png" id="1_pejhu"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_jqanr"]
+
+[resource]
+script = ExtResource("2_jqanr")
+id = "flip"
+type = 2
+stage = 2
+description = "Flip other board for 20s."
+icon = ExtResource("1_pejhu")
+icon_size = Vector2(15, 15)

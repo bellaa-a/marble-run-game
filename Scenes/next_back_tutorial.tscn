@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://jj1eim7n6law"]
+
+[ext_resource type="Script" uid="uid://divvglarqr5qt" path="res://Scripts/next_back_tutorial.gd" id="1_okh5w"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="2_mnjo2"]
+
+[node name="NexBacktTutorial" type="Node2D" unique_id=1045956533]
+script = ExtResource("1_okh5w")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=243431027]
+position = Vector2(-708, -23)
+scale = Vector2(1.2927023, 0.5093901)
+stream = ExtResource("2_mnjo2")
+bus = &"SFX"
+
+[node name="NextTutorial" type="Button" parent="." unique_id=101935643]
+offset_left = -25.0
+offset_top = -16.0
+offset_right = 15.0
+offset_bottom = 5.0
+
+[node name="Label" type="Label" parent="NextTutorial" unique_id=1243030537]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -3.0
+offset_right = 32.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.76862746, 0.61960787, 0.3882353, 1)
+text = "-->"
+
+[node name="BackTutorial" type="Button" parent="." unique_id=1675469909]
+offset_left = -77.0
+offset_top = -16.0
+offset_right = -37.0
+offset_bottom = 5.0
+
+[node name="Label" type="Label" parent="BackTutorial" unique_id=456455438]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -3.0
+offset_right = 43.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.76862746, 0.61960787, 0.3882353, 1)
+text = "<--"
+
+[connection signal="pressed" from="NextTutorial" to="." method="_on_next_tutorial_pressed"]
+[connection signal="pressed" from="BackTutorial" to="." method="_on_back_tutorial_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://b2dlj428g1f6b"]
+
+[ext_resource type="Texture2D" uid="uid://eld5a3p7ilnx" path="res://Assets/lock.png" id="1_nj6f6"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_mqons"]
+
+[resource]
+script = ExtResource("2_mqons")
+id = "lock"
+type = 2
+stage = 1
+description = "Lock other screen for a while."
+icon = ExtResource("1_nj6f6")
+icon_size = Vector2(15, 15)

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c8jfqm5l2tnkx"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_nfw44"]
+[ext_resource type="PackedScene" uid="uid://b53owp8g2bgo3" path="res://Scenes/break2.tscn" id="2_p8ls3"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_raisi"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_qnxc1"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_o7j7f"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="7_twteu"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="8_1a2q1"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_e78b7"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="10_bhabb"]
+
+[node name="Break1" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_nfw44")
+group_name = "break"
+level_number = 1
+next_scene = ExtResource("2_p8ls3")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_raisi")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_qnxc1")]
+position = Vector2(-236, 88)
+start_open = true
+
+[node name="Wood" parent="." unique_id=661219444 instance=ExtResource("4_o7j7f")]
+position = Vector2(59, 72)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("7_twteu")]
+position = Vector2(135, -146.99998)
+rotation = 0.001646864
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("8_1a2q1")]
+label_text = "Break 1/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_e78b7")]
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("10_bhabb")]
+position = Vector2(134.00003, -183)
+scale = Vector2(0.32000124, 0.48000246)
+
+[node name="Pipe2" parent="." unique_id=1650312895 instance=ExtResource("10_bhabb")]
+position = Vector2(134, -273)
+scale = Vector2(0.38194025, 0.5599985)

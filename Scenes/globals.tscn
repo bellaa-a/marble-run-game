@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d1mq735g0sp7l"]
+
+[ext_resource type="Script" uid="uid://b62j1tsy3xrbf" path="res://Scripts/globals.gd" id="1_idm86"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="3_ii0rb"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="3_xmvoo"]
+[ext_resource type="Texture2D" uid="uid://cop5phv1nkew5" path="res://Assets/Settings.png" id="4_ii0rb"]
+[ext_resource type="Texture2D" uid="uid://blha3ptqry7gh" path="res://Assets/HoverSettings.png" id="5_35a6u"]
+
+[node name="Globals" type="Node2D" unique_id=173087012]
+script = ExtResource("1_idm86")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1935159991]
+position = Vector2(-270.99997, -108)
+scale = Vector2(1.2927023, 0.5093901)
+stream = ExtResource("3_xmvoo")
+bus = &"SFX"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=840705099]
+position = Vector2(342, -187)
+rotation = 1.5707964
+scale = Vector2(0.06820652, 0.048092652)
+texture = ExtResource("3_ii0rb")
+
+[node name="Shadow" type="ColorRect" parent="." unique_id=687459426]
+offset_left = 327.0
+offset_top = -201.0
+offset_right = 357.0
+offset_bottom = -172.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="Settings" type="TextureButton" parent="." unique_id=1552064854]
+offset_left = 333.0
+offset_top = -194.99998
+offset_right = 365.0
+offset_bottom = -162.99998
+scale = Vector2(0.52252746, 0.5212372)
+texture_normal = ExtResource("4_ii0rb")
+texture_hover = ExtResource("5_35a6u")
+
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

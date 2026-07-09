@@ -1,0 +1,426 @@
+[gd_scene format=3 uid="uid://draj0cvbj3otp"]
+
+[ext_resource type="Script" uid="uid://buc3adqrm27xp" path="res://Scripts/intro_animation.gd" id="1_7qvw4"]
+[ext_resource type="Script" uid="uid://br6k66xteq0pl" path="res://Scripts/intro_scene_1.gd" id="1_raut6"]
+[ext_resource type="Texture2D" uid="uid://drmvxxigpppxp" path="res://Assets/PipeBackground.png" id="2_4tnvs"]
+[ext_resource type="PackedScene" uid="uid://cfyo48gcnjn7" path="res://Scenes/intro_scene2.tscn" id="2_jpn73"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="2_utqu6"]
+[ext_resource type="Texture2D" uid="uid://h7lvk2khnusv" path="res://Assets/ChatGPT Image Jul 2, 2026 at 05_08_49 PM-2.png" id="3_jpn73"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="3_pdqpc"]
+[ext_resource type="Texture2D" uid="uid://cye8hd4tnegul" path="res://Assets/Bed.png" id="5_vco08"]
+[ext_resource type="Texture2D" uid="uid://ba6x33ktu6swd" path="res://Assets/Subject.jpg" id="7_jpn73"]
+[ext_resource type="Texture2D" uid="uid://cqqa3cx0ehgaa" path="res://Assets/Subject.png" id="7_pdqpc"]
+[ext_resource type="Texture2D" uid="uid://dlcrck50ecq1q" path="res://Assets/Subject 2.png" id="8_c2uew"]
+[ext_resource type="Texture2D" uid="uid://d8o6yf17a8pm" path="res://Assets/Subject 5.png" id="8_raut6"]
+[ext_resource type="Texture2D" uid="uid://dagt5562rwvpv" path="res://Assets/Subject 3.png" id="9_ebl3s"]
+[ext_resource type="Texture2D" uid="uid://b0a3cipnrw10c" path="res://Assets/Subject 4.png" id="10_g3xvx"]
+[ext_resource type="Texture2D" uid="uid://bpb11d335ewgu" path="res://Assets/GoalOpen.png" id="11_66ei4"]
+[ext_resource type="Texture2D" uid="uid://rlex1uycpktm" path="res://Assets/Vent.png" id="12_a02fr"]
+[ext_resource type="Texture2D" uid="uid://co6xsag8nm2nu" path="res://Assets/Goal.png" id="13_tlyqv"]
+[ext_resource type="Texture2D" uid="uid://bmuhc5rs7e1i" path="res://Assets/Stain.png" id="14_sn2lf"]
+[ext_resource type="Texture2D" uid="uid://o620mcu2clv" path="res://Assets/Writing1.png" id="15_ay0jr"]
+[ext_resource type="Texture2D" uid="uid://ddtmpoolkxcv6" path="res://Assets/Writing2.png" id="16_nuwiw"]
+[ext_resource type="Texture2D" uid="uid://kgyvyib8amlm" path="res://Assets/Writing3.png" id="17_tt5t4"]
+[ext_resource type="AudioStream" uid="uid://cgqdy6vajhr4a" path="res://Audio/PipeSound.mp3" id="19_jpn73"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="21_pdqpc"]
+[ext_resource type="Script" uid="uid://cq1f54k04e7if" path="res://Scripts/skip_intro.gd" id="24_c2uew"]
+
+[sub_resource type="Animation" id="Animation_m5wfd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/PipeSound:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3va54"]
+resource_name = "intro_scene"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -800), Vector2(0, -800), Vector2(0, 150), Vector2(0, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.7, 0.7)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/PipeSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/PipeSound:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [10.0, 10.0, -60.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5wfd"]
+_data = {
+&"RESET": SubResource("Animation_m5wfd"),
+&"intro_scene": SubResource("Animation_3va54")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bbocs"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctf76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ay0jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nuwiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tt5t4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="IntroScene1" type="Node2D" unique_id=1482513666]
+script = ExtResource("1_raut6")
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=782129435]
+libraries/ = SubResource("AnimationLibrary_m5wfd")
+script = ExtResource("1_7qvw4")
+next_scene = ExtResource("2_jpn73")
+
+[node name="World" type="Node2D" parent="." unique_id=1977769222]
+
+[node name="Pipes" type="Sprite2D" parent="World" unique_id=1717033281]
+position = Vector2(-2.1158829, -792.23157)
+scale = Vector2(1.508294, 1.3581051)
+texture = ExtResource("2_4tnvs")
+
+[node name="PrisonBackground" type="Sprite2D" parent="World" unique_id=1487406684]
+position = Vector2(-21.499989, 3.9999912)
+scale = Vector2(1.1454544, 1.3333331)
+texture = ExtResource("3_jpn73")
+
+[node name="Cell" type="Node2D" parent="World" unique_id=114685550]
+
+[node name="Bed" type="Sprite2D" parent="World/Cell" unique_id=468092863]
+position = Vector2(-122, 255)
+scale = Vector2(0.95535713, 1.1622978)
+texture = ExtResource("5_vco08")
+
+[node name="Sprite2D6" type="Sprite2D" parent="World/Cell" unique_id=266444913]
+position = Vector2(249, 199)
+rotation = 0.98803097
+scale = Vector2(0.8468126, 0.3383216)
+texture = ExtResource("7_jpn73")
+
+[node name="Sprite2D5" type="Sprite2D" parent="World/Cell" unique_id=1444544298]
+position = Vector2(244.00003, 189.00002)
+rotation = 1.389982
+scale = Vector2(0.4828579, 0.33832163)
+texture = ExtResource("7_jpn73")
+
+[node name="Sprite2D4" type="Sprite2D" parent="World/Cell" unique_id=418788358]
+position = Vector2(282, 169)
+scale = Vector2(0.2812499, 0.45454547)
+texture = ExtResource("8_raut6")
+
+[node name="Arm" type="Sprite2D" parent="World/Cell" unique_id=2062310096]
+position = Vector2(230.32727, 157.4361)
+rotation = -0.2808931
+scale = Vector2(0.3404594, 0.33333325)
+texture = ExtResource("7_pdqpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Cell" unique_id=1928897506]
+position = Vector2(152, 213.00002)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_c2uew")
+
+[node name="Sprite2D2" type="Sprite2D" parent="World/Cell" unique_id=1693323509]
+position = Vector2(183, 95)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_ebl3s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="World/Cell" unique_id=1567346399]
+position = Vector2(257, 234.50002)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_g3xvx")
+
+[node name="PrisonBackground2" type="Sprite2D" parent="World" unique_id=790596501]
+position = Vector2(-1162.0001, 3.0000002)
+scale = Vector2(1.1454544, 1.3333331)
+texture = ExtResource("3_jpn73")
+
+[node name="PrisonBackground3" type="Sprite2D" parent="World" unique_id=14877275]
+position = Vector2(1138, 4)
+scale = Vector2(1.1454544, 1.3333331)
+texture = ExtResource("3_jpn73")
+
+[node name="PrisonBackground4" type="Sprite2D" parent="World" unique_id=23632562]
+position = Vector2(-24, 657)
+scale = Vector2(1.1454544, 1.3333331)
+texture = ExtResource("3_jpn73")
+
+[node name="PrisonBackground5" type="Sprite2D" parent="World" unique_id=1624296564]
+position = Vector2(1141, 660)
+scale = Vector2(1.1454544, 1.3333331)
+texture = ExtResource("3_jpn73")
+
+[node name="PrisonBackground6" type="Sprite2D" parent="World" unique_id=2126110830]
+position = Vector2(-1161, 656)
+scale = Vector2(1.1454544, 1.3333331)
+texture = ExtResource("3_jpn73")
+
+[node name="Vent" type="Node" parent="World" unique_id=1478888310]
+
+[node name="GoalOpen" type="Sprite2D" parent="World/Vent" unique_id=2042681003]
+position = Vector2(491, 218)
+scale = Vector2(1.1875, 1.0625)
+texture = ExtResource("11_66ei4")
+
+[node name="Vent" type="Sprite2D" parent="World/Vent" unique_id=1578862110]
+position = Vector2(490.5, 217.5)
+scale = Vector2(0.120129876, 0.14743581)
+texture = ExtResource("12_a02fr")
+
+[node name="GoalSide" type="Sprite2D" parent="World/Vent" unique_id=1789511879]
+position = Vector2(467.524, 219.97388)
+rotation = 1.5707964
+scale = Vector2(0.40239233, 0.53087455)
+texture = ExtResource("13_tlyqv")
+
+[node name="GoalBottom" type="Sprite2D" parent="World/Vent" unique_id=31671008]
+position = Vector2(493.5, 233.5)
+scale = Vector2(0.5546876, 0.53906244)
+texture = ExtResource("13_tlyqv")
+
+[node name="GoalSide2" type="Sprite2D" parent="World/Vent" unique_id=440786815]
+position = Vector2(514, 214.00002)
+rotation = -1.5707964
+scale = Vector2(0.40239233, 0.53087455)
+texture = ExtResource("13_tlyqv")
+
+[node name="GoalTop" type="Sprite2D" parent="World/Vent" unique_id=65919676]
+position = Vector2(488, 200.99998)
+rotation = -3.1415925
+scale = Vector2(0.5546876, 0.53906244)
+texture = ExtResource("13_tlyqv")
+
+[node name="Shadow" type="ColorRect" parent="World/Vent" unique_id=1138356150]
+offset_left = 461.0
+offset_top = 195.0
+offset_right = 525.0
+offset_bottom = 244.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.627451)
+
+[node name="Shadow2" type="Sprite2D" parent="World/Vent" unique_id=1234022616]
+modulate = Color(1, 1, 1, 0.75686276)
+position = Vector2(493.32495, 251.97006)
+scale = Vector2(1.021096, 0.40718487)
+texture = ExtResource("14_sn2lf")
+region_rect = Rect2(550.38196, 48.278725, 477.37024, 315.76062)
+
+[node name="Vent2" type="Node" parent="World" unique_id=786853304]
+
+[node name="GoalOpen" type="Sprite2D" parent="World/Vent2" unique_id=522674093]
+position = Vector2(-660.54803, 205.50002)
+scale = Vector2(1.1875, 1.0625)
+texture = ExtResource("11_66ei4")
+
+[node name="Vent" type="Sprite2D" parent="World/Vent2" unique_id=1747407334]
+position = Vector2(-661.04816, 205.00002)
+scale = Vector2(0.120129876, 0.14743581)
+texture = ExtResource("12_a02fr")
+
+[node name="GoalSide" type="Sprite2D" parent="World/Vent2" unique_id=1529191766]
+position = Vector2(-684.02405, 207.47389)
+rotation = 1.5707964
+scale = Vector2(0.40239233, 0.53087455)
+texture = ExtResource("13_tlyqv")
+
+[node name="GoalBottom" type="Sprite2D" parent="World/Vent2" unique_id=2029274964]
+position = Vector2(-658.04803, 221.00002)
+scale = Vector2(0.5546876, 0.53906244)
+texture = ExtResource("13_tlyqv")
+
+[node name="GoalSide2" type="Sprite2D" parent="World/Vent2" unique_id=1381325549]
+position = Vector2(-637.54803, 201.50003)
+rotation = -1.5707964
+scale = Vector2(0.40239233, 0.53087455)
+texture = ExtResource("13_tlyqv")
+
+[node name="GoalTop" type="Sprite2D" parent="World/Vent2" unique_id=200359453]
+position = Vector2(-663.54803, 188.5)
+rotation = -3.1415925
+scale = Vector2(0.5546876, 0.53906244)
+texture = ExtResource("13_tlyqv")
+
+[node name="Shadow" type="ColorRect" parent="World/Vent2" unique_id=1452778498]
+offset_left = -690.54803
+offset_top = 182.50002
+offset_right = -626.54803
+offset_bottom = 231.50002
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.627451)
+
+[node name="Shadow2" type="Sprite2D" parent="World/Vent2" unique_id=324032498]
+modulate = Color(1, 1, 1, 0.75686276)
+position = Vector2(-658.22296, 239.47008)
+scale = Vector2(1.021096, 0.40718487)
+texture = ExtResource("14_sn2lf")
+region_rect = Rect2(550.38196, 48.278725, 477.37024, 315.76062)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="World" unique_id=399154186]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_bbocs")
+
+[node name="Writing" type="AnimatedSprite2D" parent="World" unique_id=1360044471]
+visible = false
+position = Vector2(190.49998, 130)
+scale = Vector2(1.1899439, 1.112245)
+sprite_frames = SubResource("SpriteFrames_ctf76")
+frame = 1
+frame_progress = 0.31469783
+
+[node name="Floor" type="ColorRect" parent="World" unique_id=897599626]
+offset_left = -1725.0
+offset_top = 329.0
+offset_right = 1743.0
+offset_bottom = 334.0
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Audio" type="Node2D" parent="." unique_id=268649488]
+
+[node name="PipeSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=129273147]
+stream = ExtResource("19_jpn73")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1697165964]
+offset_left = -877.0
+offset_top = -1279.0
+offset_right = 866.0
+offset_bottom = -310.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1751020278]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=979110436]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1587019709]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=1993619517]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("21_pdqpc")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=2085080086]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=153239882]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("2_utqu6")
+texture_hover = ExtResource("3_pdqpc")
+script = ExtResource("24_c2uew")
+
+[connection signal="animation_finished" from="IntroAnimation" to="IntroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bmfxtfnkxciv5"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_a8yex"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="2_k8qw7"]
+[ext_resource type="PackedScene" uid="uid://cj5p4nalu4dkn" path="res://Scenes/mirror2.tscn" id="6_8qo7c"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="6_fm8y0"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="6_k8qw7"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="7_8qo7c"]
+[ext_resource type="PackedScene" uid="uid://dh831ntg2w8h1" path="res://Scenes/mirror3.tscn" id="7_fm8y0"]
+[ext_resource type="PackedScene" uid="uid://bcwqcmgtpfski" path="res://Scenes/mirror1.tscn" id="7_u75wg"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="7_ut7em"]
+[ext_resource type="PackedScene" uid="uid://b5lkioskgm4j4" path="res://Scenes/mirror4.tscn" id="8_q8naj"]
+
+[node name="Group2" type="Node2D" unique_id=73723833]
+script = ExtResource("1_a8yex")
+group_name = "mirror"
+next_scene_path = "uid://do174ggju34u4"
+last_scene_path = "uid://bxhghdpmnpqli"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("6_fm8y0")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("2_k8qw7")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("7_ut7em")]
+level_one_scene = ExtResource("7_u75wg")
+level_two_scene = ExtResource("6_8qo7c")
+level_three_scene = ExtResource("7_fm8y0")
+level_four_scene = ExtResource("8_q8naj")
+label_text = "2. Broken Link"
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("6_k8qw7")]
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("7_8qo7c")]

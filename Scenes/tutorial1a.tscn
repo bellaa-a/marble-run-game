@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://n2i6x2tcvbk6"]
+
+[ext_resource type="Script" uid="uid://d3qelfg3kh5wt" path="res://Scripts/tutorial.gd" id="1_kmpns"]
+[ext_resource type="PackedScene" uid="uid://d4f7i2vad4o11" path="res://Scenes/tutorial2a.tscn" id="2_8vqqg"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="3_kmpns"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="4_2vwgg"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="5_8vqqg"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="6_iwliy"]
+[ext_resource type="PackedScene" uid="uid://c3020f521b40b" path="res://Scenes/win.tscn" id="7_x1pk6"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="8_0rbo1"]
+[ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="8_2vwgg"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="8_8vqqg"]
+[ext_resource type="PackedScene" uid="uid://dmte88ropfhpl" path="res://Scenes/tutorial_buttons.tscn" id="9_lhufc"]
+[ext_resource type="Script" uid="uid://dfgjvw7s3y8q7" path="res://Scripts/label.gd" id="10_8vqqg"]
+[ext_resource type="PackedScene" uid="uid://jj1eim7n6law" path="res://Scenes/next_back_tutorial.tscn" id="11_kmpns"]
+[ext_resource type="AudioStream" uid="uid://cs2uaj7wq6nc6" path="res://Audio/type.mp3" id="14_iwliy"]
+
+[node name="Tutorial1a" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_kmpns")
+group_name = "tutorial"
+next_scene_path = "uid://cbgpxbmqohmx7"
+back_scene_path = "uid://n2i6x2tcvbk6"
+skip_scene = ExtResource("2_8vqqg")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("3_kmpns")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("4_2vwgg")]
+position = Vector2(43, 160)
+start_open = true
+
+[node name="Marble" parent="." unique_id=934389260 instance=ExtResource("5_8vqqg")]
+position = Vector2(126.000015, -163)
+rotation = 0.0016468638
+
+[node name="Buttons" parent="." unique_id=1474815145 instance=ExtResource("8_2vwgg")]
+
+[node name="Win" parent="." unique_id=375720501 instance=ExtResource("7_x1pk6")]
+visible = false
+
+[node name="Block2" parent="." unique_id=661219444 instance=ExtResource("6_iwliy")]
+position = Vector2(-64.000015, 47.999985)
+rotation = -0.0019054774
+scale = Vector2(0.80621487, 1.981228)
+skew = -9.703636e-05
+
+[node name="Block3" parent="." unique_id=1094758311 instance=ExtResource("6_iwliy")]
+position = Vector2(80.00003, -58)
+rotation = -0.0019054775
+scale = Vector2(0.85676914, 1.6169031)
+skew = -9.703636e-05
+
+[node name="Pipe" parent="." unique_id=892986412 instance=ExtResource("8_8vqqg")]
+position = Vector2(127.99999, -214)
+scale = Vector2(0.53106695, 0.6368469)
+
+[node name="Control" type="Control" parent="." unique_id=1829217125]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=252279890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -219.0
+offset_right = 345.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Description" type="Label" parent="." unique_id=1574942805]
+offset_left = 200.0
+offset_top = -146.0
+offset_right = 379.0
+offset_bottom = -80.0
+text = "You can skip to next
+tutorial at any time"
+script = ExtResource("10_8vqqg")
+
+[node name="Type" type="AudioStreamPlayer2D" parent="Description" unique_id=782748138]
+position = Vector2(123, -20)
+rotation = 1.5697371
+stream = ExtResource("14_iwliy")
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("8_0rbo1")]
+
+[node name="TutoialButtons" parent="." unique_id=23575207 instance=ExtResource("9_lhufc")]
+label_text = "Tutorial 1/4"
+
+[node name="NexBacktTutorial" parent="." unique_id=28155774 instance=ExtResource("11_kmpns")]
+position = Vector2(327, -77)
+
+[node name="Label" type="Label" parent="." unique_id=1345125741]
+offset_left = 323.0
+offset_top = -166.0
+offset_right = 363.0
+offset_bottom = -146.0
+rotation = 1.5697371
+theme_override_colors/font_color = Color(0.76862746, 0.61960787, 0.3882353, 1)
+text = "<---"

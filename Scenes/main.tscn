@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c0cd66pba3lvj"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="18_b3802"]
+
+[node name="Main" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_kry3j")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("18_b3802")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("5_21xkr")]
+position = Vector2(107, 108.999985)
+
+[node name="Marble" parent="." unique_id=934389260 instance=ExtResource("3_jjvhh")]
+position = Vector2(-69.999985, -96.999985)
+rotation = 0.0016468639
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("4_jjvhh")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_d1ilt")]

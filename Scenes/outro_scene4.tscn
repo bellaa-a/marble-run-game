@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://bixmf5v37mnvc"]
+
+[ext_resource type="Script" uid="uid://buc3adqrm27xp" path="res://Scripts/intro_animation.gd" id="1_wejfi"]
+[ext_resource type="PackedScene" uid="uid://y64b4tefmnb1" path="res://Scenes/outro_scene5.tscn" id="2_ft0hm"]
+[ext_resource type="FontFile" uid="uid://cyxs22pa4ehrn" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmunit.ttf" id="2_wnuf5"]
+[ext_resource type="Texture2D" uid="uid://cratgwojy22ic" path="res://Assets/Ground.png" id="3_kfosy"]
+[ext_resource type="AudioStream" uid="uid://bls4y5j2rdcfn" path="res://Audio/Wind.mp3" id="3_uxvu7"]
+[ext_resource type="Texture2D" uid="uid://sx1p3ksy3eoy" path="res://Assets/Subject 13.png" id="4_ofqyu"]
+[ext_resource type="Texture2D" uid="uid://ca7ecpgbqqecy" path="res://Assets/Smilely.png" id="6_kfosy"]
+[ext_resource type="Texture2D" uid="uid://du70fp60psq0i" path="res://Assets/YellowSmilely.png" id="7_ofqyu"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="9_u8ln7"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="10_4gs2k"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="11_wsmt0"]
+[ext_resource type="Script" uid="uid://bgrcji05fmmnl" path="res://Scripts/skip_outro.gd" id="12_d0850"]
+
+[sub_resource type="Animation" id="Animation_xfrxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.3, 2.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Wind:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World/YellowSmiley:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pwvon"]
+resource_name = "intro_scene"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/Wind")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/Wind:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/YellowSmiley:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.99, 4, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfrxs"]
+_data = {
+&"RESET": SubResource("Animation_xfrxs"),
+&"intro_scene": SubResource("Animation_pwvon")
+}
+
+[node name="OutroScene3" type="Node2D" unique_id=2090950424]
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
+libraries/ = SubResource("AnimationLibrary_xfrxs")
+script = ExtResource("1_wejfi")
+next_scene = ExtResource("2_ft0hm")
+
+[node name="World" type="Node2D" parent="." unique_id=1434091824]
+
+[node name="Ground" type="Sprite2D" parent="World" unique_id=536533903]
+position = Vector2(-37.00006, 7.0000157)
+scale = Vector2(2.151, -2.515)
+texture = ExtResource("3_kfosy")
+
+[node name="Paper" type="Sprite2D" parent="World" unique_id=1564750999]
+position = Vector2(3.4999924, 73.875)
+scale = Vector2(2.1863208, 1.6379093)
+texture = ExtResource("4_ofqyu")
+
+[node name="Label" type="Label" parent="World" unique_id=24401129]
+offset_left = -325.0
+offset_top = -45.0
+offset_right = 337.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wnuf5")
+theme_override_font_sizes/font_size = 70
+text = "Thank you.
+You gave my words 
+a way out."
+
+[node name="Smilely" type="Sprite2D" parent="World" unique_id=700696856]
+position = Vector2(208, -51.99994)
+scale = Vector2(0.14995822, 0.16363636)
+texture = ExtResource("6_kfosy")
+
+[node name="ColorRect" type="ColorRect" parent="World" unique_id=1144739519]
+offset_left = -631.0
+offset_top = -354.0
+offset_right = 647.0
+offset_bottom = 354.0
+color = Color(0, 0, 0, 1)
+
+[node name="YellowSmiley" type="Sprite2D" parent="World" unique_id=1681152631]
+position = Vector2(208, -51.99994)
+scale = Vector2(0.14995822, 0.16363636)
+texture = ExtResource("7_ofqyu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1451502390]
+zoom = Vector2(2.3, 2.3)
+
+[node name="Audio" type="Node2D" parent="." unique_id=1483014371]
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="Audio" unique_id=5838849]
+stream = ExtResource("3_uxvu7")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1257381778]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1999391891]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=1054440484]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("9_u8ln7")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=551955200]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=1800073111]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("10_4gs2k")
+texture_hover = ExtResource("11_wsmt0")
+script = ExtResource("12_d0850")
+
+[connection signal="animation_finished" from="IntroAnimation" to="IntroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

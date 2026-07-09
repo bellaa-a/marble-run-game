@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c3020f521b40b"]
+
+[ext_resource type="Texture2D" uid="uid://cd1yanl2u4nvl" path="res://Assets/YouWin.png" id="1_3mm25"]
+[ext_resource type="Script" uid="uid://bt81rvvk7djs7" path="res://Scripts/win.gd" id="1_g1l0l"]
+[ext_resource type="FontFile" uid="uid://bi7s0gjdcuryf" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="4_3xxyo"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="5_3xxyo"]
+
+[sub_resource type="Theme" id="Theme_ru4ub"]
+default_font = ExtResource("4_3xxyo")
+
+[node name="Win" type="Node2D" unique_id=375720501]
+script = ExtResource("1_g1l0l")
+
+[node name="YouWin" type="TextureRect" parent="." unique_id=1417713188]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -144.0
+offset_right = 138.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3mm25")
+
+[node name="NEXT" type="Button" parent="." unique_id=2141697460]
+offset_left = 66.0
+offset_top = -75.0
+offset_right = 115.0
+offset_bottom = -44.0
+theme = SubResource("Theme_ru4ub")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.21770102, 0.21770105, 0.21770105, 1)
+text = "NEXT"
+flat = true
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1438025082]
+position = Vector2(-270.99997, -108)
+scale = Vector2(1.2927023, 0.5093901)
+stream = ExtResource("5_3xxyo")
+
+[connection signal="pressed" from="NEXT" to="." method="_on_button_pressed"]

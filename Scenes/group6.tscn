@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cq25fq1o8k0vm"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_gea0p"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_r4cdc"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_jkq0x"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="4_t0il6"]
+[ext_resource type="PackedScene" uid="uid://c8jfqm5l2tnkx" path="res://Scenes/break1.tscn" id="5_8fqq5"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="6_21uty"]
+[ext_resource type="PackedScene" uid="uid://b53owp8g2bgo3" path="res://Scenes/break2.tscn" id="6_r4cdc"]
+[ext_resource type="PackedScene" uid="uid://bbhejofrd78h1" path="res://Scenes/break3.tscn" id="7_jkq0x"]
+[ext_resource type="PackedScene" uid="uid://bjg3s6s3ol8dd" path="res://Scenes/break4.tscn" id="8_t0il6"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="9_nwmul"]
+
+[node name="Group6" type="Node2D" unique_id=73723833]
+script = ExtResource("1_gea0p")
+group_name = "break"
+next_scene_path = "uid://by8b2an2jtevd"
+last_scene_path = "uid://cufp1qy23crwg"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_r4cdc")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_jkq0x")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("4_t0il6")]
+level_one_scene = ExtResource("5_8fqq5")
+level_two_scene = ExtResource("6_r4cdc")
+level_three_scene = ExtResource("7_jkq0x")
+level_four_scene = ExtResource("8_t0il6")
+label_text = "6. Break the Rules!!"
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("9_nwmul")]
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("6_21uty")]

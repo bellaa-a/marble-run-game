@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://63lbl2qyljt3"]
+
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_7b5rg"]
+[ext_resource type="Script" uid="uid://vqj5k77scekf" path="res://Scripts/host_game.gd" id="1_flq1h"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="2_0cv17"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="3_flq1h"]
+
+[node name="HostGame" type="Node2D" unique_id=1252715785]
+script = ExtResource("1_flq1h")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("1_7b5rg")]
+
+[node name="Label" type="Label" parent="." unique_id=2139713277]
+offset_left = -140.0
+offset_top = -129.0
+offset_right = 135.0
+offset_bottom = -69.0
+theme_override_font_sizes/font_size = 50
+text = "Host Game"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1886073551]
+position = Vector2(100.607506, -8.999998)
+rotation = 1.5707964
+scale = Vector2(0.08935643, 0.1856606)
+texture = ExtResource("3_flq1h")
+
+[node name="GameID" type="Label" parent="." unique_id=178245215]
+offset_left = -163.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="WaitingLabel" type="Label" parent="." unique_id=1087075527]
+offset_left = -98.0
+offset_top = 78.0
+offset_right = 98.0
+offset_bottom = 98.0
+text = "Waiting for your opponent....
+"
+
+[node name="Timer" type="Timer" parent="." unique_id=1725403003]
+wait_time = 0.2
+autostart = true
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("2_0cv17")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

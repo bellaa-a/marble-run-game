@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://d4f7i2vad4o11"]
+
+[ext_resource type="Script" uid="uid://d3qelfg3kh5wt" path="res://Scripts/tutorial.gd" id="1_0rk18"]
+[ext_resource type="PackedScene" uid="uid://fcw5ku2eqyts" path="res://Scenes/tutorial3a.tscn" id="2_sl828"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="3_sl828"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="4_qo21e"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="5_4nri5"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="6_ygtr8"]
+[ext_resource type="PackedScene" uid="uid://c3020f521b40b" path="res://Scenes/win.tscn" id="7_j4wxc"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="8_ggmhm"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="8_is2j4"]
+[ext_resource type="PackedScene" uid="uid://dmte88ropfhpl" path="res://Scenes/tutorial_buttons.tscn" id="9_njr67"]
+[ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="10_gstbj"]
+[ext_resource type="Script" uid="uid://dfgjvw7s3y8q7" path="res://Scripts/label.gd" id="10_qo21e"]
+[ext_resource type="AudioStream" uid="uid://cs2uaj7wq6nc6" path="res://Audio/type.mp3" id="11_4nri5"]
+[ext_resource type="PackedScene" uid="uid://jj1eim7n6law" path="res://Scenes/next_back_tutorial.tscn" id="11_ggmhm"]
+
+[node name="Tutorial2a" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_0rk18")
+group_name = "tutoial"
+next_scene_path = "uid://bbsour6exkdhj"
+back_scene_path = "uid://d4f7i2vad4o11"
+skip_scene = ExtResource("2_sl828")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("3_sl828")]
+
+[node name="Marble" parent="." unique_id=934389260 instance=ExtResource("5_4nri5")]
+position = Vector2(-215, -169)
+rotation = 0.0016468636
+
+[node name="Win" parent="." unique_id=375720501 instance=ExtResource("7_j4wxc")]
+visible = false
+
+[node name="Ice" parent="." unique_id=369671388 instance=ExtResource("6_ygtr8")]
+position = Vector2(-146.00002, -110)
+scale = Vector2(1.9829435, 1)
+
+[node name="Buttons" parent="." unique_id=345944696 instance=ExtResource("10_gstbj")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("4_qo21e")]
+position = Vector2(81, 162.00002)
+start_open = true
+
+[node name="Pipe" parent="." unique_id=892986412 instance=ExtResource("8_ggmhm")]
+position = Vector2(-214.99997, -220)
+scale = Vector2(0.53106695, 0.6368469)
+
+[node name="Control" type="Control" parent="." unique_id=1641460048]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1874539138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -219.0
+offset_right = 352.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Description" type="Label" parent="." unique_id=1057735198]
+offset_left = 24.0
+offset_top = 10.0
+offset_right = 236.0
+offset_bottom = 66.0
+text = "Ice blocks shatter with
+enough force from the marble"
+script = ExtResource("10_qo21e")
+
+[node name="Type" type="AudioStreamPlayer2D" parent="Description" unique_id=1257446158]
+position = Vector2(123, -20)
+rotation = 1.5697371
+stream = ExtResource("11_4nri5")
+
+[node name="TutoialButtons" parent="." unique_id=1474815145 instance=ExtResource("9_njr67")]
+label_text = "Tutorial 2/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("8_is2j4")]
+
+[node name="Ice2" parent="." unique_id=925045499 instance=ExtResource("6_ygtr8")]
+position = Vector2(75.00001, 83)
+scale = Vector2(1.2833952, 1)
+
+[node name="NexBacktTutorial" parent="." unique_id=1045956533 instance=ExtResource("11_ggmhm")]
+position = Vector2(256, 84)

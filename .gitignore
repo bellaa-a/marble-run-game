@@ -1,0 +1,6 @@
+.godot/
+.import/
+.export/
+*.dmg
+*.zip
+*.app

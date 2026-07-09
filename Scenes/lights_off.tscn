@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cw38ua55jjwd1"]
+
+[ext_resource type="Shader" uid="uid://o4ew48jn1ydt" path="res://Scripts/dark.gdshader" id="2_imqns"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exdel"]
+shader = ExtResource("2_imqns")
+shader_parameter/light_count = 0
+shader_parameter/light_points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_sizes = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/time = 0.0
+
+[node name="LightsOff" type="Node2D" unique_id=560926083]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1685504620]
+
+[node name="Dark" type="ColorRect" parent="CanvasLayer" unique_id=980601336]
+visible = false
+material = SubResource("ShaderMaterial_exdel")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

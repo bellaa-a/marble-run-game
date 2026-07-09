@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://codidabe1xgek"]
+
+[ext_resource type="Script" uid="uid://1st7yw06d5nk" path="res://Scripts/next_group.gd" id="1_delov"]
+[ext_resource type="Texture2D" uid="uid://u4vp3yo4iv8k" path="res://Assets/Next.png" id="2_xkooy"]
+[ext_resource type="Texture2D" uid="uid://bwf5c682gptqr" path="res://Assets/NextPressed.png" id="3_ev81w"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="4_xkooy"]
+
+[node name="NextGroup" type="Node2D" unique_id=290489236]
+
+[node name="NEXT" type="Button" parent="." unique_id=2051121838]
+offset_left = 278.0
+offset_top = -20.0
+offset_right = 337.0
+offset_bottom = 25.0
+flat = true
+script = ExtResource("1_delov")
+
+[node name="NextBack" type="Sprite2D" parent="NEXT" unique_id=939848444]
+position = Vector2(28.999996, 26.500002)
+scale = Vector2(0.06250001, 0.053710945)
+texture = ExtResource("2_xkooy")
+
+[node name="NextBackPressed" type="Sprite2D" parent="NEXT" unique_id=558158156]
+visible = false
+position = Vector2(29.499996, 25)
+scale = Vector2(0.21070236, 0.16724741)
+texture = ExtResource("3_ev81w")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="NEXT" unique_id=1159320396]
+position = Vector2(-305, -197)
+scale = Vector2(1.2927023, 0.5093901)
+stream = ExtResource("4_xkooy")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="NEXT" to="NEXT" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NEXT" to="NEXT" method="_on_mouse_exited"]
+[connection signal="pressed" from="NEXT" to="NEXT" method="_on_pressed"]

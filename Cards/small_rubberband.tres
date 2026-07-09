@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://2wcmlpvf6ves"]
+
+[ext_resource type="Texture2D" uid="uid://breucgkme6rhw" path="res://Assets/RubberBand.png" id="1_8vwrm"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="2_hkgb0"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_7ac45"]
+
+[resource]
+script = ExtResource("3_7ac45")
+id = "small_rubber"
+description = "Small Rubber Block."
+icon = ExtResource("1_8vwrm")
+icon_size = Vector2(25, 30)
+scene = ExtResource("2_hkgb0")
+block_size = Vector2(96, 96)

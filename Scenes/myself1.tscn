@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://2rrw4taeg1x6"]
+
+[ext_resource type="Script" uid="uid://fu1mjebaa0sc" path="res://Scripts/myself.gd" id="1_nwqhq"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_dlepq"]
+[ext_resource type="PackedScene" uid="uid://i14fw6vstrtp" path="res://Scenes/myself2.tscn" id="2_sctaw"]
+[ext_resource type="PackedScene" uid="uid://dfinnpun3ggff" path="res://Scenes/myself_goal.tscn" id="3_dlepq"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_dlepq"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="4_pe5a2"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="5_00rjc"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="5_pmta6"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="6_4l3nu"]
+[ext_resource type="Texture2D" uid="uid://b6o7odouj8u3r" path="res://Assets/cuff.png" id="6_pmta6"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="9_4l3nu"]
+
+[node name="Myself1" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_nwqhq")
+group_name = "myself"
+level_number = 1
+next_scene = ExtResource("2_sctaw")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_dlepq")]
+
+[node name="MyselfGoal" parent="." unique_id=897087343 instance=ExtResource("3_dlepq")]
+position = Vector2(105, 109.99999)
+start_open = true
+
+[node name="Wood" parent="." unique_id=1588518613 instance=ExtResource("4_dlepq")]
+position = Vector2(184, -36)
+scale = Vector2(0.6480065, 1)
+
+[node name="Cuff" type="Sprite2D" parent="Wood" unique_id=1008531993]
+visible = false
+position = Vector2(-101.44122, 2.2573242)
+rotation = -1.5707964
+scale = Vector2(0.025115088, 0.04705644)
+texture = ExtResource("6_pmta6")
+
+[node name="Cuff2" type="Sprite2D" parent="Wood" unique_id=392024331]
+visible = false
+position = Vector2(100.30762, 0.62348974)
+rotation = 1.5707964
+scale = Vector2(-0.028271995, 0.047)
+texture = ExtResource("6_pmta6")
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("5_00rjc")]
+position = Vector2(-31, 25)
+attack = true
+attack_number = 1
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand" unique_id=1904581268]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("6_pmta6")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand" unique_id=555311970]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("6_pmta6")
+
+[node name="RubberBand2" parent="." unique_id=926324020 instance=ExtResource("5_00rjc")]
+position = Vector2(238.99997, 81)
+attack = true
+attack_number = 2
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand2" unique_id=1720735570]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("6_pmta6")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand2" unique_id=1690698751]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("6_pmta6")
+
+[node name="Marble" parent="." unique_id=934389260 instance=ExtResource("4_pe5a2")]
+position = Vector2(153.00002, -131)
+rotation = 0.001646864
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("9_4l3nu")]
+position = Vector2(154, -182.00002)
+scale = Vector2(0.3999986, 0.640001)
+
+[node name="Marble2" parent="." unique_id=1480049343 instance=ExtResource("4_pe5a2")]
+position = Vector2(-54, -169)
+rotation = 0.001646864
+attack = true
+attack_number = 1
+
+[node name="Pipe2" parent="." unique_id=1293843232 instance=ExtResource("9_4l3nu")]
+position = Vector2(-54, -215.00002)
+rotation = -0.0016468634
+scale = Vector2(0.39999864, 0.6400009)
+attack = true
+attack_number = 1
+
+[node name="Marble3" parent="." unique_id=2108952508 instance=ExtResource("4_pe5a2")]
+position = Vector2(241.00002, -132.99998)
+rotation = 0.0016468641
+attack = true
+attack_number = 2
+
+[node name="Pipe3" parent="." unique_id=1078940217 instance=ExtResource("9_4l3nu")]
+position = Vector2(239.99998, -182.00002)
+rotation = -0.0016468634
+scale = Vector2(0.39999864, 0.6400009)
+attack = true
+attack_number = 2
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("5_pmta6")]
+label_text = "Myself 1/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("6_4l3nu")]

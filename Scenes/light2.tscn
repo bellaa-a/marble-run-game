@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://fkpb1jwy8qy4"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_0c63l"]
+[ext_resource type="PackedScene" uid="uid://bhhvygt4cnvax" path="res://Scenes/light3.tscn" id="2_hiny2"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_n2smi"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_hiny2"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_ex1pl"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="5_ctnwh"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="6_ex1pl"]
+[ext_resource type="PackedScene" uid="uid://cw38ua55jjwd1" path="res://Scenes/lights_off.tscn" id="6_igllm"]
+[ext_resource type="PackedScene" uid="uid://nfuerqd5q0hu" path="res://Scenes/light_switch.tscn" id="7_cs4ia"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="7_ctnwh"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="8_igllm"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="8_wod0w"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_o2vww"]
+[ext_resource type="PackedScene" uid="uid://bic8samofqlts" path="res://Scenes/light_bulb.tscn" id="10_ctvsm"]
+[ext_resource type="PackedScene" uid="uid://sik20fxbgab" path="res://Scenes/light.tscn" id="11_pmnce"]
+[ext_resource type="Script" uid="uid://byujk1oo31omk" path="res://Scripts/light_area.gd" id="12_nkv3x"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="13_ptilp"]
+
+[node name="Light2" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_0c63l")
+group_name = "light"
+level_number = 2
+next_scene = ExtResource("2_hiny2")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_n2smi")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_hiny2")]
+position = Vector2(-137, 170)
+start_open = true
+
+[node name="Wood" parent="." unique_id=1588518613 instance=ExtResource("4_ex1pl")]
+position = Vector2(270, 86)
+scale = Vector2(0.59999925, 1)
+
+[node name="Ice" parent="." unique_id=42388386 instance=ExtResource("6_ex1pl")]
+position = Vector2(77, -105)
+scale = Vector2(1, 0.8399988)
+
+[node name="OpenGoal" parent="Ice" unique_id=883680063 instance=ExtResource("7_ctnwh")]
+position = Vector2(35, -8.333341)
+scale = Vector2(1, 1.190478)
+
+[node name="Wood2" parent="." unique_id=1061472744 instance=ExtResource("4_ex1pl")]
+position = Vector2(-227, -45)
+scale = Vector2(0.39999756, 1)
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("8_igllm")]
+position = Vector2(244.99998, -33)
+scale = Vector2(0.5754883, 0.62750995)
+
+[node name="RubberBand2" parent="." unique_id=400913283 instance=ExtResource("8_igllm")]
+position = Vector2(-286, 147)
+scale = Vector2(0.5754883, 0.62750995)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("5_ctnwh")]
+position = Vector2(-213.99998, -154)
+rotation = 0.001646864
+
+[node name="LightsOff" parent="." unique_id=560926083 instance=ExtResource("6_igllm")]
+
+[node name="LightSwitch" parent="." unique_id=1366944472 instance=ExtResource("7_cs4ia")]
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("8_wod0w")]
+label_text = "Light 2/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_o2vww")]
+
+[node name="LightBulb" parent="." unique_id=677598533 instance=ExtResource("10_ctvsm")]
+position = Vector2(-137, -215)
+
+[node name="LightArea" type="Area2D" parent="LightBulb" unique_id=416981520]
+position = Vector2(71, 211)
+script = ExtResource("12_nkv3x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightBulb/LightArea" unique_id=1864958121]
+polygon = PackedVector2Array(-78, -191, -138, 407, 1, 408, -57, -191)
+
+[node name="Light" parent="LightBulb" unique_id=174173597 instance=ExtResource("11_pmnce")]
+visible = false
+position = Vector2(6, 242)
+
+[node name="LightBulb2" parent="." unique_id=1892489650 instance=ExtResource("10_ctvsm")]
+position = Vector2(137, 223)
+rotation = -3.1415925
+
+[node name="LightArea" type="Area2D" parent="LightBulb2" unique_id=1215949030]
+position = Vector2(70.999985, 211.00003)
+script = ExtResource("12_nkv3x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightBulb2/LightArea" unique_id=1759216307]
+polygon = PackedVector2Array(-78, -191, -138, 407, 1, 408, -57, -191)
+
+[node name="Light" parent="LightBulb2" unique_id=896522223 instance=ExtResource("11_pmnce")]
+visible = false
+position = Vector2(-3.8146973e-06, -203)
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("13_ptilp")]
+position = Vector2(-214.00002, -188)
+scale = Vector2(0.31134522, 0.51620513)
+
+[node name="PipeArea" type="Area2D" parent="Pipe" unique_id=1030232760]
+position = Vector2(231.25452, 277.02164)
+scale = Vector2(3.211869, 1.9372145)
+script = ExtResource("12_nkv3x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pipe/PipeArea" unique_id=562308393]
+position = Vector2(-3.9999847, -7.9999833)
+polygon = PackedVector2Array(-77, -178.99997, -77, -88.99999, -58, -88.99999, -58, -177.99997)
+
+[node name="Pipe2" parent="." unique_id=622783163 instance=ExtResource("13_ptilp")]
+position = Vector2(-214.00003, -281)
+scale = Vector2(0.38194025, 0.5599985)
+
+[connection signal="body_entered" from="LightBulb/LightArea" to="LightBulb/LightArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LightBulb/LightArea" to="LightBulb/LightArea" method="_on_body_exited"]
+[connection signal="body_entered" from="LightBulb2/LightArea" to="LightBulb2/LightArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LightBulb2/LightArea" to="LightBulb2/LightArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Pipe/PipeArea" to="Pipe/PipeArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Pipe/PipeArea" to="Pipe/PipeArea" method="_on_body_exited"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://sik20fxbgab"]
+
+[ext_resource type="Script" uid="uid://v30w8cyl4650" path="res://Scripts/light.gd" id="1_veqsg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iav5y"]
+blend_mode = 1
+
+[node name="Light" type="Node2D" unique_id=896522223]
+script = ExtResource("1_veqsg")
+
+[node name="SpotLight" type="Polygon2D" parent="." unique_id=316395522]
+material = SubResource("CanvasItemMaterial_iav5y")
+position = Vector2(-3, -222)
+polygon = PackedVector2Array(-10, 0, 10, 0, 70, 600, -70, 600)

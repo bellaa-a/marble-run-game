@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://dshj0b7tlusk1"]
+
+[ext_resource type="Texture2D" uid="uid://dk2fpf588vfm0" path="res://Assets/Ice.png" id="1_s326n"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="2_046nq"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_5mgd1"]
+
+[resource]
+script = ExtResource("3_5mgd1")
+id = "medium_ice"
+description = "Medium Ice Block."
+icon = ExtResource("1_s326n")
+icon_size = Vector2(40, 30)
+scene = ExtResource("2_046nq")
+block_size = Vector2(64, 64)

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://by8b2an2jtevd"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_mn8os"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_db3dv"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_p1iek"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="4_ig5ps"]
+[ext_resource type="PackedScene" uid="uid://do7dg7m7cfid2" path="res://Scenes/light1.tscn" id="5_q5tap"]
+[ext_resource type="PackedScene" uid="uid://fkpb1jwy8qy4" path="res://Scenes/light2.tscn" id="6_db3dv"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="6_rcvh6"]
+[ext_resource type="PackedScene" uid="uid://bhhvygt4cnvax" path="res://Scenes/light3.tscn" id="7_p1iek"]
+[ext_resource type="PackedScene" uid="uid://bk7qu5anoj4xa" path="res://Scenes/light4.tscn" id="8_ig5ps"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="9_7jfd0"]
+
+[node name="Group7" type="Node2D" unique_id=73723833]
+script = ExtResource("1_mn8os")
+group_name = "light"
+next_scene_path = "uid://c7ke2sonam76r"
+last_scene_path = "uid://cq25fq1o8k0vm"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_db3dv")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_p1iek")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("4_ig5ps")]
+level_one_scene = ExtResource("5_q5tap")
+level_two_scene = ExtResource("6_db3dv")
+level_three_scene = ExtResource("7_p1iek")
+level_four_scene = ExtResource("8_ig5ps")
+label_text = "7. Center Stage"
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("9_7jfd0")]
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("6_rcvh6")]

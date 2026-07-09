@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://do0mqgnt0kall"]
+
+[ext_resource type="Script" uid="uid://fpmu2cwu5j0k" path="res://Scripts/outro_scene1.gd" id="1_af2qo"]
+[ext_resource type="Script" uid="uid://buc3adqrm27xp" path="res://Scripts/intro_animation.gd" id="2_4tted"]
+[ext_resource type="PackedScene" uid="uid://dlgrt83x2ckvb" path="res://Scenes/outro_scene2.tscn" id="3_af2qo"]
+[ext_resource type="Texture2D" uid="uid://drmvxxigpppxp" path="res://Assets/PipeBackground.png" id="6_ch36l"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="7_4tted"]
+[ext_resource type="AudioStream" uid="uid://cgqdy6vajhr4a" path="res://Audio/PipeSound.mp3" id="8_txb5p"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="8_wfm0p"]
+[ext_resource type="AudioStream" uid="uid://ckybebwwwj2u2" path="res://Audio/MarblePipe.mp3" id="9_ed4id"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="9_rmw4m"]
+[ext_resource type="Script" uid="uid://bgrcji05fmmnl" path="res://Scripts/skip_outro.gd" id="10_snvwo"]
+
+[sub_resource type="Animation" id="Animation_xfrxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.3, 2.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/PipeSound:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/MarblePipe:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.0]
+}
+
+[sub_resource type="Animation" id="Animation_pwvon"]
+resource_name = "intro_scene"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, -80), Vector2(-100, 60), Vector2(100, 60), Vector2(190, 120)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/PipeSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/MarblePipe")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/PipeSound:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [5.0, 5.0, -10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio/MarblePipe:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-12.0, -12.0, -20.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfrxs"]
+_data = {
+&"RESET": SubResource("Animation_xfrxs"),
+&"intro_scene": SubResource("Animation_pwvon")
+}
+
+[node name="OutroScene1" type="Node2D" unique_id=2090950424]
+script = ExtResource("1_af2qo")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1451502390]
+zoom = Vector2(2.3, 2.3)
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
+libraries/ = SubResource("AnimationLibrary_xfrxs")
+script = ExtResource("2_4tted")
+next_scene = ExtResource("3_af2qo")
+
+[node name="World" type="Node2D" parent="." unique_id=1434091824]
+
+[node name="Sprite2D" type="Sprite2D" parent="World" unique_id=1018120572]
+position = Vector2(-2.500042, 9.500008)
+scale = Vector2(0.4527145, 0.43371755)
+texture = ExtResource("6_ch36l")
+
+[node name="Audio" type="Node2D" parent="." unique_id=1483014371]
+
+[node name="PipeSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=353838383]
+stream = ExtResource("8_txb5p")
+
+[node name="MarblePipe" type="AudioStreamPlayer2D" parent="Audio" unique_id=762587933]
+stream = ExtResource("9_ed4id")
+volume_db = -12.0
+parameters/looping = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=158761479]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=519693557]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=656213276]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("7_4tted")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=1814254612]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=904457776]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("8_wfm0p")
+texture_hover = ExtResource("9_rmw4m")
+script = ExtResource("10_snvwo")
+
+[connection signal="animation_finished" from="IntroAnimation" to="IntroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

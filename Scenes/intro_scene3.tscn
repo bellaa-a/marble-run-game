@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://djibi0dps0o06"]
+
+[ext_resource type="Script" uid="uid://buc3adqrm27xp" path="res://Scripts/intro_animation.gd" id="1_hwmtg"]
+[ext_resource type="Texture2D" uid="uid://h7lvk2khnusv" path="res://Assets/ChatGPT Image Jul 2, 2026 at 05_08_49 PM-2.png" id="2_ad006"]
+[ext_resource type="PackedScene" uid="uid://c54nw1nq6nfau" path="res://Scenes/intro_scene4.tscn" id="2_prb5y"]
+[ext_resource type="Texture2D" uid="uid://crebs87rebrwg" path="res://Assets/Subject 6.png" id="2_voei4"]
+[ext_resource type="Texture2D" uid="uid://b261l0xboqm3e" path="res://Assets/LeftHand.png" id="7_5lm8o"]
+[ext_resource type="Texture2D" uid="uid://cku6pk4r720vq" path="res://Assets/Adobe Express - file-3.png" id="7_viimk"]
+[ext_resource type="Texture2D" uid="uid://bko0voov53y6a" path="res://Assets/RightHand.png" id="8_dpl0n"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="8_mw1tk"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="9_jxjeh"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="10_7u16x"]
+[ext_resource type="Script" uid="uid://cq1f54k04e7if" path="res://Scripts/skip_intro.gd" id="11_hwmtg"]
+
+[sub_resource type="Animation" id="Animation_m5wfd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/LeftHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-189, 65)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World/LeftHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3va54"]
+resource_name = "intro_scene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 100), Vector2(148, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1.7, 1.7), Vector2(2.7, 2.7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/LeftHand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-189, 200), Vector2(-189, 200), Vector2(0, 200), Vector2(63, 98)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World/LeftHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.6981317007977318]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5wfd"]
+_data = {
+&"RESET": SubResource("Animation_m5wfd"),
+&"intro_scene": SubResource("Animation_3va54")
+}
+
+[node name="IntroScene3" type="Node2D" unique_id=1482513666]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1751020278]
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=782129435]
+libraries/ = SubResource("AnimationLibrary_m5wfd")
+script = ExtResource("1_hwmtg")
+next_scene = ExtResource("2_prb5y")
+
+[node name="World" type="Node2D" parent="." unique_id=1977769222]
+
+[node name="PrisonBackground" type="Sprite2D" parent="World" unique_id=215633242]
+position = Vector2(-187.00002, 35)
+scale = Vector2(1.766507, 1.5284553)
+texture = ExtResource("2_ad006")
+
+[node name="Desk" type="Sprite2D" parent="World" unique_id=1705079473]
+position = Vector2(21, 543)
+scale = Vector2(2.105263, 2.7866554)
+texture = ExtResource("2_voei4")
+
+[node name="RightHand" type="Sprite2D" parent="World" unique_id=24033338]
+position = Vector2(235.00002, 164.00002)
+scale = Vector2(0.43536928, 0.40454546)
+texture = ExtResource("8_dpl0n")
+
+[node name="LeftHand" type="Sprite2D" parent="World" unique_id=12803044]
+position = Vector2(-189, 65)
+scale = Vector2(0.43536928, 0.40454543)
+texture = ExtResource("7_5lm8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" unique_id=1446631455]
+position = Vector2(234.00002, 99.99999)
+scale = Vector2(0.20669292, 0.19415449)
+texture = ExtResource("7_viimk")
+
+[node name="Audio" type="Node2D" parent="." unique_id=268649488]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=129273147]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1710976232]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=685915550]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=1158437210]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("8_mw1tk")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=943912247]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=106450850]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("9_jxjeh")
+texture_hover = ExtResource("10_7u16x")
+script = ExtResource("11_hwmtg")
+
+[connection signal="animation_finished" from="IntroAnimation" to="IntroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

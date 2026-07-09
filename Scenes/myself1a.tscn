@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cgfge1a7itj7a"]
+
+[ext_resource type="Script" uid="uid://kgjv3ie1rdp8" path="res://Scripts/myself_tutorial.gd" id="1_swrfi"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="3_swrfi"]
+[ext_resource type="PackedScene" uid="uid://dfinnpun3ggff" path="res://Scenes/myself_goal.tscn" id="4_4w0u5"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="5_th40f"]
+[ext_resource type="Texture2D" uid="uid://b6o7odouj8u3r" path="res://Assets/cuff.png" id="6_uujoi"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="7_u0d5k"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="8_ggrwu"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="9_7y3d8"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="10_fqyrp"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="11_b7nss"]
+[ext_resource type="Script" uid="uid://dfgjvw7s3y8q7" path="res://Scripts/label.gd" id="12_swrfi"]
+[ext_resource type="AudioStream" uid="uid://cs2uaj7wq6nc6" path="res://Audio/type.mp3" id="13_4w0u5"]
+[ext_resource type="PackedScene" uid="uid://jj1eim7n6law" path="res://Scenes/next_back_tutorial.tscn" id="13_swrfi"]
+
+[node name="Myself1a" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_swrfi")
+group_name = "tutorial"
+next_scene_path = "uid://2rrw4taeg1x6"
+back_scene_path = "uid://cgfge1a7itj7a"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("3_swrfi")]
+
+[node name="MyselfGoal" parent="." unique_id=897087343 instance=ExtResource("4_4w0u5")]
+position = Vector2(105, 109.99999)
+start_open = true
+
+[node name="Wood" parent="." unique_id=1588518613 instance=ExtResource("5_th40f")]
+position = Vector2(184, -36)
+scale = Vector2(0.6480065, 1)
+
+[node name="Cuff" type="Sprite2D" parent="Wood" unique_id=1008531993]
+visible = false
+position = Vector2(-101.44122, 2.2573242)
+rotation = -1.5707964
+scale = Vector2(0.025115088, 0.04705644)
+texture = ExtResource("6_uujoi")
+
+[node name="Cuff2" type="Sprite2D" parent="Wood" unique_id=392024331]
+visible = false
+position = Vector2(100.30762, 0.62348974)
+rotation = 1.5707964
+scale = Vector2(-0.028271995, 0.047)
+texture = ExtResource("6_uujoi")
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("7_u0d5k")]
+position = Vector2(-31, 25)
+attack = true
+attack_number = 1
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand" unique_id=1904581268]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("6_uujoi")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand" unique_id=555311970]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("6_uujoi")
+
+[node name="RubberBand2" parent="." unique_id=926324020 instance=ExtResource("7_u0d5k")]
+position = Vector2(238.99997, 81)
+attack = true
+attack_number = 2
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand2" unique_id=1720735570]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("6_uujoi")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand2" unique_id=1690698751]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("6_uujoi")
+
+[node name="Marble" parent="." unique_id=934389260 instance=ExtResource("8_ggrwu")]
+position = Vector2(153.00002, -131)
+rotation = 0.001646864
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("9_7y3d8")]
+position = Vector2(154, -182.00002)
+scale = Vector2(0.3999986, 0.640001)
+
+[node name="Control" type="Control" parent="." unique_id=621595390]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=885667521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -219.0
+offset_right = 345.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Description" type="Label" parent="." unique_id=1916579710]
+offset_left = -193.0
+offset_top = -172.0
+offset_right = 10.0
+offset_bottom = -92.0
+text = "White marbles want to go
+into the goal... And red 
+marbles want to make sure 
+the white ones don't by 
+knocking it onto the ground!"
+script = ExtResource("12_swrfi")
+
+[node name="Type" type="AudioStreamPlayer2D" parent="Description" unique_id=1864947853]
+position = Vector2(123, -20)
+rotation = 1.5697371
+stream = ExtResource("13_4w0u5")
+
+[node name="NexBacktTutorial" parent="." unique_id=1045956533 instance=ExtResource("13_swrfi")]
+position = Vector2(-26, -41)
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("10_fqyrp")]
+label_text = "Myself 1/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("11_b7nss")]

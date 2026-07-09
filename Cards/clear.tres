@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://cqvfybd5yv3gc"]
+
+[ext_resource type="Texture2D" uid="uid://cutrdmi63apor" path="res://Assets/destroy.png" id="1_ecdl1"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_7beor"]
+
+[resource]
+script = ExtResource("3_7beor")
+id = "clear"
+type = 2
+stage = 1
+description = "Clear other board once."
+icon = ExtResource("1_ecdl1")
+icon_size = Vector2(20, 20)

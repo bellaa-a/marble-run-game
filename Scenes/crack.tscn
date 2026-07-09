@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c15sqkq0v7eui"]
+
+[ext_resource type="Texture2D" uid="uid://bql1c58dd4wqw" path="res://Assets/Crack.png" id="1_2mjjl"]
+[ext_resource type="Shader" uid="uid://d4lewn3pxf27d" path="res://Scripts/crack.gdshader" id="1_288ea"]
+[ext_resource type="Script" uid="uid://bvhofbmdykbo" path="res://Scripts/crack.gd" id="2_52aaj"]
+[ext_resource type="AudioStream" uid="uid://c7x57hojb63h2" path="res://Audio/Crack.mp3" id="4_0spwi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62hgq"]
+shader = ExtResource("1_288ea")
+shader_parameter/reveal_y = 1.0
+
+[node name="Crack" type="Node2D" unique_id=299321046]
+modulate = Color(1, 1, 1, 0.78431374)
+script = ExtResource("2_52aaj")
+
+[node name="CrackSprite" type="Sprite2D" parent="." unique_id=28804306]
+material = SubResource("ShaderMaterial_62hgq")
+position = Vector2(1, 11)
+scale = Vector2(1, -2)
+texture = ExtResource("1_2mjjl")
+
+[node name="CrackSound" type="AudioStreamPlayer2D" parent="." unique_id=816630126]
+stream = ExtResource("4_0spwi")
+bus = &"SFX"

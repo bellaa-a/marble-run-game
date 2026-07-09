@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://cvqn78x4igp5v"]
+
+[ext_resource type="Script" uid="uid://cg1tlbd5ghvhk" path="res://Scripts/outro_animation.gd" id="1_argti"]
+[ext_resource type="PackedScene" uid="uid://bixmf5v37mnvc" path="res://Scenes/outro_scene4.tscn" id="2_o8kfg"]
+[ext_resource type="Texture2D" uid="uid://cetgymeqqya83" path="res://Assets/Prison.png" id="3_yacyo"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="5_nkguy"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="6_rnsr6"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="7_g7xrd"]
+[ext_resource type="Script" uid="uid://bgrcji05fmmnl" path="res://Scripts/skip_outro.gd" id="8_40sjf"]
+[ext_resource type="Texture2D" uid="uid://eu60x7dcde5t" path="res://Assets/Subject 11.png" id="11_7a376"]
+
+[sub_resource type="Animation" id="Animation_xfrxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.3, 2.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pwvon"]
+resource_name = "intro_scene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.2, 2.2), Vector2(6, 6), Vector2(6, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(800, -60), Vector2(645, 32), Vector2(645, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfrxs"]
+_data = {
+&"RESET": SubResource("Animation_xfrxs"),
+&"intro_scene": SubResource("Animation_pwvon")
+}
+
+[node name="OutroScene3" type="Node2D" unique_id=2090950424]
+
+[node name="OutroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
+libraries/ = SubResource("AnimationLibrary_xfrxs")
+script = ExtResource("1_argti")
+next_scene = ExtResource("2_o8kfg")
+
+[node name="World2" type="Node2D" parent="." unique_id=1825100519]
+position = Vector2(700, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="World2" unique_id=1422513955]
+position = Vector2(-42, -133.99997)
+scale = Vector2(0.5292969, 0.43652347)
+texture = ExtResource("3_yacyo")
+
+[node name="PaperRoll2" type="Sprite2D" parent="World2" unique_id=1548593328]
+position = Vector2(-89.81201, 46.692184)
+rotation = -1.4617642
+scale = Vector2(0.15078466, 0.15179303)
+texture = ExtResource("11_7a376")
+
+[node name="Night" type="ColorRect" parent="World2" unique_id=266433152]
+modulate = Color(1, 1, 1, 0.5882353)
+offset_left = -193.0
+offset_top = -246.0
+offset_right = 377.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1451502390]
+zoom = Vector2(2.3, 2.3)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1904535650]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1317545675]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=594413898]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("5_nkguy")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=1881835090]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=133166967]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("6_rnsr6")
+texture_hover = ExtResource("7_g7xrd")
+script = ExtResource("8_40sjf")
+
+[connection signal="animation_finished" from="OutroAnimation" to="OutroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

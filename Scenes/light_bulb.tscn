@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bic8samofqlts"]
+
+[ext_resource type="Texture2D" uid="uid://bnnt246lebxwl" path="res://Assets/Light.png" id="1_8aeqv"]
+
+[node name="LightBulb" type="StaticBody2D" unique_id=677598533]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=287812826]
+position = Vector2(3.0000012, 18.00115)
+scale = Vector2(0.5208334, 0.5368186)
+polygon = PackedVector2Array(-3, -20, -17, -13, -30, 6, -24, 8, 30, 8, 28, -1, 15, -15, 3, -21, 3.8399978, -52.258064, -1.920002, -52.258064)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268658859]
+position = Vector2(3.25, 5)
+scale = Vector2(0.4921875, 0.53125)
+texture = ExtResource("1_8aeqv")
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=1188464850]
+visible = false
+offset_left = -34.0
+offset_top = 0.9999995
+offset_right = -2.0
+offset_bottom = 25.0
+scale = Vector2(0.6368432, 0.6500726)
+flat = true

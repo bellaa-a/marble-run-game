@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://bv24p1ku8o1kn"]
+
+[ext_resource type="Texture2D" uid="uid://c6dyowiaiwmto" path="res://Assets/hourglass.png" id="1_cbioo"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_0eth4"]
+
+[resource]
+script = ExtResource("2_0eth4")
+id = "increase_time"
+type = 2
+stage = 2
+description = "Speed up your marble."
+icon = ExtResource("1_cbioo")
+icon_size = Vector2(15, 15)

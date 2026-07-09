@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cufp1qy23crwg"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_2ijek"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_ltfj4"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_svik0"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="4_7d6v1"]
+[ext_resource type="PackedScene" uid="uid://dpw4b5qmafqqq" path="res://Scenes/timed1.tscn" id="5_744gk"]
+[ext_resource type="PackedScene" uid="uid://x2xvfph3v65v" path="res://Scenes/timed2.tscn" id="6_ltfj4"]
+[ext_resource type="PackedScene" uid="uid://cy7771mo5ctkt" path="res://Scenes/timed3.tscn" id="7_svik0"]
+[ext_resource type="PackedScene" uid="uid://cp88jhm2sk03b" path="res://Scenes/timed4.tscn" id="8_7d6v1"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="9_pqvp6"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="10_ltfj4"]
+
+[node name="Group5" type="Node2D" unique_id=73723833]
+script = ExtResource("1_2ijek")
+group_name = "timed"
+next_scene_path = "uid://cq25fq1o8k0vm"
+last_scene_path = "uid://b4b32idtl70r8"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_ltfj4")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_svik0")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("4_7d6v1")]
+level_one_scene = ExtResource("5_744gk")
+level_two_scene = ExtResource("6_ltfj4")
+level_three_scene = ExtResource("7_svik0")
+level_four_scene = ExtResource("8_7d6v1")
+label_text = "5. Against Time"
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("9_pqvp6")]
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("10_ltfj4")]

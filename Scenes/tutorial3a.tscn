@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://fcw5ku2eqyts"]
+
+[ext_resource type="Script" uid="uid://d3qelfg3kh5wt" path="res://Scripts/tutorial.gd" id="1_mm5ok"]
+[ext_resource type="PackedScene" uid="uid://c5htijrn0sd58" path="res://Scenes/tutorial4a.tscn" id="2_ccr5f"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="3_j4131"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="4_ccr5f"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="5_ekeqi"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="6_gyuos"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="7_j4131"]
+[ext_resource type="PackedScene" uid="uid://c3020f521b40b" path="res://Scenes/win.tscn" id="7_mmsv4"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="8_8wkhk"]
+[ext_resource type="PackedScene" uid="uid://jj1eim7n6law" path="res://Scenes/next_back_tutorial.tscn" id="8_c0yaw"]
+[ext_resource type="PackedScene" uid="uid://bwguraso3kisw" path="res://Scenes/pipe2.tscn" id="9_ccr5f"]
+[ext_resource type="PackedScene" uid="uid://dmte88ropfhpl" path="res://Scenes/tutorial_buttons.tscn" id="9_gr8k5"]
+[ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="10_d0ek3"]
+[ext_resource type="Script" uid="uid://dfgjvw7s3y8q7" path="res://Scripts/label.gd" id="10_ekeqi"]
+[ext_resource type="AudioStream" uid="uid://cs2uaj7wq6nc6" path="res://Audio/type.mp3" id="11_gyuos"]
+
+[node name="Tutorial3a" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_mm5ok")
+group_name = "tutorial"
+next_scene_path = "uid://bbhsi71b1ddhr"
+back_scene_path = "uid://fcw5ku2eqyts"
+skip_scene = ExtResource("2_ccr5f")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("3_j4131")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("4_ccr5f")]
+position = Vector2(112.999985, 56.000004)
+start_open = true
+
+[node name="Win" parent="." unique_id=375720501 instance=ExtResource("7_mmsv4")]
+visible = false
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("5_ekeqi")]
+position = Vector2(-112, -87.00001)
+rotation = 0.0016468639
+
+[node name="Buttons" parent="." unique_id=738183180 instance=ExtResource("10_d0ek3")]
+
+[node name="Pipe2" parent="." unique_id=1529213621 instance=ExtResource("7_j4131")]
+position = Vector2(-112.000015, -97)
+scale = Vector2(0.45106694, 0.4368481)
+
+[node name="Pipe3" parent="." unique_id=945944674 instance=ExtResource("9_ccr5f")]
+position = Vector2(-130, -145)
+
+[node name="Pipe" parent="." unique_id=892986412 instance=ExtResource("7_j4131")]
+position = Vector2(-177.50002, -236)
+scale = Vector2(0.53106695, 0.6368469)
+
+[node name="Control" type="Control" parent="." unique_id=1449633661]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1230721689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -219.0
+offset_right = 349.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Description" type="Label" parent="." unique_id=1459168764]
+offset_left = -219.0
+offset_top = 55.0
+offset_right = -7.0
+offset_bottom = 87.0
+text = "Rubber bands are bouncy!"
+script = ExtResource("10_ekeqi")
+
+[node name="Type" type="AudioStreamPlayer2D" parent="Description" unique_id=1862140313]
+position = Vector2(123, -20)
+rotation = 1.5697371
+stream = ExtResource("11_gyuos")
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("8_8wkhk")]
+
+[node name="RubberBand" parent="." unique_id=457449764 instance=ExtResource("6_gyuos")]
+position = Vector2(-97, 142.00002)
+scale = Vector2(1.0447273, 0.9572342)
+
+[node name="NexBacktTutorial" parent="." unique_id=1045956533 instance=ExtResource("8_c0yaw")]
+position = Vector2(-51, 106)
+
+[node name="TutoialButtons" parent="." unique_id=1474815145 instance=ExtResource("9_gr8k5")]
+label_text = "Tutorial 3/4"

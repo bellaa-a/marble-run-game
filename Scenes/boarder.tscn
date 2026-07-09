@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://b5bu36pmf8anp"]
+
+[ext_resource type="Script" uid="uid://cf8vqcvcoglid" path="res://Scripts/boarder.gd" id="1_emkgm"]
+[ext_resource type="AudioStream" uid="uid://d2y13rivpso83" path="res://Audio/HitFloor.mp3" id="1_ld6se"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="3_0ej7r"]
+[ext_resource type="Texture2D" uid="uid://c7e3vq4nmbtup" path="res://Assets/Background.png" id="6_ukit2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_emkgm"]
+friction = 0.6
+bounce = 0.3
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0ej7r"]
+normal = Vector2(0.0071464484, -0.9999745)
+distance = -185.99998
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kfx0a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ukit2"]
+friction = 0.5
+bounce = 0.3
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3n622"]
+normal = Vector2(1, 0)
+distance = -289.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mcn55"]
+friction = 0.5
+bounce = 0.3
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c1y30"]
+normal = Vector2(-1, 0)
+distance = 146.0
+
+[node name="Boarder" type="Node2D" unique_id=833639440]
+script = ExtResource("1_emkgm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1022157748]
+position = Vector2(6.67572e-06, 21.263477)
+scale = Vector2(0.47911555, 0.494346)
+texture = ExtResource("6_ukit2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1947427466]
+rotation = -0.34298238
+scale = Vector2(2.3117251, 6.0836453)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=252618306]
+collision_layer = 8
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_emkgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1485258539]
+position = Vector2(1, 21)
+shape = SubResource("WorldBoundaryShape2D_0ej7r")
+
+[node name="Area2D" type="Area2D" parent="Floor" unique_id=2029998773]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Area2D" unique_id=1577983991]
+position = Vector2(0, 207)
+shape = SubResource("WorldBoundaryShape2D_kfx0a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Floor" unique_id=2100920483]
+stream = ExtResource("1_ld6se")
+volume_db = -10.0
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=436079150]
+position = Vector2(0, -73)
+rotation = 3.1344461
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=571158736]
+position = Vector2(-0.114343196, 15.99959)
+shape = SubResource("WorldBoundaryShape2D_0ej7r")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1060537920]
+collision_layer = 8
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_ukit2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=239563781]
+position = Vector2(-87, 0)
+shape = SubResource("WorldBoundaryShape2D_3n622")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1965586611]
+collision_layer = 8
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_mcn55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=563424569]
+position = Vector2(523, -2)
+shape = SubResource("WorldBoundaryShape2D_c1y30")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=757966846]
+position = Vector2(-270.99997, -108)
+scale = Vector2(1.2927023, 0.5093901)
+stream = ExtResource("3_0ej7r")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Floor/Area2D" to="." method="_on_area_2d_body_entered"]

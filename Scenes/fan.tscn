@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bogdhmb1tmojs"]
+
+[ext_resource type="Texture2D" uid="uid://cf268el3q7rx0" path="res://Assets/Fan.png" id="1_j6bxr"]
+[ext_resource type="Texture2D" uid="uid://dwdaa30g27bik" path="res://Assets/Fan2.png" id="2_bbowg"]
+[ext_resource type="Texture2D" uid="uid://y55ah7ex16t7" path="res://Assets/Fan3.png" id="3_rn3eh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvs0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j6bxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bbowg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rn3eh")
+}],
+"loop": true,
+"name": &"Blow",
+"speed": 10.0
+}]
+
+[node name="Fan" type="StaticBody2D" unique_id=1175303326]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1528220072]
+polygon = PackedVector2Array(5, -18, 1, -24, -2, -24, -4, -20, -6, -14, -11, -13, -15, -14, -14, -5, -11, -3, -11, 8, -18, 17, -17, 19, 0, 19, 2, 17, -7, 9, -7, -2, -2, 8, 1, 9, 6, -1, 6, -4)
+
+[node name="Blow" type="AnimatedSprite2D" parent="." unique_id=114160132]
+sprite_frames = SubResource("SpriteFrames_jvs0n")
+animation = &"Blow"

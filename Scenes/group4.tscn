@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b4b32idtl70r8"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_urtc4"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_2egcf"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_h8o2x"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="4_8glrg"]
+[ext_resource type="PackedScene" uid="uid://dwyoleontx3vi" path="res://Scenes/double1.tscn" id="5_c3abl"]
+[ext_resource type="PackedScene" uid="uid://4mrl56rccmwo" path="res://Scenes/double2.tscn" id="6_2egcf"]
+[ext_resource type="PackedScene" uid="uid://bfw7ih3c67hr2" path="res://Scenes/double3.tscn" id="7_h8o2x"]
+[ext_resource type="PackedScene" uid="uid://bm0noae30h8ov" path="res://Scenes/double4.tscn" id="8_8glrg"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="9_pwhlg"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="10_2egcf"]
+
+[node name="Group4" type="Node2D" unique_id=73723833]
+script = ExtResource("1_urtc4")
+group_name = "double"
+next_scene_path = "uid://cufp1qy23crwg"
+last_scene_path = "uid://do174ggju34u4"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_2egcf")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_h8o2x")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("4_8glrg")]
+level_one_scene = ExtResource("5_c3abl")
+level_two_scene = ExtResource("6_2egcf")
+level_three_scene = ExtResource("7_h8o2x")
+level_four_scene = ExtResource("8_8glrg")
+label_text = "4. Twin Paths"
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("9_pwhlg")]
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("10_2egcf")]

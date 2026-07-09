@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://bk7qu5anoj4xa"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_bmgs6"]
+[ext_resource type="PackedScene" uid="uid://c7ke2sonam76r" path="res://Scenes/group8.tscn" id="2_5jbqu"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_amjwe"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_5jbqu"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_k2dkn"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="5_y227q"]
+[ext_resource type="PackedScene" uid="uid://cw38ua55jjwd1" path="res://Scenes/lights_off.tscn" id="6_ts10k"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="6_y227q"]
+[ext_resource type="PackedScene" uid="uid://nfuerqd5q0hu" path="res://Scenes/light_switch.tscn" id="7_4fkj7"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="7_ts10k"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="8_4fkj7"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="8_14ngr"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_w6vqt"]
+[ext_resource type="PackedScene" uid="uid://bic8samofqlts" path="res://Scenes/light_bulb.tscn" id="10_gx853"]
+[ext_resource type="PackedScene" uid="uid://sik20fxbgab" path="res://Scenes/light.tscn" id="11_gwjla"]
+[ext_resource type="Script" uid="uid://byujk1oo31omk" path="res://Scripts/light_area.gd" id="12_l46xh"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="13_4yo07"]
+
+[node name="Light4" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_bmgs6")
+group_name = "light"
+level_number = 4
+next_scene = ExtResource("2_5jbqu")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_amjwe")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_5jbqu")]
+position = Vector2(274.99997, -47.000004)
+
+[node name="Wood" parent="." unique_id=1588518613 instance=ExtResource("4_k2dkn")]
+position = Vector2(34, -126)
+rotation = 3.1415927
+scale = Vector2(0.9314005, 1)
+
+[node name="OpenGoal" parent="Wood" unique_id=1226771608 instance=ExtResource("6_y227q")]
+position = Vector2(-73.00833, -5.999992)
+scale = Vector2(1.073652, 1)
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("7_ts10k")]
+position = Vector2(71, 8)
+
+[node name="Ice" parent="." unique_id=42388386 instance=ExtResource("8_4fkj7")]
+position = Vector2(174, 162)
+scale = Vector2(1, 0.76)
+
+[node name="Ice2" parent="." unique_id=439317265 instance=ExtResource("8_4fkj7")]
+position = Vector2(-282, -98)
+scale = Vector2(0.76, 0.76)
+
+[node name="Ice3" parent="." unique_id=591081131 instance=ExtResource("8_4fkj7")]
+position = Vector2(-201.99998, -56)
+scale = Vector2(1.12, 0.76)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("5_y227q")]
+position = Vector2(143, -169.99998)
+rotation = 0.0016468639
+
+[node name="LightsOff" parent="." unique_id=560926083 instance=ExtResource("6_ts10k")]
+
+[node name="LightSwitch" parent="." unique_id=1366944472 instance=ExtResource("7_4fkj7")]
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("8_14ngr")]
+label_text = "Light 4/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_w6vqt")]
+
+[node name="LightBulb" parent="." unique_id=677598533 instance=ExtResource("10_gx853")]
+position = Vector2(178.99998, -216.99997)
+rotation = 0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="LightArea" type="Area2D" parent="LightBulb" unique_id=629324670]
+position = Vector2(226.9274, 143.6554)
+script = ExtResource("12_l46xh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightBulb/LightArea" unique_id=1065822812]
+position = Vector2(-156.2167, 67.06243)
+polygon = PackedVector2Array(-78, -191, -138, 407, 1, 408, -57, -191)
+
+[node name="Light" parent="LightBulb" unique_id=896522223 instance=ExtResource("11_gwjla")]
+visible = false
+position = Vector2(117.03592, 210.71213)
+
+[node name="LightBulb2" parent="." unique_id=1628294689 instance=ExtResource("10_gx853")]
+position = Vector2(-296, -211.99997)
+rotation = -0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="LightArea" type="Area2D" parent="LightBulb2" unique_id=1690294624]
+position = Vector2(226.92735, 143.65533)
+script = ExtResource("12_l46xh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightBulb2/LightArea" unique_id=1318095180]
+position = Vector2(-156.2167, 67.06243)
+polygon = PackedVector2Array(-78, -191, -138, 407, 1, 408, -57, -191)
+
+[node name="Light" parent="LightBulb2" unique_id=1231043175 instance=ExtResource("11_gwjla")]
+visible = false
+position = Vector2(-105.50961, 212.74808)
+
+[node name="LightBulb3" parent="." unique_id=1369925860 instance=ExtResource("10_gx853")]
+position = Vector2(278, 218)
+rotation = 3.1415927
+
+[node name="LightArea" type="Area2D" parent="LightBulb3" unique_id=300041644]
+position = Vector2(70.999985, 211.00003)
+script = ExtResource("12_l46xh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LightBulb3/LightArea" unique_id=1572970959]
+polygon = PackedVector2Array(-78, -191, -138, 407, 1, 408, -57, -191)
+
+[node name="Light" parent="LightBulb3" unique_id=1978789351 instance=ExtResource("11_gwjla")]
+visible = false
+position = Vector2(-3.8146973e-06, -203)
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("13_4yo07")]
+position = Vector2(143, -204.99998)
+scale = Vector2(0.31134522, 0.51620513)
+
+[node name="PipeArea" type="Area2D" parent="Pipe" unique_id=1089708687]
+position = Vector2(231.25452, 277.02164)
+scale = Vector2(3.211869, 1.9372145)
+script = ExtResource("12_l46xh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pipe/PipeArea" unique_id=1286129040]
+position = Vector2(-3.9999847, -7.9999833)
+polygon = PackedVector2Array(-77, -178.99997, -77, -88.99999, -58, -88.99999, -58, -177.99997)
+
+[node name="Pipe2" parent="." unique_id=1671122896 instance=ExtResource("13_4yo07")]
+position = Vector2(144, -297)
+scale = Vector2(0.38194025, 0.5599985)
+
+[connection signal="body_entered" from="LightBulb/LightArea" to="LightBulb/LightArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LightBulb/LightArea" to="LightBulb/LightArea" method="_on_body_exited"]
+[connection signal="body_entered" from="LightBulb2/LightArea" to="LightBulb2/LightArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LightBulb2/LightArea" to="LightBulb2/LightArea" method="_on_body_exited"]
+[connection signal="body_entered" from="LightBulb3/LightArea" to="LightBulb3/LightArea" method="_on_body_entered"]
+[connection signal="body_exited" from="LightBulb3/LightArea" to="LightBulb3/LightArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Pipe/PipeArea" to="Pipe/PipeArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Pipe/PipeArea" to="Pipe/PipeArea" method="_on_body_exited"]

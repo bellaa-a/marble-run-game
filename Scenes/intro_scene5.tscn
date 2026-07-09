@@ -1,0 +1,396 @@
+[gd_scene format=3 uid="uid://b4bamdvtg35hg"]
+
+[ext_resource type="Script" uid="uid://b8g25vvji78b8" path="res://Scripts/intro_scene_5.gd" id="1_6d6tu"]
+[ext_resource type="Texture2D" uid="uid://drmvxxigpppxp" path="res://Assets/PipeBackground.png" id="1_fnasi"]
+[ext_resource type="Script" uid="uid://buc3adqrm27xp" path="res://Scripts/intro_animation.gd" id="1_ycina"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="5_i0uus"]
+[ext_resource type="Texture2D" uid="uid://ctdgs7wrtmw3t" path="res://Assets/ChatGPT Image Jul 3, 2026 at 06_24_29 PM-2-3.png" id="6_4a0pe"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="6_4d2s2"]
+[ext_resource type="Texture2D" uid="uid://e3mceo66tmq3" path="res://Assets/Pipe4.png" id="6_j4g1l"]
+[ext_resource type="AudioStream" uid="uid://cgqdy6vajhr4a" path="res://Audio/PipeSound.mp3" id="7_3m0k1"]
+[ext_resource type="AudioStream" uid="uid://d2y13rivpso83" path="res://Audio/HitFloor.mp3" id="7_qbyta"]
+[ext_resource type="AudioStream" uid="uid://ckybebwwwj2u2" path="res://Audio/MarblePipe.mp3" id="8_3m0k1"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="11_40518"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="12_n2njj"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="13_nmh1q"]
+[ext_resource type="Script" uid="uid://cq1f54k04e7if" path="res://Scripts/skip_intro.gd" id="14_0aqa8"]
+
+[sub_resource type="Animation" id="Animation_xfrxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.3, 2.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/PipeSound:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/MarblePipe:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tutorial/Fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/Gradient:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Tutorial/Pipe2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pwvon"]
+resource_name = "intro_scene"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9, 10.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 10), Vector2(10, 10), Vector2(2.3, 2.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 5, 5.5, 6, 8, 9, 10.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-100, -80), Vector2(-100, 60), Vector2(100, 60), Vector2(110, 70), Vector2(90, 70), Vector2(120, 140), Vector2(120, 180), Vector2(0, 305)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/HitFloor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(10.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/PipeSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/MarblePipe")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio/PipeSound:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [5.0, 5.0, -60.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Audio/MarblePipe:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 10, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-12.0, -12.0, -60.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Tutorial/Fade:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 12, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World/Gradient:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Tutorial/Pipe2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfrxs"]
+_data = {
+&"RESET": SubResource("Animation_xfrxs"),
+&"intro_scene": SubResource("Animation_pwvon")
+}
+
+[sub_resource type="Gradient" id="Gradient_4d2s2"]
+offsets = PackedFloat32Array(0, 0.97727275)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4a0pe"]
+gradient = SubResource("Gradient_4d2s2")
+fill_from = Vector2(0.0021367522, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0uus"]
+size = Vector2(175, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d2s2"]
+size = Vector2(123, 12)
+
+[node name="IntroScene5" type="Node2D" unique_id=2090950424]
+script = ExtResource("1_6d6tu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1451502390]
+zoom = Vector2(2.3, 2.3)
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
+libraries/ = SubResource("AnimationLibrary_xfrxs")
+script = ExtResource("1_ycina")
+final = true
+
+[node name="Tutorial" type="Node2D" parent="." unique_id=631898305]
+
+[node name="Boarder" parent="Tutorial" unique_id=833639440 instance=ExtResource("5_i0uus")]
+position = Vector2(-3.9999998, 298.00003)
+scale = Vector2(0.66856796, 0.6691607)
+
+[node name="Fade" type="ColorRect" parent="Tutorial" unique_id=1144987450]
+offset_left = -265.0
+offset_top = 160.0
+offset_right = 261.0
+offset_bottom = 451.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Pipe2" type="Sprite2D" parent="Tutorial" unique_id=1610304973]
+position = Vector2(-136.75, 209)
+scale = Vector2(0.69003934, 1)
+texture = ExtResource("6_4a0pe")
+
+[node name="Pipe3" type="Sprite2D" parent="Tutorial/Pipe2" unique_id=944641718]
+position = Vector2(828.576, -21)
+scale = Vector2(1.0275403, 1)
+texture = ExtResource("6_4a0pe")
+
+[node name="World" type="Node2D" parent="." unique_id=1434091824]
+
+[node name="Gradient" type="TextureRect" parent="World" unique_id=1646139645]
+offset_left = -278.0
+offset_top = 79.0
+offset_right = 277.0
+offset_bottom = 291.0
+texture = SubResource("GradientTexture2D_4a0pe")
+
+[node name="Welcome" type="RigidBody2D" parent="World" unique_id=198139431]
+position = Vector2(154, 102)
+rotation = 1.5707964
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Welcome" unique_id=540745241]
+position = Vector2(-11.5, 13.5)
+shape = SubResource("RectangleShape2D_i0uus")
+
+[node name="Label" type="Label" parent="World/Welcome" unique_id=104686839]
+offset_left = -98.0
+offset_right = 75.39493
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Welcome to the Tutorial!!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="RigidBody2D" parent="World" unique_id=1736387665]
+position = Vector2(140, 90)
+rotation = 1.5707964
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Continue" unique_id=27231782]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_4d2s2")
+
+[node name="Label2" type="Label" parent="World/Continue" unique_id=447970484]
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 61.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "Press Any Key to Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="Marble2" parent="World" unique_id=1480049343 instance=ExtResource("6_4d2s2")]
+position = Vector2(141, 215)
+
+[node name="Pipe" type="Sprite2D" parent="World" unique_id=1694486374]
+position = Vector2(143, 191)
+scale = Vector2(0.27514225, 0.50410366)
+texture = ExtResource("6_j4g1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" unique_id=1018120572]
+position = Vector2(-2.500061, 9.5)
+scale = Vector2(0.4527145, 0.43371755)
+texture = ExtResource("1_fnasi")
+
+[node name="Audio" type="Node2D" parent="." unique_id=1483014371]
+
+[node name="HitFloor" type="AudioStreamPlayer2D" parent="Audio" unique_id=1201548911]
+stream = ExtResource("7_qbyta")
+
+[node name="PipeSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=353838383]
+stream = ExtResource("7_3m0k1")
+
+[node name="MarblePipe" type="AudioStreamPlayer2D" parent="Audio" unique_id=762587933]
+stream = ExtResource("8_3m0k1")
+volume_db = -12.0
+parameters/looping = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=406180760]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1900384674]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=922930503]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("11_40518")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=1228285463]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=1606307669]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("12_n2njj")
+texture_hover = ExtResource("13_nmh1q")
+script = ExtResource("14_0aqa8")
+
+[connection signal="animation_finished" from="IntroAnimation" to="IntroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://gqh6awmbt076"]
+
+[ext_resource type="Script" uid="uid://cda6h2w0xnwa7" path="res://Scripts/rooms.gd" id="1_1gecx"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_i8ier"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_ohuli"]
+
+[node name="Rooms" type="Node2D" unique_id=1244028440]
+script = ExtResource("1_1gecx")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_i8ier")]
+
+[node name="Label" type="Label" parent="." unique_id=503264150]
+offset_left = -205.0
+offset_top = -129.0
+offset_right = 205.0
+offset_bottom = -69.0
+theme_override_font_sizes/font_size = 50
+text = "Two Player Versus"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_ohuli")]
+
+[node name="Host" type="Button" parent="." unique_id=1711782068]
+offset_left = -224.0
+offset_top = 46.0
+offset_right = -155.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
+text = "Host"
+flat = true
+
+[node name="Join" type="Button" parent="." unique_id=1681891761]
+offset_left = 158.0
+offset_top = 46.0
+offset_right = 223.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
+text = "Join"
+flat = true
+
+[node name="LobbyIDInput" type="LineEdit" parent="." unique_id=1598302651]
+offset_left = 116.0
+offset_top = -8.0
+offset_right = 259.0
+offset_bottom = 20.0
+placeholder_text = "Enter Game ID"
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=856729312]
+offset_left = -254.0
+offset_top = -9.0
+offset_right = -114.0
+offset_bottom = 19.0
+selected = 0
+item_count = 3
+popup/item_0/text = "Novice (slow)"
+popup/item_0/id = 0
+popup/item_1/text = "Intermediate"
+popup/item_1/id = 1
+popup/item_2/text = "Expert (fast)"
+popup/item_2/id = 2
+
+[node name="Error" type="Label" parent="." unique_id=1804920033]
+offset_left = 116.0
+offset_top = 18.0
+offset_right = 259.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

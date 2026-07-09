@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dnmf0a04oacx6"]
+
+[ext_resource type="Script" uid="uid://d3qelfg3kh5wt" path="res://Scripts/tutorial.gd" id="1_6ldup"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_6k6wl"]
+[ext_resource type="PackedScene" uid="uid://bxhghdpmnpqli" path="res://Scenes/group1.tscn" id="2_ptrie"]
+[ext_resource type="PackedScene" uid="uid://c3020f521b40b" path="res://Scenes/win.tscn" id="3_ptrie"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_sjp7x"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="5_yiurr"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="6_rr42a"]
+[ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="7_7mej0"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="8_gr7gl"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="9_6k6wl"]
+[ext_resource type="PackedScene" uid="uid://dmte88ropfhpl" path="res://Scenes/tutorial_buttons.tscn" id="9_s4xtg"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="10_2r7yb"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="11_of84i"]
+[ext_resource type="Script" uid="uid://dfgjvw7s3y8q7" path="res://Scripts/label.gd" id="11_sjp7x"]
+[ext_resource type="PackedScene" uid="uid://jj1eim7n6law" path="res://Scenes/next_back_tutorial.tscn" id="12_5xtsy"]
+[ext_resource type="AudioStream" uid="uid://cs2uaj7wq6nc6" path="res://Audio/type.mp3" id="12_yiurr"]
+
+[node name="Tutorial4a" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_6ldup")
+group_name = "tutorial"
+next_scene_path = "uid://b6ymyiknnwdx3"
+back_scene_path = "uid://c5htijrn0sd58"
+skip_scene = ExtResource("2_ptrie")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_6k6wl")]
+
+[node name="Win" parent="." unique_id=375720501 instance=ExtResource("3_ptrie")]
+visible = false
+
+[node name="Wood" parent="." unique_id=661219444 instance=ExtResource("4_sjp7x")]
+position = Vector2(-76, 29)
+scale = Vector2(0.8175192, 1.0022053)
+
+[node name="Ice" parent="." unique_id=369671388 instance=ExtResource("5_yiurr")]
+position = Vector2(71, -83.00001)
+scale = Vector2(1.8400012, 1)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("6_rr42a")]
+position = Vector2(45.000004, -146.99998)
+rotation = 0.0016468639
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("9_6k6wl")]
+position = Vector2(45.999996, -205)
+scale = Vector2(0.5199988, 0.7600011)
+
+[node name="Buttons" parent="." unique_id=738183180 instance=ExtResource("7_7mej0")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("11_of84i")]
+position = Vector2(31, 149)
+
+[node name="Control" type="Control" parent="." unique_id=1449633661]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1230721689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -219.0
+offset_right = 349.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Description" type="Label" parent="." unique_id=1459168764]
+offset_left = 36.0
+offset_top = -26.0
+offset_right = 248.0
+offset_bottom = 54.0
+scale = Vector2(1, 1.005531)
+text = "...so hit the button with the
+marble to open the vent.
+Remember: TIMING MATTERS!"
+script = ExtResource("11_sjp7x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Type" type="AudioStreamPlayer2D" parent="Description" unique_id=1217085664]
+position = Vector2(123, -20)
+rotation = 1.5697371
+stream = ExtResource("12_yiurr")
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("8_gr7gl")]
+
+[node name="TutoialButtons" parent="." unique_id=1474815145 instance=ExtResource("9_s4xtg")]
+label_text = "Tutorial 4/4"
+
+[node name="OpenGoal" parent="." unique_id=1226771608 instance=ExtResource("10_2r7yb")]
+position = Vector2(-18.999996, 21.000008)
+scale = Vector2(0.99999994, 1.0000001)
+
+[node name="NexBacktTutorial" parent="." unique_id=1045956533 instance=ExtResource("12_5xtsy")]
+position = Vector2(230, 62)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://efw5aihoy8tg"]
+
+[ext_resource type="Texture2D" uid="uid://cjxl5o02r47ky" path="res://Assets/egg.png" id="1_3na83"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_qhsrl"]
+
+[resource]
+script = ExtResource("2_qhsrl")
+id = "egg"
+type = 2
+stage = 2
+description = "Throw an rotten egg."
+icon = ExtResource("1_3na83")
+icon_size = Vector2(15, 15)

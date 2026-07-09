@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cji310kw4l2aq"]
+
+[ext_resource type="Script" uid="uid://c8jwig8vmrpw5" path="res://Scripts/lives.gd" id="1_g33j2"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="2_g33j2"]
+[ext_resource type="Texture2D" uid="uid://s4xcu53jcbrt" path="res://Assets/Marble.png" id="2_j5qct"]
+[ext_resource type="Texture2D" uid="uid://bmffhcrk7xwu7" path="res://Assets/DeadLife.png" id="4_c36pw"]
+
+[node name="Lives" type="Node2D" unique_id=428882208]
+script = ExtResource("1_g33j2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=873326344]
+position = Vector2(319.48038, -156.00002)
+rotation = 1.5707964
+scale = Vector2(0.06820652, 0.12867264)
+texture = ExtResource("2_g33j2")
+
+[node name="Shadow" type="ColorRect" parent="." unique_id=1981560862]
+offset_left = 280.0
+offset_top = -170.0
+offset_right = 357.0
+offset_bottom = -140.14291
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="Life3" type="Sprite2D" parent="." unique_id=1296819439]
+position = Vector2(301, -156)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_j5qct")
+
+[node name="DeadLife3" type="Sprite2D" parent="." unique_id=1697849743]
+visible = false
+position = Vector2(300.5, -155.5)
+scale = Vector2(0.014648413, 0.014648445)
+texture = ExtResource("4_c36pw")
+
+[node name="Life2" type="Sprite2D" parent="." unique_id=1610617583]
+position = Vector2(318, -156)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_j5qct")
+
+[node name="DeadLife2" type="Sprite2D" parent="." unique_id=1544609313]
+visible = false
+position = Vector2(317.5, -155.5)
+scale = Vector2(0.014648413, 0.014648445)
+texture = ExtResource("4_c36pw")
+
+[node name="Life1" type="Sprite2D" parent="." unique_id=706601171]
+position = Vector2(335, -156)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_j5qct")
+
+[node name="DeadLife1" type="Sprite2D" parent="." unique_id=1079109997]
+visible = false
+position = Vector2(334.5, -155.5)
+scale = Vector2(0.014648413, 0.014648445)
+texture = ExtResource("4_c36pw")

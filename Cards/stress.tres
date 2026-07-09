@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://dhpcdn8rpgk5d"]
+
+[ext_resource type="Texture2D" uid="uid://owukw7wqr63s" path="res://Assets/stress.png" id="1_piwvs"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_jqegk"]
+
+[resource]
+script = ExtResource("2_jqegk")
+id = "stress"
+type = 2
+stage = 2
+description = "Stress out your opponent."
+icon = ExtResource("1_piwvs")
+icon_size = Vector2(15, 15)

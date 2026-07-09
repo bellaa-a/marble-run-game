@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cy7771mo5ctkt"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_e7qcp"]
+[ext_resource type="PackedScene" uid="uid://cp88jhm2sk03b" path="res://Scenes/timed4.tscn" id="2_87mpm"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_rqh87"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_87mpm"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_rr7ux"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="5_qujiq"]
+[ext_resource type="PackedScene" uid="uid://bt7bppdshq6kv" path="res://Scenes/block_timer.tscn" id="6_uvkeb"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="7_v2djf"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="8_3qi6y"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_ml6c7"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="10_mf0oi"]
+[ext_resource type="PackedScene" uid="uid://mn3haessdnhx" path="res://Scenes/timer.tscn" id="11_cdmy7"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="13_rr7ux"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="14_qujiq"]
+
+[node name="Timed3" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_e7qcp")
+group_name = "timed"
+level_number = 3
+next_scene = ExtResource("2_87mpm")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_rqh87")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_87mpm")]
+position = Vector2(65.99997, 170.00002)
+
+[node name="Wood" parent="." unique_id=661219444 instance=ExtResource("4_rr7ux")]
+position = Vector2(-212, 61.000004)
+scale = Vector2(0.619638, 1.0874345)
+
+[node name="OpenGoal" parent="Wood" unique_id=220608896 instance=ExtResource("5_qujiq")]
+position = Vector2(-74.23694, -8.27636)
+scale = Vector2(1.6138457, 0.9195957)
+
+[node name="BlockTimer" parent="Wood" unique_id=1223890091 instance=ExtResource("6_uvkeb")]
+position = Vector2(95.21684, -8.27636)
+scale = Vector2(1.6138457, 0.9195957)
+timer_rule = "5.*'"
+
+[node name="Wood2" parent="." unique_id=1588518613 instance=ExtResource("4_rr7ux")]
+position = Vector2(-271, -94)
+scale = Vector2(0.41248295, 0.92053)
+
+[node name="BlockTimer" parent="Wood2" unique_id=2016277862 instance=ExtResource("6_uvkeb")]
+position = Vector2(82.42761, -8.690643)
+scale = Vector2(2.4243429, 1.0863308)
+timer_rule = "<2'"
+
+[node name="Wood3" parent="." unique_id=464749364 instance=ExtResource("4_rr7ux")]
+position = Vector2(-204.99998, -66)
+scale = Vector2(0.41248295, 0.92053)
+
+[node name="BlockTimer" parent="Wood3" unique_id=2121506698 instance=ExtResource("6_uvkeb")]
+position = Vector2(82.42761, -8.690643)
+scale = Vector2(2.4243429, 1.0863308)
+timer_rule = "<2'"
+
+[node name="Ice" parent="." unique_id=42388386 instance=ExtResource("13_rr7ux")]
+position = Vector2(106, -53.000004)
+scale = Vector2(0.5999977, 0.67999876)
+
+[node name="BlockTimer" parent="Ice" unique_id=1154652161 instance=ExtResource("6_uvkeb")]
+position = Vector2(45.000168, -13.235321)
+scale = Vector2(1.6666731, 1.470591)
+timer_rule = "!1.*'"
+
+[node name="Ice2" parent="." unique_id=651161019 instance=ExtResource("13_rr7ux")]
+position = Vector2(31, -27)
+scale = Vector2(0.5999977, 0.67999876)
+
+[node name="BlockTimer" parent="Ice2" unique_id=1044752045 instance=ExtResource("6_uvkeb")]
+position = Vector2(45.000168, -13.235321)
+scale = Vector2(1.6666731, 1.470591)
+timer_rule = "!1.*'"
+
+[node name="Ice3" parent="." unique_id=314772650 instance=ExtResource("13_rr7ux")]
+position = Vector2(-45, 1)
+scale = Vector2(0.5999977, 0.67999876)
+
+[node name="BlockTimer" parent="Ice3" unique_id=1602075124 instance=ExtResource("6_uvkeb")]
+position = Vector2(45.000168, -13.235321)
+scale = Vector2(1.6666731, 1.470591)
+timer_rule = "!1.*'"
+
+[node name="Ice4" parent="." unique_id=222124439 instance=ExtResource("13_rr7ux")]
+position = Vector2(-115, 34)
+scale = Vector2(0.5999977, 0.67999876)
+
+[node name="BlockTimer" parent="Ice4" unique_id=562836854 instance=ExtResource("6_uvkeb")]
+position = Vector2(45.000168, -13.235321)
+scale = Vector2(1.6666731, 1.470591)
+timer_rule = "!1.*'"
+
+[node name="Ice5" parent="." unique_id=214080633 instance=ExtResource("13_rr7ux")]
+position = Vector2(-110.00001, 101)
+scale = Vector2(0.5999977, 0.67999876)
+
+[node name="BlockTimer" parent="Ice5" unique_id=531118444 instance=ExtResource("6_uvkeb")]
+position = Vector2(45.000168, -13.235321)
+scale = Vector2(1.6666731, 1.470591)
+timer_rule = "<8'"
+
+[node name="Ice6" parent="." unique_id=1751562199 instance=ExtResource("13_rr7ux")]
+position = Vector2(-25.000002, 116)
+scale = Vector2(0.5999977, 0.67999876)
+
+[node name="BlockTimer" parent="Ice6" unique_id=354563285 instance=ExtResource("6_uvkeb")]
+position = Vector2(45.000168, -13.235321)
+scale = Vector2(1.6666731, 1.470591)
+timer_rule = "<9'"
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("14_qujiq")]
+position = Vector2(-230, 167)
+
+[node name="BlockTimer" parent="RubberBand" unique_id=666438908 instance=ExtResource("6_uvkeb")]
+position = Vector2(56.818176, -10.714294)
+scale = Vector2(1.1363637, 1.1904767)
+timer_rule = "<2'"
+
+[node name="RubberBand2" parent="." unique_id=687143063 instance=ExtResource("14_qujiq")]
+position = Vector2(173, -14)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("7_v2djf")]
+position = Vector2(-246, -202.99998)
+rotation = 0.001646864
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("8_3qi6y")]
+label_text = "Timing 3/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_ml6c7")]
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("10_mf0oi")]
+position = Vector2(-246, -184.00002)
+scale = Vector2(0.32000124, 0.48000246)
+
+[node name="Timer" parent="." unique_id=428882208 instance=ExtResource("11_cdmy7")]
+
+[node name="Pipe2" parent="." unique_id=175032617 instance=ExtResource("10_mf0oi")]
+position = Vector2(-245.00003, -273.99997)
+scale = Vector2(0.38194025, 0.5599985)

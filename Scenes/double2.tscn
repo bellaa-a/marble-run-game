@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://4mrl56rccmwo"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_mgfnu"]
+[ext_resource type="PackedScene" uid="uid://bfw7ih3c67hr2" path="res://Scenes/double3.tscn" id="2_6dx4a"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_chmy0"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_6dx4a"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_oyyho"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="5_fauwl"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="6_5kg70"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="6_6dx4a"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="7_oyyho"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="7_vdvvw"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="8_575n3"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="9_6yv8k"]
+
+[node name="Double2" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_mgfnu")
+group_name = "double"
+level_number = 2
+next_scene = ExtResource("2_6dx4a")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_chmy0")]
+position = Vector2(15, 0)
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_6dx4a")]
+position = Vector2(254, 160)
+
+[node name="Wood" parent="." unique_id=661219444 instance=ExtResource("4_oyyho")]
+position = Vector2(112, 101)
+
+[node name="OpenGoal" parent="Wood" unique_id=1226771608 instance=ExtResource("5_fauwl")]
+position = Vector2(9, -8)
+
+[node name="Wood2" parent="." unique_id=2118701137 instance=ExtResource("4_oyyho")]
+position = Vector2(170, -88)
+scale = Vector2(0.43999982, 1)
+
+[node name="Wood3" parent="." unique_id=558257488 instance=ExtResource("4_oyyho")]
+position = Vector2(54.000004, -89)
+scale = Vector2(0.40181178, 1)
+
+[node name="Ice" parent="." unique_id=369671388 instance=ExtResource("6_6dx4a")]
+position = Vector2(104, 5)
+scale = Vector2(1.6400013, 0.7199988)
+
+[node name="Ice2" parent="." unique_id=394074029 instance=ExtResource("6_6dx4a")]
+position = Vector2(-59, 56.999996)
+scale = Vector2(1, 0.80000246)
+
+[node name="RubberBand" parent="." unique_id=2085687921 instance=ExtResource("7_oyyho")]
+position = Vector2(-172, 91.00001)
+
+[node name="OpenGoal" parent="RubberBand" unique_id=220608896 instance=ExtResource("5_fauwl")]
+position = Vector2(-27.27272, -14.285718)
+scale = Vector2(1.1363637, 1.1904767)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("6_5kg70")]
+position = Vector2(80, -199.99998)
+rotation = 0.001646864
+
+[node name="Marble2" parent="." unique_id=509633225 instance=ExtResource("6_5kg70")]
+position = Vector2(136, -197)
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("7_vdvvw")]
+label_text = "Twins 2/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("8_575n3")]
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("9_6yv8k")]
+position = Vector2(137, -194.00002)
+scale = Vector2(0.32000124, 0.48000246)
+
+[node name="Pipe2" parent="." unique_id=1332133043 instance=ExtResource("9_6yv8k")]
+position = Vector2(79, -195)
+scale = Vector2(0.31402445, 0.49810386)
+
+[node name="Pipe3" parent="." unique_id=788443539 instance=ExtResource("9_6yv8k")]
+position = Vector2(78.99998, -284.99997)
+scale = Vector2(0.38194025, 0.5599985)
+
+[node name="Pipe4" parent="." unique_id=1519623906 instance=ExtResource("9_6yv8k")]
+position = Vector2(139, -281)
+scale = Vector2(0.38194025, 0.5599985)

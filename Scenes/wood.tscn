@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dfdt7qsxl1yyr"]
+
+[ext_resource type="Script" uid="uid://bqb627dfwsa2t" path="res://Scripts/wood.gd" id="1_4vtod"]
+[ext_resource type="Script" uid="uid://dnnmjgbxgkhxn" path="res://Scripts/area_2d.gd" id="2_8tt3v"]
+[ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="3_ixntw"]
+[ext_resource type="AudioStream" uid="uid://d03l3r1me1ggp" path="res://Audio/HitWood.ogg" id="4_d7exs"]
+[ext_resource type="Texture2D" uid="uid://0h8te71d6vk2" path="res://Assets/WoodShadow.png" id="5_8tt3v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c2iur"]
+friction = 0.2
+rough = true
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o1l4"]
+size = Vector2(31.792374, 9.613372)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qncar"]
+size = Vector2(31.792374, 6.6102085)
+
+[node name="Wood" type="AnimatableBody2D" unique_id=1588518613]
+collision_layer = 2
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_c2iur")
+script = ExtResource("1_4vtod")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=524290782]
+scale = Vector2(6.9198985, 1.7683702)
+collision_layer = 2
+collision_mask = 31
+script = ExtResource("2_8tt3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=58156479]
+shape = SubResource("RectangleShape2D_8o1l4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=725986929]
+position = Vector2(0, 2)
+scale = Vector2(6.9198985, 1.7683702)
+shape = SubResource("RectangleShape2D_qncar")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=762419828]
+scale = Vector2(2.0002835, 1.1017776)
+texture = ExtResource("3_ixntw")
+
+[node name="HitWood" type="AudioStreamPlayer2D" parent="." unique_id=2109463260]
+stream = ExtResource("4_d7exs")
+bus = &"SFX"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=132932472]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -122.0
+offset_top = -67.0
+offset_right = 134.0
+offset_bottom = 62.0
+scale = Vector2(1, 1.0799999)
+texture = ExtResource("5_8tt3v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

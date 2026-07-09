@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://c7ke2sonam76r"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_vfcjw"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_1765x"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_300sy"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="4_mwno0"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="5_7umtd"]
+[ext_resource type="PackedScene" uid="uid://wxc7ovv06wfp" path="res://Scenes/careful1.tscn" id="5_300sy"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="6_1765x"]
+[ext_resource type="PackedScene" uid="uid://dnm1tn8wc4b8c" path="res://Scenes/careful2.tscn" id="6_mwno0"]
+[ext_resource type="PackedScene" uid="uid://k6x1rqme2kp3" path="res://Scenes/careful3.tscn" id="7_ntxcc"]
+[ext_resource type="PackedScene" uid="uid://bdtiiwqg0c1ck" path="res://Scenes/careful4.tscn" id="8_8haba"]
+[ext_resource type="Texture2D" uid="uid://cl1b5igtr6uft" path="res://Assets/Graffiti1.png" id="11_8haba"]
+[ext_resource type="Texture2D" uid="uid://vold1fbw2nnh" path="res://Assets/Graffiti2.png" id="12_evpof"]
+[ext_resource type="Texture2D" uid="uid://dm5ux2txjttbq" path="res://Assets/Graffiti3.png" id="13_a035m"]
+[ext_resource type="Texture2D" uid="uid://dcnyad5pavlfx" path="res://Assets/Graffiti4.png" id="14_obvdu"]
+[ext_resource type="Texture2D" uid="uid://dsawd07rmbi0h" path="res://Assets/Graffiti5.png" id="15_75gfe"]
+[ext_resource type="Texture2D" uid="uid://dchf0mmvqjmty" path="res://Assets/Graffiti6.png" id="16_ybd86"]
+[ext_resource type="Texture2D" uid="uid://bovo1wpvw22rn" path="res://Assets/Graffiti7.png" id="17_d7s46"]
+[ext_resource type="Texture2D" uid="uid://ccoo34a2e0vvs" path="res://Assets/Graffiti8.png" id="18_sigw4"]
+[ext_resource type="Texture2D" uid="uid://byoltamqh1igi" path="res://Assets/Graffiti9.png" id="19_7dfr7"]
+[ext_resource type="Texture2D" uid="uid://loq8vtk3osbq" path="res://Assets/Graffiti10.png" id="20_equhs"]
+
+[node name="Group8" type="Node2D" unique_id=73723833]
+script = ExtResource("1_vfcjw")
+group_name = "careful"
+next_scene_path = "uid://nkhhiorj0slf"
+last_scene_path = "uid://by8b2an2jtevd"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_1765x")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_300sy")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("4_mwno0")]
+level_one_scene = ExtResource("5_300sy")
+level_two_scene = ExtResource("6_mwno0")
+level_three_scene = ExtResource("7_ntxcc")
+level_four_scene = ExtResource("8_8haba")
+label_text = "8. Make It Count"
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("5_7umtd")]
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("6_1765x")]
+
+[node name="Graffiti1" type="Sprite2D" parent="." unique_id=657232483]
+visible = false
+position = Vector2(-131.00003, -161)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("11_8haba")
+
+[node name="Graffiti2" type="Sprite2D" parent="." unique_id=842135043]
+visible = false
+position = Vector2(-236.934, -129.79704)
+scale = Vector2(0.3067168, 0.35803902)
+texture = ExtResource("12_evpof")
+
+[node name="Graffiti3" type="Sprite2D" parent="." unique_id=1232383750]
+visible = false
+position = Vector2(215.00006, -149.00003)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("13_a035m")
+
+[node name="Graffiti4" type="Sprite2D" parent="." unique_id=1611673204]
+visible = false
+position = Vector2(-123, 139)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("14_obvdu")
+
+[node name="Graffiti5" type="Sprite2D" parent="." unique_id=1654388522]
+visible = false
+position = Vector2(-260, 112)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("15_75gfe")
+
+[node name="Graffiti6" type="Sprite2D" parent="." unique_id=539521061]
+visible = false
+position = Vector2(-199.99998, -48)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("16_ybd86")
+
+[node name="Graffiti7" type="Sprite2D" parent="." unique_id=278948687]
+visible = false
+position = Vector2(256, -72.99999)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("17_d7s46")
+
+[node name="Graffiti8" type="Sprite2D" parent="." unique_id=1328205489]
+visible = false
+position = Vector2(70.999985, -174)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("18_sigw4")
+
+[node name="Graffiti9" type="Sprite2D" parent="." unique_id=1372593235]
+visible = false
+position = Vector2(254, 132)
+scale = Vector2(0.21752909, 0.23988757)
+texture = ExtResource("19_7dfr7")
+
+[node name="Graffiti10" type="Sprite2D" parent="." unique_id=1039528077]
+visible = false
+position = Vector2(73.99999, 91)
+scale = Vector2(0.34008133, 0.3308813)
+texture = ExtResource("20_equhs")

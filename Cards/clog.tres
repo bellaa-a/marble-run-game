@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://dvm016fbupwq4"]
+
+[ext_resource type="Texture2D" uid="uid://c5xr76i37j2q" path="res://Assets/clog.png" id="1_dt5n1"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_t662k"]
+
+[resource]
+script = ExtResource("2_t662k")
+id = "clog"
+type = 2
+stage = 1
+description = "Clog opponent's pipe for 20s."
+icon = ExtResource("1_dt5n1")
+icon_size = Vector2(15, 15)

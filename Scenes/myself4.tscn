@@ -1,0 +1,331 @@
+[gd_scene format=3 uid="uid://d4jmg3pl0um07"]
+
+[ext_resource type="Script" uid="uid://fu1mjebaa0sc" path="res://Scripts/myself.gd" id="1_04qis"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_6w1nq"]
+[ext_resource type="PackedScene" uid="uid://do0mqgnt0kall" path="res://Scenes/outro_scene1.tscn" id="2_i6mnn"]
+[ext_resource type="PackedScene" uid="uid://dfinnpun3ggff" path="res://Scenes/myself_goal.tscn" id="3_jfiua"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_i6mnn"]
+[ext_resource type="Script" uid="uid://dlgxcwusf0v1f" path="res://Scripts/myself_goal_final.gd" id="4_jfiua"]
+[ext_resource type="Texture2D" uid="uid://b6o7odouj8u3r" path="res://Assets/cuff.png" id="5_g6xpc"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="6_g6ofx"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="7_tft6i"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="8_530qj"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="9_krfdq"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="10_1srnq"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="11_3doji"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="12_6w1nq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6mnn"]
+size = Vector2(774.5, 20)
+
+[node name="Myself4" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_04qis")
+group_name = "myself"
+level_number = 4
+next_scene = ExtResource("2_i6mnn")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_6w1nq")]
+
+[node name="MyselfGoal" parent="." unique_id=897087343 instance=ExtResource("3_jfiua")]
+position = Vector2(313, 152)
+script = ExtResource("4_jfiua")
+start_open = true
+total_turns = 1
+
+[node name="MyselfGoal2" parent="." unique_id=1045160082 instance=ExtResource("3_jfiua")]
+position = Vector2(-222, 7.0000153)
+script = ExtResource("4_jfiua")
+start_open = true
+total_turns = 1
+
+[node name="Wood" parent="." unique_id=1588518613 instance=ExtResource("4_i6mnn")]
+position = Vector2(-253, -108)
+scale = Vector2(0.5280065, 1)
+
+[node name="Cuff" type="Sprite2D" parent="Wood" unique_id=1136328269]
+visible = false
+position = Vector2(-101.44122, 2.2573242)
+rotation = -1.5707964
+scale = Vector2(0.025115088, 0.04705644)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="Wood" unique_id=224514117]
+visible = false
+position = Vector2(100.30762, 0.62348974)
+rotation = 1.5707964
+scale = Vector2(-0.028271995, 0.047)
+texture = ExtResource("5_g6xpc")
+
+[node name="Wood2" parent="." unique_id=269414764 instance=ExtResource("4_i6mnn")]
+position = Vector2(-30, 87)
+scale = Vector2(0.7003026, 1)
+
+[node name="Cuff" type="Sprite2D" parent="Wood2" unique_id=1818879687]
+visible = false
+position = Vector2(-101.44122, 2.2573242)
+rotation = -1.5707964
+scale = Vector2(0.025115088, 0.04705644)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="Wood2" unique_id=537193623]
+visible = false
+position = Vector2(100.30762, 0.62348974)
+rotation = 1.5707964
+scale = Vector2(-0.028271995, 0.047)
+texture = ExtResource("5_g6xpc")
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("6_g6ofx")]
+position = Vector2(-254, 54)
+scale = Vector2(0.7599999, 0.6800009)
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand" unique_id=427575982]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand" unique_id=334313169]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
+[node name="Ice2" parent="." unique_id=42388386 instance=ExtResource("7_tft6i")]
+position = Vector2(-79, 2.0000021)
+scale = Vector2(1, 0.72)
+
+[node name="Cuff" type="Sprite2D" parent="Ice2" unique_id=1530087137]
+visible = false
+position = Vector2(-50.439335, 4.0619555)
+rotation = -1.5707964
+scale = Vector2(0.036381874, 0.03699089)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="Ice2" unique_id=1721494640]
+visible = false
+position = Vector2(48.611084, 4.409993)
+rotation = 1.5707964
+scale = Vector2(-0.033786424, 0.047)
+texture = ExtResource("5_g6xpc")
+
+[node name="Ice" parent="." unique_id=1210504091 instance=ExtResource("7_tft6i")]
+position = Vector2(-281, -142)
+scale = Vector2(0.56, 0.72)
+attack = true
+attack_number = 1
+
+[node name="Cuff" type="Sprite2D" parent="Ice" unique_id=1152341398]
+visible = false
+position = Vector2(-50.439335, 4.0619555)
+rotation = -1.5707964
+scale = Vector2(0.036381874, 0.03699089)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="Ice" unique_id=1558150224]
+visible = false
+position = Vector2(48.611084, 4.409993)
+rotation = 1.5707964
+scale = Vector2(-0.033786424, 0.047)
+texture = ExtResource("5_g6xpc")
+
+[node name="RubberBand2" parent="." unique_id=100523142 instance=ExtResource("6_g6ofx")]
+position = Vector2(-313, 162)
+scale = Vector2(0.7599999, 0.6800009)
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand2" unique_id=1738486445]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand2" unique_id=1432468536]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
+[node name="RubberBand3" parent="." unique_id=286110940 instance=ExtResource("6_g6ofx")]
+position = Vector2(128, 141)
+scale = Vector2(0.7599999, 0.6800009)
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand3" unique_id=2080155918]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand3" unique_id=1699545778]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
+[node name="RubberBand4" parent="." unique_id=1281745737 instance=ExtResource("6_g6ofx")]
+position = Vector2(-259, 116)
+scale = Vector2(0.7599999, 0.6800009)
+attack = true
+attack_number = 1
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand4" unique_id=1295588688]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand4" unique_id=1869977783]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
+[node name="RubberBand5" parent="." unique_id=1846515460 instance=ExtResource("6_g6ofx")]
+position = Vector2(241.00002, 175)
+scale = Vector2(0.7599999, 0.6800009)
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand5" unique_id=999074837]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand5" unique_id=1048807243]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
+[node name="Ice3" parent="." unique_id=1316603275 instance=ExtResource("7_tft6i")]
+position = Vector2(252, -70)
+scale = Vector2(1, 0.72)
+attack = true
+attack_number = 2
+
+[node name="Cuff" type="Sprite2D" parent="Ice3" unique_id=892563927]
+visible = false
+position = Vector2(-50.439335, 4.0619555)
+rotation = -1.5707964
+scale = Vector2(0.036381874, 0.03699089)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="Ice3" unique_id=2117606632]
+visible = false
+position = Vector2(48.611084, 4.409993)
+rotation = 1.5707964
+scale = Vector2(-0.033786424, 0.047)
+texture = ExtResource("5_g6xpc")
+
+[node name="Wood3" parent="." unique_id=1132474411 instance=ExtResource("4_i6mnn")]
+position = Vector2(170, -10)
+scale = Vector2(0.5280065, 1)
+attack = true
+attack_number = 2
+
+[node name="Cuff" type="Sprite2D" parent="Wood3" unique_id=29690173]
+visible = false
+position = Vector2(-101.44122, 2.2573242)
+rotation = -1.5707964
+scale = Vector2(0.025115088, 0.04705644)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="Wood3" unique_id=1421468061]
+visible = false
+position = Vector2(100.30762, 0.62348974)
+rotation = 1.5707964
+scale = Vector2(-0.028271995, 0.047)
+texture = ExtResource("5_g6xpc")
+
+[node name="RubberBand6" parent="." unique_id=273490169 instance=ExtResource("6_g6ofx")]
+position = Vector2(305, 48)
+scale = Vector2(0.7599999, 0.6800009)
+attack = true
+attack_number = 2
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand6" unique_id=1609593665]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand6" unique_id=365703943]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
+[node name="OpenGoal" parent="." unique_id=1226771608 instance=ExtResource("12_6w1nq")]
+position = Vector2(-371, -28)
+rotation = 1.5707964
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("8_530qj")]
+position = Vector2(-220.99998, -171.99997)
+rotation = 0.0016468636
+scale = Vector2(1, 0.99999994)
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("9_krfdq")]
+position = Vector2(-220, -223)
+scale = Vector2(0.3999986, 0.64000094)
+
+[node name="Marble2" parent="." unique_id=507378998 instance=ExtResource("8_530qj")]
+position = Vector2(-268, -192)
+rotation = 0.001646864
+scale = Vector2(1.0000001, 0.99999994)
+attack = true
+attack_number = 1
+
+[node name="Pipe2" parent="." unique_id=410944333 instance=ExtResource("9_krfdq")]
+position = Vector2(-269, -238)
+rotation = -0.001646863
+scale = Vector2(0.39999866, 0.64000076)
+attack = true
+attack_number = 1
+
+[node name="Marble3" parent="." unique_id=511714884 instance=ExtResource("8_530qj")]
+position = Vector2(241.00003, -148.99997)
+rotation = 0.0016468639
+scale = Vector2(1.0000001, 0.99999994)
+attack = true
+attack_number = 2
+
+[node name="Pipe3" parent="." unique_id=1718722611 instance=ExtResource("9_krfdq")]
+position = Vector2(240, -197.99998)
+rotation = -0.0016468627
+scale = Vector2(0.39999866, 0.64000076)
+attack = true
+attack_number = 2
+
+[node name="Marble4" parent="." unique_id=1639044720 instance=ExtResource("8_530qj")]
+position = Vector2(40.00003, -137.99998)
+rotation = 0.0016468639
+scale = Vector2(1.0000001, 0.99999994)
+attack = true
+attack_number = 3
+
+[node name="Pipe4" parent="." unique_id=551493450 instance=ExtResource("9_krfdq")]
+position = Vector2(39, -187)
+rotation = -0.0016468627
+scale = Vector2(0.39999866, 0.64000076)
+attack = true
+attack_number = 3
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("10_1srnq")]
+label_text = "Myself 4/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("11_3doji")]
+
+[node name="FloorArea" type="Area2D" parent="." unique_id=270068915]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea" unique_id=1924990766]
+position = Vector2(-0.25, 211)
+shape = SubResource("RectangleShape2D_i6mnn")

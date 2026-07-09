@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://befian3oyou6y"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_f4nvt"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_suaoo"]
+[ext_resource type="PackedScene" uid="uid://b4b32idtl70r8" path="res://Scenes/group4.tscn" id="2_w8cpw"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="3_w8cpw"]
+[ext_resource type="PackedScene" uid="uid://bbrbk8t3181fm" path="res://Scenes/gravity_switch.tscn" id="4_n2dhg"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="5_f70c3"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="6_v80ha"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="7_3nco3"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="8_4ocm1"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="9_uakbd"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="10_mf4ff"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="11_mju0f"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="12_v4w4l"]
+
+[node name="Gravity4" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_f4nvt")
+group_name = "gravity"
+level_number = 4
+next_scene = ExtResource("2_w8cpw")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_suaoo")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("8_4ocm1")]
+position = Vector2(-18, -100)
+
+[node name="Wood" parent="." unique_id=661219444 instance=ExtResource("3_w8cpw")]
+position = Vector2(-113, -159.00002)
+scale = Vector2(0.47994602, 1.0034467)
+
+[node name="GravitySwitch" parent="Wood" unique_id=1226771608 instance=ExtResource("4_n2dhg")]
+position = Vector2(50.005623, -7.9725037)
+scale = Vector2(2.0835676, 0.9965651)
+
+[node name="Ice" parent="." unique_id=369671388 instance=ExtResource("5_f70c3")]
+position = Vector2(289, 78)
+
+[node name="RubberBand" parent="." unique_id=2085687921 instance=ExtResource("7_3nco3")]
+position = Vector2(-226.00002, -96)
+
+[node name="GravitySwitch2" parent="." unique_id=1551318962 instance=ExtResource("4_n2dhg")]
+position = Vector2(122, 204)
+
+[node name="RubberBand2" parent="." unique_id=1568778883 instance=ExtResource("7_3nco3")]
+position = Vector2(105, -120)
+
+[node name="Wood2" parent="." unique_id=846323943 instance=ExtResource("3_w8cpw")]
+position = Vector2(214, -53)
+scale = Vector2(0.68000245, 1)
+
+[node name="OpenGoal" parent="Wood2" unique_id=1922407301 instance=ExtResource("6_v80ha")]
+position = Vector2(-27.94107, -8)
+scale = Vector2(1.470583, 1)
+
+[node name="GravitySwitch" parent="Wood2" unique_id=1796047257 instance=ExtResource("4_n2dhg")]
+position = Vector2(48.529236, -8)
+scale = Vector2(1.470583, 1)
+
+[node name="Ice2" parent="." unique_id=1398949653 instance=ExtResource("5_f70c3")]
+position = Vector2(39, -187)
+scale = Vector2(0.5155688, 0.5959662)
+
+[node name="GravitySwitch" parent="Ice2" unique_id=1470797657 instance=ExtResource("4_n2dhg")]
+position = Vector2(1.9396095, -10.067703)
+scale = Vector2(1.9396054, 1.6779475)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("9_uakbd")]
+position = Vector2(334.00003, -131)
+rotation = 0.0016468639
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("12_v4w4l")]
+position = Vector2(334, -177)
+scale = Vector2(0.38194025, 0.5599985)
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("10_mf4ff")]
+label_text = "Gravity 4/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("11_mju0f")]
+
+[node name="Pipe2" parent="." unique_id=797096211 instance=ExtResource("12_v4w4l")]
+position = Vector2(335.00006, -273.99997)
+scale = Vector2(0.38194025, 0.5599985)

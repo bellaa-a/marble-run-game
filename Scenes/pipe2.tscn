@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwguraso3kisw"]
+
+[ext_resource type="Texture2D" uid="uid://b4yffl1l5ncv6" path="res://Assets/PipeShadow2.png" id="1_66e6o"]
+[ext_resource type="Script" uid="uid://coh8tyjb7djoh" path="res://Scripts/pipe.gd" id="1_lfdnn"]
+[ext_resource type="Texture2D" uid="uid://digcdeyi3jlmk" path="res://Assets/Pipe2.png" id="2_lfdnn"]
+
+[node name="Pipe2" type="StaticBody2D" unique_id=945944674]
+collision_layer = 4
+collision_mask = 3
+constant_linear_velocity = Vector2(10, 0)
+script = ExtResource("1_lfdnn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=340756968]
+polygon = PackedVector2Array(-12, 13, -19, 13, -22, 13, -26, 13, -33, 12, -42, 7, -57, -6, -65, -19, -64, -31, -31, -31, -27, -26, -23, -25, -22, -27, -7, -27, -7, -21, 5, -20, 22, -11, 32, -1, 34, 10, 34, 20, 38, 21, 39, 36, -2, 37, -2, 22, 1, 20, -4, 12, -11, 13)
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=849145720]
+visible = false
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(-19.5, 3.0000038)
+scale = Vector2(3.65625, 3.125)
+texture = ExtResource("1_66e6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=969563251]
+position = Vector2(18, 7)
+rotation = 1.5707964
+scale = Vector2(0.469, -0.533)
+texture = ExtResource("2_lfdnn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1554957177]
+position = Vector2(-36.5, -7)
+scale = Vector2(0.46923077, 0.53333336)
+texture = ExtResource("2_lfdnn")

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dm3t170dlba0i"]
+
+[ext_resource type="Script" uid="uid://0n87mon3k4ki" path="res://Scripts/start.gd" id="1_3bxa3"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="3_5ogh5"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="4_lb6bl"]
+[ext_resource type="FontFile" uid="uid://bi7s0gjdcuryf" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="7_pg4io"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pg4io"]
+font = ExtResource("7_pg4io")
+font_size = 50
+
+[sub_resource type="Theme" id="Theme_pg4io"]
+default_font = ExtResource("7_pg4io")
+default_font_size = 30
+
+[node name="Start" type="Node2D" unique_id=1629164894]
+script = ExtResource("1_3bxa3")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("3_5ogh5")]
+
+[node name="Welcome" type="Label" parent="." unique_id=1677867838]
+offset_left = -89.0
+offset_top = -110.0
+offset_right = 91.0
+offset_bottom = -50.0
+text = "WELCOME"
+label_settings = SubResource("LabelSettings_pg4io")
+
+[node name="Single" type="Button" parent="." unique_id=556299625]
+offset_left = -88.0
+offset_top = -9.0
+offset_right = 92.0
+offset_bottom = 35.0
+theme = SubResource("Theme_pg4io")
+theme_override_colors/font_hover_color = Color(0.28850216, 0.010625176, 0.29697183, 1)
+text = "SINGLE PLAYER"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Double" type="Button" parent="." unique_id=1289763781]
+offset_left = -90.0
+offset_top = 44.0
+offset_right = 90.0
+offset_bottom = 88.0
+theme = SubResource("Theme_pg4io")
+theme_override_colors/font_hover_color = Color(0.28850216, 0.010625176, 0.29697183, 1)
+text = "VERSUS"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("4_lb6bl")]
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Single" to="." method="_on_single_pressed"]
+[connection signal="pressed" from="Double" to="." method="_on_double_pressed"]

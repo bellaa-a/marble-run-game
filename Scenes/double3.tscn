@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bfw7ih3c67hr2"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_tt8bl"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_mngh3"]
+[ext_resource type="PackedScene" uid="uid://bm0noae30h8ov" path="res://Scenes/double4.tscn" id="2_on4tj"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_on4tj"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="5_nnwrb"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="6_mqfwv"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="7_li6kl"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="8_1eiwn"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="9_tr46e"]
+[ext_resource type="PackedScene" uid="uid://bwguraso3kisw" path="res://Scenes/pipe2.tscn" id="11_on4tj"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="12_nnwrb"]
+
+[node name="Double3" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_tt8bl")
+group_name = "double"
+level_number = 3
+next_scene = ExtResource("2_on4tj")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_mngh3")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_on4tj")]
+position = Vector2(58, 155)
+
+[node name="RubberBand" parent="." unique_id=2085687921 instance=ExtResource("12_nnwrb")]
+position = Vector2(-104, 134)
+
+[node name="RubberBand2" parent="." unique_id=16691392 instance=ExtResource("12_nnwrb")]
+position = Vector2(-29.000004, -26)
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("7_li6kl")]
+label_text = "Twins 3/4"
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("8_1eiwn")]
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("6_mqfwv")]
+position = Vector2(-144, -14)
+rotation = 0.0016468642
+
+[node name="Pipe4" parent="." unique_id=328766467 instance=ExtResource("9_tr46e")]
+position = Vector2(-144.00002, -55.999985)
+scale = Vector2(0.31742948, 0.52602327)
+
+[node name="Pipe3" parent="." unique_id=945944674 instance=ExtResource("11_on4tj")]
+position = Vector2(-154.99997, -117.99999)
+scale = Vector2(0.59999514, 0.7200024)
+
+[node name="OpenGoal" parent="Pipe3" unique_id=220608896 instance=ExtResource("5_nnwrb")]
+position = Vector2(15.357235, -12.556808)
+rotation = 0.537989
+scale = Vector2(1.578012, 1.4888588)
+skew = 0.17186022
+
+[node name="Pipe" parent="." unique_id=1487257182 instance=ExtResource("9_tr46e")]
+position = Vector2(-183.00003, -186)
+scale = Vector2(0.32000124, 0.48000246)
+
+[node name="Marble2" parent="." unique_id=509633225 instance=ExtResource("6_mqfwv")]
+position = Vector2(-13, -203)
+
+[node name="Pipe2" parent="." unique_id=1332133043 instance=ExtResource("9_tr46e")]
+position = Vector2(-12, -186)
+scale = Vector2(0.31402445, 0.49810386)
+
+[node name="Pipe5" parent="." unique_id=907567463 instance=ExtResource("9_tr46e")]
+position = Vector2(-182.00003, -276)
+scale = Vector2(0.38194025, 0.5599985)
+
+[node name="Pipe6" parent="." unique_id=1497333082 instance=ExtResource("9_tr46e")]
+position = Vector2(-11.000015, -276)
+scale = Vector2(0.38194025, 0.5599985)

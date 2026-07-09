@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://coqh2ik2cpgqo"]
+
+[ext_resource type="Texture2D" uid="uid://cy5mh1hihae6" path="res://Assets/HoverPLAY.png" id="1_2y0rg"]
+[ext_resource type="Script" uid="uid://chxtsjofp6acv" path="res://Scripts/buttons.gd" id="1_yh7w3"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="2_2hqns"]
+[ext_resource type="Texture2D" uid="uid://cnvf2a17cnq4h" path="res://Assets/PLAY.png" id="2_2y0rg"]
+[ext_resource type="Texture2D" uid="uid://b7gsbb6kxqvmw" path="res://Assets/REWIND.png" id="3_2hqns"]
+[ext_resource type="Texture2D" uid="uid://bnsvjsj2haa8o" path="res://Assets/HoverREWIND.png" id="4_r3kxo"]
+[ext_resource type="Texture2D" uid="uid://biktqikq1bmaa" path="res://Assets/CLEAR.png" id="6_2hqns"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_b2qy2"]
+[ext_resource type="Texture2D" uid="uid://c4yppehip7tgf" path="res://Assets/HoverCLEAR.png" id="7_r3kxo"]
+
+[node name="Buttons" type="Node2D" unique_id=1474815145]
+script = ExtResource("1_yh7w3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=566465410]
+position = Vector2(-319.5, -164)
+scale = Vector2(0.13721806, 0.147651)
+texture = ExtResource("2_2hqns")
+
+[node name="Shadow" type="ColorRect" parent="." unique_id=2100144259]
+offset_left = -349.0
+offset_top = -204.0
+offset_right = -292.0
+offset_bottom = -117.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=2102839889]
+offset_left = -339.99997
+offset_top = -192.99997
+offset_right = -307.99997
+offset_bottom = -176.99997
+rotation = -0.0044149538
+scale = Vector2(1.2200195, 1.2199949)
+texture_normal = ExtResource("2_2y0rg")
+texture_pressed = ExtResource("1_2y0rg")
+texture_hover = ExtResource("1_2y0rg")
+texture_disabled = ExtResource("1_2y0rg")
+
+[node name="RewindButton" type="TextureButton" parent="." unique_id=555280719]
+offset_left = -340.0
+offset_top = -171.0
+offset_right = -308.0
+offset_bottom = -155.0
+scale = Vector2(1.2199805, 1.2199999)
+texture_normal = ExtResource("3_2hqns")
+texture_pressed = ExtResource("4_r3kxo")
+texture_hover = ExtResource("4_r3kxo")
+texture_disabled = ExtResource("4_r3kxo")
+
+[node name="ClearButton" type="TextureButton" parent="." unique_id=1506783414]
+offset_left = -340.0
+offset_top = -149.0
+offset_right = -308.0
+offset_bottom = -133.0
+scale = Vector2(1.2199805, 1.2200097)
+texture_normal = ExtResource("6_2hqns")
+texture_pressed = ExtResource("7_r3kxo")
+texture_hover = ExtResource("7_r3kxo")
+texture_disabled = ExtResource("7_r3kxo")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1758770937]
+position = Vector2(-820.6088, -257.0007)
+scale = Vector2(1.6704345, 0.25469753)
+stream = ExtResource("7_b2qy2")
+bus = &"SFX"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="RewindButton" to="." method="_on_rewind_button_pressed"]
+[connection signal="pressed" from="ClearButton" to="." method="_on_clear_button_pressed"]

@@ -1,0 +1,67 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="marble_run"
+run/main_scene="uid://cjb7xplamndqq"
+config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://djtwn48eyhna1"
+
+[audio]
+
+buses/default_bus_layout="uid://d38k13yytlhd1"
+
+[autoload]
+
+GameState="*uid://by87kvsgeph8h"
+transition="*uid://dmbfx3ndxjkxd"
+Music="*uid://k8i7m0y5hmq1"
+Multiplayer="*uid://blbm3baf1e8rw"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="uid://dhwd8ewrtbtfr"
+
+[layer_names]
+
+2d_physics/layer_1="Marble"
+2d_physics/layer_2="Blocks"
+2d_physics/layer_3="Pipes"
+2d_physics/layer_4="Walls"
+2d_physics/layer_5="Goal"
+2d_physics/layer_6="Addons"
+2d_physics/layer_7="AttackBlocks"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.67560154, 0.6010374, 0.55905384, 1)
+
+[steam]
+
+initialization/app_data/app_type=0
+initialization/app_data/app_id=0
+initialization/app_data/demo_id=0
+initialization/app_data/playtest_id=0
+initialization/app_data/tool_id=0
+initialization/processes/initialize_on_startup=false
+initialization/processes/embed_callbacks=false
+multiplayer_peer/max_channels=4

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://d0sodp77g58oq"]
+
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_ku2oe"]
+[ext_resource type="Script" uid="uid://bw1ok363voqbs" path="res://Scripts/draft_stage.gd" id="1_m6epn"]
+[ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="4_64jat"]
+[ext_resource type="PackedScene" uid="uid://ba55g8s7oipi3" path="res://UI/card.tscn" id="5_64jat"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="5_dk6ch"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_ckvik"]
+
+[node name="DraftStage" type="Node2D" unique_id=1456585348]
+script = ExtResource("1_m6epn")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("1_ku2oe")]
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("5_dk6ch")]
+position = Vector2(-109, -220)
+scale = Vector2(0.29214692, 0.524515)
+
+[node name="MultiplayerGoal" parent="." unique_id=897087343 instance=ExtResource("4_64jat")]
+position = Vector2(0, 170)
+
+[node name="Crack1" type="Label" parent="." unique_id=817898040]
+offset_left = -172.0
+offset_top = -51.0
+offset_right = -156.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "OR"
+
+[node name="Crack2" type="Label" parent="." unique_id=399379970]
+offset_left = 159.0
+offset_top = -51.0
+offset_right = 175.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "OR"
+
+[node name="Crack3" type="Label" parent="." unique_id=827115770]
+offset_left = -172.0
+offset_top = 51.0
+offset_right = -156.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "OR"
+
+[node name="Crack4" type="Label" parent="." unique_id=770413958]
+offset_left = 159.0
+offset_top = 51.0
+offset_right = 175.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "OR"
+
+[node name="Card1" parent="." unique_id=816404977 instance=ExtResource("5_64jat")]
+offset_left = -230.0
+offset_top = -35.0
+offset_right = -230.0
+offset_bottom = -35.0
+
+[node name="Card2" parent="." unique_id=358491224 instance=ExtResource("5_64jat")]
+offset_left = -100.0
+offset_top = -35.0
+offset_right = -100.0
+offset_bottom = -35.0
+
+[node name="Card3" parent="." unique_id=825680050 instance=ExtResource("5_64jat")]
+offset_left = 100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = -35.0
+
+[node name="Card4" parent="." unique_id=1120122959 instance=ExtResource("5_64jat")]
+offset_left = 230.0
+offset_top = -35.0
+offset_right = 230.0
+offset_bottom = -35.0
+
+[node name="Card5" parent="." unique_id=379019298 instance=ExtResource("5_64jat")]
+offset_left = -230.0
+offset_top = 67.0
+offset_right = -230.0
+offset_bottom = 67.0
+
+[node name="Card6" parent="." unique_id=1409749335 instance=ExtResource("5_64jat")]
+offset_left = -100.0
+offset_top = 67.0
+offset_right = -100.0
+offset_bottom = 67.0
+
+[node name="Card7" parent="." unique_id=599319858 instance=ExtResource("5_64jat")]
+offset_left = 100.0
+offset_top = 67.0
+offset_right = 100.0
+offset_bottom = 67.0
+
+[node name="Card8" parent="." unique_id=1511674468 instance=ExtResource("5_64jat")]
+offset_left = 230.0
+offset_top = 67.0
+offset_right = 230.0
+offset_bottom = 67.0
+
+[node name="Card9" parent="." unique_id=305025851 instance=ExtResource("5_64jat")]
+offset_left = -300.0
+offset_top = 240.0
+offset_right = -300.0
+offset_bottom = 240.0
+in_hand = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1504348369]
+offset_left = -419.0
+offset_top = -258.0
+offset_right = 394.0
+offset_bottom = 242.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49411765)
+
+[node name="Instructions" type="Label" parent="." unique_id=1691813856]
+offset_left = -149.0
+offset_top = -145.0
+offset_right = 149.0
+offset_bottom = -105.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -8
+text = "For every pair, click one to keep,
+the other will be given to your opponent!"
+horizontal_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1673219037]
+stream = ExtResource("7_ckvik")

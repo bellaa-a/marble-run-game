@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dfinnpun3ggff"]
+
+[ext_resource type="Script" uid="uid://dnb3jrfaryboy" path="res://Scripts/myself_goal.gd" id="1_fn10s"]
+[ext_resource type="Texture2D" uid="uid://bmuhc5rs7e1i" path="res://Assets/Stain.png" id="2_op0w4"]
+[ext_resource type="Texture2D" uid="uid://rlex1uycpktm" path="res://Assets/Vent.png" id="3_cmmsu"]
+[ext_resource type="Texture2D" uid="uid://bpb11d335ewgu" path="res://Assets/GoalOpen.png" id="4_jq6a0"]
+[ext_resource type="Texture2D" uid="uid://co6xsag8nm2nu" path="res://Assets/Goal.png" id="5_51vwf"]
+[ext_resource type="PackedScene" uid="uid://buyhhr8ac6ljb" path="res://Scenes/goal_side.tscn" id="6_724dh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s0pnd"]
+friction = 0.6
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paeek"]
+size = Vector2(43.445454, 9.851944)
+
+[node name="MyselfGoal" type="StaticBody2D" unique_id=897087343]
+scale = Vector2(0.9229095, 0.9246201)
+collision_layer = 16
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_s0pnd")
+script = ExtResource("1_fn10s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1773506559]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1183467102]
+polygon = PackedVector2Array(-22.754126, -35.69033, -22.754126, -3.2445755, 23.837656, -3.2445755, 23.837656, -35.69033, 20.587067, -35.69033, 20.587067, -7.5706763, -19.503536, -7.5706763, -19.503536, -35.69033)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379111718]
+position = Vector2(1.2778081, -1.641991)
+shape = SubResource("RectangleShape2D_paeek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1454196275]
+modulate = Color(1, 1, 1, 0.75686276)
+position = Vector2(3.6569142, 16.22288)
+scale = Vector2(1.1046926, 0.43936965)
+texture = ExtResource("2_op0w4")
+region_rect = Rect2(550.38196, 48.278725, 477.37024, 315.76062)
+
+[node name="GoalClose" type="Sprite2D" parent="." unique_id=272650300]
+position = Vector2(1.6252941, -20.548979)
+scale = Vector2(0.14423612, 0.18025422)
+texture = ExtResource("3_cmmsu")
+
+[node name="GoalOpen" type="TextureRect" parent="." unique_id=354162105]
+visible = false
+offset_left = -20.587067
+offset_top = -41.09796
+offset_right = 21.670597
+texture = ExtResource("4_jq6a0")
+
+[node name="GoalBottom" type="Sprite2D" parent="." unique_id=2138941410]
+position = Vector2(3.2505891, -2.1630507)
+scale = Vector2(0.6010831, 0.58389723)
+texture = ExtResource("5_51vwf")
+
+[node name="GoalTop" parent="." unique_id=1050599534 instance=ExtResource("6_724dh")]
+position = Vector2(5.4176493, -36.771854)
+rotation = 3.1415927
+scale = Vector2(0.60848826, 0.5408636)
+
+[node name="GoalSide" parent="." unique_id=1031188571 instance=ExtResource("6_724dh")]
+position = Vector2(-23.839663, -22.71003)
+rotation = 1.5707964
+scale = Vector2(0.41112357, 0.5474785)
+
+[node name="GoalSide2" parent="." unique_id=1848352441 instance=ExtResource("6_724dh")]
+position = Vector2(24.921186, -17.304405)
+rotation = -1.5707964
+scale = Vector2(0.4111236, 0.5474785)
+
+[node name="Shadow" type="ColorRect" parent="." unique_id=2118144983]
+offset_left = -32.505886
+offset_top = -43.261013
+offset_right = 34.672955
+offset_bottom = 3.2445717
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.627451)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

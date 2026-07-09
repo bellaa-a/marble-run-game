@@ -1,0 +1,673 @@
+[gd_scene format=3 uid="uid://dlgrt83x2ckvb"]
+
+[ext_resource type="Script" uid="uid://cg1tlbd5ghvhk" path="res://Scripts/outro_animation.gd" id="1_85xb8"]
+[ext_resource type="PackedScene" uid="uid://cvqn78x4igp5v" path="res://Scenes/outro_scene3.tscn" id="2_wa3q3"]
+[ext_resource type="Texture2D" uid="uid://cetgymeqqya83" path="res://Assets/Prison.png" id="3_vwqc0"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="4_6cvvx"]
+[ext_resource type="Texture2D" uid="uid://s4xcu53jcbrt" path="res://Assets/Marble.png" id="4_tvjag"]
+[ext_resource type="AudioStream" uid="uid://bls4y5j2rdcfn" path="res://Audio/Wind.mp3" id="5_vwqc0"]
+[ext_resource type="Texture2D" uid="uid://d0i56g12v8oei" path="res://Assets/RolledPaper.png" id="6_85xb8"]
+[ext_resource type="Texture2D" uid="uid://dx6h61ah4s36y" path="res://Assets/Thinking.png" id="7_kde2a"]
+[ext_resource type="Texture2D" uid="uid://daue641ene1wr" path="res://Assets/Bird.png" id="7_x0hyx"]
+[ext_resource type="Texture2D" uid="uid://66ajxuce2pdt" path="res://Assets/Saying.png" id="8_rtf3m"]
+[ext_resource type="AudioStream" uid="uid://c8k5nkytg2s5d" path="res://Audio/Bird.mp3" id="8_x0hyx"]
+[ext_resource type="Texture2D" uid="uid://d0gb5il0j3rk8" path="res://Assets/Subject 9.png" id="10_gmsyi"]
+[ext_resource type="Texture2D" uid="uid://eu60x7dcde5t" path="res://Assets/Subject 11.png" id="11_yjo0g"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="14_wfy3y"]
+[ext_resource type="Texture2D" uid="uid://c42kiaerjlg6c" path="res://Assets/Skip.png" id="15_c4tm1"]
+[ext_resource type="Texture2D" uid="uid://dhea08r2atm7x" path="res://Assets/HoverSkip.png" id="16_coumw"]
+[ext_resource type="Script" uid="uid://bgrcji05fmmnl" path="res://Scripts/skip_outro.gd" id="17_allao"]
+
+[sub_resource type="Animation" id="Animation_xfrxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.3, 2.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/Marble:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World2/Bird:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(55, -52)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World2/Paper:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.5, 21.000002)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World2/Marble2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-97.99999, 20)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World2/Marble2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Audio/Bird")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World2/Thinking:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("World2/Saying:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("World2/Night:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("World2/PaperRoll:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("World2/Paper:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("World2/PaperRoll2:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pwvon"]
+resource_name = "intro_scene"
+length = 24.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(4, 4), Vector2(2.2, 2.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(800, -60)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/Marble:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Wind")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 18, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [10.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World2/Bird")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6.133333, 8.125, 9.116667, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [&"walk", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"bend", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"bend"],
+"method": &"play_backwards"
+}, {
+"args": [&"walk", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World2/Bird:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6.133333, 8.133333, 8.633333, 9.133333, 9.633333, 10.125, 14, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(130, -56), Vector2(14, -56), Vector2(14, -30), Vector2(14, -17), Vector2(14, -30), Vector2(14, -56), Vector2(14, -56), Vector2(-300, -80)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World2/Paper:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(9.125, 9.2, 9.4, 9.7, 9.824999, 11, 11.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-99.5, 21.000002), Vector2(-99.5, -10), Vector2(-92, -30), Vector2(-92, -50), Vector2(-92, -71), Vector2(-92, -71), Vector2(-92, 50)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("World2/Marble2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(9.375, 10.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-97.99999, 20), Vector2(-196.99998, 18)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World2/Marble2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(9.375, 10.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Audio/Bird")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(5, 8, 11, 13.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [5.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("World2/Thinking:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.5, 4.7, 6.3, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("World2/Saying:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4, 11, 11.5, 13.9, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("World2/Night:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 18, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 0), Color(1, 1, 1, 0.5882353)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("World2/PaperRoll:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("World2/Paper:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("World2/PaperRoll2:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfrxs"]
+_data = {
+&"RESET": SubResource("Animation_xfrxs"),
+&"intro_scene": SubResource("Animation_pwvon")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmsyi"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(0, 273, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgcbo"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(308, 273, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjo0g"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(616, 273, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_706cs"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(0, 546, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap3fg"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(308, 546, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfy3y"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(616, 546, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kde2a"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(0, 0, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtf3m"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(308, 0, 308, 273)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa3q3"]
+atlas = ExtResource("7_x0hyx")
+region = Rect2(616, 0, 308, 273)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85xb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmsyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgcbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjo0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_706cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap3fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfy3y")
+}],
+"loop": false,
+"name": &"bend",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kde2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtf3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa3q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kde2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtf3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa3q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kde2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtf3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa3q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kde2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtf3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa3q3")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i8wa"]
+size = Vector2(103.04509, 24.59037)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6i8wa"]
+distance = -229.0
+
+[node name="OutroScene2" type="Node2D" unique_id=2090950424]
+
+[node name="OutroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
+libraries/ = SubResource("AnimationLibrary_xfrxs")
+script = ExtResource("1_85xb8")
+next_scene = ExtResource("2_wa3q3")
+
+[node name="World" type="Node2D" parent="." unique_id=1434091824]
+
+[node name="Sprite2D" type="Sprite2D" parent="World" unique_id=1018120572]
+position = Vector2(-1.9999837, 1.5000026)
+scale = Vector2(0.19140628, 0.16308594)
+texture = ExtResource("3_vwqc0")
+
+[node name="ColorRect" type="ColorRect" parent="World" unique_id=653973994]
+offset_left = -106.19144
+offset_top = 0.9675617
+offset_right = -62.0841
+offset_bottom = 30.694855
+rotation = 0.017453292
+color = Color(0, 0, 0, 1)
+
+[node name="Marble" parent="World" unique_id=1480049343 instance=ExtResource("4_6cvvx")]
+position = Vector2(-100, 34)
+script = null
+
+[node name="World2" type="Node2D" parent="." unique_id=1825100519]
+position = Vector2(700, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="World2" unique_id=1422513955]
+position = Vector2(-42, -133.99997)
+scale = Vector2(0.5292969, 0.43652347)
+texture = ExtResource("3_vwqc0")
+
+[node name="Bird" type="AnimatedSprite2D" parent="World2" unique_id=2113484327]
+position = Vector2(55, -52)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_85xb8")
+animation = &"bend"
+
+[node name="Paper" type="Sprite2D" parent="World2" unique_id=342539164]
+position = Vector2(-99.5, 21.000002)
+scale = Vector2(0.32828283, 0.45333335)
+texture = ExtResource("6_85xb8")
+
+[node name="Marble2" type="Sprite2D" parent="World2" unique_id=1005244769]
+position = Vector2(-97.99999, 20)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_tvjag")
+
+[node name="Thinking" type="Sprite2D" parent="World2" unique_id=1105012467]
+position = Vector2(184.99998, -155)
+scale = Vector2(0.22869098, 0.21465696)
+texture = ExtResource("7_kde2a")
+
+[node name="Saying" type="Sprite2D" parent="World2" unique_id=1133621458]
+position = Vector2(80, -148)
+scale = Vector2(0.22869098, 0.21465696)
+texture = ExtResource("8_rtf3m")
+
+[node name="PaperRoll" type="Sprite2D" parent="World2" unique_id=576116516]
+position = Vector2(-90.029785, 48.42055)
+rotation = -1.5498275
+scale = Vector2(0.16929558, 0.14550266)
+texture = ExtResource("10_gmsyi")
+
+[node name="PaperRoll2" type="Sprite2D" parent="World2" unique_id=1548593328]
+position = Vector2(-89.81201, 46.692184)
+rotation = -1.4617642
+scale = Vector2(0.15078466, 0.15179303)
+texture = ExtResource("11_yjo0g")
+
+[node name="Night" type="ColorRect" parent="World2" unique_id=266433152]
+offset_left = -193.0
+offset_top = -246.0
+offset_right = 377.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 1)
+
+[node name="Audio" type="Node2D" parent="." unique_id=1483014371]
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="Audio" unique_id=683072042]
+stream = ExtResource("5_vwqc0")
+
+[node name="Bird" type="AudioStreamPlayer2D" parent="Audio" unique_id=1319205181]
+stream = ExtResource("8_x0hyx")
+
+[node name="Vent" type="StaticBody2D" parent="." unique_id=1332532003]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent" unique_id=592958088]
+position = Vector2(-120.00001, 48.000008)
+rotation = 0.21984361
+shape = SubResource("RectangleShape2D_6i8wa")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=520686430]
+position = Vector2(0, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=819472173]
+position = Vector2(0, -187)
+shape = SubResource("WorldBoundaryShape2D_6i8wa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1451502390]
+zoom = Vector2(2.3, 2.3)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1765572498]
+layer = 20
+
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1034470659]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer2/Control" unique_id=1328989668]
+position = Vector2(1100.8241, 38.108856)
+rotation = 1.5707964
+scale = Vector2(0.076373965, 0.05782171)
+texture = ExtResource("14_wfy3y")
+
+[node name="Shadow3" type="ColorRect" parent="CanvasLayer2/Control" unique_id=2452271]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 53.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="SKIP" type="TextureButton" parent="CanvasLayer2/Control" unique_id=529164284]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 29.103642
+offset_right = 1122.6466
+offset_bottom = 61.10364
+scale = Vector2(0.60933024, 0.60514426)
+texture_normal = ExtResource("15_c4tm1")
+texture_hover = ExtResource("16_coumw")
+script = ExtResource("17_allao")
+
+[connection signal="animation_finished" from="OutroAnimation" to="OutroAnimation" method="_on_animation_finished"]
+[connection signal="pressed" from="CanvasLayer2/Control/SKIP" to="CanvasLayer2/Control/SKIP" method="_on_pressed"]

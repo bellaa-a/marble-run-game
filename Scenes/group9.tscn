@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://nkhhiorj0slf"]
+
+[ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_ao5xx"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_l3i5a"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="3_xm2yi"]
+[ext_resource type="PackedScene" uid="uid://dc2bg8k2ht7fp" path="res://Scenes/group_buttons.tscn" id="4_3c2iu"]
+[ext_resource type="PackedScene" uid="uid://ldewr0v1kdlb" path="res://Scenes/back_group.tscn" id="5_6g2va"]
+[ext_resource type="PackedScene" uid="uid://de71puedpqvk7" path="res://Scenes/everything1.tscn" id="5_gei80"]
+[ext_resource type="PackedScene" uid="uid://cuv4lpgxjnxbu" path="res://Scenes/everything2.tscn" id="6_iqpm8"]
+[ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="6_l3i5a"]
+[ext_resource type="PackedScene" uid="uid://cwh3ckx5k3ga0" path="res://Scenes/everything3.tscn" id="7_2u8f1"]
+[ext_resource type="PackedScene" uid="uid://c78ofkl21enwo" path="res://Scenes/everything4.tscn" id="8_5evuk"]
+
+[node name="Group9" type="Node2D" unique_id=73723833]
+script = ExtResource("1_ao5xx")
+group_name = "everything"
+next_scene_path = "uid://bylw2y6v0fhvn"
+last_scene_path = "uid://c7ke2sonam76r"
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_l3i5a")]
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("3_xm2yi")]
+
+[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("4_3c2iu")]
+level_one_scene = ExtResource("5_gei80")
+level_two_scene = ExtResource("6_iqpm8")
+level_three_scene = ExtResource("7_2u8f1")
+level_four_scene = ExtResource("8_5evuk")
+label_text = "9. Everything Everywhere"
+
+[node name="BackGroup" parent="." unique_id=569448722 instance=ExtResource("5_6g2va")]
+
+[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("6_l3i5a")]

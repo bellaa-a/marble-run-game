@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bbsour6exkdhj"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_418td"]
+[ext_resource type="PackedScene" uid="uid://fcw5ku2eqyts" path="res://Scenes/tutorial3a.tscn" id="2_5hmn5"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_5wcir"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_5hmn5"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="4_yby17"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="6_2y0px"]
+[ext_resource type="PackedScene" uid="uid://c3020f521b40b" path="res://Scenes/win.tscn" id="7_qy1cs"]
+[ext_resource type="PackedScene" uid="uid://dmte88ropfhpl" path="res://Scenes/tutorial_buttons.tscn" id="9_5hmn5"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_5wcir"]
+[ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="10_5hmn5"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="11_yby17"]
+
+[node name="Tutorial2" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_418td")
+group_name = "tutorial"
+next_scene = ExtResource("2_5hmn5")
+skip_scene = ExtResource("2_5hmn5")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_5wcir")]
+
+[node name="Ice" parent="." unique_id=369671388 instance=ExtResource("6_2y0px")]
+position = Vector2(-146.00002, -110)
+scale = Vector2(1.9829435, 1)
+
+[node name="Ice2" parent="." unique_id=85175348 instance=ExtResource("6_2y0px")]
+position = Vector2(75.00001, 83)
+scale = Vector2(1.2833952, 1)
+
+[node name="Win" parent="." unique_id=375720501 instance=ExtResource("7_qy1cs")]
+visible = false
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_5wcir")]
+
+[node name="TutoialButtons" parent="." unique_id=1474815145 instance=ExtResource("9_5hmn5")]
+label_text = "Tutorial 2/4"
+
+[node name="Buttons" parent="." unique_id=345944696 instance=ExtResource("10_5hmn5")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_5hmn5")]
+position = Vector2(81, 162.00002)
+start_open = true
+
+[node name="Marble" parent="." unique_id=934389260 instance=ExtResource("4_yby17")]
+position = Vector2(-215, -169)
+rotation = 0.0016468638
+
+[node name="Pipe" parent="." unique_id=892986412 instance=ExtResource("11_yby17")]
+position = Vector2(-214.99997, -220)
+scale = Vector2(0.53106695, 0.6368469)

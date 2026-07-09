@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://dc2bg8k2ht7fp"]
+
+[ext_resource type="Script" uid="uid://doidm3nwxejyj" path="res://Scripts/level_button.gd" id="1_0s0kb"]
+[ext_resource type="Script" uid="uid://bnc3msfla7rhm" path="res://Scripts/group_buttons.gd" id="1_m2xvt"]
+[ext_resource type="Texture2D" uid="uid://sx37ub4cxnnq" path="res://Assets/One.png" id="3_goojs"]
+[ext_resource type="Texture2D" uid="uid://b1sl3ugy4dlwg" path="res://Assets/OnePressed.png" id="4_m2xvt"]
+[ext_resource type="Texture2D" uid="uid://e31nahqlkah6" path="res://Assets/OneProgress.png" id="5_3mhhl"]
+[ext_resource type="Texture2D" uid="uid://bbhuunudi6vmu" path="res://Assets/Two.png" id="5_a6guv"]
+[ext_resource type="Texture2D" uid="uid://ctjv38u81ngjx" path="res://Assets/TwoPressed.png" id="6_bflvq"]
+[ext_resource type="Texture2D" uid="uid://bmt7ipvrhsl2a" path="res://Assets/Three.png" id="7_ccw18"]
+[ext_resource type="Texture2D" uid="uid://htig8yv0xepc" path="res://Assets/ThreePressed.png" id="8_3mhhl"]
+[ext_resource type="Texture2D" uid="uid://c2jss61dksly4" path="res://Assets/TwoProgress.png" id="8_m0g55"]
+[ext_resource type="Texture2D" uid="uid://8bqlaueut07y" path="res://Assets/Four.png" id="9_m0g55"]
+[ext_resource type="Texture2D" uid="uid://dosju5gprf2vf" path="res://Assets/FourPressed.png" id="10_ou1nf"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="11_bflvq"]
+[ext_resource type="Texture2D" uid="uid://dn2a1lqbrfc1k" path="res://Assets/ThreeProgress.png" id="11_ou1nf"]
+[ext_resource type="Texture2D" uid="uid://bc7h5f8nhvj5x" path="res://Assets/FourProgress.png" id="14_2xc0y"]
+[ext_resource type="Script" uid="uid://yrvpdwph8qae" path="res://Scripts/world_dropdown.gd" id="16_2xc0y"]
+
+[node name="GroupButtons" type="Node2D" unique_id=1505343875]
+script = ExtResource("1_m2xvt")
+
+[node name="One" type="Button" parent="." unique_id=1122215489]
+offset_left = -181.0
+offset_top = -21.0
+offset_right = -119.0
+offset_bottom = 43.0
+script = ExtResource("1_0s0kb")
+level_number = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Disabled" type="Sprite2D" parent="One" unique_id=294431908]
+position = Vector2(30.500015, 32)
+scale = Vector2(0.29999995, 0.30331755)
+texture = ExtResource("3_goojs")
+
+[node name="Complete" type="Sprite2D" parent="One" unique_id=355474496]
+visible = false
+position = Vector2(31, 31.5)
+scale = Vector2(0.30046952, 0.30232558)
+texture = ExtResource("4_m2xvt")
+
+[node name="Progress" type="Sprite2D" parent="One" unique_id=813841992]
+visible = false
+position = Vector2(30.499989, 31.5)
+scale = Vector2(0.14523809, 0.1521739)
+texture = ExtResource("5_3mhhl")
+
+[node name="Two" type="Button" parent="." unique_id=1596884828]
+offset_left = -81.0
+offset_top = -21.0
+offset_right = -19.0
+offset_bottom = 43.0
+script = ExtResource("1_0s0kb")
+level_number = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Disabled" type="Sprite2D" parent="Two" unique_id=1033080156]
+position = Vector2(32, 32.8)
+scale = Vector2(0.29799998, 0.2989802)
+texture = ExtResource("5_a6guv")
+
+[node name="Complete" type="Sprite2D" parent="Two" unique_id=6074131]
+visible = false
+position = Vector2(31, 29.616)
+scale = Vector2(0.30046952, 0.29898885)
+texture = ExtResource("6_bflvq")
+
+[node name="Progress" type="Sprite2D" parent="Two" unique_id=1519397050]
+visible = false
+position = Vector2(30.499998, 31.5)
+scale = Vector2(0.1408776, 0.15)
+texture = ExtResource("8_m0g55")
+
+[node name="Three" type="Button" parent="." unique_id=1401783954]
+offset_left = 19.0
+offset_top = -22.0
+offset_right = 81.0
+offset_bottom = 42.0
+script = ExtResource("1_0s0kb")
+level_number = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Disabled" type="Sprite2D" parent="Three" unique_id=661919429]
+position = Vector2(32.75, 32.09)
+scale = Vector2(0.29814813, 0.30412513)
+texture = ExtResource("7_ccw18")
+
+[node name="Complete" type="Sprite2D" parent="Three" unique_id=1720451025]
+visible = false
+position = Vector2(31.122063, 31.64535)
+scale = Vector2(0.30149528, 0.30811343)
+texture = ExtResource("8_3mhhl")
+
+[node name="Progress" type="Sprite2D" parent="Three" unique_id=454798889]
+visible = false
+position = Vector2(30.499996, 31.499998)
+scale = Vector2(0.14420801, 0.1575)
+texture = ExtResource("11_ou1nf")
+
+[node name="Four" type="Button" parent="." unique_id=1315369221]
+offset_left = 119.0
+offset_top = -22.0
+offset_right = 181.0
+offset_bottom = 42.0
+script = ExtResource("1_0s0kb")
+level_number = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Disabled" type="Sprite2D" parent="Four" unique_id=588507206]
+position = Vector2(31.5, 33)
+scale = Vector2(0.2972974, 0.29964083)
+texture = ExtResource("9_m0g55")
+
+[node name="Complete" type="Sprite2D" parent="Four" unique_id=520688694]
+visible = false
+position = Vector2(31.746475, 32.087215)
+scale = Vector2(0.29838294, 0.30306152)
+texture = ExtResource("10_ou1nf")
+
+[node name="Progress" type="Sprite2D" parent="Four" unique_id=443314145]
+visible = false
+position = Vector2(30.999992, 32)
+scale = Vector2(0.14318703, 0.16)
+texture = ExtResource("14_2xc0y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1350651138]
+position = Vector2(6.6565905, -85.00001)
+rotation = 1.5707964
+scale = Vector2(0.10431578, 0.39526963)
+texture = ExtResource("11_bflvq")
+
+[node name="Shadow" type="ColorRect" parent="Sprite2D" unique_id=878365414]
+offset_left = -201.31183
+offset_top = -273.57983
+offset_right = 215.79205
+offset_bottom = 310.56152
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+metadata/_edit_use_anchors_ = true
+
+[node name="GroupName" type="Label" parent="." unique_id=492596072]
+offset_left = -89.0
+offset_top = -99.0
+offset_right = 85.0
+offset_bottom = -79.0
+horizontal_alignment = 1
+
+[node name="WorldDropdown" type="OptionButton" parent="." unique_id=1665862918]
+offset_left = 116.0
+offset_top = -198.0
+offset_right = 309.0
+offset_bottom = -175.0
+item_count = 10
+popup/item_0/text = "1. Baby Steps"
+popup/item_0/id = 0
+popup/item_1/text = "2. Broken Link"
+popup/item_1/id = 1
+popup/item_2/text = "3. Upside Down"
+popup/item_2/id = 2
+popup/item_3/text = "4. Twin Paths"
+popup/item_3/id = 3
+popup/item_4/text = "5. Against Time"
+popup/item_4/id = 4
+popup/item_5/text = "6. Break the Rules!"
+popup/item_5/id = 5
+popup/item_6/text = "7. Center Stage"
+popup/item_6/id = 6
+popup/item_7/text = "8. Make It Count"
+popup/item_7/id = 7
+popup/item_8/text = "9. Everything Everywhere"
+popup/item_8/id = 8
+popup/item_9/text = "10. Worst Enemy"
+popup/item_9/id = 9
+script = ExtResource("16_2xc0y")
+
+[node name="Label" type="Label" parent="WorldDropdown" unique_id=1718677716]
+layout_mode = 0
+offset_left = 51.0
+offset_top = -2.0
+offset_right = 144.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Choose World"
+
+[connection signal="pressed" from="One" to="." method="_on_one_pressed"]
+[connection signal="pressed" from="Two" to="." method="_on_two_pressed"]
+[connection signal="pressed" from="Three" to="." method="_on_three_pressed"]
+[connection signal="pressed" from="Four" to="." method="_on_four_pressed"]
+[connection signal="item_selected" from="WorldDropdown" to="WorldDropdown" method="_on_item_selected"]

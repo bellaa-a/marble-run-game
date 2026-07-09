@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://buyhhr8ac6ljb"]
+
+[ext_resource type="Texture2D" uid="uid://co6xsag8nm2nu" path="res://Assets/Goal.png" id="1_16g1g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_16g1g"]
+
+[node name="GoalSide" type="StaticBody2D" unique_id=1031188571]
+collision_layer = 16
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_16g1g")
+
+[node name="GoalCollision" type="CollisionPolygon2D" parent="." unique_id=1785271001]
+polygon = PackedVector2Array(0, -5, -29, -5, -44, 9, -43, 12, 57, 12, 58, 8, 44, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2067151374]
+position = Vector2(12, 2)
+texture = ExtResource("1_16g1g")

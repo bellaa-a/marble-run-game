@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dnm1tn8wc4b8c"]
+
+[ext_resource type="Script" uid="uid://cn3jcmup7uwfr" path="res://Scripts/main.gd" id="1_5xffa"]
+[ext_resource type="PackedScene" uid="uid://k6x1rqme2kp3" path="res://Scenes/careful3.tscn" id="2_5xffa"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_uww0d"]
+[ext_resource type="PackedScene" uid="uid://ioilwn25c4d0" path="res://Scenes/goal.tscn" id="3_eflue"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="4_27cvh"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="5_w4as6"]
+[ext_resource type="PackedScene" uid="uid://dohrjay727ys5" path="res://Scenes/goo1.tscn" id="6_qcjm0"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="7_ppd8w"]
+[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="7_w4as6"]
+[ext_resource type="PackedScene" uid="uid://naloqe82b81k" path="res://Scenes/level_buttons.tscn" id="8_4xnh0"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="9_oy083"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="10_pjokd"]
+[ext_resource type="PackedScene" uid="uid://cji310kw4l2aq" path="res://Scenes/lives.tscn" id="11_mac4m"]
+[ext_resource type="PackedScene" uid="uid://dqpg5j87gxhsl" path="res://Scenes/goo2.tscn" id="13_eflue"]
+[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="14_27cvh"]
+
+[node name="Careful2" type="Node2D" unique_id=1969626970]
+script = ExtResource("1_5xffa")
+group_name = "careful"
+level_number = 2
+next_scene = ExtResource("2_5xffa")
+
+[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_uww0d")]
+
+[node name="Goal" parent="." unique_id=897087343 instance=ExtResource("3_eflue")]
+position = Vector2(-163, 148)
+
+[node name="Wood" parent="." unique_id=661219444 instance=ExtResource("4_27cvh")]
+position = Vector2(-244.00002, 27)
+scale = Vector2(0.31999022, 1)
+
+[node name="RubberBand" parent="." unique_id=558590688 instance=ExtResource("14_27cvh")]
+position = Vector2(251.99997, -75)
+
+[node name="RubberBand2" parent="." unique_id=1136841441 instance=ExtResource("14_27cvh")]
+position = Vector2(81, -30)
+
+[node name="RubberBand3" parent="." unique_id=1572411784 instance=ExtResource("14_27cvh")]
+position = Vector2(-75.99997, 23)
+
+[node name="Ice" parent="." unique_id=42388386 instance=ExtResource("7_w4as6")]
+position = Vector2(-268, 70)
+scale = Vector2(1, 0.79999876)
+
+[node name="OpenGoal" parent="Ice" unique_id=220608896 instance=ExtResource("5_w4as6")]
+position = Vector2(-30, -10.000015)
+scale = Vector2(1, 1.2500019)
+
+[node name="Goo1" parent="." unique_id=1231151128 instance=ExtResource("6_qcjm0")]
+position = Vector2(-4, 206)
+
+[node name="Goo2" parent="." unique_id=1614272643 instance=ExtResource("13_eflue")]
+position = Vector2(-117, 206)
+
+[node name="Goo3" parent="." unique_id=1941128201 instance=ExtResource("6_qcjm0")]
+position = Vector2(-225, 206)
+
+[node name="Goo4" parent="." unique_id=1536983030 instance=ExtResource("13_eflue")]
+position = Vector2(-333, 206)
+
+[node name="Goo5" parent="." unique_id=2104413802 instance=ExtResource("6_qcjm0")]
+position = Vector2(218, 206)
+
+[node name="Goo6" parent="." unique_id=1126451095 instance=ExtResource("13_eflue")]
+position = Vector2(111, 206)
+
+[node name="Goo7" parent="." unique_id=2118101310 instance=ExtResource("13_eflue")]
+position = Vector2(325, 205)
+
+[node name="Marble" parent="." unique_id=1480049343 instance=ExtResource("7_ppd8w")]
+position = Vector2(244, -153)
+rotation = 0.0016468641
+
+[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("9_oy083")]
+
+[node name="Pipe" parent="." unique_id=328766467 instance=ExtResource("10_pjokd")]
+position = Vector2(243.00003, -189)
+scale = Vector2(0.32000124, 0.48000246)
+
+[node name="LevelButtons" parent="." unique_id=1474815145 instance=ExtResource("8_4xnh0")]
+label_text = "Careful 2/4"
+
+[node name="Lives" parent="." unique_id=428882208 instance=ExtResource("11_mac4m")]
+
+[node name="Pipe2" parent="." unique_id=2022212213 instance=ExtResource("10_pjokd")]
+position = Vector2(243, -279)
+scale = Vector2(0.38194025, 0.5599985)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://dgpj5t384vg51"]
+
+[ext_resource type="Texture2D" uid="uid://cv5y2uuvb32w2" path="res://Assets/camera.png" id="1_i8477"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_f8n2f"]
+
+[resource]
+script = ExtResource("2_f8n2f")
+id = "camera"
+type = 2
+stage = 2
+description = "Shake other camera for 20s."
+icon = ExtResource("1_i8477")
+icon_size = Vector2(15, 15)

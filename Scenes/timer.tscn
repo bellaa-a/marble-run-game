@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://mn3haessdnhx"]
+
+[ext_resource type="Script" uid="uid://88srxl6lwrqg" path="res://Scripts/timer.gd" id="1_pvhx5"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="2_ycw00"]
+
+[node name="Timer" type="Node2D" unique_id=428882208]
+script = ExtResource("1_pvhx5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=873326344]
+position = Vector2(319.48038, -156.00002)
+rotation = 1.5707964
+scale = Vector2(0.06820652, 0.12867264)
+texture = ExtResource("2_ycw00")
+
+[node name="Shadow3" type="ColorRect" parent="." unique_id=1981560862]
+offset_left = 280.0
+offset_top = -170.0
+offset_right = 357.0
+offset_bottom = -140.14291
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="Label" type="Label" parent="." unique_id=1420845923]
+offset_left = 293.0
+offset_top = -170.0
+offset_right = 341.0
+offset_bottom = -110.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://3p8nup111jk0"]
+
+[ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="1_udgaw"]
+[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="2_ar6rk"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_ar6rk"]
+
+[resource]
+script = ExtResource("3_ar6rk")
+id = "medium_wood"
+description = "Medium Wooden Block."
+icon = ExtResource("1_udgaw")
+icon_size = Vector2(40, 50)
+scene = ExtResource("2_ar6rk")
+block_size = Vector2(64, 64)
