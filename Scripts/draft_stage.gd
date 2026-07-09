@@ -160,9 +160,8 @@ func send_opponent_cards():
 
 	# Opponent may have already finished
 	if opponent_finished_picking:
-		show_opponent_cards()
-
-	try_finish_draft()
+		await show_opponent_cards()
+		try_finish_draft()
 
 
 func receive_opponent_cards(card_ids: Array[String]):
@@ -179,7 +178,8 @@ func receive_opponent_cards(card_ids: Array[String]):
 	if not finished_picking:
 		return
 
-	show_opponent_cards()
+	await show_opponent_cards()
+	try_finish_draft()
 
 
 func show_opponent_cards():
@@ -225,12 +225,9 @@ func show_opponent_cards():
 			opponent_slots[i]
 		)
 
-
 	await get_tree().create_timer(0.3).timeout
 
-	try_finish_draft()
 	
-		
 func try_finish_draft():
 
 	if not finished_picking:
