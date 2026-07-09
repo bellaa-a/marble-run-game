@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cp3rp6a7twmug"]
+[gd_scene load_steps=6 format=3 uid="uid://cp3rp6a7twmug"]
 
 [ext_resource type="Script" uid="uid://doc3tdts0lab" path="res://Scripts/transition.gd" id="1_jnsx0"]
 
@@ -58,10 +58,10 @@ _data = {
 &"fade_out": SubResource("Animation_vlteq")
 }
 
-[node name="Transition" type="CanvasLayer" unique_id=1166479095]
+[node name="Transition" type="CanvasLayer"]
 script = ExtResource("1_jnsx0")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=194897507]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -70,7 +70,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=1816412333]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_3nmoj")

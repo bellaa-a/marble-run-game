@@ -1,4 +1,4 @@
-[gd_resource type="Theme" format=3 uid="uid://dhwd8ewrtbtfr"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dhwd8ewrtbtfr"]
 
 [ext_resource type="FontFile" uid="uid://bi7s0gjdcuryf" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="1_drjrk"]
 

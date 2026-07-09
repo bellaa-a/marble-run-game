@@ -10,4 +10,4 @@ func _ready():
 	
 	await get_tree().create_timer(4).timeout
 	transition.fade_to_scene("res://Scenes/draft_stage.tscn")
-		
+	

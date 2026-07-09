@@ -1,9 +1,15 @@
 extends Node
 
+
 var pipe_position: Vector2
 var goal_position: Vector2
 
+var peer: SteamMultiplayerPeer
+
+var is_host := false
+
 signal lobby_ready
+
 var lobby_id := 0
 var lobby_code := ""
 var join_error := ""
@@ -13,25 +19,42 @@ const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 func _ready():
 
-	Steam.steamInit()
+	var init = Steam.steamInit()
 
-	await get_tree().create_timer(1.0).timeout
+	print("Steam init:", init)
 
-	print("Steam ID: ", Steam.getSteamID())
-
+	if not init:
+		print("Steam failed to initialize")
+		return
 
 	Steam.lobby_created.connect(_on_lobby_created)
 	Steam.lobby_joined.connect(_on_lobby_joined)
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
 
+	randomize()
+
+	await get_tree().create_timer(1.0).timeout
+
+	print("Steam ID:", Steam.getSteamID())
+
+
+func _process(_delta):
+
+	Steam.run_callbacks()
+
+
+# -------------------------
+# Multiplayer Layout
+# -------------------------
 
 func randomize_layout():
+
 	pipe_position = Vector2(
 		randf_range(-250, 250),
 		-220
 	)
-	
+
 	goal_position = Vector2(
 		randf_range(-300, 300),
 		170
@@ -39,74 +62,293 @@ func randomize_layout():
 
 	print("Generated layout:", pipe_position, goal_position)
 
-	sync_layout.rpc(pipe_position, goal_position)
+	sync_layout.rpc(
+		pipe_position,
+		goal_position
+	)
 
 
-@rpc("authority", "call_remote")
-func sync_layout(pipe_pos: Vector2, goal_pos: Vector2):
+@rpc("authority", "call_local")
+func sync_layout(
+	pipe_pos: Vector2,
+	goal_pos: Vector2
+):
+
 	pipe_position = pipe_pos
 	goal_position = goal_pos
-	print("Received layout:", pipe_position, goal_position)
-	
-	
-func _process(_delta):
 
-	Steam.run_callbacks()
+	print(
+		"Received layout:",
+		pipe_position,
+		goal_position
+	)
 
+
+# -------------------------
+# Card Sync
+# -------------------------
 
 @rpc("any_peer", "call_remote")
 func send_discarded_cards(cards: Array[String]):
-	print("Received opponent discarded cards:", cards)
 
-	# Tell the draft scene
+	print(
+		"Received opponent discarded cards:",
+		cards
+	)
+
 	get_tree().call_group(
 		"draft",
 		"receive_opponent_cards",
 		cards
 	)
-	
+
+
+# -------------------------
+# Hosting
+# -------------------------
 
 func host_game():
 
+	if lobby_id != 0:
+		print("Already in lobby")
+		return
+
+	is_host = true
+
 	print("Creating lobby...")
 
-	# Must be PUBLIC so Steam can search it
 	Steam.createLobby(
 		Steam.LOBBY_TYPE_PUBLIC,
 		2
 	)
 
 
+func _on_lobby_created(
+	success: bool,
+	new_lobby_id: int
+):
 
-func _on_lobby_created(success: bool, new_lobby_id: int):
+	if not success:
 
-	print("Lobby callback received")
-
-
-	if success:
-
-		lobby_id = new_lobby_id
-
-		lobby_code = generate_lobby_code()
+		print("Failed to create lobby")
+		return
 
 
-		# Save code to Steam lobby data
-		Steam.setLobbyData(
-			lobby_id,
-			"code",
-			lobby_code
+	lobby_id = new_lobby_id
+
+	lobby_code = generate_lobby_code()
+
+	Steam.setLobbyData(
+		lobby_id,
+		"code",
+		lobby_code
+	)
+
+	print("Lobby created:", lobby_id)
+	print("Room Code:", lobby_code)
+
+
+	await get_tree().create_timer(0.5).timeout
+
+
+	peer = SteamMultiplayerPeer.new()
+
+	var result = peer.create_host()
+
+	print("Host result:", result)
+
+
+	if result == OK:
+
+		multiplayer.multiplayer_peer = peer
+
+		print("Steam host started")
+		print(
+			"My peer ID:",
+			multiplayer.get_unique_id()
 		)
 
+	else:
 
-		print("Lobby created!")
-		print("Lobby ID:", lobby_id)
-		print("Room Code:", lobby_code)
+		print("Failed to start Steam host")
+
+
+# -------------------------
+# Joining
+# -------------------------
+
+func join_game(code: String):
+
+	if lobby_id != 0:
+		print("Already in lobby")
+		return
+
+
+	print("Searching for room:", code)
+
+
+	Steam.addRequestLobbyListStringFilter(
+		"code",
+		code,
+		Steam.LOBBY_COMPARISON_EQUAL
+	)
+
+
+	Steam.requestLobbyList()
+
+
+
+func _on_lobby_match_list(
+	lobbies: Array
+):
+
+	print(
+		"Found rooms:",
+		lobbies.size()
+	)
+
+
+	if lobbies.size() == 0:
+
+		join_error = "Invalid room code"
+		return
+
+
+	var found_lobby = lobbies[0]
+
+
+	var members = Steam.getNumLobbyMembers(
+		found_lobby
+	)
+
+
+	if members >= 2:
+
+		join_error = "Room is full"
+		return
+
+
+	print(
+		"Joining lobby:",
+		found_lobby
+	)
+
+	Steam.joinLobby(
+		found_lobby
+	)
+
+
+
+func _on_lobby_joined(
+	new_lobby_id,
+	_permissions,
+	_locked,
+	_response
+):
+
+	# Host receives this callback too sometimes
+	if is_host:
+		return
+
+
+	lobby_id = new_lobby_id
+
+
+	print("Joined lobby!")
+	print("Lobby ID:", lobby_id)
+
+
+	lobby_code = Steam.getLobbyData(
+		lobby_id,
+		"code"
+	)
+
+
+	print("Room Code:", lobby_code)
+
+
+	peer = SteamMultiplayerPeer.new()
+
+
+	var result = peer.create_client(lobby_id)
+
+
+	print("Client result:", result)
+
+
+	if result == OK:
+
+		multiplayer.multiplayer_peer = peer
+
+		print("Steam client started")
+
+		print(
+			"My peer ID:",
+			multiplayer.get_unique_id()
+		)
 
 
 	else:
 
-		print("Failed to create lobby")
+		print("Failed to start Steam client")
 
+
+	check_lobby_ready()
+
+
+# -------------------------
+# Lobby State
+# -------------------------
+
+func _on_lobby_chat_update(
+	_lobby_id,
+	_changed_id,
+	_making_change_id,
+	_state
+):
+
+	check_lobby_ready()
+
+
+
+func check_lobby_ready():
+
+	if lobby_id == 0:
+		return
+
+
+	var members = Steam.getNumLobbyMembers(
+		lobby_id
+	)
+
+
+	print(
+		"Players in lobby:",
+		members
+	)
+
+
+	if members == 2:
+
+		print("Lobby is ready!")
+
+
+		await get_tree().create_timer(0.5).timeout
+
+
+		if multiplayer.is_server():
+
+			print("Generating layout")
+			randomize_layout()
+
+
+		lobby_ready.emit()
+
+
+
+# -------------------------
+# Utilities
+# -------------------------
 
 func generate_lobby_code() -> String:
 
@@ -123,80 +365,13 @@ func generate_lobby_code() -> String:
 	return code
 
 
-func join_game(code: String):
-
-	print("Searching for room:", code)
-
-
-	Steam.addRequestLobbyListStringFilter(
-		"code",
-		code,
-		Steam.LOBBY_COMPARISON_EQUAL
-	)
-
-
-	Steam.requestLobbyList()
-
-
-
-func _on_lobby_match_list(lobbies: Array):
-
-	print("Found rooms:", lobbies.size())
-
-
-	# No room found
-	if lobbies.size() == 0:
-
-		join_error = "Invalid room code"
-		return
-
-	var found_lobby = lobbies[0]
-
-	var members = Steam.getNumLobbyMembers(
-		found_lobby
-	)
-
-	# Already full
-	if members >= 2:
-
-		join_error = "Room is full"
-		return
-
-	print("Joining lobby:", found_lobby)
-
-	Steam.joinLobby(found_lobby)
-
-
-func _on_lobby_joined(
-	new_lobby_id,
-	_permissions,
-	_locked,
-	_response
-):
-
-	lobby_id = new_lobby_id
-
-	print("Joined lobby!")
-	print("Lobby ID:", lobby_id)
-
-	lobby_code = Steam.getLobbyData(lobby_id, "code")
-
-	print("Room Code:", lobby_code)
-
-	check_lobby_ready()
-
-
-func _on_lobby_chat_update(
-	_lobby_id,
-	_changed_id,
-	_making_change_id,
-	_state
-):
-
-	check_lobby_ready()
-
 
 func leave_lobby():
+
+	if peer:
+
+		peer.close()
+
 
 	if lobby_id != 0:
 
@@ -205,30 +380,13 @@ func leave_lobby():
 		)
 
 
-		print("Left lobby")
+	print("Left lobby")
 
 
-		lobby_id = 0
-		lobby_code = ""
+	lobby_id = 0
+	lobby_code = ""
 
 
-func check_lobby_ready():
-
-	if lobby_id == 0:
-		return
-
-	var members = Steam.getNumLobbyMembers(lobby_id)
-
-	print("Players in lobby:", members)
-
-	if members == 2:
-		print("Lobby is ready!")
-
-		if multiplayer.is_server():
-			randomize_layout()
-
-		lobby_ready.emit()
-		
 
 func _notification(what):
 
