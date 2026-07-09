@@ -243,12 +243,9 @@ func try_finish_draft():
 	print("Both players finished draft!")
 	$ColorRect.visible = false
 	$Instructions.visible = false
-	
-	await get_tree().create_timer(1.0).timeout
 
 	# move to next stage here
 	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
-	
 	
 
 func reveal_pair(pair: int):

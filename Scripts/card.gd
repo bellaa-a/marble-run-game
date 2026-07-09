@@ -2,6 +2,7 @@ extends Control
 
 signal card_selected(card)
 signal block_drag_started(card)
+signal block_drag_finished(card)
 signal powerup_clicked(card)
 
 @export var in_hand : bool = false
@@ -27,6 +28,7 @@ var dragging := false
 var drag_threshold := 30
 var mouse_down_pos := Vector2.ZERO
 var inventory_index := -1
+var block_dragging := false
 
 
 func _ready():
@@ -263,10 +265,15 @@ func _on_card_gui_input(event):
 				dragging = true
 
 			else:
+				if block_dragging:
+					block_dragging = false
+					block_drag_finished.emit(self)
+				else:
+					if card_data.type == Enum.CardType.POWERUP:
+						powerup_clicked.emit(card_data)
+
 				dragging = false
 
-				if card_data.type == Enum.CardType.POWERUP:
-					powerup_clicked.emit(card_data)
 
 	elif event is InputEventMouseMotion and dragging:
 
@@ -277,6 +284,7 @@ func _on_card_gui_input(event):
 			or card_data.type == Enum.CardType.NECESSARY:
 
 				dragging = false
+				block_dragging = true
 				block_drag_started.emit(self)
 
 func use_card():

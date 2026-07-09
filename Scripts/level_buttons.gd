@@ -9,9 +9,3 @@ extends Node2D
 
 func _ready():
 	$LevelName.text = label_text
-
-
-func _on_exit_pressed() -> void:
-	$Click.play()
-	await $Click.finished
-	transition.fade_to_scene(GameState.get_current_screen())

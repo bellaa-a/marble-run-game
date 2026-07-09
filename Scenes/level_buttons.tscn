@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://naloqe82b81k"]
+[gd_scene load_steps=7 format=3 uid="uid://naloqe82b81k"]
 
 [ext_resource type="Script" uid="uid://crsxmur2bu0ar" path="res://Scripts/level_buttons.gd" id="1_xum3r"]
 [ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="4_qgj0v"]
@@ -7,51 +7,51 @@
 [ext_resource type="Texture2D" uid="uid://dyal3ewwom7jg" path="res://Assets/Exit.png" id="7_5otsk"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="8_j6qgg"]
 
-[node name="LevelButtons" type="Node2D" unique_id=1474815145]
+[node name="LevelButtons" type="Node2D"]
 script = ExtResource("1_xum3r")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=499778968]
+[node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(309.91452, -186.85709)
 rotation = 1.5707964
 scale = Vector2(0.06820652, 0.048092652)
 texture = ExtResource("6_ikvee")
 
-[node name="Shadow3" type="ColorRect" parent="." unique_id=1704607292]
+[node name="Shadow3" type="ColorRect" parent="."]
 offset_left = 294.91452
 offset_top = -200.85709
 offset_right = 324.91452
 offset_bottom = -171.0
 color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1357388988]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(237.00003, -186.89981)
 rotation = 1.5707964
 scale = Vector2(0.0713126, 0.20226169)
 texture = ExtResource("6_ikvee")
 
-[node name="Shadow" type="ColorRect" parent="." unique_id=1911187375]
+[node name="Shadow" type="ColorRect" parent="."]
 offset_left = 175.0
 offset_top = -200.99997
 offset_right = 293.0
 offset_bottom = -171.0
 color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
 
-[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1619265417]
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-305, -197)
 scale = Vector2(1.2927023, 0.5093901)
 stream = ExtResource("8_j6qgg")
 bus = &"SFX"
 
-[node name="Buttons" parent="." unique_id=400221477 instance=ExtResource("4_qgj0v")]
+[node name="Buttons" parent="." instance=ExtResource("4_qgj0v")]
 
-[node name="LevelName" type="Label" parent="." unique_id=1154875243]
+[node name="LevelName" type="Label" parent="."]
 offset_left = 188.0
 offset_top = -201.0
 offset_right = 283.0
 offset_bottom = -181.0
 horizontal_alignment = 1
 
-[node name="Exit" type="TextureButton" parent="." unique_id=476450800]
+[node name="Exit" type="TextureButton" parent="."]
 offset_left = 299.0
 offset_top = -194.00005
 offset_right = 331.0

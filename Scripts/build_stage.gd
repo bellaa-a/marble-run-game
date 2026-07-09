@@ -9,6 +9,7 @@ var dragging_card: Control = null
 func _ready():
 	Multiplayer.build_stage = self
 	$Pipe.position = Multiplayer.pipe_position
+	$Marble.position = Multiplayer.pipe_position + Vector2(0, 20)
 	$MultiplayerGoal.position = Multiplayer.goal_position
 	await organize_inventory()
 
@@ -38,29 +39,14 @@ func begin_drag(card):
 
 	# prevent the card from receiving the mouse release
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 
-func _unhandled_input(event):
-
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-
-			print(
-				"CLICK:",
-				event.pressed,
-				dragging_block
-			)
-
-			if not event.pressed and dragging_block:
-				finish_drag()
-				
-
-func finish_drag():
+func finish_drag(card):
 
 	if dragging_block == null:
 		return
 
 	var placed_block = dragging_block
-
 	dragging_block = null
 
 	if can_place_block(placed_block.global_position):
@@ -68,14 +54,11 @@ func finish_drag():
 		if placed_block.has_method("set_preview"):
 			placed_block.set_preview(false)
 
-		dragging_card.use_card()
-		Multiplayer.player_inventory[dragging_card.inventory_index]["used"] = true
+		card.use_card()
+		Multiplayer.player_inventory[card.inventory_index]["used"] = true
 
 	else:
 		placed_block.queue_free()
-
-	if dragging_card:
-		dragging_card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	dragging_card = null
 
