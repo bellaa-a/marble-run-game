@@ -23,11 +23,14 @@ func _process(_delta):
 		
 
 func begin_drag(card: DraftCard):
-	dragging_card = card
 
+	print("START DRAG:", card)
+
+	dragging_card = card
 	dragging_block = card.scene.instantiate()
-	
-	# Add as preview object
+
+	print("CREATED BLOCK:", dragging_block)
+
 	add_child(dragging_block)
 
 	# Make it transparent / ghost version
@@ -43,8 +46,14 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 
-			#if not event.pressed and dragging_block:
-			finish_drag()
+			print(
+				"CLICK:",
+				event.pressed,
+				dragging_block
+			)
+
+			if not event.pressed and dragging_block:
+				finish_drag()
 				
 
 func finish_drag():

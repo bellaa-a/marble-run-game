@@ -71,7 +71,7 @@ offset_left = 116.0
 offset_top = 18.0
 offset_right = 259.0
 offset_bottom = 38.0
-theme_override_colors/font_color = Color(6.3773246e-07, 0.47092372, 0.15310138, 1)
+theme_override_colors/font_color = Color(0, 0.839686, 0.29896933, 1)
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_i8ier")
