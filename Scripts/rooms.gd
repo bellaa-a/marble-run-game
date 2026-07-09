@@ -32,9 +32,11 @@ func _on_join_pressed():
 
 
 func _on_join_status(message):
+	$Error.text = ""
 	$Confirm.text = message
 
 
 func _on_join_failed(message):
+	$Confirm.text = ""
 	$Error.text = message
 	
