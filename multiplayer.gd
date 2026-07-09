@@ -13,6 +13,7 @@ signal lobby_ready
 var lobby_id := 0
 var lobby_code := ""
 var join_error := ""
+var game_started := false
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -63,7 +64,9 @@ func _on_peer_connected(id):
 
 	print("Opponent connected! Peer ID:", id)
 
-	if multiplayer.is_server():
+	if multiplayer.is_server() and not game_started:
+
+		game_started = true
 
 		print("Starting game setup")
 		randomize_layout()
@@ -104,6 +107,9 @@ func randomize_layout():
 	)
 
 
+var layout_received := false
+
+
 @rpc("authority", "call_local", "reliable")
 func sync_layout(
 	pipe_pos: Vector2,
@@ -118,6 +124,11 @@ func sync_layout(
 		pipe_position,
 		goal_position
 	)
+
+
+	if not layout_received:
+		layout_received = true
+		lobby_ready.emit()
 
 
 # -------------------------
