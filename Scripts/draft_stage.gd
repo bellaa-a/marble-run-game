@@ -42,6 +42,7 @@ var hand_positions := [
 ]
 
 func _ready():
+	add_to_group("draft")
 	load_cards()
 	generate_draft()
 	
