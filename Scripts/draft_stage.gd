@@ -28,6 +28,10 @@ var hand_positions := [
 	$Card7,
 	$Card8,
 	$Card9,
+	$Card10,
+	$Card11,
+	$Card12,
+	$Card13,
 ]
 
 @onready var cracks = [
@@ -157,8 +161,14 @@ func receive_opponent_cards(card_ids: Array[String]):
 	for i in range(card_ids.size()):
 		var card = get_card_by_id(card_ids[i])
 
-		cards[5+i].setup(card)
-		cards[5+i].position = opponent_slots[i]
+		cards[10+i].setup(card)
+		var tween = create_tween()
+		tween.tween_property(
+			cards[10 + i],
+			"position",
+			opponent_slots[i],
+			0.4
+		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		
 func get_card_by_id(id: String) -> DraftCard:
 

@@ -127,3 +127,31 @@ horizontal_alignment = 1
 
 [node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1673219037]
 stream = ExtResource("7_ckvik")
+
+[node name="Card10" parent="." unique_id=1700207969 instance=ExtResource("5_64jat")]
+offset_left = 158.0
+offset_top = -336.0
+offset_right = 158.0
+offset_bottom = -336.0
+in_hand = true
+
+[node name="Card11" parent="." unique_id=1462589811 instance=ExtResource("5_64jat")]
+offset_left = 158.0
+offset_top = -336.0
+offset_right = 158.0
+offset_bottom = -336.0
+in_hand = true
+
+[node name="Card12" parent="." unique_id=1426933413 instance=ExtResource("5_64jat")]
+offset_left = 158.0
+offset_top = -336.0
+offset_right = 158.0
+offset_bottom = -336.0
+in_hand = true
+
+[node name="Card13" parent="." unique_id=871790173 instance=ExtResource("5_64jat")]
+offset_left = 158.0
+offset_top = -336.0
+offset_right = 158.0
+offset_bottom = -336.0
+in_hand = true
