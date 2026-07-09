@@ -69,4 +69,3 @@ stream = ExtResource("5_8rano")
 [node name="Crack" parent="." unique_id=299321046 instance=ExtResource("6_4odu1")]
 position = Vector2(3.051758e-05, -2.2888184e-05)
 rotation = 0.7853982
-scale = Vector2(1, 1e-05)
