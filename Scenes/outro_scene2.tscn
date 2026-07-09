@@ -535,7 +535,9 @@ distance = -229.0
 [node name="OutroScene2" type="Node2D" unique_id=2090950424]
 
 [node name="OutroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
-libraries/ = SubResource("AnimationLibrary_xfrxs")
+libraries = {
+&"": SubResource("AnimationLibrary_xfrxs")
+}
 script = ExtResource("1_85xb8")
 next_scene = ExtResource("2_wa3q3")
 

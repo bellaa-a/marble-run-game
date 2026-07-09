@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dae41pemh47ap" path="res://Assets/Player1.png" id="3_ao6qv"]
 [ext_resource type="Texture2D" uid="uid://bbyuto5gwwovl" path="res://Assets/Player2.png" id="4_02g8t"]
 [ext_resource type="AudioStream" uid="uid://b1tu3amfknja6" path="res://Audio/Connected.mp3" id="5_8rano"]
-[ext_resource type="PackedScene" uid="uid://c15sqkq0v7eui" path="res://Scenes/crack.tscn" id="6_4odu1"]
 
 [node name="Connected" type="Node2D" unique_id=1008316720]
 script = ExtResource("1_wxpa8")
@@ -65,7 +64,3 @@ texture = ExtResource("4_02g8t")
 
 [node name="Connected" type="AudioStreamPlayer2D" parent="." unique_id=176679304]
 stream = ExtResource("5_8rano")
-
-[node name="Crack" parent="." unique_id=299321046 instance=ExtResource("6_4odu1")]
-position = Vector2(3.051758e-05, -2.2888184e-05)
-rotation = 0.7853982

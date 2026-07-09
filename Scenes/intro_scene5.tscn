@@ -260,7 +260,9 @@ script = ExtResource("1_6d6tu")
 zoom = Vector2(2.3, 2.3)
 
 [node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
-libraries/ = SubResource("AnimationLibrary_xfrxs")
+libraries = {
+&"": SubResource("AnimationLibrary_xfrxs")
+}
 script = ExtResource("1_ycina")
 final = true
 

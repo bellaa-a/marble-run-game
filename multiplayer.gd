@@ -42,7 +42,7 @@ func randomize_layout():
 	sync_layout.rpc(pipe_position, goal_position)
 
 
-@rpc("authority", "call_local")
+@rpc("authority", "call_remote")
 func sync_layout(pipe_pos: Vector2, goal_pos: Vector2):
 	pipe_position = pipe_pos
 	goal_position = goal_pos

@@ -73,7 +73,9 @@ _data = {
 [node name="OutroScene3" type="Node2D" unique_id=2090950424]
 
 [node name="OutroAnimation" type="AnimationPlayer" parent="." unique_id=1170885694]
-libraries/ = SubResource("AnimationLibrary_xfrxs")
+libraries = {
+&"": SubResource("AnimationLibrary_xfrxs")
+}
 script = ExtResource("1_argti")
 next_scene = ExtResource("2_o8kfg")
 

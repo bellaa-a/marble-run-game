@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="marble_run"
+config/name="marble_run (4.6)"
 run/main_scene="uid://cjb7xplamndqq"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="uid://djtwn48eyhna1"
 
 [audio]

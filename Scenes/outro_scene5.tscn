@@ -91,7 +91,9 @@ texture = ExtResource("5_fmoxx")
 [node name="Audio" type="Node2D" parent="." unique_id=1483014371]
 
 [node name="Final" type="AnimationPlayer" parent="." unique_id=4827155]
-libraries/ = SubResource("AnimationLibrary_pf5oo")
+libraries = {
+&"": SubResource("AnimationLibrary_pf5oo")
+}
 script = ExtResource("2_25bil")
 
 [connection signal="animation_finished" from="Final" to="Final" method="_on_animation_finished"]

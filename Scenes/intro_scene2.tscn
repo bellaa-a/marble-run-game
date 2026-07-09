@@ -149,7 +149,9 @@ _data = {
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1751020278]
 
 [node name="IntroAnimation" type="AnimationPlayer" parent="." unique_id=782129435]
-libraries/ = SubResource("AnimationLibrary_m5wfd")
+libraries = {
+&"": SubResource("AnimationLibrary_m5wfd")
+}
 speed_scale = 4.0
 script = ExtResource("1_30w8k")
 next_scene = ExtResource("2_dbg80")
