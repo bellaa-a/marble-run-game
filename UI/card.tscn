@@ -43,6 +43,14 @@ offset_bottom = -15.0
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 
+[node name="Type" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -38.0
+offset_right = 36.0
+offset_bottom = -34.0
+color = Color(1, 1, 1, 0.5882353)
+
 [node name="CardBack" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0.62500477, 0.5000008)

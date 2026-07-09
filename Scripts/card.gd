@@ -10,6 +10,7 @@ signal powerup_clicked(card)
 @onready var stage: Label = $Stage
 @onready var card_button: TextureButton = $CardButton
 @onready var card_back: Sprite2D = $CardBack
+@onready var type: ColorRect = $Type
 
 var normal_scale := Vector2.ONE
 var hover_scale := Vector2(1.4, 1.4)
@@ -54,6 +55,23 @@ func setup(card: DraftCard):
 	description.add_theme_constant_override("line_spacing", -3)
 	
 	stage.text = stage_to_string(card.stage)
+	update_type_color()
+	
+func update_type_color():
+
+	match card_data.type:
+
+		Enum.CardType.BLOCK:
+			type.color = Color("6fa8dc96") # blue
+
+		Enum.CardType.ADDON:
+			type.color = Color("93c47d96") # green
+		
+		Enum.CardType.NECESSARY:
+			type.color = Color("93c47d96") # green
+
+		Enum.CardType.POWERUP:
+			type.color = Color("fa5e7c96") # orange
 
 func stage_to_string(stageName: Enum.Stage) -> String:
 	match stageName:
@@ -235,7 +253,8 @@ func _on_card_gui_input(event):
 		if mouse_down_pos.distance_to(event.position) > drag_threshold:
 
 			if card_data.type == Enum.CardType.BLOCK \
-			or card_data.type == Enum.CardType.ADDON:
+			or card_data.type == Enum.CardType.ADDON \
+			or card_data.type == Enum.CardType.NECESSARY:
 
 				dragging = false
 				block_drag_started.emit(card_data)

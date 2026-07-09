@@ -187,6 +187,13 @@ func show_opponent_cards():
 	$Instructions.text = "Here are the cards from your opponent!"
 	await get_tree().create_timer(1.0).timeout
 
+	var reveal_slots = [
+		Vector2(-225, 0),
+		Vector2(-75, 0),
+		Vector2(75, 0),
+		Vector2(225, 0),
+	]
+
 	var opponent_slots = [
 		Vector2(75,240),
 		Vector2(150,240),
@@ -200,17 +207,30 @@ func show_opponent_cards():
 			pending_opponent_cards[i]
 		)
 
-		print(card)
-
 		cards[9+i].setup(card)
+
+		# show in middle first
+		cards[9+i].reveal_card(
+			reveal_slots[i]
+		)
+
+
+	await get_tree().create_timer(2.0).timeout
+
+
+	for i in range(pending_opponent_cards.size()):
+
+		cards[9+i].scale = Vector2.ONE
 
 		cards[9+i].move_to_hand(
 			opponent_slots[i]
 		)
 
+
 	await get_tree().create_timer(0.3).timeout
 
 	try_finish_draft()
+	
 		
 func try_finish_draft():
 

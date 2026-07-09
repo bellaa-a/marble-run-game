@@ -48,19 +48,19 @@ func _unhandled_input(event):
 
 func finish_drag():
 
-	if can_place_block(dragging_block.global_position):
+	var placed_block = dragging_block
 
-		if dragging_block.has_method("set_preview"):
-			dragging_block.set_preview(false)
+	# stop following mouse immediately
+	dragging_block = null
+	dragging_card = null
 
-		# Keep block
-		dragging_block = null
-		dragging_card = null
+	if can_place_block(placed_block.global_position):
+
+		if placed_block.has_method("set_preview"):
+			placed_block.set_preview(false)
 
 	else:
-		dragging_block.queue_free()
-		dragging_block = null
-		dragging_card = null
+		placed_block.queue_free()
 
 
 func can_place_block(pos: Vector2) -> bool:
