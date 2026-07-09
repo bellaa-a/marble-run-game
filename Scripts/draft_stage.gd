@@ -7,6 +7,7 @@ var addon_cards: Array[DraftCard] = []
 var powerup_cards: Array[DraftCard] = []
 var necessary_cards: Array[DraftCard] = []
 var discarded_cards: Array[String] = []
+var pending_opponent_cards: Array[String] = []
 var num_cards := 9
 var selected_pairs := [false, false, false, false]
 var current_pair := 0
@@ -157,14 +158,29 @@ func send_opponent_cards():
 
 	Multiplayer.send_discarded_cards.rpc(discarded_cards)
 
+	# Opponent may have already finished
+	if opponent_finished_picking:
+		show_opponent_cards()
+
 	try_finish_draft()
 
 
 func receive_opponent_cards(card_ids: Array[String]):
 
-	print("receive_opponent_cards called!", card_ids)
+	print("Received opponent cards:", card_ids)
 
+	# Always store them first
+	pending_opponent_cards = card_ids
 	opponent_finished_picking = true
+
+	# If I am not done yet, wait
+	if not finished_picking:
+		return
+
+	show_opponent_cards()
+
+
+func show_opponent_cards():
 
 	$Instructions.text = "Opponent finished picking!"
 
@@ -175,11 +191,12 @@ func receive_opponent_cards(card_ids: Array[String]):
 		Vector2(300,240),
 	]
 
-	var last_tween_time := 0.0
+	for i in range(pending_opponent_cards.size()):
 
-	for i in range(card_ids.size()):
+		var card = get_card_by_id(
+			pending_opponent_cards[i]
+		)
 
-		var card = get_card_by_id(card_ids[i])
 		print(card)
 
 		cards[9+i].setup(card)
@@ -188,13 +205,7 @@ func receive_opponent_cards(card_ids: Array[String]):
 			opponent_slots[i]
 		)
 
-		last_tween_time = max(
-			last_tween_time,
-			0.3
-		)
-
-
-	await get_tree().create_timer(last_tween_time).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	try_finish_draft()
 		
