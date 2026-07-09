@@ -31,10 +31,6 @@ func _ready():
 	Steam.lobby_joined.connect(_on_lobby_joined)
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
-	
-	multiplayer.connected_to_server.connect(_on_connected_to_server)
-	multiplayer.peer_connected.connect(_on_peer_connected)
-	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 	randomize()
 
@@ -43,6 +39,19 @@ func _ready():
 	print("Steam ID:", Steam.getSteamID())
 
 
+func setup_multiplayer_signals():
+
+	var mp = get_tree().get_multiplayer()
+
+	if not mp.peer_connected.is_connected(_on_peer_connected):
+		mp.peer_connected.connect(_on_peer_connected)
+
+	if not mp.connected_to_server.is_connected(_on_connected_to_server):
+		mp.connected_to_server.connect(_on_connected_to_server)
+
+	if not mp.server_disconnected.is_connected(_on_server_disconnected):
+		mp.server_disconnected.connect(_on_server_disconnected)
+		
 func _on_connected_to_server():
 
 	print("Connected to Steam multiplayer server!")
@@ -188,6 +197,7 @@ func _on_lobby_created(
 	if result == OK:
 
 		multiplayer.multiplayer_peer = peer
+		setup_multiplayer_signals()
 
 		print("Steam host started")
 		print(
@@ -296,9 +306,12 @@ func _on_lobby_joined(
 
 	peer = SteamMultiplayerPeer.new()
 
+	var owner_id = Steam.getLobbyOwner(lobby_id)
 
-	var result = peer.create_client(lobby_id)
+	print("Lobby owner Steam ID:", owner_id)
 
+
+	var result = peer.create_client(owner_id)
 
 	print("Client result:", result)
 
