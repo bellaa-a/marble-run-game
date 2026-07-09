@@ -179,6 +179,7 @@ func reveal_card(target_position: Vector2):
 	)
 
 	await tween.finished
+	await get_tree().create_timer(1.0).timeout
 	
 	
 func disappear():

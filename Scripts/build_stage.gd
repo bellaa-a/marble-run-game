@@ -86,16 +86,11 @@ func can_place_block(pos: Vector2) -> bool:
 
 func organize_inventory():
 
-	# 1. Animation only
 	await animate_cards_to_center()
+	sort_player_inventory()
+	$Inventory.load_inventory()
 	await animate_cards_back()
 
-	# 2. Sort data
-	sort_player_inventory()
-
-	# 3. Reload cards visually
-	$Inventory.load_inventory()
-	
 
 func animate_cards_to_center():
 
@@ -146,8 +141,8 @@ func sort_player_inventory():
 
 	Multiplayer.player_inventory.sort_custom(
 		func(a, b):
-			var card_a = CardDatabase.get_card_by_id(a)
-			var card_b = CardDatabase.get_card_by_id(b)
+			var card_a = CardDatabase.get_card_by_id(a["id"])
+			var card_b = CardDatabase.get_card_by_id(b["id"])
 
 			return order[card_a.type] < order[card_b.type]
 	)
