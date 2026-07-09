@@ -4,3 +4,5 @@ extends Node2D
 
 func _ready():
 	Multiplayer.build_stage = self
+	$Pipe.position = Multiplayer.pipe_position
+	$MultiplayerGoal.position = Multiplayer.goal_position

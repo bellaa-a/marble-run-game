@@ -15,9 +15,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	$Pipe.position = Multiplayer.pipe_position
-	$MultiplayerGoal.position = Multiplayer.goal_position
-	
 	print(Multiplayer.player_inventory)
 
 	load_inventory()
