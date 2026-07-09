@@ -134,6 +134,7 @@ func _on_mouse_exited():
 func move_to_hand(target_position: Vector2):
 	in_hand = true
 	moving_to_hand = true
+	revealing = false
 	set_selected_layer(true)
 
 	normal_position = target_position
@@ -158,8 +159,6 @@ func move_to_hand(target_position: Vector2):
 	)
 
 func reveal_card(target_position: Vector2):
-	revealing = true
-	set_interactable(false)
 	normal_position = position
 	
 	show()
@@ -180,8 +179,6 @@ func reveal_card(target_position: Vector2):
 
 	await tween.finished
 	await get_tree().create_timer(1.0).timeout
-	revealing = false
-	set_interactable(true)
 	
 	
 func disappear():
