@@ -54,9 +54,12 @@ func _on_peer_connected(id):
 
 	print("Opponent connected! Peer ID:", id)
 
-	if multiplayer.is_server() and multiplayer.get_peers().size() == 1:
+	if multiplayer.is_server():
+
 		print("Starting game setup")
 		randomize_layout()
+
+		lobby_ready.emit()
 
 
 func _on_server_disconnected():
