@@ -10,6 +10,7 @@ func _ready():
 	Multiplayer.build_stage = self
 	$Pipe.position = Multiplayer.pipe_position
 	$MultiplayerGoal.position = Multiplayer.goal_position
+	await organize_inventory()
 
 
 func _exit_tree():
@@ -65,3 +66,72 @@ func finish_drag():
 
 func can_place_block(pos: Vector2) -> bool:
 	return true
+
+
+func organize_inventory():
+
+	# 1. Animation only
+	await animate_cards_to_center()
+	await animate_cards_back()
+
+	# 2. Sort data
+	sort_player_inventory()
+
+	# 3. Reload cards visually
+	$Inventory.load_inventory()
+	
+
+func animate_cards_to_center():
+
+	var cards = $Inventory.hand_cards
+
+	for card in cards:
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_IN_OUT)
+
+		tween.tween_property(
+			card,
+			"position",
+			Vector2(0,240),
+			0.4
+		)
+
+	await get_tree().create_timer(0.45).timeout
+
+
+func animate_cards_back():
+
+	var cards = $Inventory.hand_cards
+
+	for card in cards:
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_IN_OUT)
+
+		tween.tween_property(
+			card,
+			"position",
+			card.normal_position,
+			0.4
+		)
+
+	await get_tree().create_timer(0.45).timeout
+	
+
+func sort_player_inventory():
+
+	var order = {
+		Enum.CardType.BLOCK: 0,
+		Enum.CardType.NECESSARY: 1,
+		Enum.CardType.ADDON: 2,
+		Enum.CardType.POWERUP: 3
+	}
+
+	Multiplayer.player_inventory.sort_custom(
+		func(a, b):
+			var card_a = CardDatabase.get_card_by_id(a)
+			var card_b = CardDatabase.get_card_by_id(b)
+
+			return order[card_a.type] < order[card_b.type]
+	)

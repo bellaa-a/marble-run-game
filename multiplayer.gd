@@ -15,6 +15,7 @@ var lobby_code := ""
 var join_error := ""
 var game_started := false
 var player_inventory: Array[String] = []
+
 var build_stage: Node = null
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

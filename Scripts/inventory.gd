@@ -22,6 +22,9 @@ func _ready() -> void:
 
 func load_inventory():
 
+	for card in hand_cards:
+		card.hide()
+
 	for i in range(Multiplayer.player_inventory.size()):
 
 		var card_data = CardDatabase.get_card_by_id(
@@ -29,9 +32,13 @@ func load_inventory():
 		)
 
 		hand_cards[i].setup(card_data)
+		hand_cards[i].show()
 
-		hand_cards[i].block_drag_started.connect(_on_block_drag_started)
-		hand_cards[i].powerup_clicked.connect(_on_powerup_clicked)
+		if not hand_cards[i].block_drag_started.is_connected(_on_block_drag_started):
+			hand_cards[i].block_drag_started.connect(_on_block_drag_started)
+
+		if not hand_cards[i].powerup_clicked.is_connected(_on_powerup_clicked):
+			hand_cards[i].powerup_clicked.connect(_on_powerup_clicked)
 				
 
 func _on_block_drag_started(card: DraftCard):
