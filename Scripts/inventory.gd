@@ -44,9 +44,6 @@ func load_inventory():
 		if not hand_cards[i].block_drag_started.is_connected(_on_block_drag_started):
 			hand_cards[i].block_drag_started.connect(_on_block_drag_started)
 		
-		if not hand_cards[i].block_drag_finished.is_connected(_on_block_drag_finished):
-			hand_cards[i].block_drag_finished.connect(_on_block_drag_finished)
-
 		if not hand_cards[i].powerup_clicked.is_connected(_on_powerup_clicked):
 			hand_cards[i].powerup_clicked.connect(_on_powerup_clicked)
 				
@@ -54,8 +51,6 @@ func load_inventory():
 func _on_block_drag_started(card):
 	get_parent().begin_drag(card)
 
-func _on_block_drag_finished(card):
-	get_parent().finish_drag(card)
 
 func _on_powerup_clicked(card: DraftCard):
 	Multiplayer.send_powerup(card.id)

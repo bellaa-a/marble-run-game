@@ -40,14 +40,24 @@ func begin_drag(card):
 	# prevent the card from receiving the mouse release
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
+	
+func _input(event):
 
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+
+			if dragging_block:
+				finish_drag(dragging_card)
+				
 func finish_drag(card):
 
 	if dragging_block == null:
 		return
 
 	var placed_block = dragging_block
+
 	dragging_block = null
+	dragging_card = null
 
 	if can_place_block(placed_block.global_position):
 
@@ -61,6 +71,7 @@ func finish_drag(card):
 		placed_block.queue_free()
 
 	dragging_card = null
+	card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
 func can_place_block(pos: Vector2) -> bool:

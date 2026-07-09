@@ -2,7 +2,6 @@ extends Control
 
 signal card_selected(card)
 signal block_drag_started(card)
-signal block_drag_finished(card)
 signal powerup_clicked(card)
 
 @export var in_hand : bool = false
@@ -265,12 +264,8 @@ func _on_card_gui_input(event):
 				dragging = true
 
 			else:
-				if block_dragging:
-					block_dragging = false
-					block_drag_finished.emit(self)
-				else:
-					if card_data.type == Enum.CardType.POWERUP:
-						powerup_clicked.emit(card_data)
+				if card_data.type == Enum.CardType.POWERUP:
+					powerup_clicked.emit(card_data)
 
 				dragging = false
 
