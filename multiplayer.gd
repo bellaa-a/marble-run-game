@@ -9,11 +9,11 @@ var peer: SteamMultiplayerPeer
 var is_host := false
 
 signal lobby_ready
+signal join_status(message)
+signal join_failed(message)
 
 var lobby_id := 0
 var lobby_code := ""
-var join_error := ""
-var join_confirm := ""
 var game_started := false
 var player_inventory: Array[String] = []
 
@@ -262,7 +262,7 @@ func _on_lobby_match_list(
 
 	if lobbies.size() == 0:
 
-		join_error = "Invalid room code"
+		join_failed.emit("Invalid room code")
 		return
 
 	var found_lobby = lobbies[0]
@@ -273,19 +273,18 @@ func _on_lobby_match_list(
 
 	if members >= 2:
 
-		join_error = "Room is full"
+		join_failed.emit("Room is full")
 		return
 
 	print(
 		"Joining lobby:",
 		found_lobby
 	)
-	join_confirm = "Joining room..."
+	join_status.emit("Joining room...")
 
 	Steam.joinLobby(
 		found_lobby
 	)
-
 
 
 func _on_lobby_joined(

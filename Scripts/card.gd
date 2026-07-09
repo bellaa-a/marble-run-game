@@ -11,8 +11,8 @@ signal powerup_clicked(card)
 @onready var card_button: TextureButton = $CardButton
 @onready var card_back: Sprite2D = $CardBack
 @onready var type: ColorRect = $Type
-@onready var question_mark: Sprite2D = $CardBack/QuestionMark
-@onready var used: Sprite2D = $CardBack/Used
+@onready var question_mark: Label = $CardBack/QuestionMark
+@onready var used: Label = $CardBack/Used
 
 var normal_scale := Vector2.ONE
 var hover_scale := Vector2(1.4, 1.4)

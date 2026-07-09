@@ -3,6 +3,8 @@ extends Node
 
 func _ready() -> void:
 	Multiplayer.lobby_ready.connect(_on_lobby_ready)
+	Multiplayer.join_status.connect(_on_join_status)
+	Multiplayer.join_failed.connect(_on_join_failed)
 
 
 func _on_lobby_ready():
@@ -26,6 +28,13 @@ func _on_join_pressed():
 	if code.length() != 6:
 		$Error.text = "Invalid code format"
 		return
-	$Error.text = Multiplayer.join_error
-	$Confirm.text = Multiplayer.join_confirm
 	Multiplayer.join_game(code)
+
+
+func _on_join_status(message):
+	$Confirm.text = message
+
+
+func _on_join_failed(message):
+	$Error.text = message
+	
