@@ -21,25 +21,21 @@ func _process(_delta):
 	if dragging_block:
 		dragging_block.global_position = get_global_mouse_position()
 		
-
+		
 func begin_drag(card: DraftCard):
 
-	print("START DRAG:", card)
-
 	dragging_card = card
+
 	dragging_block = card.scene.instantiate()
-
-	print("CREATED BLOCK:", dragging_block)
-
 	add_child(dragging_block)
 
-	# Make it transparent / ghost version
 	if dragging_block.has_method("set_preview"):
 		dragging_block.set_preview(true)
 
-	# Start following mouse
 	dragging_block.global_position = get_global_mouse_position()
 
+	# prevent the card from receiving the mouse release
+	card.card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _unhandled_input(event):
 
@@ -58,20 +54,27 @@ func _unhandled_input(event):
 
 func finish_drag():
 
+	if dragging_block == null:
+		return
+
 	var placed_block = dragging_block
 
-	# stop following mouse immediately
 	dragging_block = null
-	dragging_card = null
 
 	if can_place_block(placed_block.global_position):
 
 		if placed_block.has_method("set_preview"):
 			placed_block.set_preview(false)
+
 		consume_card()
 
 	else:
 		placed_block.queue_free()
+
+	if dragging_card:
+		dragging_card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	dragging_card = null
 
 func consume_card():
 
