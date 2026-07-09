@@ -153,6 +153,11 @@ func move_to_hand(target_position: Vector2):
 		# allow hover again
 		card_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	)
+
+func reveal_card(target_position: Vector2):
+	position = target_position
+	scale = Vector2(1.5, 1.5)
+	
 	
 func disappear():
 	dissapearing = true
