@@ -58,6 +58,7 @@ func _ready():
 		
 		cards[i * 2].set_revealed(active)
 		cards[i * 2 + 1].set_revealed(active)
+		cards[9+i].set_interactable(false)
 
 	update_pair_access()
 	

@@ -140,7 +140,7 @@ func move_to_hand(target_position: Vector2):
 	scale = normal_scale
 	
 	# prevent hover events during movement
-	card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	set_interactable(false)
 	
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -158,13 +158,13 @@ func move_to_hand(target_position: Vector2):
 		moving_to_hand = false
 		
 		# allow hover again
-		card_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		set_interactable(true)
 	)
 
 func reveal_card(target_position: Vector2):
-	card_button.disabled = true
-	card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
+	revealing = true
+	set_interactable(false)
+	
 	show()
 
 	position = target_position
@@ -183,13 +183,13 @@ func reveal_card(target_position: Vector2):
 
 	await tween.finished
 	await get_tree().create_timer(1.0).timeout
-	card_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	card_button.disabled = false
+	revealing = false
+	set_interactable(true)
 	
 	
 func disappear():
 	dissapearing = true
-	card_button.disabled = true
+	set_interactable(false)
 	
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -209,18 +209,10 @@ func disappear():
 	
 
 func set_selectable(value: bool):
-	card_button.disabled = not value
+	set_interactable(value)
 
-	if value:
-		card_button.mouse_filter = Control.MOUSE_FILTER_STOP
-		
-		if not in_hand:
-			z_index = 10
-	else:
-		card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		
-		if not in_hand:
-			z_index = 0
+	if not in_hand:
+		z_index = 10 if value else 0
 
 
 func set_revealed(value: bool):
@@ -294,6 +286,16 @@ func _on_card_gui_input(event):
 				block_drag_started.emit(self)
 
 func use_card():
-	card_back.visible = true	
+	card_back.visible = true
 	question_mark.visible = false
 	used.visible = true
+	set_interactable(false)
+
+
+func set_interactable(value: bool):
+	card_button.disabled = not value
+
+	if value:
+		card_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	else:
+		card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
