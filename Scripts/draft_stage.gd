@@ -165,10 +165,10 @@ func receive_opponent_cards(card_ids: Array[String]):
 		var card = get_card_by_id(card_ids[i])
 		print(card)
 
-		cards[10+i].setup(card)
+		cards[9+i].setup(card)
 		var tween = create_tween()
 		tween.tween_property(
-			cards[10 + i],
+			cards[9 + i],
 			"position",
 			opponent_slots[i],
 			0.4
