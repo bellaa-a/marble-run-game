@@ -41,7 +41,7 @@ func load_inventory():
 			hand_cards[i].powerup_clicked.connect(_on_powerup_clicked)
 				
 
-func _on_block_drag_started(card: DraftCard):
+func _on_block_drag_started(card):
 	get_parent().begin_drag(card)
 
 

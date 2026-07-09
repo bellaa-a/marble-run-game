@@ -4,7 +4,7 @@ extends Node2D
 @export var group_name : String
 
 var dragging_block: Node2D = null
-var dragging_card: DraftCard = null
+var dragging_card: Control = null
 
 func _ready():
 	Multiplayer.build_stage = self
@@ -22,11 +22,11 @@ func _process(_delta):
 		dragging_block.global_position = get_global_mouse_position()
 		
 		
-func begin_drag(card: DraftCard):
+func begin_drag(card):
 
 	dragging_card = card
 
-	dragging_block = card.scene.instantiate()
+	dragging_block = card.card_data.scene.instantiate()
 	add_child(dragging_block)
 
 	if dragging_block.has_method("set_preview"):
@@ -66,7 +66,7 @@ func finish_drag():
 		if placed_block.has_method("set_preview"):
 			placed_block.set_preview(false)
 
-		consume_card()
+		dragging_card.use_card()
 
 	else:
 		placed_block.queue_free()
@@ -76,13 +76,6 @@ func finish_drag():
 
 	dragging_card = null
 
-func consume_card():
-
-	for card in $Inventory.hand_cards:
-		if card.card_data == dragging_card:
-			card.use_card()
-			return
-			
 
 func can_place_block(pos: Vector2) -> bool:
 	return true

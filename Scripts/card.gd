@@ -282,7 +282,7 @@ func _on_card_gui_input(event):
 			or card_data.type == Enum.CardType.NECESSARY:
 
 				dragging = false
-				block_drag_started.emit(card_data)
+				block_drag_started.emit(self)
 
 func use_card():
 	card_back.visible = true	
