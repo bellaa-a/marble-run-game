@@ -21,6 +21,7 @@ var hover_offset := Vector2(0, -60)
 var pair_id: int
 var moving_to_hand := false
 var dissapearing := false
+var revealing := false
 var card_data: DraftCard
 var dragging := false
 var drag_threshold := 30
@@ -92,7 +93,7 @@ func stage_to_string(stageName: Enum.Stage) -> String:
 			
 			
 func _on_mouse_entered() -> void:
-	if moving_to_hand or dissapearing:
+	if moving_to_hand or dissapearing or revealing:
 		return
 
 	if in_hand:
@@ -111,7 +112,7 @@ func _on_mouse_entered() -> void:
 		)
 	
 func _on_mouse_exited():
-	if moving_to_hand or dissapearing:
+	if moving_to_hand or dissapearing or revealing:
 		return
 
 	if in_hand:
@@ -161,6 +162,8 @@ func move_to_hand(target_position: Vector2):
 	)
 
 func reveal_card(target_position: Vector2):
+	card_button.disabled = true
+	card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	show()
 
@@ -180,6 +183,8 @@ func reveal_card(target_position: Vector2):
 
 	await tween.finished
 	await get_tree().create_timer(1.0).timeout
+	card_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	card_button.disabled = false
 	
 	
 func disappear():
