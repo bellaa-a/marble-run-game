@@ -39,4 +39,4 @@ func _on_block_drag_started(card: DraftCard):
 
 
 func _on_powerup_clicked(card: DraftCard):
-	Multiplayer.use_powerup.rpc(card.id)
+	Multiplayer.send_powerup(card.id)

@@ -430,11 +430,15 @@ func reset_match():
 	player_inventory.clear()
 
 
+func send_powerup(card_id: String):
+	var opponent_id = get_opponent_id()
+	if opponent_id == -1:
+		return
+	use_powerup.rpc_id(opponent_id, card_id)
+	
+
 @rpc("any_peer")
 func use_powerup(card_id: String):
-	if build_stage == null:
-		return
-
 	var card = CardDatabase.get_card_by_id(card_id)
 	var effect = card.effect_scene.instantiate()
 	build_stage.effect_layer.add_child(effect)
