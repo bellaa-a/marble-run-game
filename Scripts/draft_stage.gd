@@ -10,6 +10,8 @@ var discarded_cards: Array[String] = []
 var num_cards := 9
 var selected_pairs := [false, false, false, false]
 var current_pair := 0
+var finished_picking := false
+var opponent_finished_picking := false
 
 var hand_positions := [
 	Vector2(-225, 240),
@@ -148,11 +150,25 @@ func select_card(card):
 
 
 func send_opponent_cards():
+
+	finished_picking = true
+
+	$Instructions.text = "Waiting for opponent..."
+
 	Multiplayer.send_discarded_cards.rpc(discarded_cards)
+
+	try_finish_draft()
 
 
 func receive_opponent_cards(card_ids: Array[String]):
+
 	print("receive_opponent_cards called!", card_ids)
+
+	opponent_finished_picking = true
+
+	$Instructions.text = "Opponent finished picking!"
+
+	try_finish_draft()
 
 	var opponent_slots = [
 		Vector2(75,240),
@@ -174,6 +190,19 @@ func receive_opponent_cards(card_ids: Array[String]):
 			0.4
 		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		
+func try_finish_draft():
+
+	if not finished_picking:
+		return
+
+	if not opponent_finished_picking:
+		return
+
+	print("Both players finished draft!")
+
+	# move to next stage here
+	# transition.fade_to_scene(...)
+	
 func get_card_by_id(id: String) -> DraftCard:
 
 	for card in block_cards:
