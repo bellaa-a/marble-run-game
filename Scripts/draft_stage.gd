@@ -42,6 +42,7 @@ var hand_positions := [
 ]
 
 func _ready():
+
 	add_to_group("draft")
 	load_cards()
 	generate_draft()
@@ -64,7 +65,7 @@ func _ready():
 	$Pipe.position = Multiplayer.pipe_position
 	$MultiplayerGoal.position = Multiplayer.goal_position
 
-
+	
 func generate_draft():
 	cards[num_cards-1].setup(necessary_cards.pick_random())
 	randomize()

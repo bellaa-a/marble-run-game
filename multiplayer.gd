@@ -31,6 +31,10 @@ func _ready():
 	Steam.lobby_joined.connect(_on_lobby_joined)
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
+	
+	multiplayer.connected_to_server.connect(_on_connected_to_server)
+	multiplayer.peer_connected.connect(_on_peer_connected)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 	randomize()
 
@@ -38,6 +42,25 @@ func _ready():
 
 	print("Steam ID:", Steam.getSteamID())
 
+
+func _on_connected_to_server():
+
+	print("Connected to Steam multiplayer server!")
+
+	lobby_ready.emit()
+
+
+func _on_peer_connected(id):
+
+	print("Opponent connected! Peer ID:", id)
+
+	if multiplayer.is_server():
+		randomize_layout()
+
+
+func _on_server_disconnected():
+
+	print("Server disconnected")
 
 func _process(_delta):
 
@@ -310,41 +333,20 @@ func _on_lobby_chat_update(
 	check_lobby_ready()
 
 
-
 func check_lobby_ready():
 
 	if lobby_id == 0:
 		return
 
 
-	var members = Steam.getNumLobbyMembers(
-		lobby_id
-	)
+	var members = Steam.getNumLobbyMembers(lobby_id)
 
-
-	print(
-		"Players in lobby:",
-		members
-	)
+	print("Players in lobby:", members)
 
 
 	if members == 2:
 
-		print("Lobby is ready!")
-
-
-		await get_tree().create_timer(0.5).timeout
-
-
-		if multiplayer.is_server():
-
-			print("Generating layout")
-			randomize_layout()
-
-
-		lobby_ready.emit()
-
-
+		print("Steam lobby ready!")
 
 # -------------------------
 # Utilities
