@@ -442,10 +442,10 @@ func send_powerup(card_id: String):
 	use_powerup.rpc_id(opponent_id, card_id)
 	
 
-@rpc("any_peer")
+@rpc("any_peer", "call_remote", "reliable")
 func use_powerup(card_id: String):
 	var card = CardDatabase.get_card_by_id(card_id)
-	var effect = card.effect_scene.instantiate()
+	var effect = card.scene.instantiate()
 	build_stage.effect_layer.add_child(effect)
 	effect.activate()
 

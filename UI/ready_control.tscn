@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://y6mme48dmwe0"]
+[gd_scene load_steps=10 format=3 uid="uid://y6mme48dmwe0"]
 
 [ext_resource type="Texture2D" uid="uid://bcftassbf0w71" path="res://Assets/Player1Button.png" id="1_1q1mv"]
 [ext_resource type="Script" uid="uid://l5o0mbk1h65v" path="res://Scripts/ready_control.gd" id="1_81670"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bn5o4uxhdcggs" path="res://Assets/Player2Button.png" id="3_iiyff"]
 [ext_resource type="Texture2D" uid="uid://byxgfi0pdt12c" path="res://Assets/Player2ButtonPress.png" id="4_hs5nm"]
 [ext_resource type="AudioStream" uid="uid://cssr47hv6sndj" path="res://Audio/Beep.mp3" id="6_iiyff"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_hs5nm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8tunm"]
 animations = [{
@@ -76,23 +77,23 @@ horizontal_alignment = 1
 
 [node name="Username2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 245.0
-offset_right = 589.0
-offset_bottom = 265.0
+offset_left = 513.0
+offset_top = 237.0
+offset_right = 593.0
+offset_bottom = 257.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Username2"
 horizontal_alignment = 1
 
 [node name="ReadyButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 340.0
+offset_left = 344.0
 offset_top = 284.0
-offset_right = 425.0
-offset_bottom = 311.0
+offset_right = 431.0
+offset_bottom = 320.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7434817, 0.7434819, 0.7434827, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_hover_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+theme_override_font_sizes/font_size = 30
 text = "READY!!"
 flat = true
 
@@ -103,7 +104,7 @@ sprite_frames = SubResource("SpriteFrames_8tunm")
 animation = &"press"
 
 [node name="Player2" type="AnimatedSprite2D" parent="."]
-position = Vector2(549, 215.00003)
+position = Vector2(551, 207.99998)
 scale = Vector2(0.2323151, 0.23308271)
 sprite_frames = SubResource("SpriteFrames_x5xvn")
 animation = &"press"
@@ -118,5 +119,31 @@ zoom = Vector2(1.5, 1.5)
 stream = ExtResource("6_iiyff")
 volume_db = 10.0
 parameters/looping = true
+
+[node name="Button1On" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.21960784, 1, 0.23529412, 0.8235294)
+polygon = PackedVector2Array(227, 221, 240, 221, 242, 222, 244, 223, 244, 225, 243, 226, 240, 227, 237, 227, 234, 227, 231, 227, 228, 227, 226, 226, 225, 225, 225, 223, 225.97382, 222.02618)
+
+[node name="Button2On" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(330, 0)
+color = Color(0.21960784, 1, 0.23529412, 0.8235294)
+polygon = PackedVector2Array(227, 221, 240, 221, 242, 221, 244, 223, 244, 225, 243, 226, 240, 227, 237, 227, 234, 227, 231, 227, 228, 227, 226, 226, 225, 225, 225, 223, 225.97382, 222.02618)
+
+[node name="CountdownLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 349.0
+offset_top = 157.0
+offset_right = 429.0
+offset_bottom = 241.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 70
+text = "3"
+horizontal_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hs5nm")
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]

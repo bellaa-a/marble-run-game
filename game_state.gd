@@ -16,6 +16,7 @@
 # mystery box (could be anything. could have low chances of special message or sudden death or win)
 # locks screen until player gets it right (like higher or lower with card desks or does math problem, click through i agree, turns and conditions, robot checking drag puzzle peice, have to type certain number of words, xxx ur opponent is so great)
 # flipped screen (upside down)
+# exchange a card you choose for a random card from your oponent
 
 extends Node
 

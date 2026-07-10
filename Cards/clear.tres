@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://cqvfybd5yv3gc"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://cqvfybd5yv3gc"]
 
 [ext_resource type="Texture2D" uid="uid://cutrdmi63apor" path="res://Assets/destroy.png" id="1_ecdl1"]
+[ext_resource type="PackedScene" uid="uid://b2w578i010fp8" path="res://UI/clear_screen.tscn" id="2_d1oyb"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_7beor"]
 
 [resource]
@@ -11,3 +12,4 @@ stage = 1
 description = "Clear other board once."
 icon = ExtResource("1_ecdl1")
 icon_size = Vector2(20, 20)
+scene = ExtResource("2_d1oyb")

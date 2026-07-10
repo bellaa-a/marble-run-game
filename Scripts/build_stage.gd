@@ -15,7 +15,8 @@ var dragging_block: Node2D = null
 var dragging_card: Control = null
 
 func _ready():
-	show_ready_ui()
+	await organize_inventory()
+	#show_ready_ui()
 	Multiplayer.build_stage = self
 	pipe.position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
@@ -92,7 +93,6 @@ func can_place_block(_pos: Vector2) -> bool:
 
 
 func organize_inventory():
-
 	await animate_cards_to_center()
 	sort_player_inventory()
 	$Inventory.load_inventory()
@@ -157,13 +157,12 @@ func sort_player_inventory():
 
 func _on_both_players_ready():
 	print("Everyone is ready!")
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	$Ready.play()
 	await get_tree().create_timer(1.0).timeout
 	hide_ready_ui()
 	inventory.z_index = 10
 	await get_tree().create_timer(1.0).timeout
-	await organize_inventory()
 
 
 func show_ready_ui():

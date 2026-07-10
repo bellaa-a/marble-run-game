@@ -40,3 +40,7 @@ func update_timer_display():
 		timer_label.modulate = Color.RED
 	else:
 		timer_label.modulate = Color.WHITE
+
+
+func _on_rotation_toggled(toggled_on: bool) -> void:
+	Multiplayer.rotation_mode = toggled_on

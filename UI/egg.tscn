@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6g5yyh74w72h"]
+
+[ext_resource type="Script" uid="uid://coobayydoqwdf" path="res://Scripts/splatter.gd" id="1_to1ak"]
+[ext_resource type="Texture2D" uid="uid://bsmtb6558vsrq" path="res://Assets/EggSplatter.png" id="2_to1ak"]
+[ext_resource type="AudioStream" uid="uid://b8xaot8mcdmte" path="res://Audio/Egg.mp3" id="3_to1ak"]
+
+[node name="Egg" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = 13.0
+offset_right = -27.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_to1ak")
+
+[node name="Splatter2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(187.09999, 508.775)
+scale = Vector2(0.7552197, 0.76821244)
+texture = ExtResource("2_to1ak")
+
+[node name="Splatter1" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(608, 149.99998)
+scale = Vector2(0.86401093, 0.87613827)
+texture = ExtResource("2_to1ak")
+
+[node name="Splatter3" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(983, 511.00006)
+scale = Vector2(0.7648352, 0.7513491)
+texture = ExtResource("2_to1ak")
+
+[node name="Splatter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_to1ak")
