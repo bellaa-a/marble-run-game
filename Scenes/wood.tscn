@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dfdt7qsxl1yyr"]
+[gd_scene load_steps=9 format=3 uid="uid://dfdt7qsxl1yyr"]
 
 [ext_resource type="Script" uid="uid://bqb627dfwsa2t" path="res://Scripts/wood.gd" id="1_4vtod"]
 [ext_resource type="Script" uid="uid://dnnmjgbxgkhxn" path="res://Scripts/area_2d.gd" id="2_8tt3v"]
@@ -17,35 +17,35 @@ size = Vector2(31.792374, 9.613372)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qncar"]
 size = Vector2(31.792374, 6.6102085)
 
-[node name="Wood" type="AnimatableBody2D" unique_id=1588518613]
+[node name="Wood" type="AnimatableBody2D"]
 collision_layer = 2
 collision_mask = 31
 physics_material_override = SubResource("PhysicsMaterial_c2iur")
 script = ExtResource("1_4vtod")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=524290782]
+[node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(6.9198985, 1.7683702)
 collision_layer = 2
 collision_mask = 31
 script = ExtResource("2_8tt3v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=58156479]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8o1l4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=725986929]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 scale = Vector2(6.9198985, 1.7683702)
 shape = SubResource("RectangleShape2D_qncar")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=762419828]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.0002835, 1.1017776)
 texture = ExtResource("3_ixntw")
 
-[node name="HitWood" type="AudioStreamPlayer2D" parent="." unique_id=2109463260]
+[node name="HitWood" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_d7exs")
 bus = &"SFX"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=132932472]
+[node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.39215687)
 offset_left = -122.0
 offset_top = -67.0

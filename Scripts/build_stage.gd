@@ -31,6 +31,7 @@ func begin_drag(card):
 	dragging_card = card
 
 	dragging_block = card.card_data.scene.instantiate()
+	dragging_block.scale = card.card_data.block_scale
 	add_child(dragging_block)
 
 	if dragging_block.has_method("set_preview"):

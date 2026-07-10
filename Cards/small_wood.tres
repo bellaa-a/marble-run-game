@@ -11,4 +11,4 @@ description = "Small Wooden Block."
 icon = ExtResource("1_sxga8")
 icon_size = Vector2(20, 50)
 scene = ExtResource("2_555ad")
-block_size = Vector2(32, 32)
+block_scale = Vector2(0.4, 1)

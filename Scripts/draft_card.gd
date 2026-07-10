@@ -8,4 +8,4 @@ extends Resource
 @export var icon : Texture2D
 @export var icon_size: Vector2
 @export var scene : PackedScene
-@export var block_size: Vector2
+@export var block_scale: Vector2

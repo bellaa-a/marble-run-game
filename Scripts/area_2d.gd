@@ -83,6 +83,10 @@ func _input_event(_viewport, event, _shape_idx):
 
 		else:
 			moving = true
+
+			blocked_move = false
+			blocked_move_direction = Vector2.ZERO
+
 			move_offset = block.global_position - get_global_mouse_position()
 			previous_position = block.global_position
 
@@ -126,12 +130,16 @@ func _physics_process(delta):
 		if blocked_move:
 
 			# moving back opposite the collision direction
-			if movement.length() > MOVE_THRESHOLD:
-				if movement.dot(blocked_move_direction) < 0:
-					blocked_move = false
-					blocked_move_direction = Vector2.ZERO
-				else:
-					return
+
+			if movement.length() <= MOVE_THRESHOLD:
+				return
+
+			var direction = movement.normalized()
+
+			# moving opposite the collision direction
+			if direction.dot(blocked_move_direction) < -0.5:
+				blocked_move = false
+				blocked_move_direction = Vector2.ZERO
 			else:
 				return
 
