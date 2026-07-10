@@ -36,11 +36,10 @@ animations = [{
 
 [node name="ReadyControl" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -381.0
-offset_bottom = -227.0
+anchor_right = 0.669
+anchor_bottom = 0.65000004
+offset_right = 0.31195068
+offset_bottom = -0.2000122
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_81670")
@@ -107,5 +106,11 @@ position = Vector2(549, 215.00003)
 scale = Vector2(0.2323151, 0.23308271)
 sprite_frames = SubResource("SpriteFrames_x5xvn")
 animation = &"press"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(385, 217)
+rotation = -0.34298238
+scale = Vector2(2.3117251, 6.0836453)
+zoom = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
