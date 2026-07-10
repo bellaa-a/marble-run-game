@@ -1,8 +1,8 @@
 extends Node2D
 
 
-@onready var player1 = $ColorRect/Player1
-@onready var player2 = $ColorRect/Player2
+@onready var player1 = $Player1
+@onready var player2 = $Player2
 
 func _ready():
 	player1.play()
