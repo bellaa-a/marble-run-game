@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlnj3gmjer15v"]
+[gd_scene load_steps=10 format=3 uid="uid://dlnj3gmjer15v"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_5b1iv"]
 [ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/versus_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
+[ext_resource type="AudioStream" uid="uid://cssr47hv6sndj" path="res://Audio/Ready.mp3" id="9_2fodp"]
 
 [node name="BuildStage" type="Node2D"]
 script = ExtResource("1_ebcgw")
@@ -37,3 +38,8 @@ position = Vector2(-49, 0)
 label_text = "I."
 
 [node name="ReadyLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+
+[node name="Ready" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2fodp")

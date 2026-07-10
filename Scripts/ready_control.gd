@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _on_ready_button_pressed():
 	print("pressed")
+	$Beep.play()
 	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
 	ready_button.disabled = true
 
