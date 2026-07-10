@@ -11,4 +11,4 @@ description = "Small Rubber Block."
 icon = ExtResource("1_8vwrm")
 icon_size = Vector2(25, 30)
 scene = ExtResource("2_hkgb0")
-block_scale = Vector2(0.6, 0.6)
+block_scale = Vector2(0.7, 0.7)

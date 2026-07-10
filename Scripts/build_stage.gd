@@ -157,8 +157,9 @@ func sort_player_inventory():
 
 func _on_both_players_ready():
 	print("Everyone is ready!")
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	$Ready.play()
+	await get_tree().create_timer(1.0).timeout
 	hide_ready_ui()
 	inventory.z_index = 10
 	await get_tree().create_timer(1.0).timeout

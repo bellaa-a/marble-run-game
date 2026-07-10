@@ -116,6 +116,7 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Beep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_iiyff")
+volume_db = 10.0
 parameters/looping = true
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]

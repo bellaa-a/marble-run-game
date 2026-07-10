@@ -11,4 +11,4 @@ description = "Medium Ice Block."
 icon = ExtResource("1_s326n")
 icon_size = Vector2(40, 30)
 scene = ExtResource("2_046nq")
-block_scale = Vector2(1.1, 0.7)
+block_scale = Vector2(1.1, 0.5)
