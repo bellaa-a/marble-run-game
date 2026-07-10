@@ -16,7 +16,7 @@ var lobby_code := ""
 var game_started := false
 var player_inventory: Array[Dictionary] = []
 var rotation_mode := true
-var stage_one_time := 0.0
+var stage_one_time : float = 600.0
 
 var build_stage: Node = null
 var rooms: Node = null
