@@ -14,7 +14,9 @@ var time_left := 0.0
 func _ready():
 	$LevelName.text = label_text
 	# Start countdown immediately from selected stage time
+	
 	time_left = Multiplayer.stage_one_time
+	print(time_left)
 	await get_tree().create_timer(3.0).timeout
 	$Instructions.visible = false
 
