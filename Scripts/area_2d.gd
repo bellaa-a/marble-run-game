@@ -133,7 +133,7 @@ func _physics_process(delta):
 
 		block.global_position = target_position
 
-		if any_connected_collision():
+		if any_movement_collision():
 
 			# revert
 			block.global_position = old_position
@@ -324,3 +324,37 @@ func get_connected_rids() -> Array:
 func wake_marble():
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.sleeping = false
+
+
+func any_movement_collision() -> bool:
+
+	var space_state = get_world_2d().direct_space_state
+
+	var block = get_parent()
+	var shape_node = block.get_node("CollisionShape2D")
+
+	if shape_node == null or shape_node.shape == null:
+		return false
+
+	var query = PhysicsShapeQueryParameters2D.new()
+
+	query.shape = shape_node.shape
+	query.transform = shape_node.global_transform
+
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+
+	# only ignore itself
+	query.exclude = [block.get_rid()]
+
+	var results = space_state.intersect_shape(query, 32)
+
+	for hit in results:
+		var collider = hit.collider
+
+		if collider == block:
+			continue
+
+		return true
+
+	return false
