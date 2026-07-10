@@ -17,6 +17,9 @@ var start_rotation: float
 
 var rotating := false
 var rotation_speed := 0.0
+var moving := false
+var move_offset := Vector2.ZERO
+var previous_position := Vector2.ZERO
 	
 
 func _ready():
@@ -47,6 +50,7 @@ func reset_block():
 	direction_probe = 0.0
 	ENTERED_LOOP = false
 	dragging = false
+	moving = false
 
 
 # ---------------- INPUT ----------------
@@ -56,35 +60,61 @@ func _input_event(_viewport, event, _shape_idx):
 	if GameState.locked:
 		return
 
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
 
-		var center = get_parent().global_position
-		var mouse = get_global_mouse_position()
+		var block = get_parent()
 
-		initial_mouse_angle = (mouse - center).angle()
-		initial_block_rotation = get_parent().rotation
-		previous_mouse_angle = initial_mouse_angle
+		if Multiplayer.rotation_mode:
 
-		dragging = true
-		direction_probe = 0.0
+			var center = block.global_position
+			var mouse = get_global_mouse_position()
 
+			initial_mouse_angle = (mouse - center).angle()
+			initial_block_rotation = block.rotation
+			previous_mouse_angle = initial_mouse_angle
+
+			dragging = true
+			direction_probe = 0.0
+
+		else:
+			moving = true
+			move_offset = block.global_position - get_global_mouse_position()
+			previous_position = block.global_position
 
 func _input(event):
 
 	if GameState.locked:
 		return
 
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and not event.pressed:
+
 		dragging = false
+		moving = false
 		direction_probe = 0.0
 
 
 # ---------------- MAIN LOOP ----------------
 
 func _physics_process(delta):
+
 	var block = get_parent()
+
 	if rotating:
 		block.rotation += rotation_speed * delta
+
+	if moving:
+		var old_position = block.global_position
+		block.global_position = (
+			get_global_mouse_position()
+			+ move_offset
+		)
+		if any_connected_collision():
+			block.global_position = old_position
+		return
 
 	if not dragging or GameState.locked or not block.can_rotate:
 		return

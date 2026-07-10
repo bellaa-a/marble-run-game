@@ -1,6 +1,5 @@
 extends Node
 
-
 var pipe_position: Vector2
 var goal_position: Vector2
 
@@ -16,6 +15,7 @@ var lobby_id := 0
 var lobby_code := ""
 var game_started := false
 var player_inventory: Array[Dictionary] = []
+var rotation_mode := true
 
 var build_stage: Node = null
 var rooms: Node = null

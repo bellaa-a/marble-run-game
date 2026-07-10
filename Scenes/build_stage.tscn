@@ -26,11 +26,12 @@ scale = Vector2(0.29214692, 0.524515)
 position = Vector2(0, 170)
 
 [node name="Inventory" parent="." instance=ExtResource("5_ebcgw")]
+z_index = 10
 
 [node name="EffectLayer" type="CanvasLayer" parent="."]
 
-[node name="LevelButtons" parent="." instance=ExtResource("6_dnjre")]
-position = Vector2(-50, 0)
-label_text = "Stage I"
-
 [node name="Globals" parent="." instance=ExtResource("7_lln86")]
+
+[node name="VersusButtons" parent="." instance=ExtResource("6_dnjre")]
+position = Vector2(-49, 0)
+label_text = "I."
