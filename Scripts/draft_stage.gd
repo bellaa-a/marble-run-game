@@ -94,7 +94,7 @@ func generate_draft():
 
 
 	for i in range(8):
-		cards[i].pair_id = i / 2 as int
+		cards[i].pair_id = i / 2
 		cards[i].card_selected.connect(select_card)
 
 

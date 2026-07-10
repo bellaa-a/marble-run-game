@@ -28,6 +28,12 @@ func _ready():
 		$MarbleShadow.polygon = make_circle(8, 32)
 
 
+func set_start_position(pos: Vector2):
+	global_position = pos
+	start_position = pos
+	start_rotation = global_rotation
+	
+	
 func update_light_state():
 	var light_on = get_tree().current_scene.get_node("LightSwitch").on
 

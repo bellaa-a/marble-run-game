@@ -3,6 +3,7 @@ extends Node2D
 @onready var timer_label: Label = $TimerLabel
 
 var time_left := 0.0
+var timer_running := false
 
 @export var label_text := "Default Text":
 	set(value):
@@ -13,28 +14,28 @@ var time_left := 0.0
 
 func _ready():
 	$LevelName.text = label_text
-	# Start countdown immediately from selected stage time
-	
-	time_left = Multiplayer.stage_one_time
-	print(time_left)
-	await get_tree().create_timer(3.0).timeout
-	$Instructions.visible = false
 
+	time_left = Multiplayer.stage_one_time
+	update_timer_display() # Show the initial time immediately
+
+	Multiplayer.both_players_ready.connect(_on_both_players_ready)
+
+func _on_both_players_ready():
+	timer_running = true
 
 func _process(delta):
-	if time_left > 0:
+	if timer_running and time_left > 0:
 		time_left -= delta
-	
-	update_timer_display()
+		time_left = max(time_left, 0)
 
+	update_timer_display()
 
 func update_timer_display():
 	var minutes = int(time_left) / 60
 	var seconds = int(time_left) % 60
-	
+
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
-	# Last 30 seconds turns red
 	if time_left <= 30:
 		timer_label.modulate = Color.RED
 	else:

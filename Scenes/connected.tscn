@@ -1,17 +1,89 @@
-[gd_scene format=3 uid="uid://bh7v6wwd2bcro"]
+[gd_scene load_steps=16 format=3 uid="uid://bh7v6wwd2bcro"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_fd4oj"]
 [ext_resource type="Script" uid="uid://xte1q04lmvk3" path="res://Scripts/connected.gd" id="1_wxpa8"]
-[ext_resource type="Texture2D" uid="uid://dae41pemh47ap" path="res://Assets/Player1.png" id="3_ao6qv"]
-[ext_resource type="Texture2D" uid="uid://bbyuto5gwwovl" path="res://Assets/Player2.png" id="4_02g8t"]
+[ext_resource type="Texture2D" uid="uid://b8kpiyoolqs08" path="res://Assets/Player1Wobble.png" id="3_8rano"]
+[ext_resource type="Texture2D" uid="uid://bfg672w4i3vfk" path="res://Assets/Player2Wobble.png" id="4_4odu1"]
 [ext_resource type="AudioStream" uid="uid://b1tu3amfknja6" path="res://Audio/Connected.mp3" id="5_8rano"]
 
-[node name="Connected" type="Node2D" unique_id=1008316720]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4odu1"]
+atlas = ExtResource("3_8rano")
+region = Rect2(0, 0, 145, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj0mx"]
+atlas = ExtResource("3_8rano")
+region = Rect2(145, 0, 145, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14jn6"]
+atlas = ExtResource("3_8rano")
+region = Rect2(290, 0, 145, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d81s"]
+atlas = ExtResource("3_8rano")
+region = Rect2(435, 0, 145, 163)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1125o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4odu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj0mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14jn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d81s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp72c"]
+atlas = ExtResource("4_4odu1")
+region = Rect2(0, 0, 148, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjlsj"]
+atlas = ExtResource("4_4odu1")
+region = Rect2(148, 0, 148, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlf3d"]
+atlas = ExtResource("4_4odu1")
+region = Rect2(296, 0, 148, 163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsjda"]
+atlas = ExtResource("4_4odu1")
+region = Rect2(444, 0, 148, 163)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pj0mx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp72c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjlsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlf3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsjda")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Connected" type="Node2D"]
 script = ExtResource("1_wxpa8")
 
-[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("1_fd4oj")]
+[node name="Boarder" parent="." instance=ExtResource("1_fd4oj")]
 
-[node name="Username1" type="Label" parent="." unique_id=1206864089]
+[node name="Username1" type="Label" parent="."]
 offset_left = -354.0
 offset_top = -81.625
 offset_right = 164.0
@@ -20,7 +92,7 @@ theme_override_font_sizes/font_size = 30
 text = "Username1"
 horizontal_alignment = 1
 
-[node name="Username2" type="Label" parent="." unique_id=544624952]
+[node name="Username2" type="Label" parent="."]
 offset_left = -105.0
 offset_top = 21.0
 offset_right = 347.0
@@ -29,7 +101,7 @@ theme_override_font_sizes/font_size = 30
 text = "Username2"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="." unique_id=339207288]
+[node name="Label" type="Label" parent="."]
 offset_left = -34.0
 offset_top = -44.0
 offset_right = 36.0
@@ -38,29 +110,33 @@ theme_override_font_sizes/font_size = 50
 text = "V.S."
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2077088145]
+[node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -112.0
 offset_top = -149.62502
 offset_right = -77.0
 offset_bottom = -136.62502
 color = Color(0, 0, 0, 1)
 
-[node name="Player1" type="Sprite2D" parent="." unique_id=1640124038]
-position = Vector2(-95, -131.625)
-scale = Vector2(0.24005683, 0.2339506)
-texture = ExtResource("3_ao6qv")
+[node name="Player1" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(15, 20.625015)
+scale = Vector2(0.63793105, 0.59432507)
+sprite_frames = SubResource("SpriteFrames_1125o")
+frame = 1
+frame_progress = 0.6179795
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=382335336]
+[node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = 103.48935
 offset_top = 104.3623
 offset_right = 138.48935
 offset_bottom = 117.3623
 color = Color(0, 0, 0, 1)
 
-[node name="Player2" type="Sprite2D" parent="." unique_id=319466795]
-position = Vector2(120.48935, 122.36234)
-scale = Vector2(0.24005683, 0.2339506)
-texture = ExtResource("4_02g8t")
+[node name="Player2" type="AnimatedSprite2D" parent="ColorRect2"]
+position = Vector2(17.010647, 22.16895)
+scale = Vector2(0.6148648, 0.55789876)
+sprite_frames = SubResource("SpriteFrames_pj0mx")
+frame = 1
+frame_progress = 0.0738406
 
-[node name="Connected" type="AudioStreamPlayer2D" parent="." unique_id=176679304]
+[node name="Connected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8rano")

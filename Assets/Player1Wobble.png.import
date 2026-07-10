@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjlrnmqppxnep"
-path="res://.godot/imported/Player2Peek.png-e3433f246cf12a309b12b94fb4ec89f1.ctex"
+uid="uid://b8kpiyoolqs08"
+path="res://.godot/imported/Player1Wobble.png-6c543724f9e0336408aa98e4af99130e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player2Peek.png"
-dest_files=["res://.godot/imported/Player2Peek.png-e3433f246cf12a309b12b94fb4ec89f1.ctex"]
+source_file="res://Assets/Player1Wobble.png"
+dest_files=["res://.godot/imported/Player1Wobble.png-6c543724f9e0336408aa98e4af99130e.ctex"]
 
 [params]
 

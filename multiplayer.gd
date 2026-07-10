@@ -10,6 +10,9 @@ var is_host := false
 signal lobby_ready
 signal join_status(message)
 signal join_failed(message)
+signal host_ready_changed(ready: bool)
+signal client_ready_changed(ready: bool)
+signal both_players_ready()
 
 var lobby_id := 0
 var lobby_code := ""
@@ -17,6 +20,8 @@ var game_started := false
 var player_inventory: Array[Dictionary] = []
 var rotation_mode := true
 var stage_one_time : float = 600.0
+var host_ready := false
+var client_ready := false
 
 var build_stage: Node = null
 var rooms: Node = null
@@ -450,3 +455,23 @@ func get_opponent_id() -> int:
 		return id
 	
 	return -1
+
+
+func reset_ready():
+	host_ready = false
+	client_ready = false
+
+
+@rpc("any_peer", "call_local", "reliable")
+func set_ready(peer_id: int):
+	if peer_id == 1:
+		if !host_ready:
+			host_ready = true
+			host_ready_changed.emit(true)
+	else:
+		if !client_ready:
+			client_ready = true
+			client_ready_changed.emit(true)
+
+	if host_ready and client_ready:
+		both_players_ready.emit()

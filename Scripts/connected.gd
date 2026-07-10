@@ -1,7 +1,12 @@
 extends Node2D
 
 
+@onready var player1 = $ColorRect/Player1
+@onready var player2 = $ColorRect/Player2
+
 func _ready():
+	player1.play()
+	player2.play()
 	$Connected.play()
 	var id1 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 0)
 	$Username1.text = Steam.getFriendPersonaName(id1)

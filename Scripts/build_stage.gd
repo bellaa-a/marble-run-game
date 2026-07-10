@@ -1,6 +1,15 @@
 extends Node2D
 
 @onready var effect_layer = $EffectLayer
+@onready var pipe = $Pipe
+@onready var marble = $Marble
+@onready var goal = $MultiplayerGoal
+@onready var ready_layer = $ReadyLayer
+@onready var username1 = $ReadyLayer/Username1
+@onready var username2 = $ReadyLayer/Username2
+@onready var ready_button = $ReadyLayer/ReadyButton
+@onready var player1 = $ReadyLayer/Player1
+@onready var player2 = $ReadyLayer/Player2
 @export var group_name : String
 
 var dragging_block: Node2D = null
@@ -8,11 +17,20 @@ var dragging_card: Control = null
 
 func _ready():
 	Multiplayer.build_stage = self
-	$Pipe.position = Multiplayer.pipe_position
-	$Marble.position = Multiplayer.pipe_position + Vector2(0, 20)
-	$MultiplayerGoal.position = Multiplayer.goal_position
-	await organize_inventory()
+	pipe.position = Multiplayer.pipe_position
+	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
+	goal.position = Multiplayer.goal_position
+	Multiplayer.host_ready_changed.connect(_on_host_ready_changed)
+	Multiplayer.client_ready_changed.connect(_on_client_ready_changed)
+	Multiplayer.both_players_ready.connect(_on_both_players_ready)
+	Multiplayer.reset_ready()
 	Multiplayer.rotation_mode = false
+	
+	var id1 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 0)
+	username1.text = Steam.getFriendPersonaName(id1)
+	var id2 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 1)
+	username2.text = Steam.getFriendPersonaName(id2)
+	
 
 
 func _exit_tree():
@@ -76,7 +94,7 @@ func finish_drag(card):
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
-func can_place_block(pos: Vector2) -> bool:
+func can_place_block(_pos: Vector2) -> bool:
 	return true
 
 
@@ -142,3 +160,23 @@ func sort_player_inventory():
 
 			return order[card_a.type] < order[card_b.type]
 	)
+
+func _on_ready_button_pressed():
+	ready_button.disabled = true
+
+	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
+
+
+func _on_host_ready_changed(_ready: bool):
+	print("Host is ready!")
+	player1.play("press")
+
+func _on_client_ready_changed(_ready: bool):
+	print("Client is ready!")
+	player2.play("press")
+
+func _on_both_players_ready():
+	print("Everyone is ready!")
+	ready_layer.visible = false
+	await get_tree().create_timer(1.0).timeout
+	await organize_inventory()
