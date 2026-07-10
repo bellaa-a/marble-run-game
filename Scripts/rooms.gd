@@ -40,3 +40,12 @@ func _on_join_failed(message):
 	$Confirm.text = ""
 	$Error.text = message
 	
+
+func _on_option_button_item_selected(index: int) -> void:
+	match index:
+		0:
+			Multiplayer.stage_one_time = 600 # 10 minutes
+		1:
+			Multiplayer.stage_one_time = 300 # 5 minutes
+		2:
+			Multiplayer.stage_one_time = 120 # 2 minutes

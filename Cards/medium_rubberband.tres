@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://beeq8awm8y81"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://beeq8awm8y81"]
 
 [ext_resource type="Texture2D" uid="uid://breucgkme6rhw" path="res://Assets/RubberBand.png" id="1_x3tfp"]
 [ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="2_ysj7j"]
@@ -11,4 +11,4 @@ description = "Medium Rubber Block."
 icon = ExtResource("1_x3tfp")
 icon_size = Vector2(40, 40)
 scene = ExtResource("2_ysj7j")
-block_size = Vector2(96, 96)
+block_scale = Vector2(0.9, 0.9)

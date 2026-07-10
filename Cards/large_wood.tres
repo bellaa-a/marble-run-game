@@ -11,4 +11,4 @@ description = "Large Wooden Block."
 icon = ExtResource("1_ayxfu")
 icon_size = Vector2(60, 50)
 scene = ExtResource("2_ykd6v")
-block_scale = Vector2(0.8, 1)
+block_scale = Vector2(0.9, 1)
