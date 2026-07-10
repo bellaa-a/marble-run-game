@@ -11,6 +11,7 @@ var initial_block_rotation = 0.0
 var previous_mouse_angle = 0.0
 
 const DIRECTION_THRESHOLD = 0.05
+const MOVE_THRESHOLD = 1.0
 
 var start_position: Vector2
 var start_rotation: float
@@ -97,6 +98,8 @@ func _input(event):
 		dragging = false
 		moving = false
 		direction_probe = 0.0
+		blocked_move = false
+		blocked_move_direction = Vector2.ZERO
 
 
 # ---------------- MAIN LOOP ----------------
@@ -123,9 +126,12 @@ func _physics_process(delta):
 		if blocked_move:
 
 			# moving back opposite the collision direction
-			if movement.dot(blocked_move_direction) < 0:
-				blocked_move = false
-				blocked_move_direction = Vector2.ZERO
+			if movement.length() > MOVE_THRESHOLD:
+				if movement.dot(blocked_move_direction) < 0:
+					blocked_move = false
+					blocked_move_direction = Vector2.ZERO
+				else:
+					return
 			else:
 				return
 
