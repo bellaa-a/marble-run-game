@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlnj3gmjer15v"]
+[gd_scene load_steps=9 format=3 uid="uid://dlnj3gmjer15v"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_5b1iv"]
 [ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
@@ -8,38 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/versus_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
-[ext_resource type="Texture2D" uid="uid://bcftassbf0w71" path="res://Assets/Player1Button.png" id="9_yq2la"]
-[ext_resource type="Texture2D" uid="uid://bmhti2igxnwjh" path="res://Assets/Player1ButtonPress.png" id="10_iqeln"]
-[ext_resource type="Texture2D" uid="uid://bn5o4uxhdcggs" path="res://Assets/Player2Button.png" id="11_jm24y"]
-[ext_resource type="Texture2D" uid="uid://byxgfi0pdt12c" path="res://Assets/Player2ButtonPress.png" id="12_cqtpl"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rsmu0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_yq2la")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_iqeln")
-}],
-"loop": true,
-"name": &"press",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_x5r0v"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_jm24y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_cqtpl")
-}],
-"loop": true,
-"name": &"press",
-"speed": 5.0
-}]
 
 [node name="BuildStage" type="Node2D"]
 script = ExtResource("1_ebcgw")
@@ -69,63 +37,3 @@ position = Vector2(-49, 0)
 label_text = "I."
 
 [node name="ReadyLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="ReadyLayer"]
-offset_left = -404.0
-offset_top = -238.0
-offset_right = 427.0
-offset_bottom = 284.0
-color = Color(0, 0, 0, 0.78431374)
-
-[node name="Instructions" type="Label" parent="ReadyLayer"]
-offset_left = -209.0
-offset_top = -142.0
-offset_right = 210.0
-offset_bottom = -70.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Build a path with your cards and complete it yourself before the timer runs out. But don't make it too easy because your opponent will have to complete it too!"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Username1" type="Label" parent="ReadyLayer"]
-offset_left = -202.0
-offset_top = 21.25
-offset_right = -122.0
-offset_bottom = 41.25
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Username1"
-horizontal_alignment = 1
-
-[node name="Username2" type="Label" parent="ReadyLayer"]
-offset_left = 125.0
-offset_top = 27.0
-offset_right = 205.0
-offset_bottom = 47.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Username2"
-horizontal_alignment = 1
-
-[node name="ReadyButton" type="Button" parent="ReadyLayer"]
-offset_left = -44.0
-offset_top = 66.0
-offset_right = 41.0
-offset_bottom = 93.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7434817, 0.7434819, 0.7434827, 1)
-theme_override_font_sizes/font_size = 20
-text = "READY!!"
-flat = true
-
-[node name="Player1" type="AnimatedSprite2D" parent="ReadyLayer"]
-position = Vector2(-162, -10.125)
-scale = Vector2(0.21774194, 0.22619046)
-sprite_frames = SubResource("SpriteFrames_rsmu0")
-animation = &"press"
-
-[node name="Player2" type="AnimatedSprite2D" parent="ReadyLayer"]
-position = Vector2(165, -3)
-scale = Vector2(0.2323151, 0.23308271)
-sprite_frames = SubResource("SpriteFrames_x5r0v")
-animation = &"press"
-
-[connection signal="pressed" from="ReadyLayer/ReadyButton" to="." method="_on_ready_button_pressed"]

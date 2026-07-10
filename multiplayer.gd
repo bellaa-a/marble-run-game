@@ -10,8 +10,8 @@ var is_host := false
 signal lobby_ready
 signal join_status(message)
 signal join_failed(message)
-signal host_ready_changed(ready: bool)
-signal client_ready_changed(ready: bool)
+signal host_ready_changed()
+signal client_ready_changed()
 signal both_players_ready()
 
 var lobby_id := 0
@@ -467,11 +467,11 @@ func set_ready(peer_id: int):
 	if peer_id == 1:
 		if !host_ready:
 			host_ready = true
-			host_ready_changed.emit(true)
+			host_ready_changed.emit()
 	else:
 		if !client_ready:
 			client_ready = true
-			client_ready_changed.emit(true)
+			client_ready_changed.emit()
 
 	if host_ready and client_ready:
 		both_players_ready.emit()

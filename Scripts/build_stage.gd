@@ -4,6 +4,7 @@ extends Node2D
 @onready var pipe = $Pipe
 @onready var marble = $Marble
 @onready var goal = $MultiplayerGoal
+@onready var inventory = $Inventory
 @onready var ready_layer = $ReadyLayer
 @onready var username1 = $ReadyLayer/Username1
 @onready var username2 = $ReadyLayer/Username2
@@ -12,10 +13,14 @@ extends Node2D
 @onready var player2 = $ReadyLayer/Player2
 @export var group_name : String
 
+var ready_control_scene = preload("res://UI/ready_control.tscn")
+var ready_control: Control
+
 var dragging_block: Node2D = null
 var dragging_card: Control = null
 
 func _ready():
+	show_ready_ui()
 	Multiplayer.build_stage = self
 	pipe.position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
@@ -31,7 +36,6 @@ func _ready():
 	var id2 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 1)
 	username2.text = Steam.getFriendPersonaName(id2)
 	
-
 
 func _exit_tree():
 	if Multiplayer.build_stage == self:
@@ -163,20 +167,31 @@ func sort_player_inventory():
 
 func _on_ready_button_pressed():
 	ready_button.disabled = true
-
 	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
 
 
-func _on_host_ready_changed(_ready: bool):
+func _on_host_ready_changed():
 	print("Host is ready!")
 	player1.play("press")
 
-func _on_client_ready_changed(_ready: bool):
+func _on_client_ready_changed():
 	print("Client is ready!")
 	player2.play("press")
 
 func _on_both_players_ready():
 	print("Everyone is ready!")
-	ready_layer.visible = false
+	hide_ready_ui()
+	inventory.z_index = 10
 	await get_tree().create_timer(1.0).timeout
 	await organize_inventory()
+
+
+func show_ready_ui():
+	if ready_control == null:
+		ready_control = ready_control_scene.instantiate()
+		ready_layer.add_child(ready_control)
+
+func hide_ready_ui():
+	if ready_control:
+		ready_control.queue_free()
+		ready_control = null
