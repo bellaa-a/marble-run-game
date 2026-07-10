@@ -447,7 +447,7 @@ func use_powerup(card_id: String):
 	var card = CardDatabase.get_card_by_id(card_id)
 	var effect = card.scene.instantiate()
 	build_stage.effect_layer.add_child(effect)
-	effect.activate()
+	#effect.activate()
 
 
 func get_opponent_id() -> int:

@@ -16,7 +16,7 @@ var dragging_card: Control = null
 
 func _ready():
 	await organize_inventory()
-	#show_ready_ui()
+	show_ready_ui()
 	Multiplayer.build_stage = self
 	pipe.position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
