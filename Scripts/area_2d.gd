@@ -20,6 +20,8 @@ var rotation_speed := 0.0
 var moving := false
 var move_offset := Vector2.ZERO
 var previous_position := Vector2.ZERO
+var blocked_move := false
+var blocked_move_direction := Vector2.ZERO
 	
 
 func _ready():
@@ -108,12 +110,40 @@ func _physics_process(delta):
 
 	if moving:
 		var old_position = block.global_position
-		block.global_position = (
+
+		var target_position = (
 			get_global_mouse_position()
 			+ move_offset
 		)
+
+		var movement = target_position - old_position
+
+		# ---------------- MOVEMENT BLOCKED STATE ----------------
+
+		if blocked_move:
+
+			# moving back opposite the collision direction
+			if movement.dot(blocked_move_direction) < 0:
+				blocked_move = false
+				blocked_move_direction = Vector2.ZERO
+			else:
+				return
+
+		# ---------------- APPLY MOVEMENT ----------------
+
+		block.global_position = target_position
+
 		if any_connected_collision():
+
+			# revert
 			block.global_position = old_position
+
+			blocked_move = true
+
+			# remember the direction that caused the collision
+			if movement.length() > 0.001:
+				blocked_move_direction = movement.normalized()
+
 		return
 
 	if not dragging or GameState.locked or not block.can_rotate:

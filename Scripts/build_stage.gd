@@ -12,6 +12,7 @@ func _ready():
 	$Marble.position = Multiplayer.pipe_position + Vector2(0, 20)
 	$MultiplayerGoal.position = Multiplayer.goal_position
 	await organize_inventory()
+	Multiplayer.rotation_mode = false
 
 
 func _exit_tree():
