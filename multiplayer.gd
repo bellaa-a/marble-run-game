@@ -464,6 +464,7 @@ func reset_ready():
 
 @rpc("any_peer", "call_local", "reliable")
 func set_ready(peer_id: int):
+	print("set ready called with peer id: ", peer_id)
 	if peer_id == 1:
 		if !host_ready:
 			host_ready = true

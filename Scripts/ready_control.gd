@@ -9,6 +9,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Multiplayer.reset_ready()
 	var id1 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 0)
 	username1.text = Steam.getFriendPersonaName(id1)
 	var id2 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 1)
@@ -19,8 +20,9 @@ func _ready() -> void:
 
 
 func _on_ready_button_pressed():
-	ready_button.disabled = true
+	print("pressed")
 	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
+	ready_button.disabled = true
 
 
 func _on_host_ready_changed():
