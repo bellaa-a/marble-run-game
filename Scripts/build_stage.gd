@@ -6,11 +6,6 @@ extends Node2D
 @onready var goal = $MultiplayerGoal
 @onready var inventory = $Inventory
 @onready var ready_layer = $ReadyLayer
-@onready var username1 = $ReadyLayer/Username1
-@onready var username2 = $ReadyLayer/Username2
-@onready var ready_button = $ReadyLayer/ReadyButton
-@onready var player1 = $ReadyLayer/Player1
-@onready var player2 = $ReadyLayer/Player2
 @export var group_name : String
 
 var ready_control_scene = preload("res://UI/ready_control.tscn")
@@ -25,16 +20,10 @@ func _ready():
 	pipe.position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.position = Multiplayer.goal_position
-	Multiplayer.host_ready_changed.connect(_on_host_ready_changed)
-	Multiplayer.client_ready_changed.connect(_on_client_ready_changed)
+	
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
 	Multiplayer.reset_ready()
 	Multiplayer.rotation_mode = false
-	
-	var id1 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 0)
-	username1.text = Steam.getFriendPersonaName(id1)
-	var id2 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 1)
-	username2.text = Steam.getFriendPersonaName(id2)
 	
 
 func _exit_tree():
@@ -164,19 +153,7 @@ func sort_player_inventory():
 
 			return order[card_a.type] < order[card_b.type]
 	)
-
-func _on_ready_button_pressed():
-	ready_button.disabled = true
-	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
-
-
-func _on_host_ready_changed():
-	print("Host is ready!")
-	player1.play("press")
-
-func _on_client_ready_changed():
-	print("Client is ready!")
-	player2.play("press")
+	
 
 func _on_both_players_ready():
 	print("Everyone is ready!")
