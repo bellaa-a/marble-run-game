@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/versus_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
-[ext_resource type="AudioStream" uid="uid://cssr47hv6sndj" path="res://Audio/Ready.mp3" id="9_2fodp"]
+[ext_resource type="AudioStream" uid="uid://ce8vxfm7ho2jg" path="res://Audio/Ready.mp3" id="9_2fodp"]
 
 [node name="BuildStage" type="Node2D"]
 script = ExtResource("1_ebcgw")

@@ -219,7 +219,7 @@ func show_opponent_cards():
 			reveal_slots[i]
 		)
 
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.5).timeout
 
 	for i in range(pending_opponent_cards.size()):
 
@@ -239,7 +239,6 @@ func try_finish_draft():
 		return
 
 	print("Both players finished draft!")
-	$ColorRect.visible = false
 	$Instructions.visible = false
 
 	# move to next stage here

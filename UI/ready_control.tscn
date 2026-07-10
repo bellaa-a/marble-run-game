@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bmhti2igxnwjh" path="res://Assets/Player1ButtonPress.png" id="2_81670"]
 [ext_resource type="Texture2D" uid="uid://bn5o4uxhdcggs" path="res://Assets/Player2Button.png" id="3_iiyff"]
 [ext_resource type="Texture2D" uid="uid://byxgfi0pdt12c" path="res://Assets/Player2ButtonPress.png" id="4_hs5nm"]
-[ext_resource type="AudioStream" uid="uid://ce8vxfm7ho2jg" path="res://Audio/Beep.mp3" id="6_iiyff"]
+[ext_resource type="AudioStream" uid="uid://cssr47hv6sndj" path="res://Audio/Beep.mp3" id="6_iiyff"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8tunm"]
 animations = [{
