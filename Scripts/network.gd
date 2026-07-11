@@ -42,23 +42,25 @@ func start_glitch():
 
 	warning_label.text = "CONNECTION ISSUES"
 
+	var freeze_offset = Vector2(
+		randf_range(-20, 20),
+		randf_range(-20, 20)
+	)
+
 	var tween = create_tween()
 
-	# quick camera jumps
+	# snap into frozen/glitched position
 	tween.tween_property(
 		camera,
 		"offset",
-		Vector2(randf_range(-15,15), randf_range(-15,15)),
+		freeze_offset,
 		0.03
 	)
 
-	tween.tween_property(
-		camera,
-		"offset",
-		Vector2(randf_range(-10,10), randf_range(-10,10)),
-		0.03
-	)
+	# hold the frozen frame
+	tween.tween_interval(randf_range(0.4, 1.0))
 
+	# snap back
 	tween.tween_property(
 		camera,
 		"offset",
@@ -69,7 +71,6 @@ func start_glitch():
 	await tween.finished
 
 	camera.offset = Vector2.ZERO
-
 	glitching = false
 
 

@@ -21,6 +21,7 @@ func _ready():
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
 
 func _on_both_players_ready():
+	await get_tree().create_timer(2.5).timeout
 	timer_running = true
 
 func _process(delta):
