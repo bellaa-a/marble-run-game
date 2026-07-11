@@ -278,5 +278,6 @@ func resolve_mystery_card(card):
 
 	# Set final card
 	card.setup(final_powerup)
+	await get_tree().create_timer(1).timeout
 
 	return final_powerup
