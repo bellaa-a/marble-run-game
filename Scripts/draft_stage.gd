@@ -124,8 +124,10 @@ func select_card(card):
 	
 	card.move_to_hand(hand_positions[pair])
 
+	var final_card = await resolve_mystery_card(card)
+
 	Multiplayer.player_inventory.append({
-		"id": card.card_data.id,
+		"id": final_card.id,
 		"used": false
 	})
 
@@ -170,23 +172,16 @@ func send_opponent_cards():
 func receive_opponent_cards(card_ids: Array[String]):
 
 	print("Received opponent cards:", card_ids)
-	for id in card_ids:
-		Multiplayer.player_inventory.append({
-		"id": id,
-		"used": false
-	})
 
-	# Always store them first
+	# Store exactly what opponent discarded
 	pending_opponent_cards = card_ids
 	opponent_finished_picking = true
 
-	# If I am not done yet, wait
 	if not finished_picking:
 		return
 
 	await show_opponent_cards()
 	try_finish_draft()
-
 
 func show_opponent_cards():
 
@@ -208,16 +203,32 @@ func show_opponent_cards():
 	]
 
 	for i in range(pending_opponent_cards.size()):
+		var card_id = pending_opponent_cards[i]
 
-		var card = CardDatabase.get_card_by_id(
-			pending_opponent_cards[i]
-		)
+		var card = CardDatabase.get_card_by_id(card_id)
 
+		# Show the actual card first (including mystery)
 		cards[9+i].setup(card)
 
 		await cards[9+i].reveal_card(
 			reveal_slots[i]
 		)
+
+		# If mystery, transform after reveal
+		if card_id == "mystery":
+
+			var resolved_card = await resolve_mystery_card(cards[9+i])
+
+			Multiplayer.player_inventory.append({
+				"id": resolved_card.id,
+				"used": false
+			})
+
+		else:
+			Multiplayer.player_inventory.append({
+				"id": card.id,
+				"used": false
+			})
 
 	await get_tree().create_timer(0.5).timeout
 
@@ -248,3 +259,24 @@ func try_finish_draft():
 func reveal_pair(pair: int):
 	cards[pair * 2].set_revealed(true)
 	cards[pair * 2 + 1].set_revealed(true)
+
+
+func resolve_mystery_card(card):
+	if card.card_data.id != "mystery":
+		return card.card_data
+
+	# Let the player see the mystery card
+	await get_tree().create_timer(0.5).timeout
+
+	# Pick final result first
+	var final_powerup = CardDatabase.powerup_cards.pick_random()
+
+	# Random flashing animation
+	for i in range(5):
+		card.setup(CardDatabase.powerup_cards.pick_random())
+		await get_tree().create_timer(0.1).timeout
+
+	# Set final card
+	card.setup(final_powerup)
+
+	return final_powerup

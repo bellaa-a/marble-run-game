@@ -3,7 +3,7 @@ extends Control
 @onready var camera = get_tree().current_scene.get_node("Boarder/Camera2D")
 
 var shake_time = 20.0
-var shake_strength = 10.0
+var shake_strength = 0.7
 
 
 func _ready():
