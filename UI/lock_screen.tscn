@@ -65,36 +65,32 @@ offset_right = 423.0
 offset_bottom = 301.0
 theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
 
-[node name="Checklist" type="Control" parent="."]
+[node name="Checklist" type="Node2D" parent="."]
 visible = false
-anchors_preset = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Checklist"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 135.0
-offset_right = 610.0
-offset_bottom = 321.0
+offset_left = 195.0
+offset_top = 133.0
+offset_right = 613.0
+offset_bottom = 319.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Checklist/ScrollContainer"]
 layout_mode = 2
 
 [node name="Submit" type="Button" parent="Checklist"]
-layout_mode = 0
-offset_left = 371.0
-offset_top = 360.0
-offset_right = 435.0
-offset_bottom = 380.0
+offset_left = 372.0
+offset_top = 354.0
+offset_right = 436.0
+offset_bottom = 374.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "SUBMIT"
 flat = true
 
 [node name="Error" type="Label" parent="Checklist"]
-layout_mode = 0
-offset_left = 154.0
-offset_top = 331.0
-offset_right = 646.0
-offset_bottom = 351.0
+offset_left = 197.0
+offset_top = 329.0
+offset_right = 625.0
+offset_bottom = 349.0
 theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
 theme_override_font_sizes/font_size = 12
 
@@ -204,11 +200,11 @@ visible = false
 
 [node name="ParagraphLabel" type="TextEdit" parent="Typing"]
 offset_left = 112.0
-offset_top = 115.0
+offset_top = 116.0
 offset_right = 700.0
-offset_bottom = 316.0
+offset_bottom = 315.0
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_8mg7l")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_hglpt")
 editable = false
@@ -219,10 +215,10 @@ indent_wrapped_lines = true
 [node name="TextEdit" type="TextEdit" parent="Typing"]
 offset_left = 108.0
 offset_top = 114.0
-offset_right = 701.0
+offset_right = 702.0
 offset_bottom = 318.0
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 16
 wrap_mode = 1
 
 [node name="SubmitTyping" type="Button" parent="Typing"]

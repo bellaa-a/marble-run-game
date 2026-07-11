@@ -5,6 +5,7 @@ var generated_answer : int
 @onready var math = $Math
 @onready var math_error = $Math/Error
 
+@onready var container = $Checklist
 @onready var checklist = $Checklist/ScrollContainer/VBoxContainer
 @onready var accept_button = $Checklist/Submit
 @onready var checklist_error = $Checklist/Error
@@ -40,6 +41,8 @@ var game_state := "higher_lower"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var choices = [do_math, do_checkboxes, do_playing_cards, do_typing]
+
+	#var choices = [do_math, do_checkboxes, do_playing_cards, do_typing]
 	choices.pick_random().call()
 
 
@@ -54,7 +57,7 @@ func generate_math_question() -> Dictionary:
 	var operations = ["+", "-", "*", "/"]
 	var expression_text = str(randi_range(10, 999))
 
-	var num_terms = randi_range(8, 12)
+	var num_terms = randi_range(5, 7)
 
 	for i in range(num_terms):
 		var op = operations.pick_random()
@@ -99,8 +102,7 @@ func _on_answer_text_submitted(new_text: String) -> void:
 		math_error.text = "Incorrect"
 		
 
-var terms = [
-	# Normal terms
+var normal_terms = [
 	"I have read and agree to the Terms and Conditions.",
 	"I understand that by continuing, I am entering into a legally binding agreement.",
 	"I confirm that I am authorized to use this application.",
@@ -112,8 +114,9 @@ var terms = [
 	"I understand that all decisions made by this application are final.",
 	"I confirm that I have reviewed all applicable rules and guidelines.",
 	"I agree that my actions while using this application are my responsibility.",
+]
 
-	# Slightly suspicious
+var suspicious_terms = [
 	"I acknowledge that some buttons may appear more confident than they actually are.",
 	"I understand that pressing a button repeatedly will not make it work faster.",
 	"I confirm that I have not been forced, bribed, or threatened into accepting these terms.",
@@ -123,8 +126,9 @@ var terms = [
 	"I confirm that I will treat all menus with respect.",
 	"I understand that closing the application will not erase my mistakes.",
 	"I acknowledge that the application may remember things I wish it would forget.",
+]
 
-	# Getting weird
+var weird_terms = [
 	"I understand that somewhere, somehow, a spreadsheet has recorded my actions.",
 	"I agree that the imaginary legal department has reviewed this document.",
 	"I confirm that no ducks were harmed during the creation of this agreement.",
@@ -137,8 +141,9 @@ var terms = [
 	"I acknowledge that the scroll bar may be judging my reading speed.",
 	"I promise to thank the scroll bar after completing this process.",
 	"I understand that the bottom of this agreement is definitely somewhere below.",
+]
 
-	# Completely ridiculous
+var ridiculous_terms = [
 	"I acknowledge that this checklist is much longer than necessary.",
 	"I understand that this was intentional.",
 	"I agree that continuing was my own decision.",
@@ -157,16 +162,36 @@ var terms = [
 	"I understand that the true treasure was the checkboxes we checked along the way.",
 	"I agree that I have read enough legal nonsense for one lifetime.",
 	"I confirm that I am ready to proceed.",
+]
 
-	# Final boss
+var final_terms = [
 	"FINAL CONFIRMATION: I have read, understood, and accepted this extremely serious and definitely normal agreement.",
-	"FINAL FINAL CONFIRMATION: I acknowledge that there was no reason for this many checkboxes.",
 	"I accept that pressing the button below means I cannot complain later.",
 ]
 
+
+func generate_terms() -> Array[String]:
+	var terms: Array[String] = []
+
+	normal_terms.shuffle()
+	suspicious_terms.shuffle()
+	weird_terms.shuffle()
+	ridiculous_terms.shuffle()
+
+	terms.append_array(normal_terms.slice(0, 5))
+	terms.append_array(suspicious_terms.slice(0, 5))
+	terms.append_array(weird_terms.slice(0, 5))
+	terms.append_array(ridiculous_terms.slice(0, 5))
+
+	# Always end with the final confirmations
+	terms.append_array(final_terms)
+
+	return terms
+	
+
 func do_checkboxes():
-	checklist.visible = true
-	for term in terms:
+	container.visible = true
+	for term in generate_terms():
 		var checkbox = CheckBox.new()
 		checkbox.text = term
 		checkbox.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -362,11 +387,36 @@ func do_typing():
 	typing.visible = true
 	var opponent_name = Multiplayer.get_opponent_name()
 
-	target_text = "I would like to take a moment to appreciate this incredible experience. This is truly an awesome game, created with passion, creativity, and a ridiculous amount of effort by the developer. 
-	
-I would also like to recognize my opponent, %s. I am thankful that they have given me this opportunity to reflect, compete, and enjoy this moment together. 
-	
-I promise to respect my opponent, respect the developer, and remember that the real victory was the friendship and personal growth gained along the way." % [opponent_name]
+	var options = [
+		"I would like to take a moment to appreciate this incredible experience. This is truly an awesome game, created with passion, creativity, and a ridiculous amount of effort by the developer.",
+
+		"I would like to recognize my opponent, %s. I am thankful that they have given me this opportunity to reflect, compete, and enjoy this moment together. I also remember that the real victory was the friendship and personal growth gained along the way.",
+
+		"I, the undersigned, admit that %s is an incredibly skilled marble engineer. Should I lose this match, I agree that it was entirely because my opponent was simply built different and not because of luck, bad map generation, or suspicious physics.",
+
+		"I acknowledge that all bugs encountered during this match are actually hidden features carefully handcrafted by the developer. Any accidental launches into space, disappearing marbles, or mysterious explosions are considered immersive gameplay experiences.",
+
+		"Before proceeding, I would like to sincerely thank %s for generously allowing me to participate in what will almost certainly become one of the greatest marble matches in recorded history. I will complain loudly if I lose, but deep down I know it was a skill issue.",
+
+		"I hereby agree that if I lose to %s, I will nod respectfully, say 'well played,' and definitely will not spend the next twenty minutes blaming my card draws, the map, the blocks, the gravity, or my internet connection.",
+
+		"I understand that staring intensely at the screen does not increase my marble's intelligence. If my strategy fails against %s, I will accept responsibility instead of pretending I had a completely different plan all along.",
+
+		"I certify that I have read absolutely none of the terms and conditions presented before me. Nevertheless, I fully agree that %s is a respectable opponent and that pressing random buttons confidently is a valid competitive strategy.",
+
+		"I swear that, regardless of the outcome, I will continue telling everyone that I 'almost had it.' Should %s defeat me, I reserve the right to dramatically stare at the replay and claim there was exactly one pixel that changed everything.",
+
+		"I acknowledge that every marble has dreams, ambitions, and feelings. I promise to guide mine responsibly and not launch it directly into the nearest wall. If %s wins, I accept that my marble simply chose a different career path.",
+
+		"By continuing, I agree to pretend that I carefully calculated every move instead of wildly hoping everything would somehow work out. I also agree that %s looks suspiciously competent, which is frankly a little concerning."
+	]
+
+	var text = options.pick_random()
+
+	if "%s" in text:
+		target_text = text % [opponent_name]
+	else:
+		target_text = text
 
 	paragraph_label.text = target_text
 

@@ -99,6 +99,7 @@ func _on_mouse_entered() -> void:
 		return
 
 	if in_hand:
+		print("in hand")
 		for card in get_tree().get_nodes_in_group("cards"):
 			print(card, "raising")
 			card.raise_card()
