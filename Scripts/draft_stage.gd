@@ -121,8 +121,6 @@ func select_card(card):
 		return
 
 	selected_pairs[pair] = true
-	
-	card.move_to_hand(hand_positions[pair])
 
 	var final_card = await resolve_mystery_card(card)
 
@@ -130,6 +128,8 @@ func select_card(card):
 		"id": final_card.id,
 		"used": false
 	})
+	
+	card.move_to_hand(hand_positions[pair])
 
 	# remove the other card
 	var other_card
