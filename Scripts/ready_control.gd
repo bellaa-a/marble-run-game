@@ -28,7 +28,7 @@ func _on_ready_button_pressed():
 	$Click.play()
 	await $Click.finished
 	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
-	ready_button.disabled = true
+	ready_button.visible = false
 
 
 func _on_host_ready_changed():

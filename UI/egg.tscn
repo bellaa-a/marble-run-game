@@ -19,23 +19,20 @@ mouse_filter = 2
 script = ExtResource("1_to1ak")
 
 [node name="Splatter2" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(187.09999, 508.775)
+position = Vector2(112.89995, 411.77496)
 scale = Vector2(0.7552197, 0.76821244)
 texture = ExtResource("2_to1ak")
 
 [node name="Splatter1" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(608, 149.99998)
+position = Vector2(433.89996, 82.774994)
 scale = Vector2(0.86401093, 0.87613827)
 texture = ExtResource("2_to1ak")
 
 [node name="Splatter3" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(983, 511.00006)
+position = Vector2(744.89996, 412.77502)
 scale = Vector2(0.7648352, 0.7513491)
 texture = ExtResource("2_to1ak")
 

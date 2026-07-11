@@ -13,3 +13,7 @@ func _on_press_pressed() -> void:
 
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.update_light_state()
+
+func press_switch():
+	$On.visible = !$On.visible
+	$Off.visible = !$Off.visible

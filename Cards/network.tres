@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://bv24p1ku8o1kn"]
+
+[ext_resource type="Texture2D" uid="uid://c87cmayf4i3tj" path="res://Assets/network.png" id="1_3fn5u"]
+[ext_resource type="PackedScene" uid="uid://doi10eo15gcx5" path="res://UI/network.tscn" id="2_ovv2e"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_awby7"]
+
+[resource]
+script = ExtResource("3_awby7")
+id = "network"
+type = 2
+stage = 2
+description = "Make your opponent have laggy wifi."
+icon = ExtResource("1_3fn5u")
+icon_size = Vector2(15, 15)
+scene = ExtResource("2_ovv2e")

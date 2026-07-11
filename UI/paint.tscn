@@ -21,21 +21,21 @@ script = ExtResource("2_qpkd5")
 [node name="Splatter2" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(258, 471)
+position = Vector2(115.99999, 346.99997)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_js84t")
 
 [node name="Splatter1" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(652, 135)
+position = Vector2(421.05002, 34.349995)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_js84t")
 
 [node name="Splatter3" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(1050, 534)
+position = Vector2(742, 347.99997)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_js84t")
 

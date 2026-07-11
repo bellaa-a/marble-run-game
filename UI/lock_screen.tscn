@@ -1,0 +1,249 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2hqck2oyxwm8"]
+
+[ext_resource type="Script" uid="uid://blpduxcsxc4u2" path="res://Scripts/lock_screen.gd" id="1_ys0b3"]
+[ext_resource type="Texture2D" uid="uid://bhwmjseo5cuxj" path="res://Assets/CardBack.png" id="2_8mg7l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mg7l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hglpt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="LockScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -377.0
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ys0b3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 791.0
+offset_bottom = 458.0
+color = Color(0, 0, 0, 0.9019608)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 26.0
+offset_right = 534.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "!SCREEN LOCKED!"
+horizontal_alignment = 1
+
+[node name="Math" type="Node2D" parent="."]
+visible = false
+
+[node name="Question" type="Label" parent="Math"]
+offset_left = 69.0
+offset_top = 189.0
+offset_right = 719.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="Answer" type="LineEdit" parent="Math"]
+offset_left = 354.0
+offset_top = 251.0
+offset_right = 424.0
+offset_bottom = 279.0
+placeholder_text = "Answer"
+
+[node name="Error" type="Label" parent="Math"]
+offset_left = 357.0
+offset_top = 281.0
+offset_right = 423.0
+offset_bottom = 301.0
+theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
+
+[node name="Checklist" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Checklist"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 135.0
+offset_right = 610.0
+offset_bottom = 321.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Checklist/ScrollContainer"]
+layout_mode = 2
+
+[node name="Submit" type="Button" parent="Checklist"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 360.0
+offset_right = 435.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SUBMIT"
+flat = true
+
+[node name="Error" type="Label" parent="Checklist"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 331.0
+offset_right = 646.0
+offset_bottom = 351.0
+theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="PlayingCards" type="Node2D" parent="."]
+visible = false
+
+[node name="Card" type="Sprite2D" parent="PlayingCards"]
+position = Vector2(394.00003, 231)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="PlayingCards"]
+offset_left = 376.0
+offset_top = 215.0
+offset_right = 416.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="PlayingCards"]
+offset_left = 350.0
+offset_top = 179.0
+offset_right = 390.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="PlayingCards"]
+offset_left = 396.0
+offset_top = 258.0
+offset_right = 436.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="PlayingCards"]
+offset_left = 398.0
+offset_top = 252.0
+offset_right = 438.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="PlayingCards"]
+offset_left = 264.0
+offset_top = 119.0
+offset_right = 536.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "message"
+horizontal_alignment = 1
+
+[node name="HigherButton" type="Button" parent="PlayingCards"]
+offset_left = 414.0
+offset_top = 340.0
+offset_right = 456.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Higher"
+flat = true
+
+[node name="LowerButton" type="Button" parent="PlayingCards"]
+offset_left = 338.0
+offset_top = 340.0
+offset_right = 378.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Lower"
+flat = true
+
+[node name="DiamondButton" type="Button" parent="PlayingCards"]
+offset_left = 263.0
+offset_top = 340.0
+offset_right = 303.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "♦"
+
+[node name="HeartButton" type="Button" parent="PlayingCards"]
+offset_left = 337.0
+offset_top = 340.0
+offset_right = 377.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "♥"
+
+[node name="SpadeButton" type="Button" parent="PlayingCards"]
+offset_left = 414.0
+offset_top = 340.0
+offset_right = 454.0
+offset_bottom = 380.0
+text = "♠"
+
+[node name="ClubButton" type="Button" parent="PlayingCards"]
+offset_left = 487.0
+offset_top = 340.0
+offset_right = 527.0
+offset_bottom = 380.0
+text = "♣"
+
+[node name="Typing" type="Node2D" parent="."]
+visible = false
+
+[node name="ParagraphLabel" type="TextEdit" parent="Typing"]
+offset_left = 112.0
+offset_top = 115.0
+offset_right = 700.0
+offset_bottom = 379.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_8mg7l")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_hglpt")
+editable = false
+context_menu_enabled = false
+wrap_mode = 1
+indent_wrapped_lines = true
+
+[node name="TextEdit" type="TextEdit" parent="Typing"]
+offset_left = 108.0
+offset_top = 114.0
+offset_right = 701.0
+offset_bottom = 318.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 12
+wrap_mode = 1
+
+[node name="SubmitTyping" type="Button" parent="Typing"]
+offset_left = 376.0
+offset_top = 354.0
+offset_right = 440.0
+offset_bottom = 374.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SUBMIT"
+flat = true
+
+[node name="Error" type="Label" parent="Typing"]
+offset_left = 112.0
+offset_top = 324.0
+offset_right = 501.0
+offset_bottom = 344.0
+theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
+theme_override_font_sizes/font_size = 12
+
+[connection signal="text_submitted" from="Math/Answer" to="." method="_on_answer_text_submitted"]
+[connection signal="pressed" from="Checklist/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="PlayingCards/HigherButton" to="." method="_on_higher_button_pressed"]
+[connection signal="pressed" from="PlayingCards/LowerButton" to="." method="_on_lower_button_pressed"]
+[connection signal="pressed" from="Typing/SubmitTyping" to="." method="_on_submit_typing_pressed"]

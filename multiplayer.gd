@@ -457,6 +457,16 @@ func get_opponent_id() -> int:
 	return -1
 
 
+func get_opponent_name() -> String:
+	var index = 0 if opponent_is_host() else 1
+	var steam_id = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, index)
+	return Steam.getFriendPersonaName(steam_id)
+
+func opponent_is_host() -> bool:
+	return Multiplayer.get_opponent_id() == 1
+
+
+
 func reset_ready():
 	host_ready = false
 	client_ready = false

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5f16ay24d3i1"]
+
+[ext_resource type="Shader" uid="uid://dm3h1l0nseuhs" path="res://Scripts/cold.gdshader" id="1_0rnw1"]
+[ext_resource type="Script" uid="uid://00vo8mr2uy5" path="res://Scripts/stress.gd" id="1_7mtoe"]
+[ext_resource type="Shader" uid="uid://dbfdmj5ybx1b3" path="res://Scripts/hot.gdshader" id="2_ttcnv"]
+[ext_resource type="Shader" uid="uid://b7trg6rh6opll" path="res://Scripts/creep.gdshader" id="3_xmqdi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttcnv"]
+shader = ExtResource("1_0rnw1")
+shader_parameter/amount = 0.0
+shader_parameter/cold_color = Color(0.2, 0.5, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmqdi"]
+shader = ExtResource("2_ttcnv")
+shader_parameter/amount = 0.0
+shader_parameter/cold_color = Color(0.2, 0.5, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mtoe"]
+shader = ExtResource("3_xmqdi")
+shader_parameter/amount = 0.0
+
+[node name="Stress" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_7mtoe")
+
+[node name="Cold" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ttcnv")
+layout_mode = 0
+offset_right = 1155.7142
+offset_bottom = 661.4285
+color = Color(0.23137255, 0.49803922, 1, 0.39215687)
+
+[node name="Hot" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xmqdi")
+layout_mode = 0
+offset_right = 1155.7142
+offset_bottom = 659.99994
+color = Color(1, 0.23137255, 0.1254902, 0.23529412)
+
+[node name="Creep" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_7mtoe")
+layout_mode = 0
+offset_right = 1155.7142
+offset_bottom = 659.99994
+color = Color(0, 0, 0, 0.39215687)
