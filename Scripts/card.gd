@@ -8,7 +8,7 @@ signal powerup_clicked(card)
 @onready var icon: TextureRect = $Icon
 @onready var description: Label = $Description
 @onready var stage: Label = $Stage
-@onready var card_button: TextureButton = $CardButton
+@onready var card_button: Button = $CardButton
 @onready var card_back: Sprite2D = $CardBack
 @onready var type: ColorRect = $Type
 @onready var question_mark: Label = $CardBack/QuestionMark
@@ -20,7 +20,7 @@ var normal_position : Vector2
 var hover_offset := Vector2(0, -60)
 var pair_id: int
 var moving_to_hand := false
-var dissapearing := false
+var disapearing := false
 var revealing := false
 var card_data: DraftCard
 var dragging := false
@@ -28,6 +28,8 @@ var drag_threshold := 30
 var mouse_down_pos := Vector2.ZERO
 var inventory_index := -1
 var block_dragging := false
+var hover_tween: Tween
+var move_tween: Tween
 
 
 func _ready():
@@ -94,21 +96,18 @@ func stage_to_string(stageName: Enum.Stage) -> String:
 			
 			
 func _on_mouse_entered() -> void:
-	if moving_to_hand or dissapearing or revealing:
-		print("returned early")
+	if moving_to_hand or disapearing or revealing:
 		return
 
 	if in_hand:
-		print("in hand")
 		for card in get_tree().get_nodes_in_group("cards"):
-			print(card, "raising")
 			card.raise_card()
 	else:
-		var tween = create_tween()
-		tween.set_trans(Tween.TRANS_QUAD)
-		tween.set_ease(Tween.EASE_OUT)
+		hover_tween = create_tween()
+		hover_tween.set_trans(Tween.TRANS_QUAD)
+		hover_tween.set_ease(Tween.EASE_OUT)
 
-		tween.tween_property(
+		hover_tween.tween_property(
 			self,
 			"scale",
 			hover_scale,
@@ -116,18 +115,18 @@ func _on_mouse_entered() -> void:
 		)
 	
 func _on_mouse_exited():
-	if moving_to_hand or dissapearing or revealing:
+	if moving_to_hand or disapearing or revealing:
 		return
 
 	if in_hand:
 		for card in get_tree().get_nodes_in_group("cards"):
 			card.lower_card()
 	else:
-		var tween = create_tween()
-		tween.set_trans(Tween.TRANS_QUAD)
-		tween.set_ease(Tween.EASE_OUT)
+		hover_tween = create_tween()
+		hover_tween.set_trans(Tween.TRANS_QUAD)
+		hover_tween.set_ease(Tween.EASE_OUT)
 
-		tween.tween_property(
+		hover_tween.tween_property(
 			self,
 			"scale",
 			normal_scale,
@@ -141,23 +140,27 @@ func move_to_hand(target_position: Vector2):
 	revealing = false
 	set_selected_layer(true)
 
+	# cancel hover/other animations
+	if hover_tween:
+		hover_tween.kill()
+
 	normal_position = target_position
 
 	scale = normal_scale
 	set_interactable(false)
 
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_OUT)
+	move_tween = create_tween()
+	move_tween.set_trans(Tween.TRANS_QUAD)
+	move_tween.set_ease(Tween.EASE_OUT)
 
-	tween.tween_property(
+	move_tween.tween_property(
 		self,
 		"position",
 		target_position,
 		0.3
 	)
 
-	tween.finished.connect(func():
+	move_tween.finished.connect(func():
 		moving_to_hand = false
 		set_interactable(true)
 	)
@@ -186,7 +189,7 @@ func reveal_card(target_position: Vector2):
 	
 	
 func disappear():
-	dissapearing = true
+	disapearing = true
 	set_interactable(false)
 	
 	var tween = create_tween()
@@ -201,12 +204,15 @@ func disappear():
 	)
 
 	tween.finished.connect(func():
-		dissapearing = false
+		disapearing = false
 		hide()
 	)
 	
 
 func set_selectable(value: bool):
+	if in_hand:
+		return
+	
 	set_interactable(value)
 
 	if not in_hand:
@@ -252,9 +258,11 @@ func lower_card():
 
 func set_selected_layer(value: bool):
 	if value:
-		z_index = 10
+		z_index = 100
+		card_button.z_index = 100
 	else:
 		z_index = 0
+		card_button.z_index = 0
 
 
 func _on_card_gui_input(event):
