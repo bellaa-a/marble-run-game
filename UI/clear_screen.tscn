@@ -160,7 +160,9 @@ offset_left = -51.0
 offset_top = 134.0
 offset_right = -11.0
 offset_bottom = 154.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Player2" type="Node2D" parent="."]
 
@@ -182,4 +184,5 @@ offset_left = -51.0
 offset_top = 134.0
 offset_right = -11.0
 offset_bottom = 154.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 horizontal_alignment = 1
