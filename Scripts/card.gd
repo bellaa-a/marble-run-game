@@ -95,10 +95,12 @@ func stage_to_string(stageName: Enum.Stage) -> String:
 			
 func _on_mouse_entered() -> void:
 	if moving_to_hand or dissapearing or revealing:
+		print("returned early")
 		return
 
 	if in_hand:
 		for card in get_tree().get_nodes_in_group("cards"):
+			print(card, "raising")
 			card.raise_card()
 	else:
 		var tween = create_tween()
