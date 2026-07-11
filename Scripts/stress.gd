@@ -1,44 +1,22 @@
 extends Control
 
-enum StressType {
-	COLD,
-	HOT,
-	CREEP
-}
+@onready var camera = get_tree().current_scene.get_node("Boarder/Camera2D")
 
-@onready var cold = $Cold
-@onready var hot = $Hot
-@onready var creep = $Creep
-
-var stress_type
+var shake_time = 20.0
+var shake_strength = 10.0
 
 
 func _ready():
-	randomize()
-
-	cold.visible = false
-	hot.visible = false
-	creep.visible = false
-
-	stress_type = [
-		StressType.COLD,
-		StressType.HOT,
-		StressType.CREEP
-	].pick_random()
-
-	start_stress()
+	await get_tree().create_timer(shake_time).timeout
+	camera.offset = Vector2.ZERO
+	queue_free()
 
 
-func start_stress():
-	match stress_type:
-		StressType.COLD:
-			cold.visible = true
-			print("cold")
-			
-		StressType.HOT:
-			hot.visible = true
-			print("hot")
-			
-		StressType.CREEP:
-			creep.visible = true
-			print("creep")
+func _process(delta: float) -> void:
+	if shake_time > 0:
+		shake_time -= delta
+
+		camera.offset = Vector2(
+			randf_range(-shake_strength, shake_strength),
+			randf_range(-shake_strength, shake_strength)
+		)
