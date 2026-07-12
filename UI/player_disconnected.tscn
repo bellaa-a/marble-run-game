@@ -42,3 +42,5 @@ theme_override_font_sizes/font_size = 30
 text = "Redirecting..."
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Control"]
+
+[connection signal="timeout" from="CanvasLayer/Control/Timer" to="." method="_on_timer_timeout"]

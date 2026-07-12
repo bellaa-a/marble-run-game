@@ -29,13 +29,13 @@ func clear_board(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 
 	player.play("press")
 
-	var clear_button = get_tree().current_scene.get_node("VersusButtons/Buttons/ClearButton")
+	var clear_button = get_tree().current_scene.get_node("SolveButtons/Buttons/ClearButton")
 	var normal = clear_button.texture_normal
 
 	await get_tree().create_timer(0.7).timeout
 
 	clear_button.texture_normal = clear_button.texture_pressed
-	get_tree().current_scene.get_node("VersusButtons/Buttons")._on_clear_button_pressed()
+	get_tree().current_scene.get_node("SolveButtons/Buttons")._on_clear_button_pressed()
 
 	await get_tree().create_timer(1.0).timeout
 
