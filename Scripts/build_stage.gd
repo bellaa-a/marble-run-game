@@ -6,7 +6,6 @@ extends Node2D
 @onready var goal = $MultiplayerGoal
 @onready var inventory = $Inventory
 @onready var ready_layer = $ReadyLayer
-@export var group_name : String
 
 var ready_control_scene = preload("res://UI/ready_control.tscn")
 var ready_control: Control

@@ -2,9 +2,17 @@ extends Node2D
 
 
 var opponent_blocks = {}
+@onready var effect_layer = $EffectLayer
+@onready var pipe = $Pipe
+@onready var marble = $Marble
+@onready var goal = $MultiplayerGoal
 
-func _ready():
-	Multiplayer.opponent_block_updated.connect(update_blocks)
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pipe.global_position = Multiplayer.pipe_position
+	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
+	goal.global_position = Multiplayer.goal_position
+	
 	update_blocks()
 
 

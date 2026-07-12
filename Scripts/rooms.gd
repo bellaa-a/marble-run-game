@@ -42,10 +42,16 @@ func _on_join_failed(message):
 	
 
 func _on_option_button_item_selected(index: int) -> void:
+	if not multiplayer.is_server():
+		return
+
+	var time
 	match index:
 		0:
-			Multiplayer.stage_one_time = 600 # 10 minutes
+			time = 600
 		1:
-			Multiplayer.stage_one_time = 300 # 5 minutes
+			time = 300
 		2:
-			Multiplayer.stage_one_time = 120 # 2 minutes
+			time = 120
+
+	Multiplayer.set_stage_one_time.rpc(time)

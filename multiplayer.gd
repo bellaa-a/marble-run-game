@@ -519,3 +519,8 @@ func get_code():
 		await get_tree().process_frame
 
 	return verification_code
+
+
+@rpc("authority", "call_local")
+func set_stage_one_time(time):
+	stage_one_time = time

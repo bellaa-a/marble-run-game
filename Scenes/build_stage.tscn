@@ -6,15 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="3_0weji"]
 [ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="3_rsmu0"]
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
-[ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/versus_buttons.tscn" id="6_dnjre"]
+[ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/build_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
 [ext_resource type="AudioStream" uid="uid://ce8vxfm7ho2jg" path="res://Audio/Ready.mp3" id="9_2fodp"]
 
 [node name="BuildStage" type="Node2D"]
 script = ExtResource("1_ebcgw")
-group_name = "Stage1"
 
 [node name="Boarder" parent="." instance=ExtResource("1_5b1iv")]
+
+[node name="MultiplayerGoal" parent="." instance=ExtResource("3_0weji")]
+position = Vector2(0, 170)
+start_open = true
 
 [node name="Marble" parent="." instance=ExtResource("3_rsmu0")]
 position = Vector2(-109, -186)
@@ -22,10 +25,6 @@ position = Vector2(-109, -186)
 [node name="Pipe" parent="." instance=ExtResource("2_k0j6d")]
 position = Vector2(-109, -220)
 scale = Vector2(0.29214692, 0.524515)
-
-[node name="MultiplayerGoal" parent="." instance=ExtResource("3_0weji")]
-position = Vector2(0, 170)
-start_open = true
 
 [node name="Inventory" parent="." instance=ExtResource("5_ebcgw")]
 
@@ -36,9 +35,8 @@ transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 [node name="Globals" parent="." instance=ExtResource("7_lln86")]
 z_index = 10
 
-[node name="VersusButtons" parent="." instance=ExtResource("6_dnjre")]
+[node name="BuildButtons" parent="." instance=ExtResource("6_dnjre")]
 position = Vector2(-49, 0)
-label_text = "I."
 
 [node name="ReadyLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)
