@@ -9,7 +9,9 @@ extends Node2D
 @export var group_name: String
 
 var ready_control_scene = preload("res://UI/ready_control.tscn")
+var peek_control_scene = preload("res://UI/peek.tscn")
 var ready_control: Control
+var peek_control: Control
 
 var dragging_block: Node2D = null
 var dragging_card: Control = null
@@ -23,6 +25,7 @@ func _ready():
 	
 	Multiplayer.build_stage = self
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
+	Multiplayer.finish_state_updated.connect(_on_finish_state_updated)
 	Multiplayer.reset_ready()
 	Multiplayer.rotation_mode = false
 	
@@ -185,3 +188,11 @@ func hide_ready_ui():
 	if ready_control:
 		ready_control.queue_free()
 		ready_control = null
+
+
+func _on_finish_state_updated():
+	if Multiplayer.player_finished and Multiplayer.opponent_finished:
+		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
+	elif Multiplayer.opponent_finished:
+		peek_control = peek_control_scene.instantiate()
+		effect_layer.add_child(peek_control)

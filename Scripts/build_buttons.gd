@@ -42,7 +42,7 @@ func update_timer_display():
 	else:
 		timer_label.modulate = Color.WHITE
 	
-	if time_left < 0:
+	if time_left <= 0:
 		if Multiplayer.opponent_finished:
 			print("I loose")
 		

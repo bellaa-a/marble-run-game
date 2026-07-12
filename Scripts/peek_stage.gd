@@ -9,6 +9,8 @@ func _ready():
 	pipe.global_position = Multiplayer.pipe_position
 	goal.global_position = Multiplayer.goal_position
 	Multiplayer.opponent_block_updated.connect(update_blocks)
+	Multiplayer.finish_state_updated.connect(_on_finish_state_updated)
+
 	update_blocks()
 
 
@@ -33,3 +35,8 @@ func update_blocks():
 
 			opponent_blocks[id].global_position = \
 				Multiplayer.opponent_block_positions[id]["position"]
+
+
+func _on_finish_state_updated():
+	if Multiplayer.player_finished and Multiplayer.opponent_finished:
+		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
