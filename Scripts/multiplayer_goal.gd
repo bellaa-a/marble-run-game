@@ -3,12 +3,10 @@ extends StaticBody2D
 @export var start_open := false
 
 var marble_inside = false
-var marbles_inside := 0
 @onready var confirm_layer = get_tree().current_scene.get_node("ConfirmLayer")
 @onready var buttons = get_tree().current_scene.get_node("BuildButtons/Buttons")
 var confirm_control_scene = preload("res://UI/confirm_control.tscn")
 var confirm_control: Control
-var waiting_for_confirmation := false
 
 func _ready():
 	add_to_group("goal")
@@ -16,13 +14,8 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("marble"):
-		marbles_inside += 1
-
 		await get_tree().create_timer(1.0).timeout
-
-		if marbles_inside == get_tree().get_nodes_in_group("marble").size() and not waiting_for_confirmation:
-			waiting_for_confirmation = true
-			show_confirm_ui()
+		show_confirm_ui()
 			
 
 func win_game():
@@ -61,23 +54,16 @@ func confirmed_goal():
 
 func cancel_goal():
 	GameState.game_won = false
-	
+
 	if confirm_control:
-		confirm_control.queue_free()
-		confirm_control = null
-	
-	marbles_inside = 0
-	
+		confirm_control.hide()
+
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.freeze = false
 		marble.sleeping = false
-		buttons._on_rewind_button_pressed()
-		
-		
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("marble"):
-		marbles_inside -= 1
 
+	buttons._on_rewind_button_pressed()
+		
 
 func reset_goal():
 	if not start_open:
@@ -121,3 +107,5 @@ func show_confirm_ui():
 
 		confirm_control.confirmed.connect(confirmed_goal)
 		confirm_control.cancelled.connect(cancel_goal)
+
+	confirm_control.show()

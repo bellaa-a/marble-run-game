@@ -1,5 +1,6 @@
 extends Node
 
+var time
 
 func _ready() -> void:
 	Multiplayer.lobby_ready.connect(_on_lobby_ready)
@@ -16,6 +17,7 @@ func _on_host_pressed():
 	$Click.play()
 	await $Click.finished
 	Multiplayer.host_game()
+	Multiplayer.set_stage_one_time.rpc(time)
 	transition.fade_to_scene("res://Scenes/host_game.tscn")
 
 
@@ -45,7 +47,6 @@ func _on_option_button_item_selected(index: int) -> void:
 	if not multiplayer.is_server():
 		return
 
-	var time
 	match index:
 		0:
 			time = 600
@@ -53,5 +54,3 @@ func _on_option_button_item_selected(index: int) -> void:
 			time = 300
 		2:
 			time = 120
-
-	Multiplayer.set_stage_one_time.rpc(time)

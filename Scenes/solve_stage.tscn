@@ -37,3 +37,4 @@ z_index = 10
 
 [node name="SolveButtons" parent="." instance=ExtResource("8_u4usd")]
 position = Vector2(-49, 0)
+label_text = "II."

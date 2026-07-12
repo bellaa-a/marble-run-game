@@ -2,8 +2,12 @@ extends Node2D
 
 
 var opponent_blocks = {}
+@onready var pipe = $Pipe
+@onready var goal = $MultiplayerGoal
 
 func _ready():
+	pipe.global_position = Multiplayer.pipe_position
+	goal.global_position = Multiplayer.goal_position
 	Multiplayer.opponent_block_updated.connect(update_blocks)
 	update_blocks()
 

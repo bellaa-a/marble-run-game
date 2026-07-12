@@ -38,6 +38,7 @@ z_index = 10
 
 [node name="BuildButtons" parent="." instance=ExtResource("6_dnjre")]
 position = Vector2(-49, 0)
+label_text = "I."
 
 [node name="ReadyLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)

@@ -367,7 +367,8 @@ func _on_lobby_chat_update(
 	_state
 ):
 	var current_player_count = Steam.getNumLobbyMembers(_lobby_id)
-
+	print("Lobby chat update")
+	print(previous_player_count, " -> ", Steam.getNumLobbyMembers(_lobby_id))
 	# Lobby was full, but now someone left
 	if previous_player_count >= 2 and current_player_count < 2:
 		var popup = preload("res://UI/player_disconnected.tscn").instantiate()

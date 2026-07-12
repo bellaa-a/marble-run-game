@@ -18,9 +18,8 @@ func _ready():
 	pipe.global_position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
-	
-	await organize_inventory()
 	show_ready_ui()
+	await organize_inventory()
 	
 	Multiplayer.build_stage = self
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
