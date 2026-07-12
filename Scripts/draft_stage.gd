@@ -15,6 +15,8 @@ var hand_positions := [
 	Vector2(0, 240),
 ]
 
+@onready var pipe = $Pipe
+@onready var goal = $MultiplayerGoal
 @onready var cards = [
 	$Card1,
 	$Card2,
@@ -63,8 +65,8 @@ func _ready():
 
 	update_pair_access()
 	
-	$Pipe.position = Multiplayer.pipe_position
-	$MultiplayerGoal.position = Multiplayer.goal_position
+	pipe.global_position = Multiplayer.pipe_position
+	goal.global_position = Multiplayer.goal_position
 
 	
 func generate_draft():

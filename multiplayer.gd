@@ -13,6 +13,7 @@ signal join_failed(message)
 signal host_ready_changed()
 signal client_ready_changed()
 signal both_players_ready()
+signal opponent_block_updated
 
 var lobby_id := 0
 var lobby_code := ""
@@ -22,6 +23,9 @@ var rotation_mode := true
 var stage_one_time : float = 600.0
 var host_ready := false
 var client_ready := false
+var opponent_block_positions = {}
+var verification_code: String = ""
+var code_ready := false
 
 var build_stage: Node = null
 var rooms: Node = null
@@ -486,3 +490,27 @@ func set_ready(peer_id: int):
 
 	if host_ready and client_ready:
 		both_players_ready.emit()
+
+
+@rpc("any_peer", "call_remote")
+func synch_block_position(block_id, card_id, position):
+
+	opponent_block_positions[block_id] = {
+		"card_id": card_id,
+		"position": position
+	}
+
+	opponent_block_updated.emit()
+
+
+func generate_code():
+	verification_code = "%06d" % randi_range(0, 999999)
+	code_ready = true
+	print("Generated:", verification_code)
+
+
+func get_code():
+	while not code_ready:
+		await get_tree().process_frame
+
+	return verification_code

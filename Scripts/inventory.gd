@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var effect_layer = $EffectLayer
+
 @onready var hand_cards = [
 	$Card1,
 	$Card2,
@@ -11,7 +13,6 @@ extends Node2D
 	$Card8,
 	$Card9,
 ]
-
 
 func _ready() -> void:
 	print(Multiplayer.player_inventory)
@@ -53,8 +54,12 @@ func _on_block_drag_started(card):
 
 
 func _on_powerup_clicked(card: DraftCard):
+	if card.id == "beg":
+		var authenticator = preload("res://UI/authenticator_code.tscn").instantiate()
+		effect_layer.add_child(authenticator)
+
 	Multiplayer.send_powerup(card.id)
-	
+
 	for hand_card in hand_cards:
 		if hand_card.card_data == card:
 			hand_card.use_card()

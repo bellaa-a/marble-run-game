@@ -18,6 +18,7 @@ scale = Vector2(0.29214692, 0.524515)
 
 [node name="MultiplayerGoal" parent="." instance=ExtResource("4_64jat")]
 position = Vector2(0, 170)
+script = null
 
 [node name="Crack1" type="Label" parent="."]
 offset_left = -172.0

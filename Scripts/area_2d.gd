@@ -89,6 +89,7 @@ func _input_event(_viewport, event, _shape_idx):
 
 			move_offset = block.global_position - get_global_mouse_position()
 			previous_position = block.global_position
+			
 
 func _input(event):
 
@@ -98,6 +99,8 @@ func _input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
+		if moving:
+			send_position_update()
 
 		dragging = false
 		moving = false
@@ -372,3 +375,13 @@ func any_movement_collision() -> bool:
 		return true
 
 	return false
+
+
+func send_position_update():
+	var block = get_parent()
+
+	Multiplayer.synch_block_position.rpc(
+		block.get_meta("block_id"),
+		block.get_meta("card_id"),
+		block.global_position
+	)

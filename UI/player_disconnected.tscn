@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bx2yqy7xbutjj"]
+
+[node name="PlayerDisconnected" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -32.0
+offset_right = 1202.0
+offset_bottom = 698.0
+color = Color(0, 0, 0, 0.8627451)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 202.0
+offset_right = 938.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Oops! Other player disconnected"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 409.0
+offset_right = 659.0
+offset_bottom = 462.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Redirecting..."

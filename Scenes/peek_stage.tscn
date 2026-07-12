@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0oofaw77jq5v"]
+
+[ext_resource type="Script" uid="uid://bucgn1ud5avuu" path="res://Scripts/peek_stage.gd" id="1_e6r8v"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_e06u8"]
+[ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="3_i5lvb"]
+
+[node name="PeekStage" type="Node2D"]
+script = ExtResource("1_e6r8v")
+
+[node name="Boarder" parent="." instance=ExtResource("2_e06u8")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_left = -404.0
+offset_top = -231.0
+offset_right = 411.0
+offset_bottom = 256.0
+color = Color(1, 1, 1, 0)
+
+[node name="Inventory" parent="." instance=ExtResource("3_i5lvb")]
+z_index = 20
+
+[node name="EffectLayer" type="CanvasLayer" parent="."]

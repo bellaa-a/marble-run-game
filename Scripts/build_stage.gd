@@ -18,9 +18,9 @@ func _ready():
 	await organize_inventory()
 	#show_ready_ui()
 	Multiplayer.build_stage = self
-	pipe.position = Multiplayer.pipe_position
+	pipe.global_position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
-	goal.position = Multiplayer.goal_position
+	goal.global_position = Multiplayer.goal_position
 	
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
 	Multiplayer.reset_ready()
@@ -55,6 +55,7 @@ func begin_drag(card):
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	
+	
 func _input(event):
 
 	if event is InputEventMouseButton:
@@ -69,9 +70,7 @@ func finish_drag(card):
 		return
 
 	var placed_block = dragging_block
-
-	dragging_block = null
-	dragging_card = null
+	var placed_card = dragging_card
 
 	if can_place_block(placed_block.global_position):
 
@@ -80,11 +79,23 @@ func finish_drag(card):
 
 		card.use_card()
 		Multiplayer.player_inventory[card.inventory_index]["used"] = true
+		
+		var block_id = str(randi())
+		placed_block.set_meta("block_id", block_id)
+		placed_block.set_meta("card_id", placed_card.card_data.id)
 
+		Multiplayer.synch_block_position.rpc(
+			block_id,
+			placed_card.card_data.id,
+			placed_block.global_position
+		)
+
+		dragging_block = null
+		dragging_card = null
+		
 	else:
 		placed_block.queue_free()
 
-	dragging_card = null
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
 

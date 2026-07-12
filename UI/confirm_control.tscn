@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://sotd1x05d0re"]
+
+[ext_resource type="Script" uid="uid://cvfmwvlnd4ec0" path="res://Scripts/confirm_control.gd" id="1_3b4e0"]
+
+[node name="ConfirmControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3b4e0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 48.0
+offset_right = 1006.0
+offset_bottom = 607.0
+color = Color(1, 1, 1, 0)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 201.0
+offset_right = 783.0
+offset_bottom = 359.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 208.0
+offset_right = 777.0
+offset_bottom = 348.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Confirm?
+-------------------------------------------------------------------------------
+Your opponent will need to complete this route.
+P.S. If you finish earlier than your opponent you 
+can take a peek at what they're building!
+-------------------------------------------------------------------------------"
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 318.0
+offset_right = 784.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "YES!"
+flat = true
+
+[node name="No" type="Button" parent="."]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 317.0
+offset_right = 589.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Never Mind"
+flat = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 320.0
+offset_right = 644.0
+offset_bottom = 340.0
+rotation = 1.5707964
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "------"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]

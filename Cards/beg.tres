@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=3 format=3 uid="uid://n8fmty65t36u"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://n8fmty65t36u"]
 
 [ext_resource type="Texture2D" uid="uid://djdiuyx5tjv5a" path="res://Assets/beg.png" id="1_ua1ex"]
+[ext_resource type="PackedScene" uid="uid://ctrfeab8nc0ij" path="res://UI/beg.tscn" id="2_35ywn"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_55x7j"]
 
 [resource]
@@ -11,3 +12,4 @@ stage = 2
 description = "Make your opponent beg."
 icon = ExtResource("1_ua1ex")
 icon_size = Vector2(15, 15)
+scene = ExtResource("2_35ywn")
