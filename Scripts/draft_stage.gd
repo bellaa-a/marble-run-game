@@ -269,8 +269,8 @@ func try_finish_draft():
 	$Instructions.visible = false
 
 	# move to next stage here
-	transition.switch_scene("res://Scenes/build_stage.tscn")
-	
+	#transition.switch_scene("res://Scenes/build_stage.tscn")
+	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
 
 func reveal_pair(pair: int):
 	cards[pair * 2].set_revealed(true)
