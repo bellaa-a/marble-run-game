@@ -4,8 +4,8 @@ extends StaticBody2D
 
 var marble_inside = false
 var marbles_inside := 0
-@onready var confirm_layer = $ConfirmLayer
-@onready var buttons = get_tree().current_scene.get_node("VersusBUttons/Buttons")
+@onready var confirm_layer = get_tree().current_scene.get_node("ConfirmLayer")
+@onready var buttons = get_tree().current_scene.get_node("VersusButtons/Buttons")
 var confirm_control_scene = preload("res://UI/confirm_control.tscn")
 var confirm_control: Control
 var waiting_for_confirmation := false

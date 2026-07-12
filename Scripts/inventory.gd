@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var effect_layer = $EffectLayer
+@onready var effect_layer = get_tree().current_scene.get_node("EffectLayer")
 
 @onready var hand_cards = [
 	$Card1,
