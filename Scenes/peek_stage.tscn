@@ -12,14 +12,6 @@ script = ExtResource("1_e6r8v")
 
 [node name="Boarder" parent="." instance=ExtResource("2_e06u8")]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = 10
-offset_left = -404.0
-offset_top = -231.0
-offset_right = 411.0
-offset_bottom = 256.0
-color = Color(1, 1, 1, 0)
-
 [node name="Pipe" parent="." instance=ExtResource("3_q4ycp")]
 position = Vector2(-109, -220)
 scale = Vector2(0.29214692, 0.524515)
@@ -37,10 +29,18 @@ offset_bottom = -131.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Opponent's Board"
 
+[node name="EffectLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_left = -404.0
+offset_top = -231.0
+offset_right = 411.0
+offset_bottom = 256.0
+color = Color(1, 1, 1, 0)
+
 [node name="Inventory" parent="." instance=ExtResource("3_i5lvb")]
 z_index = 20
 
-[node name="EffectLayer" type="CanvasLayer" parent="."]
-
 [node name="Globals" parent="." instance=ExtResource("6_rv1a0")]
-z_index = 10
+z_index = 100

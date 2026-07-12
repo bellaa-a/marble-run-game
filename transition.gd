@@ -9,3 +9,14 @@ func fade_to_scene(path, restart_music := false):
 		get_tree().root.add_child(instance)
 
 	await instance.play_transition(path, restart_music)
+
+func switch_scene(path: String):
+	var old_scene = get_tree().current_scene
+	var new_scene = load(path).instantiate()
+
+	get_tree().root.add_child(new_scene)
+	get_tree().current_scene = new_scene
+
+	await get_tree().process_frame
+
+	old_scene.queue_free()

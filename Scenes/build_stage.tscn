@@ -34,7 +34,7 @@ scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
 [node name="Globals" parent="." instance=ExtResource("7_lln86")]
-z_index = 10
+z_index = 100
 
 [node name="BuildButtons" parent="." instance=ExtResource("6_dnjre")]
 position = Vector2(-49, 0)

@@ -17,7 +17,6 @@ func _on_host_pressed():
 	$Click.play()
 	await $Click.finished
 	Multiplayer.host_game()
-	Multiplayer.set_stage_one_time.rpc(time)
 	transition.fade_to_scene("res://Scenes/host_game.tscn")
 
 
@@ -54,3 +53,5 @@ func _on_option_button_item_selected(index: int) -> void:
 			time = 300
 		2:
 			time = 120
+	
+	Multiplayer.stage_one_time = time

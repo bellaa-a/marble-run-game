@@ -15,7 +15,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_lobby_ready():
-
 	print("Opponent connected!")
+	Multiplayer.set_stage_one_time.rpc(Multiplayer.stage_one_time)
 
 	transition.fade_to_scene("res://Scenes/connected.tscn")
