@@ -6,7 +6,7 @@ extends Control
 @onready var username = $Eyes/Username
 
 func _ready() -> void:
-	$eyes.global_position = Multiplayer.pipe_position + Vector2(10, 0)
+	#eyes.global_position = Multiplayer.pipe_position + Vector2(10, 0)
 	username.text = Multiplayer.get_opponent_name()
 	if Multiplayer.opponent_is_host():
 		player1.visible = true
