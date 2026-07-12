@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0oofaw77jq5v"]
+[gd_scene load_steps=6 format=3 uid="uid://d0oofaw77jq5v"]
 
 [ext_resource type="Script" uid="uid://bucgn1ud5avuu" path="res://Scripts/peek_stage.gd" id="1_e6r8v"]
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_e06u8"]
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="3_i5lvb"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="3_q4ycp"]
+[ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="4_rv1a0"]
 
 [node name="PeekStage" type="Node2D"]
 script = ExtResource("1_e6r8v")
@@ -16,6 +18,22 @@ offset_top = -231.0
 offset_right = 411.0
 offset_bottom = 256.0
 color = Color(1, 1, 1, 0)
+
+[node name="Pipe" parent="." instance=ExtResource("3_q4ycp")]
+position = Vector2(-109, -220)
+scale = Vector2(0.29214692, 0.524515)
+
+[node name="MultiplayerGoal" parent="." instance=ExtResource("4_rv1a0")]
+position = Vector2(0, 170)
+start_open = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -151.0
+offset_right = 60.0
+offset_bottom = -131.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Opponent's Board"
 
 [node name="Inventory" parent="." instance=ExtResource("3_i5lvb")]
 z_index = 20

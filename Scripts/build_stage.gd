@@ -15,13 +15,14 @@ var dragging_block: Node2D = null
 var dragging_card: Control = null
 
 func _ready():
-	await organize_inventory()
-	#show_ready_ui()
-	Multiplayer.build_stage = self
 	pipe.global_position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
 	
+	await organize_inventory()
+	show_ready_ui()
+	
+	Multiplayer.build_stage = self
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
 	Multiplayer.reset_ready()
 	Multiplayer.rotation_mode = false

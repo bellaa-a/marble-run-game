@@ -21,6 +21,7 @@ func update_blocks():
 			add_child(block)
 
 			block.global_position = data["position"]
+			block.scale = card.block_scale
 			opponent_blocks[id] = block
 
 		else:
