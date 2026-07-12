@@ -7,6 +7,7 @@ var selected_pairs := [false, false, false, false]
 var current_pair := 0
 var finished_picking := false
 var opponent_finished_picking := false
+@export var group_name: String
 
 var hand_positions := [
 	Vector2(-225, 240),
