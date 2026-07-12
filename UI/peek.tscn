@@ -9,6 +9,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -284.0
+offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -23,6 +25,14 @@ offset_bottom = 120.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Username" type="Label" parent="Eyes"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 76.0
+offset_right = 89.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
 [node name="Player1" type="Sprite2D" parent="Eyes"]
 position = Vector2(19.166718, 25.49826)
 rotation = 1.5707964
@@ -34,11 +44,3 @@ position = Vector2(19.533768, 26.599365)
 rotation = 1.5707964
 scale = Vector2(0.30637565, 0.31000924)
 texture = ExtResource("2_svbjl")
-
-[node name="Username" type="Label" parent="."]
-layout_mode = 0
-offset_left = 167.0
-offset_top = 147.0
-offset_right = 310.0
-offset_bottom = 167.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
