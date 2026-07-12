@@ -13,8 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p1w2t")
 
-[node name="Player1" type="ColorRect" parent="."]
-visible = false
+[node name="Eyes" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 221.0
 offset_top = 71.0
@@ -23,26 +22,18 @@ offset_bottom = 120.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player1"]
+[node name="Player1" type="Sprite2D" parent="Eyes"]
+visible = false
 position = Vector2(19.166718, 25.49826)
 rotation = 1.5707964
 scale = Vector2(0.25695902, 0.25620243)
 texture = ExtResource("1_j8q8f")
 
-[node name="Player2" type="ColorRect" parent="."]
+[node name="Player2" type="Sprite2D" parent="Eyes"]
 visible = false
-layout_mode = 0
-offset_left = 221.0
-offset_top = 71.0
-offset_right = 243.0
-offset_bottom = 120.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player2"]
-position = Vector2(19.533773, 26.599361)
+position = Vector2(19.533768, 26.599365)
 rotation = 1.5707964
-scale = Vector2(0.30637562, 0.31000924)
+scale = Vector2(0.30637565, 0.31000924)
 texture = ExtResource("2_svbjl")
 
 [node name="Username" type="Label" parent="."]

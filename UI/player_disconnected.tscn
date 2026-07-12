@@ -30,16 +30,18 @@ offset_bottom = 329.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "Oops! Other player disconnected"
+horizontal_alignment = 1
 
 [node name="RedirectingLabel" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 503.0
+offset_left = 505.0
 offset_top = 409.0
-offset_right = 659.0
+offset_right = 661.0
 offset_bottom = 462.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Redirecting..."
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Control"]
 

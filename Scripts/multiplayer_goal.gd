@@ -49,7 +49,10 @@ func confirmed_goal():
 		tween.tween_property(marble.get_node("OriginalMarble"), "modulate:a", 0.0, 1.0)
 
 	await get_tree().create_timer(1.5).timeout
-	transition.fade_to_scene("res://Scenes/peek_stage.tscn")
+	if Multiplayer.opponent_finished:
+		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
+	else:
+		transition.fade_to_scene("res://Scenes/peek_stage.tscn")
 	
 
 func cancel_goal():

@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://q1u3o6j55dbu"]
+
+[ext_resource type="Script" uid="uid://cp1608tmm4m5u" path="res://Scripts/win_lose.gd" id="1_nthap"]
+
+[node name="WinLose" type="Node2D"]
+script = ExtResource("1_nthap")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -32.0
+offset_right = 1202.0
+offset_bottom = 698.0
+color = Color(0, 0, 0, 0.8627451)
+
+[node name="Result" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 120.0
+offset_right = 938.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Result"
+horizontal_alignment = 1
+
+[node name="Mesage" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 276.0
+offset_right = 937.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Message"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="RedirectingLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 21.0
+offset_right = 1123.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Waiting for other player..."
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Control"]
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 465.0
+offset_right = 638.0
+offset_bottom = 505.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+flat = true
+
+[connection signal="timeout" from="CanvasLayer/Control/Timer" to="." method="_on_timer_timeout"]
