@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var group_name: String
 var opponent_blocks = {}
 @onready var effect_layer = $EffectLayer
 @onready var pipe = $Pipe
@@ -13,6 +13,7 @@ func _ready() -> void:
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
 	
+	Multiplayer.rotation_mode = true
 	update_blocks()
 
 

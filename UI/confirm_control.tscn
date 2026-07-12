@@ -7,31 +7,33 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -285.0
+offset_bottom = -159.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3b4e0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -413.0
-offset_top = -265.0
-offset_right = 428.0
-offset_bottom = 294.0
+offset_left = -20.0
+offset_top = -44.0
+offset_right = 821.0
+offset_bottom = 515.0
 color = Color(1, 1, 1, 0)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -184.0
-offset_top = -112.0
-offset_right = 205.0
-offset_bottom = 46.0
+offset_left = 209.0
+offset_top = 109.0
+offset_right = 598.0
+offset_bottom = 267.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -180.0
-offset_top = -105.0
-offset_right = 199.0
-offset_bottom = 35.0
+offset_left = 213.0
+offset_top = 116.0
+offset_right = 592.0
+offset_bottom = 256.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Confirm?
 -------------------------------------------------------------------------------
@@ -43,30 +45,30 @@ horizontal_alignment = 1
 
 [node name="Yes" type="Button" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 5.0
-offset_right = 206.0
-offset_bottom = 45.0
+offset_left = 403.0
+offset_top = 226.0
+offset_right = 599.0
+offset_bottom = 266.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "YES!"
 flat = true
 
 [node name="No" type="Button" parent="."]
 layout_mode = 0
-offset_left = -185.0
-offset_top = 4.0
-offset_right = 11.0
-offset_bottom = 44.0
+offset_left = 208.0
+offset_top = 225.0
+offset_right = 404.0
+offset_bottom = 265.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Never Mind"
 flat = true
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 7.0
-offset_right = 66.0
-offset_bottom = 27.0
+offset_left = 416.0
+offset_top = 228.0
+offset_right = 459.0
+offset_bottom = 248.0
 rotation = 1.5707964
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "------"

@@ -12,6 +12,7 @@ signal host_ready_changed()
 signal client_ready_changed()
 signal both_players_ready()
 signal opponent_block_updated
+signal finish_state_updated
 
 var lobby_id := 0
 var lobby_code := ""
@@ -27,6 +28,8 @@ var code_ready := false
 var build_stage: Node = null
 var rooms: Node = null
 var previous_player_count := 0
+var player_finished := false
+var opponent_finished := false
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -524,3 +527,19 @@ func get_code():
 @rpc("authority", "call_local")
 func set_stage_one_time(time):
 	stage_one_time = time
+
+
+@rpc("any_peer", "call_local")
+func player_finished_building():
+	var id = multiplayer.get_remote_sender_id()
+
+	if id == 0:
+		# server calling locally
+		id = multiplayer.get_unique_id()
+
+	if id == multiplayer.get_unique_id():
+		player_finished = true
+	else:
+		opponent_finished = true
+
+	finish_state_updated.emit()

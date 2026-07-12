@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bn507jcmv3sv8"]
 
-[ext_resource type="Script" uid="uid://ctw1n1yb32vvk" path="res://Scripts/build_buttons.gd" id="1_4gq38"]
+[ext_resource type="Script" uid="uid://b8jthetigv8re" path="res://Scripts/solve_buttons.gd" id="1_4gq38"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="2_2tj7p"]
 [ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="3_07xsm"]
 [ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="4_dsjx5"]
