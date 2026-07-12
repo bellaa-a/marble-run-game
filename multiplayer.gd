@@ -2,9 +2,7 @@ extends Node
 
 var pipe_position: Vector2
 var goal_position: Vector2
-
 var peer: SteamMultiplayerPeer
-
 var is_host := false
 
 signal lobby_ready
@@ -26,9 +24,9 @@ var client_ready := false
 var opponent_block_positions = {}
 var verification_code: String = ""
 var code_ready := false
-
 var build_stage: Node = null
 var rooms: Node = null
+var previous_player_count := 0
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -365,6 +363,14 @@ func _on_lobby_chat_update(
 	_making_change_id,
 	_state
 ):
+	var current_player_count = Steam.getNumLobbyMembers(_lobby_id)
+
+	# Lobby was full, but now someone left
+	if previous_player_count >= 2 and current_player_count < 2:
+		var popup = preload("res://UI/player_disconnected.tscn").instantiate()
+		get_tree().current_scene.add_child(popup)
+
+	previous_player_count = current_player_count
 
 	check_lobby_ready()
 
@@ -451,7 +457,6 @@ func use_powerup(card_id: String):
 	var card = CardDatabase.get_card_by_id(card_id)
 	var effect = card.scene.instantiate()
 	build_stage.effect_layer.add_child(effect)
-	#effect.activate()
 
 
 func get_opponent_id() -> int:
@@ -466,9 +471,9 @@ func get_opponent_name() -> String:
 	var steam_id = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, index)
 	return Steam.getFriendPersonaName(steam_id)
 
+
 func opponent_is_host() -> bool:
 	return Multiplayer.get_opponent_id() == 1
-
 
 
 func reset_ready():
