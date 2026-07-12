@@ -1,6 +1,6 @@
 extends Node
 
-var time
+var time: float = 600
 
 func _ready() -> void:
 	Multiplayer.lobby_ready.connect(_on_lobby_ready)
