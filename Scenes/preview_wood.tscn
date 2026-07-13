@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqo4udoaqx7gg"]
+
+[ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="3_a0fdt"]
+[ext_resource type="Texture2D" uid="uid://0h8te71d6vk2" path="res://Assets/WoodShadow.png" id="5_vekbb"]
+
+[node name="Wood" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.0002835, 1.1017776)
+texture = ExtResource("3_a0fdt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -122.0
+offset_top = -67.0
+offset_right = 134.0
+offset_bottom = 62.0
+scale = Vector2(1, 1.0799999)
+texture = ExtResource("5_vekbb")

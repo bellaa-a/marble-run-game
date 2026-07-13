@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://cuxwxo76xssy6"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=5 format=3 uid="uid://cuxwxo76xssy6"]
 
 [ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="1_sxga8"]
 [ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="2_555ad"]
+[ext_resource type="PackedScene" uid="uid://cqo4udoaqx7gg" path="res://Scenes/preview_wood.tscn" id="2_ac0i7"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_ac0i7"]
 
 [resource]
@@ -11,4 +12,5 @@ description = "Small Wooden Block."
 icon = ExtResource("1_sxga8")
 icon_size = Vector2(20, 50)
 scene = ExtResource("2_555ad")
+preview_scene = ExtResource("2_ac0i7")
 block_scale = Vector2(0.3, 1)

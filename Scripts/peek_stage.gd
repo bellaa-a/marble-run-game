@@ -22,12 +22,11 @@ func update_blocks():
 
 			var data = Multiplayer.opponent_block_positions[id]
 			var card = CardDatabase.get_card_by_id(data["card_id"])
-			var block = card.scene.instantiate()
+			var block = card.preview_scene.instantiate()
 			add_child(block)
 			block.set_deferred("global_position", data["position"])
 			block.set_deferred("scale", card.block_scale)
 
-			await get_tree().process_frame
 			opponent_blocks[id] = block
 			
 			print("Creating block at:", data["position"])

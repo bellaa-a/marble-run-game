@@ -84,9 +84,9 @@ script = ExtResource("1_wxpa8")
 [node name="Boarder" parent="." instance=ExtResource("1_fd4oj")]
 
 [node name="Username1" type="Label" parent="."]
-offset_left = -354.0
+offset_left = -349.0
 offset_top = -81.625
-offset_right = 164.0
+offset_right = 169.0
 offset_bottom = -45.625
 theme_override_font_sizes/font_size = 30
 text = "Username1"

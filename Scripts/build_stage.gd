@@ -48,10 +48,7 @@ func begin_drag(card):
 	dragging_block = card.card_data.scene.instantiate()
 	dragging_block.scale = card.card_data.block_scale
 	add_child(dragging_block)
-
-	if dragging_block.has_method("set_preview"):
-		dragging_block.set_preview(true)
-
+	
 	dragging_block.global_position = get_global_mouse_position()
 
 	# prevent the card from receiving the mouse release
@@ -76,9 +73,6 @@ func finish_drag(card):
 	var placed_card = dragging_card
 
 	if can_place_block(placed_block.global_position):
-
-		if placed_block.has_method("set_preview"):
-			placed_block.set_preview(false)
 
 		card.use_card()
 		Multiplayer.player_inventory[card.inventory_index]["used"] = true

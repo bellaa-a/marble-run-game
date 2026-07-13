@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://beeq8awm8y81"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=5 format=3 uid="uid://beeq8awm8y81"]
 
 [ext_resource type="Texture2D" uid="uid://breucgkme6rhw" path="res://Assets/RubberBand.png" id="1_x3tfp"]
+[ext_resource type="PackedScene" uid="uid://btiie8llcfjah" path="res://Scenes/preview_rubber_band.tscn" id="2_gshm4"]
 [ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="2_ysj7j"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_gshm4"]
 
@@ -11,4 +12,5 @@ description = "Medium Rubber Block."
 icon = ExtResource("1_x3tfp")
 icon_size = Vector2(40, 40)
 scene = ExtResource("2_ysj7j")
+preview_scene = ExtResource("2_gshm4")
 block_scale = Vector2(0.9, 0.9)
