@@ -30,6 +30,8 @@ func _on_restart_button_pressed():
 
 
 func _on_home_button_pressed():
+	$Click.play()
+	await $Click.finished
 	Multiplayer.go_home.rpc()
 	Multiplayer.leave_lobby()
 	transition.fade_to_scene("res://Scenes/rooms.tscn")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://q1u3o6j55dbu"]
+[gd_scene load_steps=3 format=3 uid="uid://q1u3o6j55dbu"]
 
 [ext_resource type="Script" uid="uid://cp1608tmm4m5u" path="res://Scripts/win_lose.gd" id="1_nthap"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="2_dmnoc"]
 
 [node name="WinLose" type="Node2D"]
 script = ExtResource("1_nthap")
@@ -78,6 +79,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Home"
 flat = true
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dmnoc")
 
 [connection signal="timeout" from="CanvasLayer/Control/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Control/RestartButton" to="." method="_on_restart_button_pressed"]
