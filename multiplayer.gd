@@ -343,6 +343,7 @@ func _on_lobby_joined(
 	if result == OK:
 
 		multiplayer.multiplayer_peer = peer
+		setup_multiplayer_signals()
 
 		print("Steam client started")
 
