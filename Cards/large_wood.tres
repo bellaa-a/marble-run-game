@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="1_ayxfu"]
 [ext_resource type="PackedScene" uid="uid://cqo4udoaqx7gg" path="res://Scenes/preview_wood.tscn" id="2_ht8pj"]
-[ext_resource type="PackedScene" uid="uid://dfdt7qsxl1yyr" path="res://Scenes/wood.tscn" id="2_ykd6v"]
+[ext_resource type="PackedScene" uid="uid://nvpuxpos3uw5" path="res://Scenes/multiplayer_wood.tscn" id="3_ht8pj"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_sxufn"]
 
 [resource]
@@ -11,6 +11,6 @@ id = "large_wood"
 description = "Large Wooden Block."
 icon = ExtResource("1_ayxfu")
 icon_size = Vector2(60, 50)
-scene = ExtResource("2_ykd6v")
+scene = ExtResource("3_ht8pj")
 preview_scene = ExtResource("2_ht8pj")
 block_scale = Vector2(0.9, 1)

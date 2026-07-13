@@ -49,7 +49,10 @@ func begin_drag(card):
 	dragging_block.scale = card.card_data.block_scale
 	add_child(dragging_block)
 	
+	
 	dragging_block.global_position = get_global_mouse_position()
+	
+	#dragging_block.get_node("Area2D").set_start_transform()
 
 	# prevent the card from receiving the mouse release
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE

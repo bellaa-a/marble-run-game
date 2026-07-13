@@ -537,7 +537,14 @@ func synch_block_position(block_id, card_id, position):
 func generate_code():
 	verification_code = "%06d" % randi_range(0, 999999)
 	code_ready = true
-	print("Generated:", verification_code)
+
+	send_verification_code.rpc(verification_code)
+
+
+@rpc("authority", "call_remote")
+func send_verification_code(code: String):
+	verification_code = code
+	code_ready = true
 
 
 func get_code():

@@ -42,5 +42,6 @@ func _on_opponent_home_pressed():
 
 func _on_both_players_restart():
 	Multiplayer.reset_match()
+	Multiplayer.randomize_layout()
 	transition.fade_to_scene("res://Scenes/connected.tscn")
 	

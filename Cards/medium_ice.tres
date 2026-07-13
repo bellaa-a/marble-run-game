@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dk2fpf588vfm0" path="res://Assets/Ice.png" id="1_s326n"]
 [ext_resource type="PackedScene" uid="uid://4v7hvd7qw5hl" path="res://Scenes/preview_ice.tscn" id="2_5mgd1"]
-[ext_resource type="PackedScene" uid="uid://xbtj68fc8u8d" path="res://Scenes/ice.tscn" id="2_046nq"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_5mgd1"]
+[ext_resource type="PackedScene" uid="uid://c0c3gdmj7mtbn" path="res://Scenes/multiplayer_ice.tscn" id="3_046nq"]
 
 [resource]
 script = ExtResource("3_5mgd1")
@@ -11,6 +11,6 @@ id = "medium_ice"
 description = "Medium Ice Block."
 icon = ExtResource("1_s326n")
 icon_size = Vector2(40, 30)
-scene = ExtResource("2_046nq")
+scene = ExtResource("3_046nq")
 preview_scene = ExtResource("2_5mgd1")
 block_scale = Vector2(1.1, 0.5)

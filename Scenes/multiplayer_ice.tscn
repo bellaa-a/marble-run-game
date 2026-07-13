@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0c3gdmj7mtbn"]
+
+[ext_resource type="Script" uid="uid://bfxep1dv8lj8p" path="res://Scripts/ice.gd" id="1_ucakd"]
+[ext_resource type="Script" uid="uid://bh6m8urx1k5b2" path="res://Scripts/multiplayer_area_2d.gd" id="2_ucakd"]
+[ext_resource type="Texture2D" uid="uid://dk2fpf588vfm0" path="res://Assets/Ice.png" id="3_6ayvm"]
+[ext_resource type="Texture2D" uid="uid://cisapkva208j" path="res://Assets/IceShadow.png" id="4_u0o4b"]
+[ext_resource type="Texture2D" uid="uid://cvi5itq5khoqe" path="res://Assets/Ice1.png" id="5_p2mlv"]
+[ext_resource type="Texture2D" uid="uid://d23mrl2q4r2d0" path="res://Assets/Ice2.png" id="6_8euws"]
+[ext_resource type="Texture2D" uid="uid://baay11rekt1g7" path="res://Assets/Ice3.png" id="7_gw4kq"]
+[ext_resource type="AudioStream" uid="uid://c0xggtlvredx0" path="res://Audio/BreakIce.mp3" id="8_lteko"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fse5i"]
+friction = 0.01
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fse5i"]
+size = Vector2(112, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uice2"]
+size = Vector2(112, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtyq4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_p2mlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8euws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gw4kq")
+}],
+"loop": false,
+"name": &"break",
+"speed": 10.0
+}]
+
+[node name="Ice" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_fse5i")
+script = ExtResource("1_ucakd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 31
+script = ExtResource("2_ucakd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_fse5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_uice2")
+
+[node name="OriginalIce" type="Sprite2D" parent="."]
+texture = ExtResource("3_6ayvm")
+
+[node name="IceShadow" type="TextureRect" parent="OriginalIce"]
+modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 101.19896
+pivot_offset = Vector2(64, 28)
+texture = ExtResource("4_u0o4b")
+
+[node name="BreakingIce" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 35)
+sprite_frames = SubResource("SpriteFrames_rtyq4")
+animation = &"break"
+frame = 2
+frame_progress = 1.0
+
+[node name="IceSound" type="AudioStreamPlayer2D" parent="BreakingIce"]
+stream = ExtResource("8_lteko")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

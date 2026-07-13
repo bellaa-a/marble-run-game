@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://breucgkme6rhw" path="res://Assets/RubberBand.png" id="1_8vwrm"]
 [ext_resource type="PackedScene" uid="uid://btiie8llcfjah" path="res://Scenes/preview_rubber_band.tscn" id="2_7ac45"]
-[ext_resource type="PackedScene" uid="uid://1re04emd1r08" path="res://Scenes/rubber_band.tscn" id="2_hkgb0"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_7ac45"]
+[ext_resource type="PackedScene" uid="uid://d308l6plvxyg1" path="res://Scenes/multiplayer_rubber_band.tscn" id="3_hkgb0"]
 
 [resource]
 script = ExtResource("3_7ac45")
@@ -11,6 +11,6 @@ id = "small_rubber"
 description = "Small Rubber Block."
 icon = ExtResource("1_8vwrm")
 icon_size = Vector2(25, 30)
-scene = ExtResource("2_hkgb0")
+scene = ExtResource("3_hkgb0")
 preview_scene = ExtResource("2_7ac45")
 block_scale = Vector2(0.7, 0.7)

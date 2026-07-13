@@ -18,16 +18,22 @@ var start_rotation: float
 
 var rotating := false
 var rotation_speed := 0.0
-
+var moving := false
+var move_offset := Vector2.ZERO
+var previous_position := Vector2.ZERO
+var blocked_move := false
+var blocked_move_direction := Vector2.ZERO
 	
 
 func _ready():
 	var block = get_parent()
 	block.add_to_group("block")
-	print("READY:", block.global_position)
+	
+	
+func set_start_transform():
+	var block = get_parent()
 	start_position = block.global_position
 	start_rotation = block.global_rotation
-
 
 func start_wind_rotation(speed: float):
 	rotating = true
@@ -40,16 +46,17 @@ func stop_wind_rotation():
 
 func reset_block():
 	print("reset block")
-	var block = get_parent()
+	#var block = get_parent()
 
-	block.global_position = start_position
-	block.global_rotation = start_rotation
+	#block.global_position = start_position
+	#block.global_rotation = start_rotation
 
 	blocked = false
 	blocked_direction = 0
 	direction_probe = 0.0
 	ENTERED_LOOP = false
 	dragging = false
+	moving = false
 
 
 # ---------------- INPUT ----------------
@@ -65,15 +72,26 @@ func _input_event(_viewport, event, _shape_idx):
 
 		var block = get_parent()
 
-		var center = block.global_position
-		var mouse = get_global_mouse_position()
+		if Multiplayer.rotation_mode:
 
-		initial_mouse_angle = (mouse - center).angle()
-		initial_block_rotation = block.rotation
-		previous_mouse_angle = initial_mouse_angle
+			var center = block.global_position
+			var mouse = get_global_mouse_position()
 
-		dragging = true
-		direction_probe = 0.0
+			initial_mouse_angle = (mouse - center).angle()
+			initial_block_rotation = block.rotation
+			previous_mouse_angle = initial_mouse_angle
+
+			dragging = true
+			direction_probe = 0.0
+
+		else:
+			moving = true
+
+			blocked_move = false
+			blocked_move_direction = Vector2.ZERO
+
+			move_offset = block.global_position - get_global_mouse_position()
+			previous_position = block.global_position
 			
 
 func _input(event):
@@ -84,9 +102,15 @@ func _input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
+		if moving:
+			send_position_update()
 
 		dragging = false
+		moving = false
 		direction_probe = 0.0
+		blocked_move = false
+		blocked_move_direction = Vector2.ZERO
+
 
 # ---------------- MAIN LOOP ----------------
 
@@ -97,7 +121,50 @@ func _physics_process(delta):
 	if rotating:
 		block.rotation += rotation_speed * delta
 
+	if moving:
+		var old_position = block.global_position
+
+		var target_position = (
+			get_global_mouse_position()
+			+ move_offset
+		)
+
+		var movement = target_position - old_position
+
+		# ---------------- MOVEMENT BLOCKED STATE ----------------
+
+		if blocked_move:
+
+			# moving back opposite the collision direction
+
+			if movement.length() <= MOVE_THRESHOLD:
+				return
+
+			var direction = movement.normalized()
+
+			# moving opposite the collision direction
+			if direction.dot(blocked_move_direction) < -0.5:
+				blocked_move = false
+				blocked_move_direction = Vector2.ZERO
+			else:
+				return
+
 		# ---------------- APPLY MOVEMENT ----------------
+
+		block.global_position = target_position
+
+		if any_movement_collision():
+
+			# revert
+			block.global_position = old_position
+
+			blocked_move = true
+
+			# remember the direction that caused the collision
+			if movement.length() > 0.001:
+				blocked_move_direction = movement.normalized()
+
+		return
 
 	if not dragging or GameState.locked or not block.can_rotate:
 		return
@@ -277,3 +344,47 @@ func get_connected_rids() -> Array:
 func wake_marble():
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.sleeping = false
+
+
+func any_movement_collision() -> bool:
+
+	var space_state = get_world_2d().direct_space_state
+
+	var block = get_parent()
+	var shape_node = block.get_node("CollisionShape2D")
+
+	if shape_node == null or shape_node.shape == null:
+		return false
+
+	var query = PhysicsShapeQueryParameters2D.new()
+
+	query.shape = shape_node.shape
+	query.transform = shape_node.global_transform
+
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+
+	# only ignore itself
+	query.exclude = [block.get_rid()]
+
+	var results = space_state.intersect_shape(query, 32)
+
+	for hit in results:
+		var collider = hit.collider
+
+		if collider == block:
+			continue
+
+		return true
+
+	return false
+
+
+func send_position_update():
+	var block = get_parent()
+
+	Multiplayer.synch_block_position.rpc(
+		block.get_meta("block_id"),
+		block.get_meta("card_id"),
+		block.global_position
+	)
