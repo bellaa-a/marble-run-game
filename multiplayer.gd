@@ -435,7 +435,7 @@ func leave_lobby():
 func _notification(what):
 
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-
+		print("inside multiplayer")
 		leave_lobby()
 
 		get_tree().quit()
