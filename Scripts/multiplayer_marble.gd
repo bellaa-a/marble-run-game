@@ -3,10 +3,13 @@ extends RigidBody2D
 var start_position: Vector2
 var start_rotation: float
 var previous_velocity: Vector2 = Vector2.ZERO
+var is_shadow := false
 var normal_gravity := 1
+var shadow_gravity := -0.1
 var should_exist := true
 var last_position: Vector2
-
+@export var attack := false
+@export var attack_number := 0
 
 func _ready():
 	start_position = global_position
@@ -18,6 +21,11 @@ func _ready():
 	
 	add_to_group("marble")
 	
+	if get_tree().current_scene.group_name == "break":
+		continuous_cd = RigidBody2D.CCD_MODE_CAST_RAY
+	
+	if get_tree().current_scene.group_name != "myself":
+		$MarbleShadow.polygon = make_circle(8, 32)
 
 
 func set_start_position(pos: Vector2):
@@ -25,6 +33,22 @@ func set_start_position(pos: Vector2):
 	start_position = pos
 	start_rotation = global_rotation
 	
+	
+
+func set_shadow_mode(enabled: bool) -> void:
+	is_shadow = enabled
+
+	if is_shadow:
+		sleeping = false
+		linear_velocity.y -= 1
+		$OriginalMarble.visible = false
+		$MarbleShadow.visible = true
+		gravity_scale = shadow_gravity
+	else:
+		sleeping = false
+		$OriginalMarble.visible = true
+		gravity_scale = normal_gravity
+		
 
 func start():
 	freeze = false
@@ -71,4 +95,21 @@ func is_at_start() -> bool:
 
 func _physics_process(_delta):
 	previous_velocity = linear_velocity
+	if not attack:
+		var distance_moved = global_position.distance_to(last_position)
+
+		# Convert pixels to meters (100 pixels = 1 meter)
+		GameState.length_rolled += distance_moved / 100.0
+
 	last_position = global_position
+
+
+func make_circle(radius: float, segments: int = 32) -> PackedVector2Array:
+	var points = PackedVector2Array()
+
+	for i in range(segments):
+		var angle = TAU * float(i) / float(segments)
+		var p = Vector2(cos(angle), sin(angle)) * radius
+		points.append(p)
+
+	return points

@@ -14,16 +14,16 @@ extends Control
 func _ready() -> void:
 	if Multiplayer.opponent_is_host():
 		username1.text = Multiplayer.get_opponent_name()
-		await clear_board(player1, eyes1, sprite1)
+		await lights_off(player1, eyes1, sprite1)
 	else:
 		username2.text = Multiplayer.get_opponent_name()
-		await clear_board(player2, eyes2, sprite2)
+		await lights_off(player2, eyes2, sprite2)
 	
 	await get_tree().create_timer(20.0).timeout
 	queue_free()
 
 
-func clear_board(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
+func lights_off(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 	player.play("walk")
 
 	var tween = create_tween()
