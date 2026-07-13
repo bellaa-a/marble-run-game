@@ -6,6 +6,7 @@ var frame = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Multiplayer.leave_lobby()
 	await get_tree().create_timer(2).timeout
 	transition.fade_to_scene("res://Scenes/rooms.tscn")
 
