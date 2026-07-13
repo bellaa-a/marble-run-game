@@ -21,15 +21,15 @@ func update_blocks():
 		if not opponent_blocks.has(id):
 
 			var data = Multiplayer.opponent_block_positions[id]
-
 			var card = CardDatabase.get_card_by_id(data["card_id"])
-			
 			var block = card.scene.instantiate()
 			add_child(block)
 
 			block.global_position = data["position"]
 			block.scale = card.block_scale
 			opponent_blocks[id] = block
+			
+			print("Creating block at:", data["position"])
 
 		else:
 
@@ -40,3 +40,11 @@ func update_blocks():
 func _on_finish_state_updated():
 	if Multiplayer.player_finished and Multiplayer.opponent_finished:
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
+	else:
+		transition.switch_to_win_lose(
+			"res://UI/win_lose.tscn",
+			{
+				"result": "You won!",
+				"message": "Your opponent did not complete this stage before the timer ran out."
+			}
+		)

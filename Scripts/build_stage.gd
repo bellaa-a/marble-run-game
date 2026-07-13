@@ -86,7 +86,7 @@ func finish_drag(card):
 		var block_id = str(randi())
 		placed_block.set_meta("block_id", block_id)
 		placed_block.set_meta("card_id", placed_card.card_data.id)
-
+		print("Sending:", placed_block.global_position)
 		Multiplayer.synch_block_position.rpc(
 			block_id,
 			placed_card.card_data.id,

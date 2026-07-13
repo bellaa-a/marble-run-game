@@ -505,7 +505,7 @@ func set_ready(peer_id: int):
 
 @rpc("any_peer", "call_remote")
 func synch_block_position(block_id, card_id, position):
-
+	print("Received:", position)
 	opponent_block_positions[block_id] = {
 		"card_id": card_id,
 		"position": position

@@ -43,20 +43,33 @@ func update_timer_display():
 		timer_label.modulate = Color.WHITE
 	
 	if time_left <= 0:
-		var popup = preload("res://UI/win_lose.tscn").instantiate()
 		if Multiplayer.opponent_finished:
-			popup.result = "You lost!"
-			popup.message = "You have to complete this stage before the timer runs out."
-		
+			transition.switch_to_win_lose(
+				"res://UI/win_lose.tscn",
+				{
+					"result": "You lost!",
+					"message": "You have to complete this stage before the timer runs out."
+				}
+			)
+			
 		elif Multiplayer.player_finished:
-			popup.result = "You won!"
-			popup.message = "Your opponent did not complete this stage before the timer ran out."
+			transition.switch_to_win_lose(
+				"res://UI/win_lose.tscn",
+				{
+					"result": "You won!",
+					"message": "Your opponent did not complete this stage before the timer ran out."
+				}
+			)
 			
 		else:
-			popup.result = "You tied!"
-			popup.message = "You both did not complete this stage before the timer ran out."
+			transition.switch_to_win_lose(
+				"res://UI/win_lose.tscn",
+				{
+					"result": "You tied!",
+					"message": "You both did not complete this stage before the timer ran out."
 		
-		add_child(popup)
+				}
+			)
 
 
 func _on_rotation_toggled(toggled_on: bool) -> void:

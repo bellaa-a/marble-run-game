@@ -21,26 +21,27 @@ layout_mode = 0
 offset_left = 221.0
 offset_top = 71.0
 offset_right = 243.0
-offset_bottom = 120.0
+offset_bottom = 103.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Username" type="Label" parent="Eyes"]
 layout_mode = 0
-offset_left = -54.0
-offset_top = 76.0
-offset_right = 89.0
-offset_bottom = 96.0
+offset_left = -61.0
+offset_top = 58.0
+offset_right = 82.0
+offset_bottom = 78.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
 
 [node name="Player1" type="Sprite2D" parent="Eyes"]
-position = Vector2(19.166718, 25.49826)
+position = Vector2(13.040557, 15.696401)
 rotation = 1.5707964
-scale = Vector2(0.25695902, 0.25620243)
+scale = Vector2(0.2028051, 0.20150456)
 texture = ExtResource("1_j8q8f")
 
 [node name="Player2" type="Sprite2D" parent="Eyes"]
-position = Vector2(19.533768, 26.599365)
+position = Vector2(13.501862, 16.797493)
 rotation = 1.5707964
-scale = Vector2(0.30637565, 0.31000924)
+scale = Vector2(0.2425198, 0.24684793)
 texture = ExtResource("2_svbjl")
