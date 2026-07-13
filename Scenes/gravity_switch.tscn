@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bbrbk8t3181fm"]
+[gd_scene load_steps=5 format=3 uid="uid://bbrbk8t3181fm"]
 
 [ext_resource type="Script" uid="uid://co3tf0elkdy6b" path="res://Scripts/gravity_switch.gd" id="1_euybr"]
 [ext_resource type="Texture2D" uid="uid://bkybl42ex7apo" path="res://Assets/GravitySwitch.png" id="2_euybr"]
@@ -7,27 +7,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woben"]
 size = Vector2(35.00009, 34.999424)
 
-[node name="GravitySwitch" type="StaticBody2D" unique_id=1226771608]
+[node name="GravitySwitch" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 63
 script = ExtResource("1_euybr")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=453221441]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=776724440]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -4, -3, -4, -8, 1, -8, 2, 6, 2, 9, -1, 7, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879554722]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.4999957, 4.1000137)
 scale = Vector2(0.5999982, 0.12000276)
 shape = SubResource("RectangleShape2D_woben")
 
-[node name="GravityButton" type="Sprite2D" parent="." unique_id=723295326]
+[node name="GravityButton" type="Sprite2D" parent="."]
 position = Vector2(0, 0.5000002)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_euybr")
 
-[node name="GravityButtonPressed" type="Sprite2D" parent="." unique_id=231950750]
+[node name="GravityButtonPressed" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 0.5000003)
 scale = Vector2(0.5, 0.5)

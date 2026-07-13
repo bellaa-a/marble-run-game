@@ -28,7 +28,7 @@ var blocked_move_direction := Vector2.ZERO
 func _ready():
 	var block = get_parent()
 	block.add_to_group("block")
-
+	print("READY:", block.global_position)
 	start_position = block.global_position
 	start_rotation = block.global_rotation
 
@@ -43,6 +43,7 @@ func stop_wind_rotation():
 	
 
 func reset_block():
+	print("reset block")
 	var block = get_parent()
 
 	block.global_position = start_position

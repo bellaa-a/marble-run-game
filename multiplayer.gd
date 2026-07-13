@@ -450,7 +450,6 @@ func reset_match():
 	player_inventory.clear()
 
 	rotation_mode = true
-	stage_one_time = 600.0
 
 	host_ready = false
 	client_ready = false
