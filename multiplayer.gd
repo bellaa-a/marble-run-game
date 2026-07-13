@@ -530,7 +530,7 @@ func set_stage_one_time(time):
 
 
 @rpc("any_peer", "call_local")
-func player_finished_building():
+func player_finished_building(success: bool):
 	var id = multiplayer.get_remote_sender_id()
 
 	if id == 0:
@@ -538,9 +538,9 @@ func player_finished_building():
 		id = multiplayer.get_unique_id()
 
 	if id == multiplayer.get_unique_id():
-		player_finished = true
+		player_finished = success
 	else:
-		opponent_finished = true
+		opponent_finished = success
 
 	finish_state_updated.emit()
 

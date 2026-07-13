@@ -44,20 +44,12 @@ func update_timer_display():
 	
 	if time_left <= 0:
 		if Multiplayer.opponent_finished:
+			Multiplayer.player_finished_building.rpc(false)
 			transition.switch_to_win_lose(
 				"res://UI/win_lose.tscn",
 				{
 					"result": "You lost!",
 					"message": "You have to complete this stage before the timer runs out."
-				}
-			)
-			
-		elif Multiplayer.player_finished:
-			transition.switch_to_win_lose(
-				"res://UI/win_lose.tscn",
-				{
-					"result": "You won!",
-					"message": "Your opponent did not complete this stage before the timer ran out."
 				}
 			)
 			

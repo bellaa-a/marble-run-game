@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b2rh5a17f0i7y"]
+[gd_scene load_steps=9 format=3 uid="uid://b2rh5a17f0i7y"]
 
 [ext_resource type="Script" uid="uid://bwwkq7itsxrp2" path="res://Scripts/multiplayer_goal.gd" id="1_kah64"]
 [ext_resource type="Texture2D" uid="uid://bmuhc5rs7e1i" path="res://Assets/Stain.png" id="2_cvfvi"]
@@ -14,64 +14,64 @@ bounce = 0.2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paeek"]
 size = Vector2(43.445454, 9.851944)
 
-[node name="MultiplayerGoal" type="StaticBody2D" unique_id=897087343]
+[node name="MultiplayerGoal" type="StaticBody2D"]
 scale = Vector2(0.9229095, 0.9246201)
 collision_layer = 16
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_s0pnd")
 script = ExtResource("1_kah64")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1773506559]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1183467102]
-polygon = PackedVector2Array(-22.754126, -35.69033, -22.754126, -3.2445755, 23.837656, -3.2445755, 23.837656, -35.69033, 20.587067, -35.69033, 20.587067, -7.5706763, -19.503536, -7.5706763, -19.503536, -35.69033)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-22.754126, -35.69033, -22.754126, -3.2445755, 23.837656, -3.2445755, 23.837656, -35.69033, 20.587067, -33.527283, 20.587067, -7.5706763, -19.503536, -7.5706763, -19.503536, -33.527283)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379111718]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.2778081, -1.641991)
 shape = SubResource("RectangleShape2D_paeek")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1454196275]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.75686276)
 position = Vector2(3.6569142, 16.22288)
 scale = Vector2(1.1046926, 0.43936965)
 texture = ExtResource("2_cvfvi")
 region_rect = Rect2(550.38196, 48.278725, 477.37024, 315.76062)
 
-[node name="GoalClose" type="Sprite2D" parent="." unique_id=272650300]
+[node name="GoalClose" type="Sprite2D" parent="."]
 position = Vector2(1.6252941, -20.548979)
 scale = Vector2(0.14423612, 0.18025422)
 texture = ExtResource("3_tq3sc")
 
-[node name="GoalOpen" type="TextureRect" parent="." unique_id=354162105]
+[node name="GoalOpen" type="TextureRect" parent="."]
 visible = false
 offset_left = -20.587067
 offset_top = -41.09796
 offset_right = 21.670597
 texture = ExtResource("4_qy1d2")
 
-[node name="GoalBottom" type="Sprite2D" parent="." unique_id=2138941410]
+[node name="GoalBottom" type="Sprite2D" parent="."]
 position = Vector2(3.2505891, -2.1630507)
 scale = Vector2(0.6010831, 0.58389723)
 texture = ExtResource("5_kadj4")
 
-[node name="GoalTop" parent="." unique_id=1050599534 instance=ExtResource("6_ktdgd")]
+[node name="GoalTop" parent="." instance=ExtResource("6_ktdgd")]
 position = Vector2(5.4176493, -36.771854)
 rotation = 3.1415927
 scale = Vector2(0.60848826, 0.5408636)
 
-[node name="GoalSide" parent="." unique_id=1031188571 instance=ExtResource("6_ktdgd")]
+[node name="GoalSide" parent="." instance=ExtResource("6_ktdgd")]
 position = Vector2(-23.839663, -22.71003)
 rotation = 1.5707964
 scale = Vector2(0.41112357, 0.5474785)
 
-[node name="GoalSide2" parent="." unique_id=1848352441 instance=ExtResource("6_ktdgd")]
+[node name="GoalSide2" parent="." instance=ExtResource("6_ktdgd")]
 position = Vector2(24.921186, -17.304405)
 rotation = -1.5707964
 scale = Vector2(0.4111236, 0.5474785)
 
-[node name="Shadow" type="ColorRect" parent="." unique_id=2118144983]
+[node name="Shadow" type="ColorRect" parent="."]
 offset_left = -32.505886
 offset_top = -42.179485
 offset_right = 34.672955

@@ -24,10 +24,10 @@ func update_blocks():
 			var card = CardDatabase.get_card_by_id(data["card_id"])
 			var block = card.scene.instantiate()
 			add_child(block)
+			block.set_deferred("global_position", data["position"])
+			block.set_deferred("scale", card.block_scale)
 
 			await get_tree().process_frame
-			block.global_position = data["position"]
-			block.scale = card.block_scale
 			opponent_blocks[id] = block
 			
 			print("Creating block at:", data["position"])

@@ -14,9 +14,17 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("marble"):
-		await get_tree().create_timer(1.0).timeout
-		show_confirm_ui()
-			
+		marble_inside = true
+
+		await get_tree().create_timer(2.0).timeout
+
+		if marble_inside:
+			win_game()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("marble"):
+		marble_inside = false
 
 func win_game():
 	if GameState.game_won:
