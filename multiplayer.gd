@@ -1,10 +1,5 @@
 extends Node
 
-var pipe_position: Vector2
-var goal_position: Vector2
-var peer: SteamMultiplayerPeer
-var is_host := false
-
 signal lobby_ready
 signal join_status(message)
 signal join_failed(message)
@@ -32,6 +27,10 @@ var rooms: Node = null
 var player_finished := false
 var opponent_finished := false
 var restart_votes := {}
+var pipe_position: Vector2
+var goal_position: Vector2
+var peer: SteamMultiplayerPeer
+var is_host := false
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -178,6 +177,7 @@ func host_game():
 		print("Already in lobby")
 		return
 
+	reset_match()
 	is_host = true
 
 	print("Creating lobby...")
@@ -249,7 +249,7 @@ func join_game(code: String):
 		print("Already in lobby")
 		return
 
-
+	reset_match()
 	print("Searching for room:", code)
 
 
@@ -431,6 +431,7 @@ func leave_lobby():
 	lobby_code = ""
 	is_host = false
 	game_started = false
+	reset_match()
 
 
 func _notification(what):
@@ -443,7 +444,32 @@ func _notification(what):
 
 
 func reset_match():
+
+	game_started = false
+
 	player_inventory.clear()
+
+	rotation_mode = true
+	stage_one_time = 600.0
+
+	host_ready = false
+	client_ready = false
+
+	opponent_block_positions.clear()
+
+	verification_code = ""
+	code_ready = false
+
+	build_stage = null
+	rooms = null
+
+	player_finished = false
+	opponent_finished = false
+
+	restart_votes.clear()
+
+	pipe_position = Vector2.ZERO
+	goal_position = Vector2.ZERO
 
 
 func send_powerup(card_id: String):
