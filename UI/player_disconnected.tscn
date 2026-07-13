@@ -6,6 +6,7 @@
 script = ExtResource("1_bu72u")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

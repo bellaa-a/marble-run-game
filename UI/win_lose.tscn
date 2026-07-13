@@ -79,6 +79,7 @@ text = "Home"
 flat = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_dmnoc")
