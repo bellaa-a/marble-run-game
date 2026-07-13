@@ -13,6 +13,8 @@ signal client_ready_changed()
 signal both_players_ready()
 signal opponent_block_updated
 signal finish_state_updated
+signal both_players_restart
+signal opponent_home_pressed
 
 var lobby_id := 0
 var lobby_code := ""
@@ -30,6 +32,7 @@ var rooms: Node = null
 var previous_player_count := 0
 var player_finished := false
 var opponent_finished := false
+var restart_votes := {}
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -544,3 +547,22 @@ func player_finished_building():
 		opponent_finished = true
 
 	finish_state_updated.emit()
+
+
+@rpc("any_peer", "call_local")
+func set_restart():
+	var id = multiplayer.get_remote_sender_id()
+
+	if id == 0:
+		id = multiplayer.get_unique_id()
+
+	restart_votes[id] = true
+
+	if restart_votes.size() == 2:
+		restart_votes.clear()
+		both_players_restart.emit()
+		
+		
+@rpc("any_peer", "call_local")
+func go_home():
+	opponent_home_pressed.emit()

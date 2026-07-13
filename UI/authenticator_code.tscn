@@ -7,6 +7,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -265.0
+offset_bottom = -193.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -14,16 +16,22 @@ script = ExtResource("1_3k58w")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 916.0
-offset_top = 137.0
-offset_right = 1045.0
-offset_bottom = 157.0
+offset_left = 635.0
+offset_top = 77.0
+offset_right = 764.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "code"
 
 [node name="Timer" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1090.0
-offset_top = 138.0
-offset_right = 1125.0
-offset_bottom = 158.0
+offset_left = 712.0
+offset_top = 77.0
+offset_right = 747.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "time"
+
+[node name="CountdownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

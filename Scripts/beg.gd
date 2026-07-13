@@ -9,21 +9,17 @@ var time_left := 20
 
 
 func _ready():
+	$Timer.text = str(time_left)
+	$CountdownTimer.start()
 	verification_code = await Multiplayer.get_code()
-	start_timer()
 
 
-func start_timer():
-	time_left = 20
-	timer_label.text = str(time_left)
+func _on_countdown_timer_timeout():
+	time_left -= 1
+	$Timer.text = str(time_left)
 
-	while time_left > 0:
-		await get_tree().create_timer(1.0).timeout
-		time_left -= 1
-		timer_label.text = str(time_left)
-
-	# Timer finished
-	queue_free()
+	if time_left <= 0:
+		queue_free()
 
 
 func _on_submit_pressed() -> void:
@@ -34,7 +30,7 @@ func _on_submit_pressed() -> void:
 		entered_code += digit.text
 		
 	if entered_code.length() != 6:
-		error_label.text = "Gotta all 6 digits"
+		error_label.text = "Nope, gotta enter all 6 digits"
 		return
 
 	if entered_code == verification_code:

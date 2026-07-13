@@ -21,10 +21,21 @@ func _ready():
 func _gui_input(event):
 	if event is InputEventKey \
 	and event.pressed \
-	and event.keycode == KEY_BACKSPACE \
-	and text.is_empty():
-		if previous:
-			previous.grab_focus()
+	and event.keycode == KEY_BACKSPACE:
+
+		if text.length() == 1:
+			clear()
+
+			if previous:
+				previous.grab_focus()
+
+			accept_event()
+
+		elif text.is_empty():
+			if previous:
+				previous.grab_focus()
+
+			accept_event()
 
 
 func _on_text_changed(new_text: String):

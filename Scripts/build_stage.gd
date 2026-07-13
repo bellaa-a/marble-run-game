@@ -20,7 +20,7 @@ func _ready():
 	pipe.global_position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
-	show_ready_ui()
+	#show_ready_ui()
 	await organize_inventory()
 	
 	Multiplayer.build_stage = self
@@ -174,8 +174,8 @@ func _on_both_players_ready():
 	await get_tree().create_timer(2.0).timeout
 	$Ready.play()
 	await get_tree().create_timer(1.0).timeout
-	hide_ready_ui()
-	inventory.z_index = 10
+	#hide_ready_ui()
+	#inventory.z_index = 10
 	await get_tree().create_timer(1.0).timeout
 
 
@@ -184,11 +184,11 @@ func show_ready_ui():
 		ready_control = ready_control_scene.instantiate()
 		ready_layer.add_child(ready_control)
 
-func hide_ready_ui():
-	if ready_control:
-		ready_control.queue_free()
-		ready_control = null
-
+#func hide_ready_ui():
+	#if ready_control:
+		#ready_control.queue_free()
+		#ready_control = null
+#
 
 func _on_finish_state_updated():
 	if Multiplayer.player_finished and Multiplayer.opponent_finished:

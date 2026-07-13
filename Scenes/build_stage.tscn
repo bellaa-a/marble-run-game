@@ -17,17 +17,21 @@ group_name = "versus"
 [node name="Boarder" parent="." instance=ExtResource("1_5b1iv")]
 
 [node name="MultiplayerGoal" parent="." instance=ExtResource("3_0weji")]
+z_index = 10
 position = Vector2(0, 170)
 start_open = true
 
 [node name="Marble" parent="." instance=ExtResource("3_rsmu0")]
+z_index = 20
 position = Vector2(-109, -186)
 
 [node name="Pipe" parent="." instance=ExtResource("2_k0j6d")]
+z_index = 30
 position = Vector2(-109, -220)
 scale = Vector2(0.29214692, 0.524515)
 
 [node name="Inventory" parent="." instance=ExtResource("5_ebcgw")]
+z_index = 100
 
 [node name="EffectLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -37,6 +41,7 @@ transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 z_index = 100
 
 [node name="BuildButtons" parent="." instance=ExtResource("6_dnjre")]
+z_index = 100
 position = Vector2(-49, 0)
 label_text = "I."
 

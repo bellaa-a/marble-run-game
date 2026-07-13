@@ -56,3 +56,4 @@ func _on_both_players_ready():
 		await tween.finished
 
 	countdown_label.visible = false
+	queue_free()

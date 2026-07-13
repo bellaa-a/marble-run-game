@@ -45,45 +45,45 @@ text = "Enter the 6 digit code generated on your opponent's scene. "
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="CodeContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 244.0
 offset_top = 226.0
 offset_right = 552.0
 offset_bottom = 266.0
 
-[node name="Digit1" type="LineEdit" parent="HBoxContainer"]
+[node name="Digit1" type="LineEdit" parent="CodeContainer"]
 layout_mode = 2
 focus_next = NodePath("../Digit2")
 alignment = 1
 max_length = 1
 script = ExtResource("2_rvybl")
 
-[node name="Digit2" type="LineEdit" parent="HBoxContainer"]
+[node name="Digit2" type="LineEdit" parent="CodeContainer"]
 layout_mode = 2
 alignment = 1
 max_length = 1
 script = ExtResource("2_rvybl")
 
-[node name="Digit3" type="LineEdit" parent="HBoxContainer"]
+[node name="Digit3" type="LineEdit" parent="CodeContainer"]
 layout_mode = 2
 alignment = 1
 max_length = 1
 script = ExtResource("2_rvybl")
 
-[node name="Digit4" type="LineEdit" parent="HBoxContainer"]
+[node name="Digit4" type="LineEdit" parent="CodeContainer"]
 layout_mode = 2
 alignment = 1
 max_length = 1
 script = ExtResource("2_rvybl")
 
-[node name="Digit5" type="LineEdit" parent="HBoxContainer"]
+[node name="Digit5" type="LineEdit" parent="CodeContainer"]
 layout_mode = 2
 alignment = 1
 max_length = 1
 script = ExtResource("2_rvybl")
 
-[node name="Digit6" type="LineEdit" parent="HBoxContainer"]
+[node name="Digit6" type="LineEdit" parent="CodeContainer"]
 layout_mode = 2
 alignment = 1
 max_length = 1
@@ -110,10 +110,13 @@ flat = true
 
 [node name="Timer" type="Label" parent="."]
 layout_mode = 0
-offset_left = 716.0
+offset_left = 718.0
 offset_top = 21.0
-offset_right = 756.0
+offset_right = 758.0
 offset_bottom = 41.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 
+[node name="CountdownTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Submit" to="." method="_on_submit_pressed"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

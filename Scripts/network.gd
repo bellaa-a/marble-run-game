@@ -43,8 +43,8 @@ func start_glitch():
 	warning_label.text = "CONNECTION ISSUES"
 
 	var freeze_offset = Vector2(
-		randf_range(-20, 20),
-		randf_range(-20, 20)
+		randf_range(-10, 10),
+		randf_range(-10, 10)
 	)
 
 	var tween = create_tween()
