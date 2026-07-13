@@ -32,6 +32,7 @@ func _on_submit_pressed() -> void:
 	if entered_code.length() != 6:
 		error_label.text = "Nope, gotta enter all 6 digits"
 		return
+	print(entered_code, verification_code)
 
 	if entered_code == verification_code:
 		queue_free()

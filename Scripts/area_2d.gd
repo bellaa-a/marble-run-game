@@ -99,8 +99,8 @@ func _input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
-		#if moving:
-			#send_position_update()
+		if moving:
+			send_position_update()
 
 		dragging = false
 		moving = false

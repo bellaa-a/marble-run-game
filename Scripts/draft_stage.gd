@@ -42,7 +42,6 @@ var hand_positions := [
 ]
 
 func _ready():
-	Multiplayer.reset_match()
 	add_to_group("draft")
 	CardDatabase.load_cards()
 	generate_draft()

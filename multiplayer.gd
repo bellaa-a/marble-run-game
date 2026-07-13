@@ -468,6 +468,9 @@ func reset_match():
 
 	restart_votes.clear()
 
+	pipe_position = Vector2.ZERO
+	goal_position = Vector2.ZERO
+
 
 func send_powerup(card_id: String):
 	var opponent_id = get_opponent_id()
