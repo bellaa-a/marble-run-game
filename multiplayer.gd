@@ -373,8 +373,9 @@ func _on_lobby_chat_update(
 	print("Making change:", _making_change_id)
 	
 	if _state & Steam.CHAT_MEMBER_STATE_CHANGE_LEFT:
+		leave_lobby()
 		get_tree().change_scene_to_file("res://UI/player_disconnected.tscn")
-
+		return
 	check_lobby_ready()
 
 
@@ -416,23 +417,19 @@ func generate_lobby_code() -> String:
 func leave_lobby():
 
 	if peer:
-
 		peer.close()
-
+		multiplayer.multiplayer_peer = null
+		peer = null
 
 	if lobby_id != 0:
-
-		Steam.leaveLobby(
-			lobby_id
-		)
-
+		Steam.leaveLobby(lobby_id)
 
 	print("Left lobby")
 
-
 	lobby_id = 0
 	lobby_code = ""
-
+	is_host = false
+	game_started = false
 
 
 func _notification(what):

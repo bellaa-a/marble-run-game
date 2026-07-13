@@ -8,7 +8,6 @@ extends Node2D
 var frames = [0, 1, 2, 3, 4, 5, 5, 5]
 var frame = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	result_label.text = result
 	message_label.text = message
@@ -38,8 +37,7 @@ func _on_home_button_pressed():
 	
 
 func _on_opponent_home_pressed():
-	queue_free()
-	#show opponent disconnected scene
+	transition.fade_to_scene("res://UI/player_disconnected.tscn")
 
 
 func _on_both_players_restart():
