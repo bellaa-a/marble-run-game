@@ -541,7 +541,7 @@ func generate_code():
 	send_verification_code.rpc(verification_code)
 
 
-@rpc("authority", "call_remote")
+@rpc("any_peer", "call_remote")
 func send_verification_code(code: String):
 	verification_code = code
 	code_ready = true
