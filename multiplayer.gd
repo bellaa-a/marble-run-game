@@ -29,7 +29,6 @@ var verification_code: String = ""
 var code_ready := false
 var build_stage: Node = null
 var rooms: Node = null
-var previous_player_count := 0
 var player_finished := false
 var opponent_finished := false
 var restart_votes := {}
@@ -95,11 +94,10 @@ func _on_peer_connected(id):
 
 
 func _on_server_disconnected():
-
+	get_tree().change_scene_to_file("res://UI/player_disconnected.tscn")
 	print("Server disconnected")
 
 func _process(_delta):
-
 	Steam.run_callbacks()
 
 
@@ -369,14 +367,13 @@ func _on_lobby_chat_update(
 	_making_change_id,
 	_state
 ):
-	var current_player_count = Steam.getNumLobbyMembers(_lobby_id)
 	print("Lobby chat update")
-	print(previous_player_count, " -> ", Steam.getNumLobbyMembers(_lobby_id))
-	# Lobby was full, but now someone left
-	if previous_player_count >= 2 and current_player_count < 2:
+	print("State:", _state)
+	print("Changed:", _changed_id)
+	print("Making change:", _making_change_id)
+	
+	if _state & Steam.CHAT_MEMBER_STATE_CHANGE_LEFT:
 		get_tree().change_scene_to_file("res://UI/player_disconnected.tscn")
-
-	previous_player_count = current_player_count
 
 	check_lobby_ready()
 

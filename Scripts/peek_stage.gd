@@ -25,6 +25,7 @@ func update_blocks():
 			var block = card.scene.instantiate()
 			add_child(block)
 
+			await get_tree().process_frame
 			block.global_position = data["position"]
 			block.scale = card.block_scale
 			opponent_blocks[id] = block
@@ -39,8 +40,10 @@ func update_blocks():
 
 func _on_finish_state_updated():
 	if Multiplayer.player_finished and Multiplayer.opponent_finished:
+		print("opponent finished")
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	else:
+		print("opponent didnt finish")
 		transition.switch_to_win_lose(
 			"res://UI/win_lose.tscn",
 			{
