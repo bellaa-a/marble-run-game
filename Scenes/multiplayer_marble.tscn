@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://4envi3nxahn2"]
+
+[ext_resource type="Script" uid="uid://bhi2ka608moyi" path="res://Scripts/multiplayer_marble.gd" id="1_kjoq1"]
+[ext_resource type="Texture2D" uid="uid://s4xcu53jcbrt" path="res://Assets/Marble.png" id="2_63ciq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v8vi7"]
+friction = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c16uf"]
+radius = 8.0
+
+[node name="Marble" type="RigidBody2D"]
+collision_mask = 63
+physics_material_override = SubResource("PhysicsMaterial_v8vi7")
+script = ExtResource("1_kjoq1")
+
+[node name="OriginalCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+scale = Vector2(0.95, 0.95)
+shape = SubResource("CircleShape2D_c16uf")
+
+[node name="MarbleShadow" type="Polygon2D" parent="."]
+position = Vector2(0, -2)
+color = Color(0.23529412, 0.2, 0.2509804, 1)
+
+[node name="OriginalMarble" type="Sprite2D" parent="."]
+position = Vector2(0.5, -2)
+scale = Vector2(0.054345634, 0.05407807)
+texture = ExtResource("2_63ciq")

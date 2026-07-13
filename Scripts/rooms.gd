@@ -52,6 +52,7 @@ func _on_option_button_item_selected(index: int) -> void:
 		1:
 			time = 300
 		2:
-			time = 120
+			#time = 120
+			time = 60
 	
 	Multiplayer.stage_one_time = time

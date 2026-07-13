@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
 [ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="2_k0j6d"]
 [ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="3_0weji"]
-[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="3_rsmu0"]
+[ext_resource type="PackedScene" uid="uid://4envi3nxahn2" path="res://Scenes/multiplayer_marble.tscn" id="4_2fodp"]
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/build_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
@@ -21,9 +21,9 @@ z_index = 10
 position = Vector2(0, 170)
 start_open = true
 
-[node name="Marble" parent="." instance=ExtResource("3_rsmu0")]
+[node name="Marble" parent="." instance=ExtResource("4_2fodp")]
 z_index = 20
-position = Vector2(-109, -186)
+position = Vector2(-107, -174)
 
 [node name="Pipe" parent="." instance=ExtResource("2_k0j6d")]
 z_index = 30

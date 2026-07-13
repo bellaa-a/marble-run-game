@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
+	waiting_label.visible = true
 	frame = (frame + 1) % frames.size()
 	waiting_label.text = "Waiting for other player" + ".".repeat(frames[frame])
 
