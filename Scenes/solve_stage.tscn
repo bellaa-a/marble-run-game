@@ -20,6 +20,7 @@ group_name = "versus"
 z_index = 10
 position = Vector2(0, 170)
 script = ExtResource("4_rdcpn")
+start_open = true
 
 [node name="Marble" parent="." instance=ExtResource("4_u4usd")]
 z_index = 20
