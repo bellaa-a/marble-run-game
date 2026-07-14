@@ -15,8 +15,7 @@ extends Node2D
 ]
 
 func _ready() -> void:
-	print(Multiplayer.player_inventory)
-
+	$ErrorMessage.text = ""
 	load_inventory()
 
 
@@ -70,6 +69,8 @@ func try_use_powerup(powerup):
 	var result = Multiplayer.can_use_powerup(powerup)
 	if not result["allowed"]:
 		$ErrorMessage.text = result["message"]
+		await get_tree().create_timer(1).timeout
+		$ErrorMessage.text = ""
 		return
 
 	Multiplayer.active_powerup = true
