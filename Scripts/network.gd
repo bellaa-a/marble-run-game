@@ -18,6 +18,7 @@ func _ready():
 
 	await get_tree().create_timer(20.0).timeout
 	camera.offset = Vector2.ZERO
+	Multiplayer.active_powerup = false
 	queue_free()
 
 

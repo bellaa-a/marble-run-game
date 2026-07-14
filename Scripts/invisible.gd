@@ -20,6 +20,7 @@ func _ready() -> void:
 		await lights_off(player2, eyes2, sprite2)
 	
 	await get_tree().create_timer(20.0).timeout
+	Multiplayer.active_powerup = false
 	queue_free()
 
 

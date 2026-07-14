@@ -13,6 +13,7 @@ func _ready():
 	$Splatter.play()
 	splatter($Splatter3)
 	await get_tree().create_timer(drip_time + 1.4).timeout
+	Multiplayer.active_powerup = false
 	queue_free()
 	
 	

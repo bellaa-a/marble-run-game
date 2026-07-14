@@ -97,6 +97,7 @@ func _on_answer_text_submitted(new_text: String) -> void:
 		return
 
 	if int(new_text) == generated_answer:
+		Multiplayer.active_powerup = false
 		queue_free()
 	else:
 		math_error.text = "Incorrect"

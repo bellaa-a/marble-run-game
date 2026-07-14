@@ -9,6 +9,7 @@ var shake_strength = 1.2
 func _ready():
 	await get_tree().create_timer(shake_time).timeout
 	camera.offset = Vector2.ZERO
+	Multiplayer.active_powerup = false
 	queue_free()
 
 

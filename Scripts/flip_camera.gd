@@ -9,7 +9,8 @@ func _ready() -> void:
 	await get_tree().create_timer(20).timeout
 
 	await flip_camera(false)
-
+	
+	Multiplayer.active_powerup = false
 	queue_free()
 
 

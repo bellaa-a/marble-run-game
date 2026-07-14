@@ -15,4 +15,6 @@ func _on_countdown_timer_timeout():
 	$Timer.text = str(time_left)
 
 	if time_left <= 0:
+		Multiplayer.active_powerup = false
 		queue_free()
+		

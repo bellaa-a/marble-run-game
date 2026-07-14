@@ -17,6 +17,7 @@ func _ready() -> void:
 	else:
 		username2.text = Multiplayer.get_opponent_name()
 		await clear_board(player2, eyes2, sprite2)
+	Multiplayer.active_powerup = false
 	queue_free()
 
 
