@@ -21,6 +21,7 @@ func _ready():
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
 	GameState.game_won = false
+	Multiplayer.current_stage = 1
 	show_ready_ui()
 	await organize_inventory()
 	
@@ -192,5 +193,6 @@ func _on_finish_state_updated():
 	if Multiplayer.player_finished and Multiplayer.opponent_finished:
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	elif Multiplayer.opponent_finished:
+		Multiplayer.opponent_peeking = true
 		peek_control = peek_control_scene.instantiate()
 		effect_layer.add_child(peek_control)

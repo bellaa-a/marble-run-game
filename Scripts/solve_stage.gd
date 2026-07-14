@@ -7,13 +7,14 @@ var opponent_blocks = {}
 @onready var marble = $Marble
 @onready var goal = $MultiplayerGoal
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pipe.global_position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
 	GameState.game_won = false
 	Multiplayer.rotation_mode = true
+	Multiplayer.opponent_peeking = false
+	Multiplayer.current_stage = 2
 	update_blocks()
 
 

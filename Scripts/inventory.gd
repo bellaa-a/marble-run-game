@@ -58,10 +58,19 @@ func _on_powerup_clicked(card: DraftCard):
 		var authenticator = preload("res://UI/authenticator_code.tscn").instantiate()
 		effect_layer.add_child(authenticator)
 
-	Multiplayer.send_powerup(card.id)
+	try_use_powerup(card)
 
 	for hand_card in hand_cards:
 		if hand_card.card_data == card:
 			hand_card.use_card()
 			Multiplayer.player_inventory[hand_card.inventory_index]["used"] = true
 			break
+
+func try_use_powerup(powerup):
+	var result = Multiplayer.can_use_powerup(powerup)
+	if not result["allowed"]:
+		$ErrorMessage.text = result["message"]
+		return
+
+	Multiplayer.active_powerup = true
+	Multiplayer.send_powerup(powerup.id)

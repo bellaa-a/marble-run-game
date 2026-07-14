@@ -31,6 +31,9 @@ var pipe_position: Vector2
 var goal_position: Vector2
 var peer: SteamMultiplayerPeer
 var is_host := false
+var opponent_peeking := false
+var active_powerup := false
+var current_stage := 0
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -469,6 +472,10 @@ func reset_match():
 
 	pipe_position = Vector2.ZERO
 	goal_position = Vector2.ZERO
+	
+	opponent_peeking = false
+	active_powerup = false
+	current_stage = 0
 
 
 func send_powerup(card_id: String):
@@ -485,6 +492,45 @@ func use_powerup(card_id: String):
 	build_stage.effect_layer.add_child(effect)
 
 
+func can_use_powerup(powerup) -> Dictionary:
+
+	if opponent_peeking:
+		return {
+			"allowed": false,
+			"message": "Cannot use powerups while opponent is peeking"
+		}
+
+	if active_powerup:
+		return {
+			"allowed": false,
+			"message": "Already using a powerup"
+		}
+
+	match powerup.Stage:
+
+		Enum.Stage.STAGE1:
+			if current_stage != 1:
+				return {
+					"allowed": false,
+					"message": "This powerup can only be used in Stage 1"
+				}
+
+		Enum.Stage.STAGE2:
+			if current_stage != 2:
+				return {
+					"allowed": false,
+					"message": "This powerup can only be used in Stage 2"
+				}
+
+		Enum.Stage.BOTH:
+			pass
+
+	return {
+		"allowed": true,
+		"message": ""
+	}
+	
+	
 func get_opponent_id() -> int:
 	for id in multiplayer.get_peers():
 		return id
