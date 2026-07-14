@@ -16,13 +16,9 @@ func _ready():
 	$LevelName.text = label_text
 
 	time_left = 0.0
+	timer_running = true
 	update_timer_display()
 
-	Multiplayer.both_players_ready.connect(_on_both_players_ready)
-
-func _on_both_players_ready():
-	await get_tree().create_timer(2.5).timeout
-	timer_running = true
 
 func _process(delta):
 	if timer_running:

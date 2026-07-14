@@ -44,7 +44,7 @@ func update_timer_display():
 	
 	if time_left <= 0:
 		if Multiplayer.opponent_finished:
-			Multiplayer.player_finished_building.rpc(false)
+			Multiplayer.player_finished_stage.rpc(false)
 			transition.switch_to_win_lose(
 				"res://UI/win_lose.tscn",
 				{

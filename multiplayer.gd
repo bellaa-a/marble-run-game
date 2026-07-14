@@ -560,7 +560,7 @@ func set_stage_one_time(time):
 
 
 @rpc("any_peer", "call_local")
-func player_finished_building(success: bool):
+func player_finished_stage(success: bool):
 	var id = multiplayer.get_remote_sender_id()
 
 	if id == 0:
