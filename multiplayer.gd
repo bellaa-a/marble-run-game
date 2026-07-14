@@ -506,7 +506,7 @@ func can_use_powerup(powerup) -> Dictionary:
 			"message": "Already using a powerup"
 		}
 
-	match powerup.Stage:
+	match powerup.stage:
 
 		Enum.Stage.STAGE1:
 			if current_stage != 1:
