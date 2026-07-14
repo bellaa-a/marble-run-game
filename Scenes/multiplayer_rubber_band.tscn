@@ -46,7 +46,7 @@ size = Vector2(119.31822, 7.1428595)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfble"]
 size = Vector2(106.81819, 6.4285707)
 
-[node name="RubberBand" type="AnimatableBody2D"]
+[node name="RubberBand" type="StaticBody2D"]
 scale = Vector2(0.8799999, 0.8399997)
 collision_layer = 2
 collision_mask = 31

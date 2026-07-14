@@ -36,7 +36,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Ice" type="AnimatableBody2D"]
+[node name="Ice" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 31
 physics_material_override = SubResource("PhysicsMaterial_fse5i")

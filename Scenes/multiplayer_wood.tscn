@@ -12,7 +12,7 @@ size = Vector2(31.792374, 9.613372)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qncar"]
 size = Vector2(31.792374, 6.6102085)
 
-[node name="Wood" type="AnimatableBody2D"]
+[node name="Wood" type="StaticBody2D"]
 script = ExtResource("1_cy4on")
 
 [node name="Area2D" type="Area2D" parent="."]
