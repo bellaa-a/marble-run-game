@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends AnimatableBody2D
 
 var can_rotate : bool = true
 @export var side := "left"

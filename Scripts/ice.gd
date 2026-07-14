@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends AnimatableBody2D
 
 var can_rotate : bool = true
 @export var break_force_threshold: float = 450.0
