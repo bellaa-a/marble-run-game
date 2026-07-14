@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://d308l6plvxyg1"]
 
-[ext_resource type="Script" uid="uid://cnsc0kdpgdegm" path="res://Scripts/rubber_band.gd" id="1_shqfs"]
+[ext_resource type="Script" uid="uid://bam5l60djxkm7" path="res://Scripts/multiplayer_rubber_band.gd" id="1_shqfs"]
 [ext_resource type="Script" uid="uid://bh6m8urx1k5b2" path="res://Scripts/multiplayer_area_2d.gd" id="2_shqfs"]
 [ext_resource type="Texture2D" uid="uid://breucgkme6rhw" path="res://Assets/RubberBand.png" id="3_85rr2"]
 [ext_resource type="Texture2D" uid="uid://b0w12l2xfwe3u" path="res://Assets/RubberBandHitUp.png" id="4_6oavp"]

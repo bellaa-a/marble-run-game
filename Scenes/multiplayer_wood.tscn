@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://nvpuxpos3uw5"]
 
-[ext_resource type="Script" uid="uid://bqb627dfwsa2t" path="res://Scripts/wood.gd" id="1_cy4on"]
+[ext_resource type="Script" uid="uid://baidv251udko8" path="res://Scripts/multiplayer_wood.gd" id="1_cy4on"]
 [ext_resource type="Script" uid="uid://bh6m8urx1k5b2" path="res://Scripts/multiplayer_area_2d.gd" id="2_cy4on"]
 [ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="3_svs08"]
 [ext_resource type="AudioStream" uid="uid://d03l3r1me1ggp" path="res://Audio/HitWood.ogg" id="4_rjg2g"]
