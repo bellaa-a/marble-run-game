@@ -8,6 +8,9 @@ var marble_inside = false
 func _ready():
 	add_to_group("goal")
 	reset_goal()
+	Multiplayer.reset_finished_stage()
+	Multiplayer.finish_state_updated.connect(_on_finish_state_updated)
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("marble"):

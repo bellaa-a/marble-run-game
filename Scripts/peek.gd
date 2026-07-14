@@ -7,7 +7,7 @@ extends Control
 
 func _ready() -> void:
 	var pipe_screen_pos = get_viewport().get_canvas_transform() * Multiplayer.pipe_position
-	eyes.position = pipe_screen_pos + Vector2(50, 0)
+	eyes.position = pipe_screen_pos - Vector2(5, 0)
 	username.text = Multiplayer.get_opponent_name()
 	if Multiplayer.opponent_is_host():
 		player1.visible = true

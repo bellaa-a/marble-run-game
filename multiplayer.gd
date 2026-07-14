@@ -573,6 +573,10 @@ func player_finished_stage(success: bool):
 		opponent_finished = success
 
 	finish_state_updated.emit()
+	
+func reset_finished_stage():
+	player_finished = false
+	opponent_finished = false
 
 
 @rpc("any_peer", "call_local")
