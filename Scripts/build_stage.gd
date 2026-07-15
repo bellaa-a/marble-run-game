@@ -55,8 +55,9 @@ func begin_drag(card):
 
 	dragging_obj.set_meta("card_id", card.card_data.id)
 
-	if card.card_data.type == Enum.CardType.ADDON:
-		dragging_obj.set_meta("addon_id", id)
+	if card.card_data.type == Enum.CardType.ADDON \
+		or card.card_data.type == Enum.CardType.NECESSARY:
+		print(dragging_obj.get_meta("addon_id"))
 		add_child(dragging_obj)
 		dragging_obj.global_position = get_global_mouse_position()
 		dragging_obj.get_node("DragArea").start_drag()
@@ -88,7 +89,8 @@ func finish_drag(card):
 	var obj = dragging_obj
 	var card_data = dragging_card.card_data
 
-	if card_data.type == Enum.CardType.ADDON:
+	if card.card_data.type == Enum.CardType.ADDON \
+		or card.card_data.type == Enum.CardType.NECESSARY:
 		return
 
 	if can_place_block(obj.global_position):
