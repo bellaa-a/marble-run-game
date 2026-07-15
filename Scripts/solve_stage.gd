@@ -8,7 +8,7 @@ extends Node2D
 @onready var goal = $MultiplayerGoal
 
 var opponent_blocks = {}
-var opponent_addons = []
+var opponent_addons = {}
 
 func _ready() -> void:
 	pipe.global_position = Multiplayer.pipe_position
@@ -51,18 +51,27 @@ func update_addons():
 
 		var addon_data = Multiplayer.opponent_addons[addon_id]
 
+		if not opponent_addons.has(addon_id):
+
+			var card = CardDatabase.get_card_by_id(addon_data["card_id"])
+			var new_addon = card.scene.instantiate()
+
+			new_addon.set_meta("addon_id", addon_id)
+			new_addon.set_meta("card_id", addon_data["card_id"])
+
+			opponent_addons[addon_id] = new_addon
+
+		var addon = opponent_addons[addon_id]
 		var block = opponent_blocks[addon_data["block_id"]]
-
-		var card = CardDatabase.get_card_by_id(addon_data["card_id"])
-
-		var addon = card.scene.instantiate()
-
-		addon.set_meta("addon_id", addon_id)
-		addon.set_meta("card_id", addon_data["card_id"])
-
 		var addon_holder = block.get_node("AddOns")
 
-		addon_holder.add_child(addon)
+		if addon.get_parent() != addon_holder:
+			addon.reparent(addon_holder)
 
 		addon.position = addon_data["position"]
 		addon.rotation = addon_data["rotation"]
+
+		addon.scale = Vector2(
+			1.0 / addon_holder.global_scale.x,
+			1.0 / addon_holder.global_scale.y
+		)
