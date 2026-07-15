@@ -31,6 +31,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Opponent's Board"
 
 [node name="EffectLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 10

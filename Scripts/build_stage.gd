@@ -13,7 +13,7 @@ var peek_control_scene = preload("res://UI/peek.tscn")
 var ready_control: Control
 var peek_control: Control
 
-var dragging_block: Node2D = null
+var dragging_obj: Node2D = null
 var dragging_card: Control = null
 
 func _ready():
@@ -22,7 +22,7 @@ func _ready():
 	goal.global_position = Multiplayer.goal_position
 	GameState.game_won = false
 	Multiplayer.current_stage = 1
-	show_ready_ui()
+	#show_ready_ui()
 	await organize_inventory()
 	
 	Multiplayer.build_stage = self
@@ -37,8 +37,8 @@ func _exit_tree():
 		Multiplayer.build_stage = null
 		
 func _process(_delta):
-	if dragging_block:
-		dragging_block.global_position = get_global_mouse_position()
+	if dragging_obj:
+		dragging_obj.global_position = get_global_mouse_position()
 		
 		
 func begin_drag(card):
@@ -47,12 +47,14 @@ func begin_drag(card):
 
 	dragging_card = card
 
-	dragging_block = card.card_data.scene.instantiate()
-	dragging_block.scale = card.card_data.block_scale
-	add_child(dragging_block)
+	dragging_obj = card.card_data.scene.instantiate()
+	dragging_obj.scale = card.card_data.block_scale
+	dragging_obj.set_meta("card_id", card.card_data.id)
+	dragging_obj.set_meta("addon_id", str(randi()))
 	
+	add_child(dragging_obj)
 	
-	dragging_block.global_position = get_global_mouse_position()
+	dragging_obj.global_position = get_global_mouse_position()
 	
 	#dragging_block.get_node("Area2D").set_start_transform()
 
@@ -66,15 +68,15 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 
-			if dragging_block:
+			if dragging_obj:
 				finish_drag(dragging_card)
 				
 func finish_drag(card):
 
-	if dragging_block == null:
+	if dragging_obj == null:
 		return
 
-	var placed_block = dragging_block
+	var placed_block = dragging_obj
 	var placed_card = dragging_card
 
 	if can_place_block(placed_block.global_position):
@@ -92,7 +94,7 @@ func finish_drag(card):
 			placed_block.global_position
 		)
 
-		dragging_block = null
+		dragging_obj = null
 		dragging_card = null
 		
 	else:

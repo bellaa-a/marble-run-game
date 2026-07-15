@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://nvpuxpos3uw5"]
+[gd_scene load_steps=9 format=3 uid="uid://nvpuxpos3uw5"]
 
 [ext_resource type="Script" uid="uid://baidv251udko8" path="res://Scripts/multiplayer_wood.gd" id="1_cy4on"]
 [ext_resource type="Script" uid="uid://bh6m8urx1k5b2" path="res://Scripts/multiplayer_area_2d.gd" id="2_cy4on"]
 [ext_resource type="Texture2D" uid="uid://gxme156so24t" path="res://Assets/Wood.png" id="3_svs08"]
 [ext_resource type="AudioStream" uid="uid://d03l3r1me1ggp" path="res://Audio/HitWood.ogg" id="4_rjg2g"]
 [ext_resource type="Texture2D" uid="uid://0h8te71d6vk2" path="res://Assets/WoodShadow.png" id="5_chilg"]
+[ext_resource type="PackedScene" uid="uid://ci12m2y5w4q4u" path="res://UI/snap_add_ons.tscn" id="6_rubfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o1l4"]
 size = Vector2(31.792374, 9.613372)
@@ -13,6 +14,8 @@ size = Vector2(31.792374, 9.613372)
 size = Vector2(31.792374, 6.6102085)
 
 [node name="Wood" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 31
 script = ExtResource("1_cy4on")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -45,5 +48,24 @@ offset_right = 134.0
 offset_bottom = 62.0
 scale = Vector2(1, 1.0799999)
 texture = ExtResource("5_chilg")
+
+[node name="SnapOns" type="Node2D" parent="."]
+
+[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("6_rubfd")]
+position = Vector2(-37, -4)
+
+[node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("6_rubfd")]
+position = Vector2(1, -4)
+
+[node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("6_rubfd")]
+position = Vector2(38, -4)
+
+[node name="SnapAddOns4" parent="SnapOns" instance=ExtResource("6_rubfd")]
+position = Vector2(-74, -4)
+
+[node name="SnapAddOns5" parent="SnapOns" instance=ExtResource("6_rubfd")]
+position = Vector2(75, -4)
+
+[node name="AddOns" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

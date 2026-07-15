@@ -8,7 +8,7 @@
 script = ExtResource("2_jqanr")
 id = "flip"
 type = 2
-stage = 2
+stage = 1
 description = "Flip other board."
 icon = ExtResource("1_pejhu")
 icon_size = Vector2(15, 15)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://clt8uic2o2jeu"]
+
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_8od7v"]
+[ext_resource type="Script" uid="uid://cd16ojv78308x" path="res://Scripts/test.gd" id="1_ys1qc"]
+[ext_resource type="PackedScene" uid="uid://nvpuxpos3uw5" path="res://Scenes/multiplayer_wood.tscn" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://uuthvkhnosh0" path="res://Scenes/multiplayer_open_goal.tscn" id="3_qc4db"]
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_ys1qc")
+group_name = "test"
+
+[node name="Boarder" parent="." instance=ExtResource("1_8od7v")]
+
+[node name="Wood" parent="." instance=ExtResource("2_qc4db")]
+
+[node name="Wood2" parent="." instance=ExtResource("2_qc4db")]
+position = Vector2(183, 114)
+
+[node name="OpenGoal" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(177, -35)

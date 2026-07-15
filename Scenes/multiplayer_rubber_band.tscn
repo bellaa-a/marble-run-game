@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d308l6plvxyg1"]
+[gd_scene load_steps=16 format=3 uid="uid://d308l6plvxyg1"]
 
 [ext_resource type="Script" uid="uid://bam5l60djxkm7" path="res://Scripts/multiplayer_rubber_band.gd" id="1_shqfs"]
 [ext_resource type="Script" uid="uid://bh6m8urx1k5b2" path="res://Scripts/multiplayer_area_2d.gd" id="2_shqfs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b3c5255kiowpn" path="res://Assets/RubberBandHitDown.png" id="5_lwjqk"]
 [ext_resource type="AudioStream" uid="uid://b3lgemxqck3m5" path="res://Audio/RubberBand.mp3" id="6_tbh7k"]
 [ext_resource type="Texture2D" uid="uid://m5i2oh531ra3" path="res://Assets/RubberBandShadow.png" id="7_ndcw3"]
+[ext_resource type="PackedScene" uid="uid://ci12m2y5w4q4u" path="res://UI/snap_add_ons.tscn" id="8_w4iws"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epy5s"]
 friction = 0.4
@@ -111,6 +112,19 @@ shape = SubResource("RectangleShape2D_dhvx1")
 position = Vector2(-3.409093, 9.166668)
 scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_pfble")
+
+[node name="SnapOns" type="Node2D" parent="."]
+
+[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("8_w4iws")]
+position = Vector2(-38.63637, -10.71429)
+
+[node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("8_w4iws")]
+position = Vector2(5.9604645e-08, -10.71429)
+
+[node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("8_w4iws")]
+position = Vector2(38.636368, -10.71429)
+
+[node name="AddOns" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="BandUp" to="." method="_on_band_up_body_entered"]
 [connection signal="body_entered" from="BandDown" to="." method="_on_band_down_body_entered"]

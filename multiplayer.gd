@@ -20,6 +20,8 @@ var stage_one_time : float = 600.0
 var host_ready := false
 var client_ready := false
 var opponent_block_positions = {}
+var opponent_addons = {}
+var my_addons = {}
 var verification_code: String = ""
 var code_ready := false
 var build_stage: Node = null
@@ -34,6 +36,7 @@ var is_host := false
 var opponent_peeking := false
 var active_powerup := false
 var current_stage := 0
+var dragging_addon := false
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -642,3 +645,9 @@ func set_restart():
 @rpc("any_peer", "call_local")
 func go_home():
 	opponent_home_pressed.emit()
+	
+
+@rpc("any_peer", "call_remote")
+func sync_addons(addons):
+
+	opponent_addons = addons

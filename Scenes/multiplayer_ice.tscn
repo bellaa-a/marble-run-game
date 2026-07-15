@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0c3gdmj7mtbn"]
+[gd_scene load_steps=14 format=3 uid="uid://c0c3gdmj7mtbn"]
 
 [ext_resource type="Script" uid="uid://uqj71xt5r5pf" path="res://Scripts/multiplayer_ice.gd" id="1_ucakd"]
 [ext_resource type="Script" uid="uid://bh6m8urx1k5b2" path="res://Scripts/multiplayer_area_2d.gd" id="2_ucakd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d23mrl2q4r2d0" path="res://Assets/Ice2.png" id="6_8euws"]
 [ext_resource type="Texture2D" uid="uid://baay11rekt1g7" path="res://Assets/Ice3.png" id="7_gw4kq"]
 [ext_resource type="AudioStream" uid="uid://c0xggtlvredx0" path="res://Audio/BreakIce.mp3" id="8_lteko"]
+[ext_resource type="PackedScene" uid="uid://ci12m2y5w4q4u" path="res://UI/snap_add_ons.tscn" id="9_3uvyk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fse5i"]
 friction = 0.01
@@ -77,5 +78,29 @@ frame_progress = 1.0
 [node name="IceSound" type="AudioStreamPlayer2D" parent="BreakingIce"]
 stream = ExtResource("8_lteko")
 bus = &"SFX"
+
+[node name="SnapOns" type="Node2D" parent="."]
+
+[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+position = Vector2(-40.000004, -4)
+scale = Vector2(0.56, 1.9999995)
+
+[node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+position = Vector2(-20, -4)
+scale = Vector2(0.56, 1.9999995)
+
+[node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+position = Vector2(1.1920929e-07, -4)
+scale = Vector2(0.56, 1.9999995)
+
+[node name="SnapAddOns4" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+position = Vector2(18.999996, -4)
+scale = Vector2(0.56, 1.9999995)
+
+[node name="SnapAddOns5" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+position = Vector2(38.000004, -4)
+scale = Vector2(0.56, 1.9999995)
+
+[node name="AddOns" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

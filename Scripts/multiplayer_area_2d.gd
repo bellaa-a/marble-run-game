@@ -61,7 +61,7 @@ func reset_block():
 
 # ---------------- INPUT ----------------
 
-func _input_event(_viewport, event, _shape_idx):
+func _input_event(_viewport, event, _shape_idx):	
 
 	if GameState.locked:
 		return
@@ -115,6 +115,8 @@ func _input(event):
 # ---------------- MAIN LOOP ----------------
 
 func _physics_process(delta):
+	if Multiplayer.dragging_addon:
+		return
 
 	var block = get_parent()
 

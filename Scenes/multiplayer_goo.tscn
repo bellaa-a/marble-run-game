@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dohrjay727ys5"]
+[gd_scene load_steps=7 format=3 uid="uid://lgwjunc0v04y"]
 
-[ext_resource type="Script" uid="uid://biwuwrp6mgege" path="res://Scripts/goo.gd" id="1_oigx7"]
-[ext_resource type="Texture2D" uid="uid://rfalumpmsj05" path="res://Assets/Goo1.png" id="2_c41xm"]
-[ext_resource type="AudioStream" uid="uid://rmtmirh7ebgc" path="res://Audio/GooSound.mp3" id="3_c41xm"]
+[ext_resource type="Script" uid="uid://biwuwrp6mgege" path="res://Scripts/goo.gd" id="1_s55uw"]
+[ext_resource type="Texture2D" uid="uid://rfalumpmsj05" path="res://Assets/Goo1.png" id="2_kjc7r"]
+[ext_resource type="AudioStream" uid="uid://rmtmirh7ebgc" path="res://Audio/GooSound.mp3" id="3_c7cpy"]
+[ext_resource type="Script" uid="uid://clkihq1wxqg07" path="res://Scripts/addon_area_2d.gd" id="4_kjc7r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oigx7"]
 rough = true
@@ -14,7 +15,13 @@ size = Vector2(118, 5)
 collision_layer = 32
 collision_mask = 63
 physics_material_override = SubResource("PhysicsMaterial_oigx7")
-script = ExtResource("1_oigx7")
+script = ExtResource("1_s55uw")
+
+[node name="DragArea" type="Area2D" parent="."]
+script = ExtResource("4_kjc7r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DragArea"]
+polygon = PackedVector2Array(0, -4, -8, -5, -17, -4, -25, -2, -31, -1, -49, -1, -51, 1, -52, 3, -51, 4, -47, 4, -45, 2, -38, 3, -43, 5, -36, 7, -20, 6, -20, 4, -2, 6, 16, 5, 17, 4, 9, 3, 17, 2, 24, 3, 21, 5, 29, 6, 41, 4, 40, 5, 44, 6, 48, 5, 45, 4, 53, 4, 67, 2, 55, 0, 49, -1, 39, -2, 29, -3, 20, -5, 4, -4)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -28,10 +35,10 @@ shape = SubResource("RectangleShape2D_sid4v")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, 0.50000024)
 scale = Vector2(0.18634684, 0.1118421)
-texture = ExtResource("2_c41xm")
+texture = ExtResource("2_kjc7r")
 
 [node name="GooSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_c41xm")
+stream = ExtResource("3_c7cpy")
 volume_db = -10.0
 bus = &"SFX"
 
