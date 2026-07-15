@@ -49,13 +49,11 @@ func _process(_delta):
 func _input(event):
 
 	if !dragging:
-		print("not dragging")
 		return
 
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and !event.pressed:
-		print("placing")
 		dragging = false
 
 		place_addon()
@@ -101,14 +99,11 @@ func place_addon():
 	show_snap_points(false)
 
 	var addon = get_parent()
-	print(addon)
-	print(addon.has_meta("addon_id"))
-	print(addon.get_meta_list())
 	var inventory_index = addon.get_meta("inventory_index")
 
 	if current_snap == null:
 		Multiplayer.player_inventory[inventory_index]["used"] = false
-		queue_free()
+		addon.queue_free()
 		return
 
 	var block = current_snap.get_block()
