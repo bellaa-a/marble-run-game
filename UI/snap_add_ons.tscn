@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://x60c8dfr1j4m" path="res://Scripts/snap_add_ons.gd" id="1_plocg"]
 
 [node name="SnapAddOns" type="Area2D"]
+visible = false
 script = ExtResource("1_plocg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

@@ -62,7 +62,7 @@ func reset_block():
 # ---------------- INPUT ----------------
 
 func _input_event(_viewport, event, _shape_idx):	
-
+	print("Block clicked")
 	if GameState.locked:
 		return
 
