@@ -51,20 +51,14 @@ texture = ExtResource("5_chilg")
 
 [node name="SnapOns" type="Node2D" parent="."]
 
-[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("6_rubfd")]
-position = Vector2(-37, -4)
-
 [node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("6_rubfd")]
 position = Vector2(1, -4)
 
-[node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("6_rubfd")]
-position = Vector2(38, -4)
-
 [node name="SnapAddOns4" parent="SnapOns" instance=ExtResource("6_rubfd")]
-position = Vector2(-74, -4)
+position = Vector2(-53, -4)
 
 [node name="SnapAddOns5" parent="SnapOns" instance=ExtResource("6_rubfd")]
-position = Vector2(75, -4)
+position = Vector2(53, -4)
 
 [node name="AddOns" type="Node2D" parent="."]
 

@@ -200,11 +200,12 @@ func show_ready_ui():
 		ready_control = ready_control_scene.instantiate()
 		ready_layer.add_child(ready_control)
 
-#func hide_ready_ui():
-	#if ready_control:
-		#ready_control.queue_free()
-		#ready_control = null
-#
+
+func setup_walls():
+	for wall in $Walls.get_children():
+		var id = "wall_" + str(randi())
+		wall.set_meta("block_id", id)
+
 
 func _on_finish_state_updated():
 	if Multiplayer.player_finished and Multiplayer.opponent_finished:

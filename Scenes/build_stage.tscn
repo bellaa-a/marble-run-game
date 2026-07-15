@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlnj3gmjer15v"]
+[gd_scene load_steps=11 format=3 uid="uid://dlnj3gmjer15v"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_5b1iv"]
 [ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/build_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
 [ext_resource type="AudioStream" uid="uid://ce8vxfm7ho2jg" path="res://Audio/Ready.mp3" id="9_2fodp"]
+[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/wall.tscn" id="10_yq2la"]
 
 [node name="BuildStage" type="Node2D"]
 script = ExtResource("1_ebcgw")
@@ -56,3 +57,24 @@ transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 [node name="Ready" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_2fodp")
 volume_db = -10.0
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" parent="Walls" instance=ExtResource("10_yq2la")]
+position = Vector2(-153, 207)
+script = null
+
+[node name="Wall2" parent="Walls" instance=ExtResource("10_yq2la")]
+position = Vector2(150, 208)
+script = null
+
+[node name="Wall3" parent="Walls" instance=ExtResource("10_yq2la")]
+position = Vector2(-376, 20)
+rotation = 1.5707964
+script = null
+
+[node name="Wall4" parent="Walls" instance=ExtResource("10_yq2la")]
+position = Vector2(378, 20)
+rotation = 1.5707964
+scale = Vector2(1, -1)
+script = null

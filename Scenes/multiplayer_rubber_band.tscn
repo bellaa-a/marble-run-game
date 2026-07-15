@@ -115,14 +115,11 @@ shape = SubResource("RectangleShape2D_pfble")
 
 [node name="SnapOns" type="Node2D" parent="."]
 
-[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("8_w4iws")]
-position = Vector2(-38.63637, -10.71429)
-
 [node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("8_w4iws")]
-position = Vector2(5.9604645e-08, -10.71429)
+position = Vector2(-25.000002, -10.71429)
 
 [node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("8_w4iws")]
-position = Vector2(38.636368, -10.71429)
+position = Vector2(23.86364, -10.71429)
 
 [node name="AddOns" type="Node2D" parent="."]
 

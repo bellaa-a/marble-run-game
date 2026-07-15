@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbmgfpu56bjpo"]
+[gd_scene load_steps=11 format=3 uid="uid://bbmgfpu56bjpo"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_bob5p"]
 [ext_resource type="Script" uid="uid://8f6wko5qbweu" path="res://Scripts/solve_stage.gd" id="1_u4usd"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_rdcpn"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="6_hljhx"]
 [ext_resource type="PackedScene" uid="uid://bn507jcmv3sv8" path="res://Scenes/solve_buttons.tscn" id="8_u4usd"]
+[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/wall.tscn" id="10_rdcpn"]
 
 [node name="SolveStage" type="Node2D"]
 script = ExtResource("1_u4usd")
@@ -45,3 +46,18 @@ z_index = 100
 z_index = 100
 position = Vector2(-49, 0)
 label_text = "II."
+
+[node name="Wall" parent="." instance=ExtResource("10_rdcpn")]
+position = Vector2(-153, 207)
+
+[node name="Wall2" parent="." instance=ExtResource("10_rdcpn")]
+position = Vector2(150, 208)
+
+[node name="Wall3" parent="." instance=ExtResource("10_rdcpn")]
+position = Vector2(-376, 20)
+rotation = 1.5707964
+
+[node name="Wall4" parent="." instance=ExtResource("10_rdcpn")]
+position = Vector2(378, 20)
+rotation = 1.5707964
+scale = Vector2(1, -1)
