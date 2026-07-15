@@ -22,6 +22,7 @@ func _ready():
 	goal.global_position = Multiplayer.goal_position
 	GameState.game_won = false
 	Multiplayer.current_stage = 1
+	setup_walls()
 	#show_ready_ui()
 	await organize_inventory()
 	
