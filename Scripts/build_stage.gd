@@ -57,10 +57,12 @@ func begin_drag(card):
 
 	if card.card_data.type == Enum.CardType.ADDON \
 		or card.card_data.type == Enum.CardType.NECESSARY:
-		print(dragging_obj.get_meta("addon_id"))
+		dragging_obj.set_meta("addon_id", id)
 		add_child(dragging_obj)
 		dragging_obj.global_position = get_global_mouse_position()
 		dragging_obj.get_node("DragArea").start_drag()
+		dragging_obj = null
+		dragging_card = null
 		return
 
 	else:
