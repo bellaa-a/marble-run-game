@@ -104,11 +104,12 @@ func place_addon():
 	print(addon)
 	print(addon.has_meta("addon_id"))
 	print(addon.get_meta_list())
+	var inventory_index = addon.get_meta("inventory_index")
 
 	if current_snap == null:
-		addon.position = Vector2.ZERO
+		Multiplayer.player_inventory[inventory_index]["used"] = false
+		queue_free()
 		return
-
 
 	var block = current_snap.get_block()
 
@@ -134,6 +135,7 @@ func place_addon():
 		addon.rotation
 	)
 	current_snap = null
+	Multiplayer.player_inventory[inventory_index]["used"] = true
 
 
 func start_drag():

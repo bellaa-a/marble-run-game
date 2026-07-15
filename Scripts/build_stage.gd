@@ -54,6 +54,7 @@ func begin_drag(card):
 	var id = str(randi())
 
 	dragging_obj.set_meta("card_id", card.card_data.id)
+	dragging_obj.set_meta("inventory_index", card.inventory_index)
 
 	if card.card_data.type == Enum.CardType.ADDON \
 		or card.card_data.type == Enum.CardType.NECESSARY:
@@ -99,7 +100,6 @@ func finish_drag(card):
 
 		card.use_card()
 		Multiplayer.player_inventory[card.inventory_index]["used"] = true
-
 
 		Multiplayer.synch_block_position.rpc(
 			obj.get_meta("block_id"),
