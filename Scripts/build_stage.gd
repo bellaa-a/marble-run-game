@@ -204,7 +204,7 @@ func show_ready_ui():
 
 func setup_walls():
 	for wall in $Walls.get_children():
-		var id = "wall_" + str(randi())
+		var id = wall.name
 		wall.set_meta("block_id", id)
 
 

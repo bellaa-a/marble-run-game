@@ -47,17 +47,19 @@ z_index = 100
 position = Vector2(-49, 0)
 label_text = "II."
 
-[node name="Wall" parent="." instance=ExtResource("10_rdcpn")]
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" parent="Walls" instance=ExtResource("10_rdcpn")]
 position = Vector2(-153, 207)
 
-[node name="Wall2" parent="." instance=ExtResource("10_rdcpn")]
+[node name="Wall2" parent="Walls" instance=ExtResource("10_rdcpn")]
 position = Vector2(150, 208)
 
-[node name="Wall3" parent="." instance=ExtResource("10_rdcpn")]
+[node name="Wall3" parent="Walls" instance=ExtResource("10_rdcpn")]
 position = Vector2(-376, 20)
 rotation = 1.5707964
 
-[node name="Wall4" parent="." instance=ExtResource("10_rdcpn")]
+[node name="Wall4" parent="Walls" instance=ExtResource("10_rdcpn")]
 position = Vector2(378, 20)
 rotation = 1.5707964
 scale = Vector2(1, -1)

@@ -18,9 +18,17 @@ func _ready() -> void:
 	Multiplayer.rotation_mode = true
 	Multiplayer.opponent_peeking = false
 	Multiplayer.current_stage = 2
+	setup_walls()
 	update_blocks()
 	update_addons()
 
+
+func setup_walls():
+	for wall in $Walls.get_children():
+		var id = wall.name
+		wall.set_meta("block_id", id)
+		opponent_blocks[id] = wall
+		
 
 func update_blocks():
 
