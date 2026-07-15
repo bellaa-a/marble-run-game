@@ -59,7 +59,7 @@ func begin_drag(card):
 		dragging_obj.set_meta("addon_id", id)
 		add_child(dragging_obj)
 		dragging_obj.global_position = get_global_mouse_position()
-		dragging_obj.get_node("Area2D").start_drag()
+		dragging_obj.get_node("DragArea").start_drag()
 		return
 
 	else:
