@@ -42,6 +42,7 @@ func _process(_delta):
 		
 		
 func begin_drag(card):
+
 	if Multiplayer.player_inventory[card.inventory_index]["used"]:
 		return
 
@@ -49,18 +50,26 @@ func begin_drag(card):
 
 	dragging_obj = card.card_data.scene.instantiate()
 	dragging_obj.scale = card.card_data.block_scale
-	dragging_obj.set_meta("card_id", card.card_data.id)
-	dragging_obj.set_meta("addon_id", str(randi()))
-	
-	add_child(dragging_obj)
-	
-	dragging_obj.global_position = get_global_mouse_position()
-	
-	#dragging_block.get_node("Area2D").set_start_transform()
 
-	# prevent the card from receiving the mouse release
+	var id = str(randi())
+
+	dragging_obj.set_meta("card_id", card.card_data.id)
+
+	if card.card_data.type == Enum.CardType.ADDON:
+		dragging_obj.set_meta("addon_id", id)
+		add_child(dragging_obj)
+		dragging_obj.global_position = get_global_mouse_position()
+		dragging_obj.get_node("Area2D").start_drag()
+		return
+
+	else:
+		dragging_obj.set_meta("block_id", id)
+
+	add_child(dragging_obj)
+
+	dragging_obj.global_position = get_global_mouse_position()
+
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
 	
 	
 func _input(event):
@@ -76,32 +85,34 @@ func finish_drag(card):
 	if dragging_obj == null:
 		return
 
-	var placed_block = dragging_obj
-	var placed_card = dragging_card
+	var obj = dragging_obj
+	var card_data = dragging_card.card_data
 
-	if can_place_block(placed_block.global_position):
+	if card_data.type == Enum.CardType.ADDON:
+		return
+
+	if can_place_block(obj.global_position):
 
 		card.use_card()
 		Multiplayer.player_inventory[card.inventory_index]["used"] = true
-		
-		var block_id = str(randi())
-		placed_block.set_meta("block_id", block_id)
-		placed_block.set_meta("card_id", placed_card.card_data.id)
-		print("Sending:", placed_block.global_position)
+
+
 		Multiplayer.synch_block_position.rpc(
-			block_id,
-			placed_card.card_data.id,
-			placed_block.global_position
+			obj.get_meta("block_id"),
+			obj.get_meta("card_id"),
+			obj.global_position
 		)
+
 
 		dragging_obj = null
 		dragging_card = null
-		
+
 	else:
-		placed_block.queue_free()
+		obj.queue_free()
+
 
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
-
+	
 
 func can_place_block(_pos: Vector2) -> bool:
 	return true

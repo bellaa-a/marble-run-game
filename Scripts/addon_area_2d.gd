@@ -112,22 +112,28 @@ func place_addon():
 
 	addon.reparent(addon_holder)
 
-	addon.position = current_snap.position
+	addon.position = current_snap.position - Vector2(0, 2)
 	addon.rotation = current_snap.rotation
 
 
 	var block_id = block.get_meta("block_id")
 	var addon_id = addon.get_meta("addon_id")
 
-	Multiplayer.my_addons[addon_id] = {
-		"card_id": addon.get_meta("card_id"),
-		"block_id": block_id,
-		"position": addon.position,
-		"rotation": addon.rotation
-	}
-
 	current_snap.occupant = addon
 	attached_snap = current_snap
 	
-	Multiplayer.sync_addons.rpc(Multiplayer.my_addons)
+	Multiplayer.sync_addon.rpc(
+		addon_id,
+		addon.get_meta("card_id"),
+		block_id,
+		addon.position,
+		addon.rotation
+	)
 	current_snap = null
+
+
+func start_drag():
+	Multiplayer.dragging_addon = true
+	dragging = true
+
+	show_snap_points(true)

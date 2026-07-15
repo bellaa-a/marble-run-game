@@ -648,6 +648,11 @@ func go_home():
 	
 
 @rpc("any_peer", "call_remote")
-func sync_addons(addons):
+func sync_addon(addon_id, card_id, block_id, position, rotation):
 
-	opponent_addons = addons
+	opponent_addons[addon_id] = {
+		"card_id": card_id,
+		"block_id": block_id,
+		"position": position,
+		"rotation": rotation
+	}
