@@ -100,8 +100,16 @@ func place_addon():
 
 	var addon = get_parent()
 	var inventory_index = addon.get_meta("inventory_index")
+	var inventory = Multiplayer.build_stage.inventory
+	var found_card
+
+	for card in inventory.hand_cards:
+		if card.inventory_index == inventory_index:
+			found_card = card
+			break
 
 	if current_snap == null:
+		found_card.reset_card()
 		Multiplayer.player_inventory[inventory_index]["used"] = false
 		addon.queue_free()
 		return
@@ -130,6 +138,7 @@ func place_addon():
 		addon.rotation
 	)
 	current_snap = null
+	found_card.use_card()
 	Multiplayer.player_inventory[inventory_index]["used"] = true
 
 

@@ -297,6 +297,12 @@ func use_card():
 	card_back.visible = true
 	question_mark.visible = false
 	used.visible = true
+	
+
+func reset_card():
+	card_back.visible = false
+	question_mark.visible = false
+	used.visible = false
 
 
 func set_interactable(value: bool):
