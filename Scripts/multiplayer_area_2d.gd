@@ -62,7 +62,6 @@ func reset_block():
 # ---------------- INPUT ----------------
 
 func _input_event(_viewport, event, _shape_idx):	
-	print("Block clicked")
 	if GameState.locked:
 		return
 
@@ -85,6 +84,7 @@ func _input_event(_viewport, event, _shape_idx):
 			direction_probe = 0.0
 
 		else:
+			"moving"
 			moving = true
 
 			blocked_move = false
@@ -136,7 +136,6 @@ func _physics_process(delta):
 		# ---------------- MOVEMENT BLOCKED STATE ----------------
 
 		if blocked_move:
-
 			# moving back opposite the collision direction
 
 			if movement.length() <= MOVE_THRESHOLD:
@@ -375,6 +374,9 @@ func any_movement_collision() -> bool:
 		var collider = hit.collider
 
 		if collider == block:
+			continue
+		
+		if collider.is_in_group("buttons") or collider.is_in_group("goo"):
 			continue
 
 		return true
