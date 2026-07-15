@@ -6,5 +6,4 @@ extends Node2D
 
 func _ready():
 	area2d.show_snap_points(false)
-
 	area2d.update_closest_snap()

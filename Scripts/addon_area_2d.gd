@@ -8,6 +8,10 @@ var original_parent
 var original_global_position
 var attached_snap = null
 
+func _ready() -> void:
+	show_snap_points(false)
+	update_closest_snap()
+
 
 func _input_event(_viewport, event, _shape_idx):
 
