@@ -2,7 +2,6 @@ extends Node2D
 
 @export var group_name: String
 
-@onready var effect_layer = $EffectLayer
 @onready var pipe = $Pipe
 @onready var marble = $Marble
 @onready var goal = $MultiplayerGoal
@@ -38,25 +37,25 @@ func update_blocks():
 
 	for id in Multiplayer.opponent_block_positions:
 
+		var data = Multiplayer.opponent_block_positions[id]
+
 		if not opponent_blocks.has(id):
 
-			var data = Multiplayer.opponent_block_positions[id]
-
 			var card = CardDatabase.get_card_by_id(data["card_id"])
-			
+
 			var block = card.scene.instantiate()
 			add_child(block)
 
 			block.global_position = data["position"]
 			block.rotation = data["rotation"]
 			block.scale = card.block_scale
+
 			opponent_blocks[id] = block
 
 		else:
 
-			opponent_blocks[id].global_position = \
-				Multiplayer.opponent_block_positions[id]["position"]
-
+			opponent_blocks[id].global_position = data["position"]
+			opponent_blocks[id].rotation = data["rotation"]
 
 func update_addons():
 
