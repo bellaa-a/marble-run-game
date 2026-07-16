@@ -45,7 +45,7 @@ func update_blocks():
 
 			var block = card.scene.instantiate()
 			add_child(block)
-
+			print("Applying rotation:", data["rotation"])
 			block.global_position = data["position"]
 			block.rotation = data["rotation"]
 			block.scale = card.block_scale
@@ -53,7 +53,7 @@ func update_blocks():
 			opponent_blocks[id] = block
 
 		else:
-
+			print("Applying rotation:", data["rotation"])
 			opponent_blocks[id].global_position = data["position"]
 			opponent_blocks[id].rotation = data["rotation"]
 

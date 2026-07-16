@@ -573,7 +573,7 @@ func set_ready(peer_id: int):
 
 
 @rpc("any_peer", "call_remote")
-func synch_block_position(block_id, card_id, position, rotation):
+func sync_block_position(block_id, card_id, position, rotation):
 	print("Received:", position)
 	opponent_block_positions[block_id] = {
 		"card_id": card_id,
@@ -649,7 +649,11 @@ func go_home():
 	
 
 @rpc("any_peer", "call_remote")
-func sync_addon(addon_id, card_id, block_id, position, rotation):
+func sync_addon(addon_id, card_id, block_id, position, rotation, deleted := false):
+
+	if deleted:
+		opponent_addons.erase(addon_id)
+		return
 
 	opponent_addons[addon_id] = {
 		"card_id": card_id,

@@ -102,7 +102,8 @@ func finish_drag(card):
 		card.use_card()
 		Multiplayer.player_inventory[card.inventory_index]["used"] = true
 
-		Multiplayer.synch_block_position.rpc(
+		print("Sending rotation:", obj.rotation)
+		Multiplayer.sync_block_position.rpc(
 			obj.get_meta("block_id"),
 			obj.get_meta("card_id"),
 			obj.global_position,

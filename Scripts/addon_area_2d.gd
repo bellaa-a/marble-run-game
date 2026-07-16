@@ -102,6 +102,9 @@ func place_addon():
 	var inventory_index = addon.get_meta("inventory_index")
 	var inventory = Multiplayer.build_stage.inventory
 	var found_card
+	var block = current_snap.get_block()
+	var block_id = block.get_meta("block_id")
+	var addon_id = addon.get_meta("addon_id")
 
 	for card in inventory.hand_cards:
 		if card.inventory_index == inventory_index:
@@ -111,10 +114,16 @@ func place_addon():
 	if current_snap == null:
 		found_card.reset_card()
 		Multiplayer.player_inventory[inventory_index]["used"] = false
+		Multiplayer.sync_addon.rpc(
+			addon_id,
+			addon.get_meta("card_id"),
+			block_id,
+			addon.position,
+			addon.rotation,
+			true
+		)
 		addon.queue_free()
 		return
-
-	var block = current_snap.get_block()
 
 	var addon_holder = block.get_node("AddOns")
 
@@ -122,10 +131,6 @@ func place_addon():
 
 	addon.position = current_snap.position - Vector2(0, 2)
 	addon.rotation = current_snap.rotation
-
-
-	var block_id = block.get_meta("block_id")
-	var addon_id = addon.get_meta("addon_id")
 
 	current_snap.occupant = addon
 	attached_snap = current_snap
@@ -135,7 +140,8 @@ func place_addon():
 		addon.get_meta("card_id"),
 		block_id,
 		addon.position,
-		addon.rotation
+		addon.rotation,
+		false
 	)
 	current_snap = null
 	found_card.use_card()

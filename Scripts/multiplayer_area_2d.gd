@@ -386,8 +386,8 @@ func any_movement_collision() -> bool:
 
 func send_position_update():
 	var block = get_parent()
-
-	Multiplayer.synch_block_position.rpc(
+	print("Sending rotation:", block.rotation)
+	Multiplayer.sync_block_position.rpc(
 		block.get_meta("block_id"),
 		block.get_meta("card_id"),
 		block.global_position,
