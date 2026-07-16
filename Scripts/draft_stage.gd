@@ -7,6 +7,9 @@ var selected_pairs := [false, false, false, false]
 var current_pair := 0
 var finished_picking := false
 var opponent_finished_picking := false
+var revealed_cards := []
+var choosing_card := false
+
 @export var group_name: String
 
 var hand_positions := [
@@ -56,6 +59,9 @@ func _ready():
 
 		card_a.visible = active
 		card_b.visible = active
+		
+		card_a.scale = Vector2(1.6,1.6)
+		card_b.scale = Vector2(1.6,1.6)
 
 		card_a.set_revealed(false)
 		card_b.set_revealed(false)
@@ -115,36 +121,46 @@ func generate_draft():
 
 func update_pair_access():
 
-	for i in range(4):
+	var card_a = cards[current_pair * 2]
+	var card_b = cards[current_pair * 2 + 1]
 
-		var active = i == current_pair
+	# only reveal current pair
+	card_a.visible = true
+	card_b.visible = true
 
-		var card_a = cards[i * 2]
-		var card_b = cards[i * 2 + 1]
-
-		card_a.visible = active
-		card_b.visible = active
-
-		card_a.set_selectable(active)
-		card_b.set_selectable(active)
-		
-
+	# only current pair is selectable
+	card_a.set_selectable(not choosing_card)
+	card_b.set_selectable(not choosing_card)
+	
 func select_card(card):
+
 	$Click.play()
-	await $Click.finished
 
 	var pair = card.pair_id
 
 	if pair != current_pair:
 		return
 
-	if selected_pairs[pair]:
+	# Phase 1: reveal cards
+	if not choosing_card:
+
+		if card in revealed_cards:
+			return
+
+		card.set_revealed(true)
+		revealed_cards.append(card)
+
+		# wait until both cards are revealed
+		if revealed_cards.size() == 2:
+			choosing_card = true
+
+			for revealed in revealed_cards:
+				revealed.set_selectable(true)
+
 		return
 
-	selected_pairs[pair] = true
-	
-	# reveal clicked card first
-	card.set_revealed(true)
+
+	# Phase 2: choose one of the revealed cards
 
 	var final_card = await resolve_mystery_card(card)
 
@@ -152,21 +168,22 @@ func select_card(card):
 		"id": final_card.id,
 		"used": false
 	})
-	
-	card.move_to_hand(hand_positions[pair])
 
-	# remove the other card
-	var other_card
+	await card.move_to_hand(hand_positions[pair])
 
-	if cards[pair * 2] == card:
-		other_card = cards[pair * 2 + 1]
-	else:
-		other_card = cards[pair * 2]
 
-	other_card.disappear()
+	var other_card = revealed_cards[0] if revealed_cards[1] == card else revealed_cards[1]
+
+	await other_card.disappear()
 	discarded_cards.append(other_card.card_data.id)
 
-	# unlock next pair
+
+	selected_pairs[pair] = true
+
+	revealed_cards.clear()
+	choosing_card = false
+
+
 	current_pair += 1
 
 	if current_pair < 4:
@@ -254,7 +271,7 @@ func show_opponent_cards():
 
 	for i in range(pending_opponent_cards.size()):
 
-		cards[9+i].move_to_hand(
+		await cards[9+i].move_to_hand(
 			opponent_slots[i]
 		)
 

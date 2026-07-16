@@ -15,7 +15,8 @@ signal powerup_clicked(card)
 @onready var used: Label = $CardBack/Used
 
 var normal_scale := Vector2.ONE
-var hover_scale := Vector2(1.4, 1.4)
+var draft_scale := Vector2(1.6, 1.6)
+var hover_scale := Vector2(2, 2)
 var normal_position : Vector2
 var hover_offset := Vector2(0, -60)
 var pair_id: int
@@ -129,8 +130,8 @@ func _on_mouse_exited():
 		hover_tween.tween_property(
 			self,
 			"scale",
-			normal_scale,
-			0.3
+			draft_scale,
+			0.15
 		)
 		
 
@@ -160,10 +161,9 @@ func move_to_hand(target_position: Vector2):
 		0.3
 	)
 
-	move_tween.finished.connect(func():
-		moving_to_hand = false
-		set_interactable(true)
-	)
+	await move_tween.finished
+	moving_to_hand = false
+	set_interactable(true)
 
 func reveal_card(target_position: Vector2):
 	normal_position = position
@@ -203,10 +203,9 @@ func disappear():
 		0.5
 	)
 
-	tween.finished.connect(func():
-		disapearing = false
-		hide()
-	)
+	await tween.finished
+	disapearing = false
+	hide()
 	
 
 func set_selectable(value: bool):

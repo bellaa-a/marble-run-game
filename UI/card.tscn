@@ -60,6 +60,7 @@ scale = Vector2(0.1512172, 0.19036695)
 texture = ExtResource("4_h33pl")
 
 [node name="Shadow" type="ColorRect" parent="CardBack"]
+visible = false
 offset_left = -255.4273
 offset_top = -207.49399
 offset_right = 253.77402
@@ -90,3 +91,4 @@ offset_left = -38.0
 offset_top = -38.0
 offset_right = 38.0
 offset_bottom = 38.0
+flat = true
