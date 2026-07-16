@@ -48,16 +48,17 @@ func _ready():
 		else:
 			card.z_index = 0
 
-	# hide all pairs except first
 	for i in range(4):
 		var active = i == 0
-		
-		cards[i * 2].visible = active
-		cards[i * 2 + 1].visible = active
-		
-		if active:
-			cards[i * 2].set_revealed(false)
-			cards[i * 2 + 1].set_revealed(false)
+
+		var card_a = cards[i * 2]
+		var card_b = cards[i * 2 + 1]
+
+		card_a.visible = active
+		card_b.visible = active
+
+		card_a.set_revealed(false)
+		card_b.set_revealed(false)
 			
 		cards[9+i].revealing = true
 		cards[9+i].set_interactable(false)
@@ -124,8 +125,8 @@ func update_pair_access():
 		card_a.visible = active
 		card_b.visible = active
 
-		card_a.set_selectable(true)
-		card_b.set_selectable(true)
+		card_a.set_selectable(active)
+		card_b.set_selectable(active)
 		
 
 func select_card(card):
@@ -140,6 +141,8 @@ func select_card(card):
 	if selected_pairs[pair]:
 		return
 
+	selected_pairs[pair] = true
+	
 	# reveal clicked card first
 	card.set_revealed(true)
 
