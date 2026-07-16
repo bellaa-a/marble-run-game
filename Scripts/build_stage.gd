@@ -50,7 +50,6 @@ func begin_drag(card):
 	dragging_card = card
 
 	dragging_obj = card.card_data.scene.instantiate()
-	dragging_obj.scale = card.card_data.block_scale
 
 	var id = str(randi())
 
@@ -68,6 +67,7 @@ func begin_drag(card):
 		return
 
 	else:
+		dragging_obj.scale = card.card_data.block_scale
 		dragging_obj.set_meta("block_id", id)
 
 	add_child(dragging_obj)
