@@ -1,23 +1,24 @@
-[gd_scene format=3 uid="uid://8tm8rg8hbx6e"]
+[gd_scene load_steps=6 format=3 uid="uid://8tm8rg8hbx6e"]
 
 [ext_resource type="Script" uid="uid://dp8wtfchgf3as" path="res://Scripts/settings.gd" id="1_4geyq"]
 [ext_resource type="Texture2D" uid="uid://dsjv3pccf2vqw" path="res://Assets/Home.png" id="2_aaqfp"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="2_i44u3"]
 [ext_resource type="Texture2D" uid="uid://btf5vqd5o057s" path="res://Assets/HoverHome.png" id="3_j2dne"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="4_j2dne"]
 
-[node name="Settings" type="Node2D" unique_id=1826697550]
+[node name="Settings" type="Node2D"]
 script = ExtResource("1_4geyq")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1805196597]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 2
 
-[node name="Background" type="Control" parent="CanvasLayer" unique_id=362833859]
+[node name="Background" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Background" unique_id=738213190]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Background"]
 layout_mode = 0
 offset_left = -37.0
 offset_top = -32.0
@@ -25,7 +26,7 @@ offset_right = 1202.0
 offset_bottom = 698.0
 color = Color(0, 0, 0, 0.8627451)
 
-[node name="ClickAway" type="Button" parent="CanvasLayer/Background" unique_id=1385351844]
+[node name="ClickAway" type="Button" parent="CanvasLayer/Background"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 15
@@ -37,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Background" unique_id=1529767203]
+[node name="Label" type="Label" parent="CanvasLayer/Background"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 114.0
@@ -47,22 +48,36 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
 
-[node name="Home" type="TextureButton" parent="CanvasLayer/Background" unique_id=1826754831]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background"]
+position = Vector2(1101, 46)
+rotation = 1.5707964
+scale = Vector2(0.09626021, 0.07528964)
+texture = ExtResource("4_j2dne")
+
+[node name="Shadow" type="ColorRect" parent="CanvasLayer/Background"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 21.0
-offset_right = 56.0
-offset_bottom = 53.0
+offset_left = 1078.0
+offset_top = 26.0
+offset_right = 1122.0
+offset_bottom = 65.0
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="Home" type="TextureButton" parent="CanvasLayer/Background"]
+layout_mode = 0
+offset_left = 1084.0
+offset_top = 30.0
+offset_right = 1116.0
+offset_bottom = 62.0
 texture_normal = ExtResource("3_j2dne")
 texture_hover = ExtResource("2_aaqfp")
 
-[node name="General" type="Control" parent="CanvasLayer" unique_id=852003161]
+[node name="General" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Cancel" type="Button" parent="CanvasLayer/General" unique_id=1758056002]
+[node name="Cancel" type="Button" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 475.0
@@ -70,7 +85,7 @@ offset_right = 548.0
 offset_bottom = 509.0
 theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/General/Cancel" unique_id=1616489214]
+[node name="Label" type="Label" parent="CanvasLayer/General/Cancel"]
 layout_mode = 0
 offset_top = 4.0
 offset_right = 66.0
@@ -79,7 +94,7 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 text = "CANCEL"
 horizontal_alignment = 1
 
-[node name="Save" type="Button" parent="CanvasLayer/General" unique_id=1361768019]
+[node name="Save" type="Button" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 609.0
 offset_top = 475.0
@@ -87,7 +102,7 @@ offset_right = 675.0
 offset_bottom = 509.0
 theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/General/Save" unique_id=59088654]
+[node name="Label" type="Label" parent="CanvasLayer/General/Save"]
 layout_mode = 0
 offset_top = 4.0
 offset_right = 66.0
@@ -96,7 +111,7 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 text = "SAVE"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="CanvasLayer/General" unique_id=960316086]
+[node name="Label2" type="Label" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 194.0
@@ -106,7 +121,7 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 25
 text = "Sound"
 
-[node name="SoundSlider" type="HSlider" parent="CanvasLayer/General" unique_id=14745338]
+[node name="SoundSlider" type="HSlider" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 244.0
@@ -115,7 +130,7 @@ offset_bottom = 260.0
 max_value = 150.0
 value = 50.0
 
-[node name="Label3" type="Label" parent="CanvasLayer/General" unique_id=1934457389]
+[node name="Label3" type="Label" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 284.0
@@ -125,7 +140,7 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 25
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="CanvasLayer/General" unique_id=679630092]
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 334.0
@@ -134,13 +149,13 @@ offset_bottom = 350.0
 max_value = 150.0
 value = 50.0
 
-[node name="Click" type="AudioStreamPlayer2D" parent="CanvasLayer/General" unique_id=28642670]
+[node name="Click" type="AudioStreamPlayer2D" parent="CanvasLayer/General"]
 position = Vector2(-820.6088, -257.0007)
 scale = Vector2(1.6704345, 0.25469753)
 stream = ExtResource("2_i44u3")
 bus = &"SFX"
 
-[node name="Label4" type="Label" parent="CanvasLayer/General" unique_id=335777449]
+[node name="Label4" type="Label" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 367.0
@@ -150,7 +165,7 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 25
 text = "Saved Data"
 
-[node name="Restart" type="Button" parent="CanvasLayer/General" unique_id=619080942]
+[node name="Restart" type="Button" parent="CanvasLayer/General"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 415.0
@@ -158,7 +173,7 @@ offset_right = 674.0
 offset_bottom = 446.0
 theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 
-[node name="Label5" type="Label" parent="CanvasLayer/General/Restart" unique_id=807281760]
+[node name="Label5" type="Label" parent="CanvasLayer/General/Restart"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
@@ -168,14 +183,14 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 text = "Delete Saved Data >"
 horizontal_alignment = 1
 
-[node name="ConfirmDelete" type="Control" parent="CanvasLayer" unique_id=1184634716]
+[node name="ConfirmDelete" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label2" type="Label" parent="CanvasLayer/ConfirmDelete" unique_id=253450168]
+[node name="Label2" type="Label" parent="CanvasLayer/ConfirmDelete"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 193.0
@@ -185,7 +200,7 @@ theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 25
 text = "Saved Data"
 
-[node name="Label" type="Label" parent="CanvasLayer/ConfirmDelete" unique_id=765326377]
+[node name="Label" type="Label" parent="CanvasLayer/ConfirmDelete"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 238.0
@@ -197,7 +212,7 @@ text = "Are you sure?
 This action cannot be 
 reversed!"
 
-[node name="Back" type="Button" parent="CanvasLayer/ConfirmDelete" unique_id=598464377]
+[node name="Back" type="Button" parent="CanvasLayer/ConfirmDelete"]
 layout_mode = 0
 offset_left = 462.0
 offset_top = 105.0
@@ -205,7 +220,7 @@ offset_right = 515.0
 offset_bottom = 132.0
 flat = true
 
-[node name="Label" type="Label" parent="CanvasLayer/ConfirmDelete/Back" unique_id=532807278]
+[node name="Label" type="Label" parent="CanvasLayer/ConfirmDelete/Back"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -7.0
@@ -216,7 +231,7 @@ theme_override_font_sizes/font_size = 25
 text = "<--"
 horizontal_alignment = 1
 
-[node name="Confirm" type="Button" parent="CanvasLayer/ConfirmDelete" unique_id=370930012]
+[node name="Confirm" type="Button" parent="CanvasLayer/ConfirmDelete"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 323.0
@@ -224,7 +239,7 @@ offset_right = 674.0
 offset_bottom = 354.0
 theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/ConfirmDelete/Confirm" unique_id=648357957]
+[node name="Label" type="Label" parent="CanvasLayer/ConfirmDelete/Confirm"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
