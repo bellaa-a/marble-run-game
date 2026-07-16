@@ -12,7 +12,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Multiplayer.reset_ready()
 	var id1 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 0)
 	username1.text = Steam.getFriendPersonaName(id1)
 	var id2 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 1)
@@ -21,6 +20,15 @@ func _ready() -> void:
 	Multiplayer.host_ready_changed.connect(_on_host_ready_changed)
 	Multiplayer.client_ready_changed.connect(_on_client_ready_changed)
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
+	
+	if Multiplayer.host_ready:
+		_on_host_ready_changed()
+
+	if Multiplayer.client_ready:
+		_on_client_ready_changed()
+
+	if Multiplayer.host_ready and Multiplayer.client_ready:
+		_on_both_players_ready()
 	
 
 func _on_ready_button_pressed():
@@ -33,18 +41,15 @@ func _on_ready_button_pressed():
 
 func _on_host_ready_changed():
 	print("Host is ready!")
-	$Beep.play()
 	button1.visible = true
 	player1.play("press")
 	
 func _on_client_ready_changed():
 	print("Client is ready!")
-	$Beep.play()
 	button2.visible = true
 	player2.play("press")
 
 func _on_both_players_ready():
-	$Beep.stop()
 	countdown_label.visible = true
 
 	for text in ["3", "2", "1"]:

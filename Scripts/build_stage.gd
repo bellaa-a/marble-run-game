@@ -11,7 +11,7 @@ extends Node2D
 var ready_control_scene = preload("res://UI/ready_control.tscn")
 var peek_control_scene = preload("res://UI/peek.tscn")
 var ready_control: Control
-var peek_control: Control
+var peek_scene: Node2D
 
 var dragging_obj: Node2D = null
 var dragging_card: Control = null
@@ -215,5 +215,7 @@ func _on_finish_state_updated():
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	elif Multiplayer.opponent_finished:
 		Multiplayer.opponent_peeking = true
-		peek_control = peek_control_scene.instantiate()
-		effect_layer.add_child(peek_control)
+		peek_scene = peek_control_scene.instantiate()
+		add_child(peek_scene)
+
+		peek_scene.global_position = pipe.global_position

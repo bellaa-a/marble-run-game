@@ -220,7 +220,8 @@ func set_selectable(value: bool):
 
 
 func set_revealed(value: bool):
-	$Click.play()
+	if value == true:
+		$Click.play()
 	card_back.visible = not value
 	question_mark.visible = not value
 

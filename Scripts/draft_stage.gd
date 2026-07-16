@@ -305,16 +305,21 @@ func resolve_mystery_card(card):
 	# Let the player see the mystery card
 	await get_tree().create_timer(0.5).timeout
 
-	# Pick final result first
-	var final_powerup = CardDatabase.powerup_cards.pick_random()
+	# Get all non-mystery powerups
+	var possible_powerups = CardDatabase.powerup_cards.filter(
+		func(c): return c.id != "mystery"
+	)
+
+	# Pick the final result
+	var final_powerup = possible_powerups.pick_random()
 
 	# Random flashing animation
 	for i in range(5):
-		card.setup(CardDatabase.powerup_cards.pick_random())
+		card.setup(possible_powerups.pick_random())
 		await get_tree().create_timer(0.1).timeout
 
 	# Set final card
 	card.setup(final_powerup)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.0).timeout
 
 	return final_powerup

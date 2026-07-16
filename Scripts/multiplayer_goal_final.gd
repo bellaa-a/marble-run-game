@@ -37,6 +37,9 @@ func win_game():
 	
 	if get_tree().current_scene.group_name == "replay":
 		get_tree().current_scene.get_node("Buttons")._on_rewind_button_pressed()
+		reset_goal()
+		await get_tree().create_timer(1).timeout
+		get_parent().get_node("Marble").start()
 
 	else:
 		Multiplayer.player_finished_stage.rpc(true)

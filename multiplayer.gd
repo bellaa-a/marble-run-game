@@ -479,6 +479,8 @@ func reset_match():
 	opponent_peeking = false
 	active_powerup = false
 	current_stage = 0
+	
+	reset_ready()
 
 
 func send_powerup(card_id: String):
