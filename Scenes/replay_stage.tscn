@@ -47,9 +47,10 @@ position = Vector2(-376, 20)
 rotation = 1.5707964
 
 [node name="Wall4" parent="Walls" instance=ExtResource("9_iuv1n")]
-position = Vector2(378, 20)
-rotation = 1.5707964
+position = Vector2(370, 20)
+rotation = -1.5707964
 scale = Vector2(1, -1)
+script = null
 
 [node name="Label" type="Label" parent="."]
 offset_left = 290.0

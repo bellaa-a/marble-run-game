@@ -55,7 +55,7 @@ func reset_block():
 	blocked_direction = 0
 	direction_probe = 0.0
 	ENTERED_LOOP = false
-	dragging = false
+	rotating = false
 	moving = false
 
 
@@ -80,7 +80,7 @@ func _input_event(_viewport, event, _shape_idx):
 			initial_block_rotation = block.rotation
 			previous_mouse_angle = initial_mouse_angle
 
-			dragging = true
+			rotating = true
 			direction_probe = 0.0
 
 		else:
@@ -102,10 +102,10 @@ func _input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
-		if moving:
+		if moving or rotating:
 			send_position_update()
 
-		dragging = false
+		rotating = false
 		moving = false
 		direction_probe = 0.0
 		blocked_move = false
