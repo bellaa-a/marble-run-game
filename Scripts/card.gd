@@ -136,6 +136,7 @@ func _on_mouse_exited():
 		
 
 func move_to_hand(target_position: Vector2):
+	$Whoosh.play()
 	in_hand = true
 	moving_to_hand = true
 	revealing = false
@@ -166,6 +167,7 @@ func move_to_hand(target_position: Vector2):
 	set_interactable(true)
 
 func reveal_card(target_position: Vector2):
+	$Whoosh.play()
 	normal_position = position
 	
 	show()
@@ -219,6 +221,7 @@ func set_selectable(value: bool):
 
 
 func set_revealed(value: bool):
+	$Whoosh.play()
 	card_back.visible = not value
 	question_mark.visible = not value
 

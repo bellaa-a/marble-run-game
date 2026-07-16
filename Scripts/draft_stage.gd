@@ -9,6 +9,8 @@ var finished_picking := false
 var opponent_finished_picking := false
 var revealed_cards := []
 var choosing_card := false
+var music_bus := AudioServer.get_bus_index("Music")
+
 @onready var or_label = $OR
 
 @export var group_name: String
@@ -40,6 +42,7 @@ var hand_positions := [
 
 
 func _ready():
+	AudioServer.set_bus_mute(music_bus, false)
 	add_to_group("draft")
 	CardDatabase.load_cards()
 	generate_draft()

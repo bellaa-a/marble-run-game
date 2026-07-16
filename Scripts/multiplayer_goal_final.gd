@@ -35,7 +35,11 @@ func win_game():
 		marble.linear_velocity = Vector2.ZERO
 		marble.angular_velocity = 0
 	
-	Multiplayer.player_finished_stage.rpc(true)
+	if get_tree().current_scene.group_name == "replay":
+		get_tree().current_scene.get_node("SolveButtons/Buttons")._on_rewind_button_pressed()
+
+	else:
+		Multiplayer.player_finished_stage.rpc(true)
 	
 
 

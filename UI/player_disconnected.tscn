@@ -22,7 +22,7 @@ offset_left = -37.0
 offset_top = -32.0
 offset_right = 1202.0
 offset_bottom = 698.0
-color = Color(0, 0, 0, 0.8627451)
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg2gjc180uy3v"]
+[gd_scene load_steps=11 format=3 uid="uid://dg2gjc180uy3v"]
 
 [ext_resource type="Script" uid="uid://5qyjcfq6mk8f" path="res://Scripts/replay_stage.gd" id="1_waxw5"]
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_d5qn0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_2h51y"]
 [ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/wall.tscn" id="9_iuv1n"]
 [ext_resource type="PackedScene" uid="uid://q1u3o6j55dbu" path="res://UI/win_lose.tscn" id="10_u15kx"]
+[ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="10_xrlbe"]
 
 [node name="ReplayStage" type="Node2D"]
 script = ExtResource("1_waxw5")
@@ -65,5 +66,8 @@ wait_time = 0.5
 autostart = true
 
 [node name="WinLose" parent="." instance=ExtResource("10_u15kx")]
+
+[node name="Buttons" parent="." instance=ExtResource("10_xrlbe")]
+position = Vector2(-132, -3)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

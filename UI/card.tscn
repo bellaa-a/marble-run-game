@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba55g8s7oipi3"]
+[gd_scene load_steps=5 format=3 uid="uid://ba55g8s7oipi3"]
 
 [ext_resource type="Script" uid="uid://busc3q6uc8kf0" path="res://Scripts/card.gd" id="2_mkbd5"]
 [ext_resource type="Texture2D" uid="uid://brfc60rnshafa" path="res://Assets/Card.png" id="3_p8ega"]
 [ext_resource type="Texture2D" uid="uid://bhwmjseo5cuxj" path="res://Assets/CardBack.png" id="4_h33pl"]
+[ext_resource type="AudioStream" uid="uid://cyh28u7qpd4dh" path="res://Audio/whoosh.mp3" id="4_tsfa4"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -92,3 +93,6 @@ offset_top = -38.0
 offset_right = 38.0
 offset_bottom = 38.0
 flat = true
+
+[node name="Whoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tsfa4")

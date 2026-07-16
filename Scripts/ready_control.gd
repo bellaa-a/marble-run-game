@@ -33,18 +33,22 @@ func _on_ready_button_pressed():
 
 func _on_host_ready_changed():
 	print("Host is ready!")
+	$Beep.play()
 	button1.visible = true
 	player1.play("press")
 	
 func _on_client_ready_changed():
 	print("Client is ready!")
+	$Beep.play()
 	button2.visible = true
 	player2.play("press")
 
 func _on_both_players_ready():
+	$Beep.stop()
 	countdown_label.visible = true
 
 	for text in ["3", "2", "1"]:
+		$Ping.play()
 		countdown_label.text = text
 		countdown_label.scale = Vector2(2, 2)
 		countdown_label.modulate.a = 1.0
