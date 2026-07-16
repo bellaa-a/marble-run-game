@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @onready var eyes = $Eyes
 @onready var player1 = $Eyes/Player1
