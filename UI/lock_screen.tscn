@@ -30,9 +30,9 @@ color = Color(0, 0, 0, 0.9019608)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 262.0
+offset_left = 257.0
 offset_top = 26.0
-offset_right = 534.0
+offset_right = 529.0
 offset_bottom = 74.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
@@ -95,6 +95,7 @@ theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
 theme_override_font_sizes/font_size = 12
 
 [node name="PlayingCards" type="Node2D" parent="."]
+visible = false
 
 [node name="Card" type="Sprite2D" parent="PlayingCards"]
 position = Vector2(394.00003, 231)
@@ -138,9 +139,9 @@ text = "rank"
 horizontal_alignment = 1
 
 [node name="MessageLabel" type="Label" parent="PlayingCards"]
-offset_left = 264.0
+offset_left = 257.0
 offset_top = 119.0
-offset_right = 536.0
+offset_right = 529.0
 offset_bottom = 139.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "message"
@@ -236,6 +237,418 @@ offset_right = 501.0
 offset_bottom = 344.0
 theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
 theme_override_font_sizes/font_size = 12
+
+[node name="Memory" type="Node2D" parent="."]
+visible = false
+
+[node name="MessageLabel" type="Label" parent="Memory"]
+offset_left = 257.0
+offset_top = 97.0
+offset_right = 529.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "message"
+horizontal_alignment = 1
+
+[node name="Card1" type="Node2D" parent="Memory"]
+position = Vector2(250, 205)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card1"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card1"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card1"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card1"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card1"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card1"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card2" type="Node2D" parent="Memory"]
+position = Vector2(350, 205)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card2"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card2"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card2"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card2"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card2"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card2"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card3" type="Node2D" parent="Memory"]
+position = Vector2(450, 205)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card3"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card3"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card3"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card3"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card3"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card3"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card4" type="Node2D" parent="Memory"]
+position = Vector2(550, 205)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card4"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card4"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card4"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card4"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card4"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card4"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card5" type="Node2D" parent="Memory"]
+position = Vector2(250, 330)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card5"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card5"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card5"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card5"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card5"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card5"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card6" type="Node2D" parent="Memory"]
+position = Vector2(350, 330)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card6"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card6"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card6"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card6"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card6"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card6"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card7" type="Node2D" parent="Memory"]
+position = Vector2(450, 330)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card7"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card7"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card7"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card7"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card7"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card7"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
+
+[node name="Card8" type="Node2D" parent="Memory"]
+position = Vector2(550, 330)
+
+[node name="Card" type="Sprite2D" parent="Memory/Card8"]
+position = Vector2(-1.999939, 5.25)
+scale = Vector2(0.15355805, 0.25802752)
+texture = ExtResource("2_8mg7l")
+
+[node name="CardLabel" type="Label" parent="Memory/Card8"]
+offset_left = -20.0
+offset_top = -10.75
+offset_right = 20.0
+offset_bottom = 9.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="UpperLabel" type="Label" parent="Memory/Card8"]
+offset_left = -46.0
+offset_top = -46.75
+offset_right = -6.0
+offset_bottom = -6.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank
+suit"
+horizontal_alignment = 1
+
+[node name="LowerSuitLabel" type="Label" parent="Memory/Card8"]
+offset_top = 32.25
+offset_right = 40.0
+offset_bottom = 52.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "suit"
+horizontal_alignment = 1
+
+[node name="LowerRankLabel" type="Label" parent="Memory/Card8"]
+offset_left = 2.0
+offset_top = 26.25
+offset_right = 42.0
+offset_bottom = 46.25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "rank"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Memory/Card8"]
+offset_left = -40.0
+offset_top = -46.75
+offset_right = 36.0
+offset_bottom = 55.25
+flat = true
 
 [connection signal="text_submitted" from="Math/Answer" to="." method="_on_answer_text_submitted"]
 [connection signal="pressed" from="Checklist/Submit" to="." method="_on_submit_pressed"]

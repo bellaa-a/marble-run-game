@@ -41,7 +41,7 @@ func _process(_delta):
 	if dragging_obj:
 		dragging_obj.global_position = get_global_mouse_position()
 		
-		
+
 func begin_drag(card):
 
 	if Multiplayer.player_inventory[card.inventory_index]["used"]:
@@ -110,13 +110,11 @@ func finish_drag(card):
 			obj.rotation
 		)
 
-
 		dragging_obj = null
 		dragging_card = null
 
 	else:
 		obj.queue_free()
-
 
 	card.card_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	
@@ -183,7 +181,6 @@ func sort_player_inventory():
 		func(a, b):
 			var card_a = CardDatabase.get_card_by_id(a["id"])
 			var card_b = CardDatabase.get_card_by_id(b["id"])
-
 			return order[card_a.type] < order[card_b.type]
 	)
 	
@@ -192,10 +189,7 @@ func _on_both_players_ready():
 	print("Everyone is ready!")
 	await get_tree().create_timer(2.0).timeout
 	$Ready.play()
-	await get_tree().create_timer(1.0).timeout
-	#hide_ready_ui()
-	#inventory.z_index = 10
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 
 
 func show_ready_ui():
@@ -218,4 +212,4 @@ func _on_finish_state_updated():
 		peek_scene = peek_control_scene.instantiate()
 		add_child(peek_scene)
 
-		peek_scene.global_position = pipe.global_position
+		peek_scene.global_position = pipe.global_position + Vector2(10, 0)

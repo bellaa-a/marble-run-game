@@ -25,6 +25,26 @@ var generated_answer : int
 @onready var typing_error = $Typing/Error
 var target_text := ""
 
+@onready var memory = $Memory
+@onready var memory_message = $Memory/MessageLabel
+@onready var memory_card_nodes = [
+	$Memory/Card1,
+	$Memory/Card2,
+	$Memory/Card3,
+	$Memory/Card4,
+	$Memory/Card5,
+	$Memory/Card6,
+	$Memory/Card7,
+	$Memory/Card8
+]
+var memory_deck = []
+var flipped_cards := []
+var matched_cards := []
+var first_card := -1
+var second_card := -1
+var pairs_left = 4
+var checking_pair = false
+
 
 @onready var suit_buttons = [
 	$PlayingCards/DiamondButton,
@@ -40,9 +60,9 @@ var game_state := "higher_lower"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var choices = [do_math, do_checkboxes, do_playing_cards, do_typing]
+	#var choices = [do_memory]
 
-	#var choices = [do_math, do_checkboxes, do_playing_cards, do_typing]
+	var choices = [do_math, do_checkboxes, do_playing_cards, do_typing, do_memory]
 	choices.pick_random().call()
 
 
@@ -245,7 +265,8 @@ func create_card() -> Dictionary:
 	}
 
 
-func set_card_display(card: Dictionary):
+func set_card_display(card_node, card_data: Dictionary):
+
 	var ranks = [
 		"",
 		"A",
@@ -260,20 +281,28 @@ func set_card_display(card: Dictionary):
 		"10",
 	]
 
-	var color = Color.RED if card.suit <= 1 else Color.BLACK
+	var color = Color.RED if card_data.suit <= 1 else Color.BLACK
 
-	# Top card
-	upper_label.text = ranks[card.rank] + "\n" + suits[card.suit]
+
+	var upper_label = card_node.get_node("UpperLabel")
+	var lower_suit_label = card_node.get_node("LowerSuitLabel")
+	var lower_rank_label = card_node.get_node("LowerRankLabel")
+
+
+	# Top
+	upper_label.text = ranks[card_data.rank] + "\n" + suits[card_data.suit]
 	upper_label.modulate = color
 
-	# Bottom card
-	lower_suit_label.text = suits[card.suit]
-	lower_rank_label.text = ranks[card.rank]
+
+	# Bottom
+	lower_suit_label.text = suits[card_data.suit]
+	lower_rank_label.text = ranks[card_data.rank]
 
 	lower_suit_label.modulate = color
 	lower_rank_label.modulate = color
 
-	# flip only suit upside down
+
+	# flip suit
 	lower_suit_label.scale.y = -1
 	
 
@@ -286,7 +315,7 @@ func start_higher_lower():
 
 	current_card = create_card()
 
-	set_card_display(current_card)
+	set_card_display(playing_cards, current_card)
 	message_label.text = "Will the next card be higher or lower?"
 
 	higher_button.visible = true
@@ -313,7 +342,7 @@ func next_card(is_higher_guess: bool):
 		correct = new_card.rank < old_card.rank
 
 
-	set_card_display(current_card)
+	set_card_display(playing_cards, current_card)
 
 	if correct:
 		message_label.text = "Correct! That was too easy huh?"
@@ -358,7 +387,7 @@ func guess_suit(choice: int):
 
 	if choice == current_card.suit:
 		card_label.text = ""
-		set_card_display(current_card)
+		set_card_display(playing_cards, current_card)
 		message_label.text = "Correct! I'll let you go for now."
 		
 		await get_tree().create_timer(1.5).timeout
@@ -366,7 +395,7 @@ func guess_suit(choice: int):
 
 	else:
 		card_label.text = ""
-		set_card_display(current_card)
+		set_card_display(playing_cards, current_card)
 		message_label.text = "Wrong suit! Try again."
 
 		await get_tree().create_timer(1.5).timeout
@@ -444,3 +473,184 @@ func count_differences(a: String, b: String) -> int:
 	count += abs(a.length() - b.length())
 
 	return count
+
+
+func do_memory():
+	memory.visible = true
+	start_memory()
+
+func start_memory():
+
+	game_state = "memory"
+
+	memory_message.text = "Match all the pairs!"
+
+	memory_deck = create_memory_deck()
+
+	first_card = -1
+	second_card = -1
+	checking_pair = false
+	pairs_left = 4
+
+	setup_memory_cards()
+	
+	
+func create_memory_deck():
+
+	var available = [1,2,3,4,5,6,7,8,9,10]
+	available.shuffle()
+
+	var chosen = available.slice(0,4)
+
+	var deck = []
+
+	for rank in chosen:
+		deck.append({
+			"rank": rank,
+			"suit": randi_range(0,3)
+		})
+
+		deck.append({
+			"rank": rank,
+			"suit": randi_range(0,3)
+		})
+
+	deck.shuffle()
+
+	return deck
+	
+
+func setup_memory_cards():
+
+	for i in range(memory_card_nodes.size()):
+
+		var card = memory_card_nodes[i]
+
+		show_card_back(i)
+
+		var button = card.get_node("Button")
+
+		if not button.pressed.is_connected(memory_card_pressed):
+			button.pressed.connect(memory_card_pressed.bind(i))
+			
+			
+func memory_card_pressed(index:int):
+
+	if checking_pair:
+		return
+
+	if index in matched_cards:
+		return
+
+	if index == first_card:
+		return
+
+
+	show_card_front(index)
+
+
+	if first_card == -1:
+
+		first_card = index
+
+	else:
+
+		second_card = index
+
+		checking_pair = true
+
+		await check_memory_pair()
+	
+
+func check_memory_pair():
+
+	var first = memory_deck[first_card]
+	var second = memory_deck[second_card]
+
+
+	if first.rank == second.rank:
+
+		matched_cards.append(first_card)
+		matched_cards.append(second_card)
+
+		pairs_left -= 1
+
+		await remove_memory_card(first_card)
+		await remove_memory_card(second_card)
+
+
+		if pairs_left == 0:
+
+			memory_message.text = "Nice memory!"
+
+			await get_tree().create_timer(1.0).timeout
+
+			queue_free()
+
+
+	else:
+
+		await get_tree().create_timer(1.0).timeout
+
+		show_card_back(first_card)
+		show_card_back(second_card)
+
+
+	first_card = -1
+	second_card = -1
+	checking_pair = false
+
+
+func show_card_front(index:int):
+	var card = memory_card_nodes[index]
+	card.get_node("CardLabel").text = ""
+	var card_node = memory_card_nodes[index]
+	var data = memory_deck[index]
+
+	set_card_display(card_node, data)
+
+	card_node.get_node("Card").visible = true
+	
+	
+func show_card_back(index:int):
+
+	var card = memory_card_nodes[index]
+
+	card.get_node("UpperLabel").text = ""
+	card.get_node("LowerRankLabel").text = ""
+	card.get_node("LowerSuitLabel").text = ""
+	card.get_node("CardLabel").text = "?"
+
+
+func remove_memory_card(index:int):
+
+	var card = memory_card_nodes[index]
+
+	card.get_node("Button").disabled = true
+
+	var tween = create_tween()
+
+	tween.tween_property(
+		card,
+		"scale",
+		Vector2(1.2,1.2),
+		0.15
+	)
+
+	tween.tween_property(
+		card,
+		"scale",
+		Vector2.ZERO,
+		0.3
+	)
+
+	tween.parallel().tween_property(
+		card,
+		"modulate",
+		Color(1,1,1,0),
+		0.3
+	)
+
+	await tween.finished
+
+	card.visible = false
