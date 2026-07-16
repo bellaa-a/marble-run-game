@@ -1,7 +1,7 @@
 extends Area2D
 
 const SNAP_DISTANCE := 40.0
-
+# test
 var dragging := false
 var current_snap = null
 var original_parent
@@ -102,28 +102,32 @@ func place_addon():
 	var inventory_index = addon.get_meta("inventory_index")
 	var inventory = Multiplayer.build_stage.inventory
 	var found_card
-	var block = current_snap.get_block()
-	var block_id = block.get_meta("block_id")
-	var addon_id = addon.get_meta("addon_id")
 
 	for card in inventory.hand_cards:
 		if card.inventory_index == inventory_index:
 			found_card = card
 			break
 
+	var addon_id = addon.get_meta("addon_id")
+
 	if current_snap == null:
 		found_card.reset_card()
 		Multiplayer.player_inventory[inventory_index]["used"] = false
+
 		Multiplayer.sync_addon.rpc(
 			addon_id,
-			addon.get_meta("card_id"),
-			block_id,
-			addon.position,
-			addon.rotation,
+			"",
+			"",
+			Vector2.ZERO,
+			0.0,
 			true
 		)
+
 		addon.queue_free()
 		return
+
+	var block = current_snap.get_block()
+	var block_id = block.get_meta("block_id")
 
 	var addon_holder = block.get_node("AddOns")
 
