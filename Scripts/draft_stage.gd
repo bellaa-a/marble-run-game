@@ -9,6 +9,7 @@ var finished_picking := false
 var opponent_finished_picking := false
 var revealed_cards := []
 var choosing_card := false
+@onready var or_label = $OR
 
 @export var group_name: String
 
@@ -168,7 +169,7 @@ func select_card(card):
 		"id": final_card.id,
 		"used": false
 	})
-
+	or_label.visible = false
 	await card.move_to_hand(hand_positions[pair])
 
 
@@ -176,7 +177,6 @@ func select_card(card):
 
 	await other_card.disappear()
 	discarded_cards.append(other_card.card_data.id)
-
 
 	selected_pairs[pair] = true
 
@@ -188,6 +188,7 @@ func select_card(card):
 
 	if current_pair < 4:
 		update_pair_access()
+		or_label.visible = true
 	else:
 		send_opponent_cards()
 
