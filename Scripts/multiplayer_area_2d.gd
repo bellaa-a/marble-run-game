@@ -102,7 +102,7 @@ func _input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
-		if moving or dragging:
+		if (moving or dragging) and get_tree().current_scene.group_name == "build":
 			send_position_update()
 
 		dragging = false

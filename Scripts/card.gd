@@ -172,7 +172,7 @@ func reveal_card(target_position: Vector2):
 	show()
 
 	position = target_position
-	scale = Vector2(1.4, 1.4)
+	scale = Vector2(2, 2)
 
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -181,7 +181,7 @@ func reveal_card(target_position: Vector2):
 	tween.tween_property(
 		self,
 		"scale",
-		Vector2(1.2, 1.2),
+		draft_scale,
 		0.3
 	)
 
