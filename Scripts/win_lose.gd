@@ -9,6 +9,9 @@ var frames = [0, 1, 2, 3, 4, 5, 5, 5]
 var frame = 0
 
 func _ready() -> void:
+	if get_parent().group_name == "replay":
+		result = get_parent().result
+		message = get_parent().message
 	result_label.text = result
 	message_label.text = message
 	Multiplayer.opponent_home_pressed.connect(_on_opponent_home_pressed)

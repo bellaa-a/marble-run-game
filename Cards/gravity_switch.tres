@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://blkoqx6rgb0c5"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=5 format=3 uid="uid://blkoqx6rgb0c5"]
 
 [ext_resource type="Texture2D" uid="uid://bkybl42ex7apo" path="res://Assets/GravitySwitch.png" id="1_g8qwo"]
 [ext_resource type="PackedScene" uid="uid://dkh8k7et3b3s4" path="res://Scenes/multiplayer_gravity_switch.tscn" id="2_g8qwo"]
+[ext_resource type="PackedScene" uid="uid://bbrbk8t3181fm" path="res://Scenes/gravity_switch.tscn" id="2_m70h2"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_xrvn6"]
 
 [resource]
@@ -12,3 +13,4 @@ description = "Gravity Switch Button"
 icon = ExtResource("1_g8qwo")
 icon_size = Vector2(30, 30)
 scene = ExtResource("2_g8qwo")
+preview_scene = ExtResource("2_m70h2")

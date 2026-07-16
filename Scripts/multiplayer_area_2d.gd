@@ -390,5 +390,6 @@ func send_position_update():
 	Multiplayer.synch_block_position.rpc(
 		block.get_meta("block_id"),
 		block.get_meta("card_id"),
-		block.global_position
+		block.global_position,
+		block.rotation
 	)

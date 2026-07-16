@@ -6,6 +6,8 @@ extends Node2D
 @onready var pipe = $Pipe
 @onready var marble = $Marble
 @onready var goal = $MultiplayerGoal
+@export var result: String
+@export var message: String
 
 var opponent_blocks = {}
 var opponent_addons = {}
@@ -21,6 +23,8 @@ func _ready() -> void:
 	setup_walls()
 	update_blocks()
 	update_addons()
+	
+	marble.start()
 
 
 func setup_walls():
@@ -44,6 +48,7 @@ func update_blocks():
 			add_child(block)
 
 			block.global_position = data["position"]
+			block.rotation = data["rotation"]
 			block.scale = card.block_scale
 			opponent_blocks[id] = block
 
@@ -81,3 +86,7 @@ func update_addons():
 			1.0 / holder.global_scale.x,
 			1.0 / holder.global_scale.y
 		)
+
+
+func _on_timer_timeout() -> void:
+	$Label.visible = !$Label.visible

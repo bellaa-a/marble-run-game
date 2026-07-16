@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://jhpxcyg6pykd"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=5 format=3 uid="uid://jhpxcyg6pykd"]
 
 [ext_resource type="Texture2D" uid="uid://rfalumpmsj05" path="res://Assets/Goo1.png" id="1_1kdle"]
 [ext_resource type="PackedScene" uid="uid://lgwjunc0v04y" path="res://Scenes/multiplayer_goo.tscn" id="2_1kdle"]
+[ext_resource type="PackedScene" uid="uid://dohrjay727ys5" path="res://Scenes/goo1.tscn" id="2_gbpjm"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_srb7b"]
 
 [resource]
@@ -12,3 +13,4 @@ description = "Goo. Marble resets if touched."
 icon = ExtResource("1_1kdle")
 icon_size = Vector2(40, 7)
 scene = ExtResource("2_1kdle")
+preview_scene = ExtResource("2_gbpjm")

@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://dg2gjc180uy3v"]
+
+[ext_resource type="Script" uid="uid://5qyjcfq6mk8f" path="res://Scripts/replay_stage.gd" id="1_waxw5"]
+[ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_d5qn0"]
+[ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="3_u15kx"]
+[ext_resource type="Script" uid="uid://bk2j81nrhqtpf" path="res://Scripts/multiplayer_goal_final.gd" id="4_xrlbe"]
+[ext_resource type="PackedScene" uid="uid://4envi3nxahn2" path="res://Scenes/multiplayer_marble.tscn" id="5_l1td8"]
+[ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="6_2xhru"]
+[ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_2h51y"]
+[ext_resource type="PackedScene" uid="uid://bn507jcmv3sv8" path="res://Scenes/solve_buttons.tscn" id="8_fntek"]
+[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/wall.tscn" id="9_iuv1n"]
+[ext_resource type="PackedScene" uid="uid://q1u3o6j55dbu" path="res://UI/win_lose.tscn" id="10_u15kx"]
+
+[node name="ReplayStage" type="Node2D"]
+script = ExtResource("1_waxw5")
+group_name = "replay"
+
+[node name="Boarder" parent="." instance=ExtResource("2_d5qn0")]
+
+[node name="MultiplayerGoal" parent="." instance=ExtResource("3_u15kx")]
+z_index = 10
+position = Vector2(0, 170)
+script = ExtResource("4_xrlbe")
+start_open = true
+
+[node name="Marble" parent="." instance=ExtResource("5_l1td8")]
+z_index = 20
+position = Vector2(-109, -186)
+
+[node name="Pipe" parent="." instance=ExtResource("6_2xhru")]
+z_index = 30
+position = Vector2(-109, -220)
+scale = Vector2(0.29214692, 0.524515)
+
+[node name="Globals" parent="." instance=ExtResource("7_2h51y")]
+z_index = 100
+
+[node name="SolveButtons" parent="." instance=ExtResource("8_fntek")]
+z_index = 100
+position = Vector2(-49, 0)
+label_text = "II."
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" parent="Walls" instance=ExtResource("9_iuv1n")]
+position = Vector2(-153, 207)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("9_iuv1n")]
+position = Vector2(150, 208)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("9_iuv1n")]
+position = Vector2(-376, 20)
+rotation = 1.5707964
+
+[node name="Wall4" parent="Walls" instance=ExtResource("9_iuv1n")]
+position = Vector2(378, 20)
+rotation = 1.5707964
+scale = Vector2(1, -1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 290.0
+offset_top = -161.0
+offset_right = 354.0
+offset_bottom = -139.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "● REPLAY"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="WinLose" parent="." instance=ExtResource("10_u15kx")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

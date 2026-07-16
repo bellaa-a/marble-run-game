@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://cnsqx1yunokju"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=5 format=3 uid="uid://cnsqx1yunokju"]
 
 [ext_resource type="Texture2D" uid="uid://ddgq23v16pgym" path="res://Assets/OpenGoal.png" id="1_gt4qo"]
 [ext_resource type="PackedScene" uid="uid://uuthvkhnosh0" path="res://Scenes/multiplayer_open_goal.tscn" id="2_gt4qo"]
+[ext_resource type="PackedScene" uid="uid://dmbngu058salf" path="res://Scenes/open_goal.tscn" id="2_r5k7i"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_csloe"]
 
 [resource]
@@ -12,3 +13,4 @@ description = "Opens goal."
 icon = ExtResource("1_gt4qo")
 icon_size = Vector2(30, 30)
 scene = ExtResource("2_gt4qo")
+preview_scene = ExtResource("2_r5k7i")

@@ -7,9 +7,7 @@ func _ready() -> void:
 	Multiplayer.join_status.connect(_on_join_status)
 	Multiplayer.join_failed.connect(_on_join_failed)
 
-
 func _on_lobby_ready():
-
 	transition.fade_to_scene("res://Scenes/connected.tscn")
 
 
@@ -56,3 +54,7 @@ func _on_option_button_item_selected(index: int) -> void:
 			time = 60
 	
 	Multiplayer.stage_one_time = time
+
+
+func _on_lobby_id_input_text_submitted(_new_text: String) -> void:
+	_on_join_pressed()

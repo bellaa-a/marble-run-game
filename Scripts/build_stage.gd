@@ -105,7 +105,8 @@ func finish_drag(card):
 		Multiplayer.synch_block_position.rpc(
 			obj.get_meta("block_id"),
 			obj.get_meta("card_id"),
-			obj.global_position
+			obj.global_position,
+			obj.rotation
 		)
 
 
