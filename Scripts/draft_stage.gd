@@ -141,7 +141,7 @@ func select_card(card):
 		return
 
 	# reveal clicked card first
-	await card.reveal_card(card.position)
+	card.set_revealed(true)
 
 	var final_card = await resolve_mystery_card(card)
 
@@ -273,8 +273,6 @@ func try_finish_draft():
 	#transition.switch_scene("res://Scenes/build_stage.tscn")
 	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
 
-func reveal_card(card):
-	card.set_revealed(true)
 
 func resolve_mystery_card(card):
 	if card.card_data.id != "mystery":
