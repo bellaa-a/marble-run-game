@@ -74,7 +74,7 @@ rotation = 1.5707964
 script = null
 
 [node name="Wall4" parent="Walls" instance=ExtResource("10_yq2la")]
-position = Vector2(378, 20)
-rotation = 1.5707964
+position = Vector2(370, 20)
+rotation = -1.5707964
 scale = Vector2(1, -1)
 script = null

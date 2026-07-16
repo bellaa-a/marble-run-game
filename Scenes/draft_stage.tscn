@@ -22,85 +22,46 @@ scale = Vector2(0.29214692, 0.524515)
 position = Vector2(0, 170)
 script = null
 
-[node name="Crack1" type="Label" parent="."]
-offset_left = -172.0
-offset_top = -51.0
-offset_right = -156.0
-offset_bottom = -31.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "OR"
-
-[node name="Crack2" type="Label" parent="."]
-offset_left = 159.0
-offset_top = -51.0
-offset_right = 175.0
-offset_bottom = -31.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "OR"
-
-[node name="Crack3" type="Label" parent="."]
-offset_left = -172.0
-offset_top = 51.0
-offset_right = -156.0
-offset_bottom = 71.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "OR"
-
-[node name="Crack4" type="Label" parent="."]
-offset_left = 159.0
-offset_top = 51.0
-offset_right = 175.0
-offset_bottom = 71.0
+[node name="OR" type="Label" parent="."]
+z_index = 20
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = 7.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "OR"
 
 [node name="Card1" parent="." instance=ExtResource("5_64jat")]
-offset_left = -230.0
-offset_top = -35.0
-offset_right = -230.0
-offset_bottom = -35.0
+offset_left = -100.0
+offset_right = -100.0
 
 [node name="Card2" parent="." instance=ExtResource("5_64jat")]
-offset_left = -100.0
-offset_top = -35.0
-offset_right = -100.0
-offset_bottom = -35.0
+offset_left = 100.0
+offset_right = 100.0
 
 [node name="Card3" parent="." instance=ExtResource("5_64jat")]
-offset_left = 100.0
-offset_top = -35.0
-offset_right = 100.0
-offset_bottom = -35.0
+offset_left = -100.0
+offset_right = -100.0
 
 [node name="Card4" parent="." instance=ExtResource("5_64jat")]
-offset_left = 230.0
-offset_top = -35.0
-offset_right = 230.0
-offset_bottom = -35.0
+offset_left = 100.0
+offset_right = 100.0
 
 [node name="Card5" parent="." instance=ExtResource("5_64jat")]
-offset_left = -230.0
-offset_top = 67.0
-offset_right = -230.0
-offset_bottom = 67.0
+offset_left = -100.0
+offset_right = -100.0
 
 [node name="Card6" parent="." instance=ExtResource("5_64jat")]
-offset_left = -100.0
-offset_top = 67.0
-offset_right = -100.0
-offset_bottom = 67.0
+offset_left = 100.0
+offset_right = 100.0
 
 [node name="Card7" parent="." instance=ExtResource("5_64jat")]
-offset_left = 100.0
-offset_top = 67.0
-offset_right = 100.0
-offset_bottom = 67.0
+offset_left = -100.0
+offset_right = -100.0
 
 [node name="Card8" parent="." instance=ExtResource("5_64jat")]
-offset_left = 230.0
-offset_top = 67.0
-offset_right = 230.0
-offset_bottom = 67.0
+offset_left = 100.0
+offset_right = 100.0
 
 [node name="Card9" parent="." instance=ExtResource("5_64jat")]
 offset_left = -300.0

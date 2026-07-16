@@ -34,12 +34,6 @@ var hand_positions := [
 	$Card13,
 ]
 
-@onready var cracks = [
-	$Crack1,
-	$Crack2,
-	$Crack3,
-	$Crack4,
-]
 
 func _ready():
 	add_to_group("draft")
@@ -58,8 +52,13 @@ func _ready():
 	for i in range(4):
 		var active = i == 0
 		
-		cards[i * 2].set_revealed(active)
-		cards[i * 2 + 1].set_revealed(active)
+		cards[i * 2].visible = active
+		cards[i * 2 + 1].visible = active
+		
+		if active:
+			cards[i * 2].set_revealed(false)
+			cards[i * 2 + 1].set_revealed(false)
+			
 		cards[9+i].revealing = true
 		cards[9+i].set_interactable(false)
 
@@ -114,28 +113,35 @@ func generate_draft():
 
 
 func update_pair_access():
-	for i in range(4):
-		var enabled = i == current_pair
-		
-		cards[i * 2].set_selectable(enabled)
-		cards[i * 2 + 1].set_selectable(enabled)
-		cracks[i].z_index = 20 if enabled else 0
 
+	for i in range(4):
+
+		var active = i == current_pair
+
+		var card_a = cards[i * 2]
+		var card_b = cards[i * 2 + 1]
+
+		card_a.visible = active
+		card_b.visible = active
+
+		card_a.set_selectable(true)
+		card_b.set_selectable(true)
+		
 
 func select_card(card):
 	$Click.play()
 	await $Click.finished
-	
+
 	var pair = card.pair_id
 
-	# only current pair can be selected
 	if pair != current_pair:
 		return
-	
+
 	if selected_pairs[pair]:
 		return
 
-	selected_pairs[pair] = true
+	# reveal clicked card first
+	await card.reveal_card(card.position)
 
 	var final_card = await resolve_mystery_card(card)
 
@@ -157,14 +163,10 @@ func select_card(card):
 	other_card.disappear()
 	discarded_cards.append(other_card.card_data.id)
 
-	# remove crack
-	cracks[pair].visible = false
-
 	# unlock next pair
 	current_pair += 1
 
 	if current_pair < 4:
-		reveal_pair(current_pair)
 		update_pair_access()
 	else:
 		send_opponent_cards()
@@ -271,10 +273,8 @@ func try_finish_draft():
 	#transition.switch_scene("res://Scenes/build_stage.tscn")
 	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
 
-func reveal_pair(pair: int):
-	cards[pair * 2].set_revealed(true)
-	cards[pair * 2 + 1].set_revealed(true)
-
+func reveal_card(card):
+	card.set_revealed(true)
 
 func resolve_mystery_card(card):
 	if card.card_data.id != "mystery":

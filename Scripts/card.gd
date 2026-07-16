@@ -130,7 +130,7 @@ func _on_mouse_exited():
 			self,
 			"scale",
 			normal_scale,
-			0.15
+			0.3
 		)
 		
 
