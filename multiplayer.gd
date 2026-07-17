@@ -480,8 +480,6 @@ func reset_match():
 	active_powerup = false
 	current_stage = 0
 	
-	reset_ready()
-
 
 func send_powerup(card_id: String):
 	var opponent_id = get_opponent_id()

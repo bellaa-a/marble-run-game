@@ -29,7 +29,6 @@ func _ready():
 	Multiplayer.build_stage = self
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
 	Multiplayer.finish_state_updated.connect(_on_finish_state_updated)
-	Multiplayer.reset_ready()
 	Multiplayer.rotation_mode = false
 	
 
