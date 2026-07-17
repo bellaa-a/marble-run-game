@@ -29,9 +29,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func win_game():
 	if GameState.game_won:
 		return
-	
-	GameState.game_won = true
-	GameState.locked = false
 
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.freeze = true
@@ -45,6 +42,8 @@ func win_game():
 		get_parent().get_node("Marble").start()
 
 	else:
+		GameState.game_won = true
+		GameState.locked = false
 		Multiplayer.player_finished_stage.rpc(true)
 	
 
