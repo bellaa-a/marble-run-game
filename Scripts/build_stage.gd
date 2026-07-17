@@ -211,4 +211,4 @@ func _on_finish_state_updated():
 		peek_scene = peek_control_scene.instantiate()
 		add_child(peek_scene)
 
-		peek_scene.global_position = pipe.global_position + Vector2(12, 15)
+		peek_scene.global_position = pipe.global_position + Vector2(13, 15)

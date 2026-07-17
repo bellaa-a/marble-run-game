@@ -83,18 +83,10 @@ func open_goal():
 
 func _on_finish_state_updated():
 	if Multiplayer.player_finished:
-		transition.switch_to_win_lose(
-			"res://Scenes/replay_stage.tscn",
-			{
-				"result": "You won!",
-				"message": "Nice job."
-			}
-		)
+		Multiplayer.win_lose_result = "You won!"
+		Multiplayer.win_lose_message =  "Nice job."
 	else:
-		transition.switch_to_win_lose(
-			"res://Scenes/replay_stage.tscn",
-			{
-				"result": "You lost!",
-				"message": "But that's ok."
-			}
-		)
+		Multiplayer.win_lose_result = "You lost!"
+		Multiplayer.win_lose_message =  "But that's ok."
+		
+	transition.fade_to_scene("res://Scenes/replay_stage.tscn")

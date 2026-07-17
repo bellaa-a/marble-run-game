@@ -1,7 +1,6 @@
 extends Node2D
 
-@export var result: String
-@export var message: String
+
 @onready var waiting_label = $CanvasLayer/Control/WaitingLabel
 @onready var result_label = $CanvasLayer/Control/Result
 @onready var message_label = $CanvasLayer/Control/Message
@@ -9,11 +8,8 @@ var frames = [0, 1, 2, 3, 4, 5, 5, 5]
 var frame = 0
 
 func _ready() -> void:
-	if get_parent().group_name == "replay":
-		result = get_parent().result
-		message = get_parent().message
-	result_label.text = result
-	message_label.text = message
+	result_label.text = Multiplayer.win_lose_result
+	message_label.text = Multiplayer.win_lose_message
 	Multiplayer.opponent_home_pressed.connect(_on_opponent_home_pressed)
 	Multiplayer.both_players_restart.connect(_on_both_players_restart)
 

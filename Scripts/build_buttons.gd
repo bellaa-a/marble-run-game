@@ -45,23 +45,14 @@ func update_timer_display():
 	if time_left <= 0:
 		if Multiplayer.opponent_finished:
 			Multiplayer.player_finished_stage.rpc(false)
-			transition.switch_to_win_lose(
-				"res://UI/win_lose.tscn",
-				{
-					"result": "You lost!",
-					"message": "You have to complete this stage before the timer runs out."
-				}
-			)
+			Multiplayer.win_lose_result = "You lost!"
+			Multiplayer.win_lose_message =  "You have to complete this stage before the timer runs out."
 			
 		else:
-			transition.switch_to_win_lose(
-				"res://UI/win_lose.tscn",
-				{
-					"result": "You tied!",
-					"message": "You both did not complete this stage before the timer ran out."
-		
-				}
-			)
+			Multiplayer.win_lose_result = "You tied!"
+			Multiplayer.win_lose_message =  "You both did not complete this stage before the timer ran out."
+			
+		transition.fade_to_scene("res://UI/win_lose.tscn")
 
 
 func _on_rotation_toggled(toggled_on: bool) -> void:

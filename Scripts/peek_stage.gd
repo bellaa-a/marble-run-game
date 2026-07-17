@@ -42,11 +42,11 @@ func _on_finish_state_updated():
 		print("opponent finished")
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	else:
+		Multiplayer.win_lose_result = "You won!"
+		Multiplayer.win_lose_message =  "Your opponent did not complete this stage before the timer ran out."
 		print("opponent didnt finish")
-		transition.switch_to_win_lose(
-			"res://UI/win_lose.tscn",
-			{
-				"result": "You won!",
-				"message": "Your opponent did not complete this stage before the timer ran out."
-			}
-		)
+		transition.fade_to_scene("res://UI/win_lose.tscn")
+
+
+func _on_timer_timeout() -> void:
+	$Label.visible = !$Label.visible

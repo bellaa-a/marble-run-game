@@ -5,8 +5,6 @@ extends Node2D
 @onready var pipe = $Pipe
 @onready var marble = $Marble
 @onready var goal = $MultiplayerGoal
-@export var result: String
-@export var message: String
 
 var opponent_blocks = {}
 var opponent_addons = {}
@@ -22,7 +20,6 @@ func _ready() -> void:
 	setup_walls()
 	update_blocks()
 	update_addons()
-	#await get_tree().process_frame
 	$Buttons._on_play_button_pressed()
 
 

@@ -7,11 +7,9 @@ var selected_pairs := [false, false, false, false]
 var current_pair := 0
 var finished_picking := false
 var opponent_finished_picking := false
-var revealed_cards := []
+#var revealed_cards := []
 var choosing_card := false
 var music_bus := AudioServer.get_bus_index("Music")
-
-@onready var or_label = $OR
 
 @export var group_name: String
 
@@ -67,8 +65,8 @@ func _ready():
 		card_a.scale = Vector2(1.6,1.6)
 		card_b.scale = Vector2(1.6,1.6)
 
-		card_a.set_revealed(false)
-		card_b.set_revealed(false)
+		#card_a.set_revealed(false)
+		#card_b.set_revealed(false)
 			
 		cards[9+i].revealing = true
 		cards[9+i].set_interactable(false)
@@ -146,22 +144,22 @@ func select_card(card):
 		return
 
 	# Phase 1: reveal cards
-	if not choosing_card:
-
-		if card in revealed_cards:
-			return
-
-		card.set_revealed(true)
-		revealed_cards.append(card)
-
-		# wait until both cards are revealed
-		if revealed_cards.size() == 2:
-			choosing_card = true
-
-			for revealed in revealed_cards:
-				revealed.set_selectable(true)
-
-		return
+	#if not choosing_card:
+#
+		#if card in revealed_cards:
+			#return
+#
+		##card.set_revealed(true)
+		#revealed_cards.append(card)
+#
+		## wait until both cards are revealed
+		#if revealed_cards.size() == 2:
+			#choosing_card = true
+#
+			#for revealed in revealed_cards:
+				#revealed.set_selectable(true)
+#
+		#return
 
 
 	# Phase 2: choose one of the revealed cards
@@ -172,18 +170,22 @@ func select_card(card):
 		"id": final_card.id,
 		"used": false
 	})
-	or_label.visible = false
 	await card.move_to_hand(hand_positions[pair])
 
+	var other_card = null
 
-	var other_card = revealed_cards[0] if revealed_cards[1] == card else revealed_cards[1]
+	for c in get_tree().get_nodes_in_group("cards"):
+		if c != card and c.pair_id == card.pair_id:
+			other_card = c
+			break
+	#var other_card = revealed_cards[0] if revealed_cards[1] == card else revealed_cards[1]
 
 	await other_card.disappear()
 	discarded_cards.append(other_card.card_data.id)
 
 	selected_pairs[pair] = true
 
-	revealed_cards.clear()
+	#revealed_cards.clear()
 	choosing_card = false
 
 
@@ -191,7 +193,6 @@ func select_card(card):
 
 	if current_pair < 4:
 		update_pair_access()
-		or_label.visible = true
 	else:
 		send_opponent_cards()
 
@@ -294,7 +295,6 @@ func try_finish_draft():
 	$Instructions.visible = false
 
 	# move to next stage here
-	#transition.switch_scene("res://Scenes/build_stage.tscn")
 	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
 
 

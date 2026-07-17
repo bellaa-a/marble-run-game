@@ -37,6 +37,8 @@ var opponent_peeking := false
 var active_powerup := false
 var current_stage := 0
 var dragging_addon := false
+var win_lose_result : String
+var win_lose_message : String
 
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
