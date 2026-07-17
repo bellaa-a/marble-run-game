@@ -16,6 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_play_button_pressed() -> void:
+	print("play button")
 	if GameState.game_won or GameState.locked:
 		return
 	GameState.life_loss_pending = false

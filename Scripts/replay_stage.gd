@@ -22,7 +22,7 @@ func _ready() -> void:
 	setup_walls()
 	update_blocks()
 	update_addons()
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	$Buttons._on_play_button_pressed()
 
 
