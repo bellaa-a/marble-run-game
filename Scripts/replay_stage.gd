@@ -22,7 +22,8 @@ func _ready() -> void:
 	setup_walls()
 	update_blocks()
 	update_addons()
-	get_tree().current_scene.get_node("Buttons")._on_play_button_pressed()
+	await get_tree().process_frame
+	$Buttons._on_play_button_pressed()
 
 
 func setup_walls():
