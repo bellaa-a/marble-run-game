@@ -22,7 +22,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if lives:
 		lives.minus_life()
 			
-	scene.get_node("LevelButtons/Buttons").call_deferred("reset_board")
+	if get_tree().current_scene.group_name == "build":
+		scene.get_node("BuildButtons/Buttons").call_deferred("reset_board")
+	elif get_tree().current_scene.group_name == "solve":
+		scene.get_node("SolveButtons/Buttons").call_deferred("reset_board")
+	elif get_tree().current_scene.group_name == "replay":
+		scene.get_node("Buttons").call_deferred("reset_board")
+	else:
+		scene.get_node("LevelButtons/Buttons").call_deferred("reset_board")
 
 
 func _physics_process(_delta):
