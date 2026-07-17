@@ -37,7 +37,7 @@ func _on_home_button_pressed():
 	Multiplayer.go_home.rpc()
 	Multiplayer.leave_lobby()
 	transition.fade_to_scene("res://Scenes/rooms.tscn")
-	
+
 
 func _on_opponent_home_pressed():
 	transition.fade_to_scene("res://UI/player_disconnected.tscn")
@@ -47,4 +47,3 @@ func _on_both_players_restart():
 	Multiplayer.reset_match()
 	Multiplayer.randomize_layout()
 	transition.fade_to_scene("res://Scenes/connected.tscn")
-	

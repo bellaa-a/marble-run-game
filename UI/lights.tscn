@@ -1,0 +1,205 @@
+[gd_scene load_steps=24 format=3 uid="uid://dxmy2dd88tv4a"]
+
+[ext_resource type="Script" uid="uid://cgd68y5xbnb3j" path="res://Scripts/lights.gd" id="1_ywme2"]
+[ext_resource type="PackedScene" uid="uid://nfuerqd5q0hu" path="res://Scenes/light_switch.tscn" id="2_a6oa8"]
+[ext_resource type="Texture2D" uid="uid://csuxodo2pdnt5" path="res://Assets/Player1Press.png" id="3_acovt"]
+[ext_resource type="Texture2D" uid="uid://be30mu7t0v5se" path="res://Assets/Player1Walk.png" id="4_pqwhi"]
+[ext_resource type="Texture2D" uid="uid://bfrdvgpqikrff" path="res://Assets/Player2Press.png" id="5_5ho1l"]
+[ext_resource type="Texture2D" uid="uid://dmcn0yi8ewcgy" path="res://Assets/Player2Walk.png" id="6_wpprg"]
+[ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_e8oni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqthk"]
+atlas = ExtResource("3_acovt")
+region = Rect2(0, 0, 147, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpkn4"]
+atlas = ExtResource("3_acovt")
+region = Rect2(147, 0, 147, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp8s6"]
+atlas = ExtResource("3_acovt")
+region = Rect2(294, 0, 147, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm63j"]
+atlas = ExtResource("4_pqwhi")
+region = Rect2(0, 0, 148, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8it36"]
+atlas = ExtResource("4_pqwhi")
+region = Rect2(148, 0, 148, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1guep"]
+atlas = ExtResource("4_pqwhi")
+region = Rect2(296, 0, 148, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehc4q"]
+atlas = ExtResource("4_pqwhi")
+region = Rect2(444, 0, 148, 190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cm6vx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqthk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpkn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp8s6")
+}],
+"loop": false,
+"name": &"press",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm63j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8it36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1guep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehc4q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fojk5"]
+atlas = ExtResource("5_5ho1l")
+region = Rect2(0, 0, 147, 185)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h1xx"]
+atlas = ExtResource("5_5ho1l")
+region = Rect2(147, 0, 147, 185)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqya3"]
+atlas = ExtResource("5_5ho1l")
+region = Rect2(294, 0, 147, 185)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0ono"]
+atlas = ExtResource("6_wpprg")
+region = Rect2(0, 0, 148, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xllr"]
+atlas = ExtResource("6_wpprg")
+region = Rect2(148, 0, 148, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ii2u"]
+atlas = ExtResource("6_wpprg")
+region = Rect2(296, 0, 148, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6x3j"]
+atlas = ExtResource("6_wpprg")
+region = Rect2(444, 0, 148, 189)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cltgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fojk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h1xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqya3")
+}],
+"loop": false,
+"name": &"press",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0ono")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xllr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ii2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6x3j")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Lights" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("1_ywme2")
+
+[node name="LightSwitch" parent="." instance=ExtResource("2_a6oa8")]
+position = Vector2(424.2857, 241.42859)
+
+[node name="Player1" type="Node2D" parent="."]
+
+[node name="Eyes" type="Polygon2D" parent="Player1"]
+position = Vector2(-32, 81)
+scale = Vector2(0.6, 0.632)
+color = Color(0, 0, 0, 1)
+offset = Vector2(48.333332, -72.78481)
+polygon = PackedVector2Array(-63.157894, 68, -49.473686, 64, -27.368423, 64, -19.999996, 66.795746, -20.000002, 77, -23.157896, 80, -50.526318, 81, -62.105267, 79)
+
+[node name="Player" type="AnimatedSprite2D" parent="Player1"]
+position = Vector2(-32.052635, 98.200005)
+scale = Vector2(0.44210526, 0.4424)
+sprite_frames = SubResource("SpriteFrames_cm6vx")
+animation = &"walk"
+
+[node name="Username" type="Label" parent="Player1"]
+offset_left = -51.0
+offset_top = 134.0
+offset_right = -11.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2" type="Node2D" parent="."]
+
+[node name="Eyes" type="Polygon2D" parent="Player2"]
+position = Vector2(-32, 81)
+scale = Vector2(0.6, 0.632)
+color = Color(0, 0, 0, 1)
+offset = Vector2(48.333332, -72.78481)
+polygon = PackedVector2Array(-63.157894, 68, -49.473686, 64, -27.368423, 64, -19.999996, 66.795746, -20.000002, 77, -23.157896, 80, -50.526318, 81, -62.105267, 79)
+
+[node name="Player" type="AnimatedSprite2D" parent="Player2"]
+position = Vector2(-36.5, 98)
+scale = Vector2(0.43918917, 0.44444445)
+sprite_frames = SubResource("SpriteFrames_cltgs")
+animation = &"press"
+
+[node name="Username" type="Label" parent="Player2"]
+offset_left = -51.0
+offset_top = 134.0
+offset_right = -11.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_e8oni")
+
+[node name="Lights" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1711.4285
+offset_bottom = 978.57135
+mouse_filter = 2
+color = Color(0, 0, 0, 0.78431374)

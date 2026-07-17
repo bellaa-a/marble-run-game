@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://btymcn03dod42"]
+[gd_scene load_steps=5 format=3 uid="uid://btymcn03dod42"]
 
 [ext_resource type="Script" uid="uid://dsx5e0tryi72h" path="res://Scripts/marble.gd" id="1_v8vi7"]
 [ext_resource type="Texture2D" uid="uid://s4xcu53jcbrt" path="res://Assets/Marble.png" id="3_fpsi4"]
@@ -9,21 +9,21 @@ friction = 0.3
 [sub_resource type="CircleShape2D" id="CircleShape2D_c16uf"]
 radius = 8.0
 
-[node name="Marble" type="RigidBody2D" unique_id=1480049343]
+[node name="Marble" type="RigidBody2D"]
 collision_mask = 63
 physics_material_override = SubResource("PhysicsMaterial_v8vi7")
 script = ExtResource("1_v8vi7")
 
-[node name="OriginalCollision" type="CollisionShape2D" parent="." unique_id=1054246851]
+[node name="OriginalCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -2)
 scale = Vector2(0.95, 0.95)
 shape = SubResource("CircleShape2D_c16uf")
 
-[node name="MarbleShadow" type="Polygon2D" parent="." unique_id=1736426127]
+[node name="MarbleShadow" type="Polygon2D" parent="."]
 position = Vector2(0, -2)
 color = Color(0.23529412, 0.2, 0.2509804, 1)
 
-[node name="OriginalMarble" type="Sprite2D" parent="." unique_id=985774689]
+[node name="OriginalMarble" type="Sprite2D" parent="."]
 position = Vector2(0.5, -2)
 scale = Vector2(0.054345634, 0.05407807)
 texture = ExtResource("3_fpsi4")

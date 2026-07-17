@@ -49,27 +49,28 @@ theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background"]
-position = Vector2(1101, 46)
+position = Vector2(1089.0826, 42.792866)
 rotation = 1.5707964
-scale = Vector2(0.09626021, 0.07528964)
+scale = Vector2(0.09288465, 0.06997102)
 texture = ExtResource("4_j2dne")
 
 [node name="Shadow" type="ColorRect" parent="CanvasLayer/Background"]
 layout_mode = 0
-offset_left = 1078.0
-offset_top = 26.0
-offset_right = 1122.0
-offset_bottom = 65.0
+offset_left = 1068.0
+offset_top = 24.0
+offset_right = 1109.0
+offset_bottom = 61.0
 color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
 
 [node name="Home" type="TextureButton" parent="CanvasLayer/Background"]
 layout_mode = 0
-offset_left = 1084.0
-offset_top = 30.0
-offset_right = 1116.0
-offset_bottom = 62.0
-texture_normal = ExtResource("3_j2dne")
-texture_hover = ExtResource("2_aaqfp")
+offset_left = 1075.0
+offset_top = 29.0
+offset_right = 1107.0
+offset_bottom = 61.0
+scale = Vector2(0.8400391, 0.84000003)
+texture_normal = ExtResource("2_aaqfp")
+texture_hover = ExtResource("3_j2dne")
 
 [node name="General" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -119,7 +120,7 @@ offset_right = 545.0
 offset_bottom = 225.0
 theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_font_sizes/font_size = 25
-text = "Sound"
+text = "SFX"
 
 [node name="SoundSlider" type="HSlider" parent="CanvasLayer/General"]
 layout_mode = 0

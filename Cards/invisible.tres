@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://d04yxsc7hqejp" path="res://Assets/invisible.png" id="1_xwq8l"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_5hycj"]
-[ext_resource type="PackedScene" uid="uid://dxmy2dd88tv4a" path="res://UI/invisible.tscn" id="2_rue4h"]
+[ext_resource type="PackedScene" uid="uid://cxbo8owj2lr6q" path="res://UI/invisible.tscn" id="2_rue4h"]
 
 [resource]
 script = ExtResource("2_5hycj")
 id = "invisible"
 type = 2
 stage = 1
-description = "Turn off their light."
+description = "Make their marble invisible."
 icon = ExtResource("1_xwq8l")
 icon_size = Vector2(15, 15)
 scene = ExtResource("2_rue4h")
