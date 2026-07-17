@@ -71,5 +71,8 @@ func _on_both_players_ready():
 
 
 func check_both_ready():
+	print("checking both ready")
+	print("host ready: ", Multiplayer.host_ready)
+	print("client ready: ", Multiplayer.client_ready)
 	if Multiplayer.host_ready and Multiplayer.client_ready:
 		_on_both_players_ready()
