@@ -22,7 +22,8 @@ func _ready() -> void:
 	setup_walls()
 	update_blocks()
 	update_addons()
-	
+	await get_tree().process_frame
+	await get_tree().process_frame
 	marble.start()
 
 
@@ -46,9 +47,11 @@ func update_blocks():
 			var block = card.scene.instantiate()
 			add_child(block)
 			print("Applying rotation:", data["rotation"])
-			block.global_position = data["position"]
-			block.rotation = data["rotation"]
 			block.scale = card.block_scale
+			block.global_transform = Transform2D(
+				data["rotation"],
+				data["position"]
+			)
 
 			opponent_blocks[id] = block
 

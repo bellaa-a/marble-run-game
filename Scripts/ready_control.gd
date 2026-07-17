@@ -43,11 +43,13 @@ func _on_host_ready_changed():
 	print("Host is ready!")
 	button1.visible = true
 	player1.play("press")
+	check_both_ready()
 	
 func _on_client_ready_changed():
 	print("Client is ready!")
 	button2.visible = true
 	player2.play("press")
+	check_both_ready()
 
 func _on_both_players_ready():
 	countdown_label.visible = true
@@ -66,3 +68,8 @@ func _on_both_players_ready():
 
 	countdown_label.visible = false
 	queue_free()
+
+
+func check_both_ready():
+	if Multiplayer.host_ready and Multiplayer.client_ready:
+		_on_both_players_ready()

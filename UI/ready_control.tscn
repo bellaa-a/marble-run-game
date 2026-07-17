@@ -123,7 +123,7 @@ polygon = PackedVector2Array(227, 221, 240, 221, 242, 222, 244, 223, 244, 225, 2
 
 [node name="Button2On" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(330, 0)
+position = Vector2(320, 0)
 color = Color(0.21960784, 1, 0.23529412, 0.8235294)
 polygon = PackedVector2Array(227, 221, 240, 221, 242, 221, 244, 223, 244, 225, 243, 226, 240, 227, 237, 227, 234, 227, 231, 227, 228, 227, 226, 226, 225, 225, 225, 223, 225.97382, 222.02618)
 

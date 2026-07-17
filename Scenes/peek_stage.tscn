@@ -23,12 +23,12 @@ position = Vector2(0, 170)
 script = null
 
 [node name="Label" type="Label" parent="."]
-offset_left = -60.0
-offset_top = -151.0
-offset_right = 60.0
-offset_bottom = -131.0
+offset_left = 218.0
+offset_top = -162.0
+offset_right = 356.0
+offset_bottom = -140.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Opponent's Board"
+text = "● Opponent's Board"
 
 [node name="EffectLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -47,3 +47,7 @@ z_index = 20
 
 [node name="Globals" parent="." instance=ExtResource("6_rv1a0")]
 z_index = 100
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
