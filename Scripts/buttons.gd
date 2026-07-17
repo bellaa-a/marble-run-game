@@ -3,7 +3,7 @@ extends Node2D
 var shaking := false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
+	if event is InputEventKey and event.pressed and not event.echo and get_tree().current_scene.group_name != "replay":
 
 		if event.keycode == KEY_P:
 			_on_play_button_pressed()
