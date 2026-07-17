@@ -24,7 +24,7 @@ func _ready() -> void:
 	update_addons()
 	await get_tree().process_frame
 	await get_tree().process_frame
-	marble.start()
+	get_tree().current_scene.get_node("Buttons")._on_play_button_pressed()
 
 
 func setup_walls():
