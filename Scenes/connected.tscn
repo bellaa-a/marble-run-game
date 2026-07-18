@@ -140,3 +140,4 @@ frame_progress = 0.0738406
 
 [node name="Connected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8rano")
+bus = &"SFX"

@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://y6mme48dmwe0"]
+[gd_scene load_steps=10 format=3 uid="uid://y6mme48dmwe0"]
 
 [ext_resource type="Texture2D" uid="uid://bcftassbf0w71" path="res://Assets/Player1Button.png" id="1_1q1mv"]
 [ext_resource type="Script" uid="uid://l5o0mbk1h65v" path="res://Scripts/ready_control.gd" id="1_81670"]
 [ext_resource type="Texture2D" uid="uid://bmhti2igxnwjh" path="res://Assets/Player1ButtonPress.png" id="2_81670"]
 [ext_resource type="Texture2D" uid="uid://bn5o4uxhdcggs" path="res://Assets/Player2Button.png" id="3_iiyff"]
 [ext_resource type="Texture2D" uid="uid://byxgfi0pdt12c" path="res://Assets/Player2ButtonPress.png" id="4_hs5nm"]
-[ext_resource type="AudioStream" uid="uid://diqfapcnkhxxf" path="res://Audio/Beep.mp3" id="6_iiyff"]
 [ext_resource type="AudioStream" uid="uid://wbsbrulvweq4" path="res://Audio/Ping.mp3" id="7_7jdf8"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_hs5nm"]
 
@@ -142,12 +141,10 @@ horizontal_alignment = 1
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_hs5nm")
+bus = &"SFX"
 
 [node name="Ping" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_7jdf8")
-
-[node name="Beep" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_iiyff")
-parameters/looping = true
+bus = &"SFX"
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]

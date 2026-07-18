@@ -295,8 +295,7 @@ func try_finish_draft():
 	$Instructions.visible = false
 
 	# move to next stage here
-	get_tree().change_scene_to_file("res://Scenes/build_stage.tscn")
-
+	transition.fade_to_scene("res://Scenes/build_stage.tscn")
 
 func resolve_mystery_card(card):
 	if card.card_data.id != "mystery":

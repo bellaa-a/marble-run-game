@@ -18,9 +18,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Username" type="Label" parent="Eyes"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.2142857
-anchor_top = -0.16071415
-anchor_right = 1.2142857
+anchor_left = -0.019480618
+anchor_top = -0.16071427
+anchor_right = -0.019480618
 anchor_bottom = -0.16071415
 offset_left = -61.0
 offset_top = 58.0

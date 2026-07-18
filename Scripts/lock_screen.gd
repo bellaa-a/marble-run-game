@@ -283,27 +283,23 @@ func set_card_display(card_node, card_data: Dictionary):
 
 	var color = Color.RED if card_data.suit <= 1 else Color.BLACK
 
-
-	var upper_label = card_node.get_node("UpperLabel")
-	var lower_suit_label = card_node.get_node("LowerSuitLabel")
-	var lower_rank_label = card_node.get_node("LowerRankLabel")
-
+	var upper_label_memory = card_node.get_node("UpperLabel")
+	var lower_suit_label_memory = card_node.get_node("LowerSuitLabel")
+	var lower_rank_label_memory = card_node.get_node("LowerRankLabel")
 
 	# Top
-	upper_label.text = ranks[card_data.rank] + "\n" + suits[card_data.suit]
-	upper_label.modulate = color
-
+	upper_label_memory.text = ranks[card_data.rank] + "\n" + suits[card_data.suit]
+	upper_label_memory.modulate = color
 
 	# Bottom
-	lower_suit_label.text = suits[card_data.suit]
-	lower_rank_label.text = ranks[card_data.rank]
+	lower_suit_label_memory.text = suits[card_data.suit]
+	lower_rank_label_memory.text = ranks[card_data.rank]
 
-	lower_suit_label.modulate = color
-	lower_rank_label.modulate = color
-
+	lower_suit_label_memory.modulate = color
+	lower_rank_label_memory.modulate = color
 
 	# flip suit
-	lower_suit_label.scale.y = -1
+	lower_suit_label_memory.scale.y = -1
 	
 
 # -------------------------

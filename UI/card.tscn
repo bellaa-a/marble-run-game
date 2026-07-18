@@ -97,6 +97,8 @@ flat = true
 
 [node name="Whoosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_tsfa4")
+bus = &"SFX"
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_mkbd5")
+bus = &"SFX"
