@@ -54,7 +54,7 @@ theme/custom="uid://dhwd8ewrtbtfr"
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.67560154, 0.6010374, 0.55905384, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 
 [steam]
 

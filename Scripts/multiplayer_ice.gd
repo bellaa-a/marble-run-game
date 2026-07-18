@@ -63,6 +63,16 @@ func reset_ice():
 	var pressed = find_children("GoalButtonPressed", "CanvasItem", true, false)
 	for p in pressed:
 		p.visible = false
+	
+	for addon in $AddOns.get_children():
+		addon.visible = true
+
+		for shape in addon.find_children("*", "CollisionShape2D", true, false):
+			shape.set_deferred("disabled", false)
+
+		var area = addon.get_node_or_null("Area2D")
+		if area:
+			area.monitoring = true
 
 	$OriginalIce.visible = true
 	$BreakingIce.visible = false
