@@ -641,6 +641,8 @@ func set_restart():
 	restart_votes[id] = true
 
 	if restart_votes.size() == 2:
+		if multiplayer.is_server():
+			randomize_layout()
 		restart_votes.clear()
 		both_players_restart.emit()
 		
