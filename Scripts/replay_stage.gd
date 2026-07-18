@@ -12,14 +12,18 @@ var opponent_addons = {}
 func _ready() -> void:
 	pipe.global_position = Multiplayer.pipe_position
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
+	marble.set_collision_mask_value(3, false)
 	goal.global_position = Multiplayer.goal_position
+	
 	GameState.game_won = false
 	Multiplayer.rotation_mode = true
 	Multiplayer.opponent_peeking = false
 	Multiplayer.current_stage = 2
+	
 	setup_walls()
 	update_blocks()
 	update_addons()
+	
 	$Buttons._on_play_button_pressed()
 
 
