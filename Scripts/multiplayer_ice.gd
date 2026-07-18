@@ -64,7 +64,9 @@ func reset_ice():
 	for p in pressed:
 		p.visible = false
 	
+	$AddOns.visible = true
 	for addon in $AddOns.get_children():
+		addon.visible = true
 
 		for canvas in addon.find_children("*", "CanvasItem", true, false):
 			canvas.visible = true
