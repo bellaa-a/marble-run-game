@@ -21,7 +21,6 @@ scene_type = 1
 [node name="MultiplayerGoal" parent="." instance=ExtResource("3_0weji")]
 z_index = 10
 position = Vector2(0, 170)
-start_open = true
 
 [node name="Marble" parent="." instance=ExtResource("4_2fodp")]
 z_index = 20

@@ -22,7 +22,6 @@ scene_type = 1
 z_index = 10
 position = Vector2(0, 170)
 script = ExtResource("4_xrlbe")
-start_open = true
 
 [node name="Marble" parent="." instance=ExtResource("5_l1td8")]
 z_index = 20
