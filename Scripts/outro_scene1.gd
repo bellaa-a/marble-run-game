@@ -2,6 +2,7 @@ extends Node2D
 
 @export var shake_strength := 0.7
 @export var group_name := ""
+@export var scene_type: Enum.SceneType
 
 var shake_time := 9.0
 

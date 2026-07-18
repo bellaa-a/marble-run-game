@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var group_name : String
+@export var scene_type: Enum.SceneType
 @export var level_number : int
 @export var next_scene : PackedScene
 @export var skip_scene : PackedScene

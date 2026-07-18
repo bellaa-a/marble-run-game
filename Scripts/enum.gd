@@ -13,3 +13,9 @@ enum Stage {
 	BOTH,
 	NONE,
 }
+
+
+enum SceneType {
+	SINGLEPLAYER,
+	MULTIPLAYER
+}

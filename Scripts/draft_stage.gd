@@ -12,6 +12,7 @@ var choosing_card := false
 var music_bus := AudioServer.get_bus_index("Music")
 
 @export var group_name: String
+@export var scene_type: Enum.SceneType
 
 var hand_positions := [
 	Vector2(-225, 240),

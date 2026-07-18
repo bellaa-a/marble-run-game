@@ -16,7 +16,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	print("play button")
 	if GameState.game_won or GameState.locked:
 		return
 	GameState.life_loss_pending = false
@@ -41,9 +40,13 @@ func _on_play_button_pressed() -> void:
 		get_tree().current_scene.get_node("Fan/Blow").play("Blow")
 		get_tree().current_scene.get_node("FanBase").visible = true
 		start_camera_shake()
-	$Click.play()
-	await $Click.finished
-	GameState.num_played += 1
+	
+	if scene.group_name != "replay":
+		$Click.play()
+		await $Click.finished
+	
+	if scene.scene_type == Enum.SceneType.SINGLEPLAYER:
+		GameState.num_played += 1
 	for marble in get_tree().get_nodes_in_group("marble"):
 		if not marble.should_exist:
 			continue
@@ -54,9 +57,9 @@ func _on_play_button_pressed() -> void:
 func _on_rewind_button_pressed() -> void:
 	if GameState.game_won:
 		return
-		
-	$Click.play()
-	await $Click.finished
+	if get_tree().current_scene.group_name != "replay":
+		$Click.play()
+		await $Click.finished
 	reset_board()
 
 

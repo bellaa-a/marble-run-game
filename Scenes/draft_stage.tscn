@@ -11,6 +11,7 @@
 [node name="DraftStage" type="Node2D"]
 script = ExtResource("1_m6epn")
 group_name = "draft"
+scene_type = 1
 
 [node name="Boarder" parent="." instance=ExtResource("1_ku2oe")]
 

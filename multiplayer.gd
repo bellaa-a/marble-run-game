@@ -474,9 +474,6 @@ func reset_match():
 	opponent_finished = false
 
 	restart_votes.clear()
-
-	pipe_position = Vector2.ZERO
-	goal_position = Vector2.ZERO
 	
 	opponent_peeking = false
 	active_powerup = false

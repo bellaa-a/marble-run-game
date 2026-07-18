@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 
 
 func _all_original_marbles_touching_floor() -> bool:
-	var floor_area := get_tree().current_scene.get_node_or_null("Boarder/Floor/Area2D")
+	var floor_area := get_tree().current_scene.get_node_or_null("FloorArea")
 	if floor_area == null:
 		return false
 

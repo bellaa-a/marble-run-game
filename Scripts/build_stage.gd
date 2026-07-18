@@ -7,6 +7,7 @@ extends Node2D
 @onready var inventory = $Inventory
 @onready var ready_layer = $ReadyLayer
 @export var group_name: String
+@export var scene_type: Enum.SceneType
 
 var ready_control_scene = preload("res://UI/ready_control.tscn")
 var peek_control_scene = preload("res://UI/peek.tscn")

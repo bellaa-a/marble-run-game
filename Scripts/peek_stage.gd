@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var group_name: String
+@export var scene_type: Enum.SceneType
 var opponent_blocks = {}
 @onready var pipe = $Pipe
 @onready var goal = $MultiplayerGoal

@@ -13,6 +13,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	GameState.life_loss_pending = true
 	GameState.timed_progress += 1
+	if get_tree().current_scene.scene_type == Enum.SceneType.SINGLEPLAYER:
+		GameState.times_in_goo += 1
 	$GooSound.play()
 	await get_tree().create_timer(1).timeout
 	

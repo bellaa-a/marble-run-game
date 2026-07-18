@@ -10,6 +10,7 @@
 [node name="PeekStage" type="Node2D"]
 script = ExtResource("1_e6r8v")
 group_name = "versus"
+scene_type = 1
 
 [node name="Boarder" parent="." instance=ExtResource("2_e06u8")]
 

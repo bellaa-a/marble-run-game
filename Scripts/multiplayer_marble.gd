@@ -23,9 +23,6 @@ func _ready():
 	
 	if get_tree().current_scene.group_name == "break":
 		continuous_cd = RigidBody2D.CCD_MODE_CAST_RAY
-	
-	if get_tree().current_scene.group_name != "myself":
-		$MarbleShadow.polygon = make_circle(8, 32)
 
 
 func set_start_position(pos: Vector2):
@@ -95,21 +92,4 @@ func is_at_start() -> bool:
 
 func _physics_process(_delta):
 	previous_velocity = linear_velocity
-	if not attack:
-		var distance_moved = global_position.distance_to(last_position)
-
-		# Convert pixels to meters (100 pixels = 1 meter)
-		GameState.length_rolled += distance_moved / 100.0
-
 	last_position = global_position
-
-
-func make_circle(radius: float, segments: int = 32) -> PackedVector2Array:
-	var points = PackedVector2Array()
-
-	for i in range(segments):
-		var angle = TAU * float(i) / float(segments)
-		var p = Vector2(cos(angle), sin(angle)) * radius
-		points.append(p)
-
-	return points
