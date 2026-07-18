@@ -61,8 +61,8 @@ func _on_both_players_ready():
 		countdown_label.modulate.a = 1.0
 
 		var tween = create_tween()
-		tween.tween_property(countdown_label, "scale", Vector2.ONE, 0.8)
-		tween.parallel().tween_property(countdown_label, "modulate:a", 0.0, 0.8)
+		tween.tween_property(countdown_label, "scale", Vector2.ONE, 1)
+		tween.parallel().tween_property(countdown_label, "modulate:a", 0.0, 1)
 
 		await tween.finished
 
