@@ -301,7 +301,7 @@ func try_finish_draft():
 func resolve_mystery_card(card):
 	if card.card_data.id != "mystery":
 		return card.card_data
-
+	card.set_interactable(false)
 	# Let the player see the mystery card
 	await get_tree().create_timer(0.5).timeout
 

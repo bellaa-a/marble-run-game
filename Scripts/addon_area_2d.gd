@@ -133,7 +133,7 @@ func place_addon():
 
 	addon.reparent(addon_holder)
 
-	addon.position = current_snap.position - Vector2(0, 2)
+	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation
 
 	current_snap.occupant = addon

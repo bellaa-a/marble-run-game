@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dmbngu058salf"]
+[gd_scene load_steps=5 format=3 uid="uid://dmbngu058salf"]
 
 [ext_resource type="Texture2D" uid="uid://ddgq23v16pgym" path="res://Assets/OpenGoal.png" id="1_f1g3f"]
 [ext_resource type="Script" uid="uid://b4eiab2jc4crq" path="res://Scripts/open_goal.gd" id="1_woben"]
@@ -7,29 +7,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woben"]
 size = Vector2(35.00009, 34.999424)
 
-[node name="OpenGoal" type="StaticBody2D" unique_id=1226771608]
+[node name="OpenGoal" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 63
 script = ExtResource("1_woben")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=453221441]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 63
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=549582174]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -4, -3, -4, -8, 1, -8, 2, 6, 2, 9, -1, 7, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879554722]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.4999957, 4.1000137)
 scale = Vector2(0.5999982, 0.12000276)
 shape = SubResource("RectangleShape2D_woben")
 
-[node name="GoalButton" type="Sprite2D" parent="." unique_id=723295326]
+[node name="GoalButton" type="Sprite2D" parent="."]
 position = Vector2(0, 0.5000002)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_f1g3f")
 
-[node name="GoalButtonPressed" type="Sprite2D" parent="." unique_id=231950750]
+[node name="GoalButtonPressed" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 0.5000003)
 scale = Vector2(0.5, 0.5)
