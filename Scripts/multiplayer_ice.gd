@@ -65,7 +65,9 @@ func reset_ice():
 		p.visible = false
 	
 	for addon in $AddOns.get_children():
-		addon.visible = true
+
+		for canvas in addon.find_children("*", "CanvasItem", true, false):
+			canvas.visible = true
 
 		for shape in addon.find_children("*", "CollisionShape2D", true, false):
 			shape.set_deferred("disabled", false)
