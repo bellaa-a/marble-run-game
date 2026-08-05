@@ -25,6 +25,7 @@ var my_addons = {}
 var verification_code: String = ""
 var code_ready := false
 var build_stage: Node = null
+var solve_stage: Node = null
 var rooms: Node = null
 var player_finished := false
 var opponent_finished := false
@@ -468,6 +469,7 @@ func reset_match():
 	code_ready = false
 
 	build_stage = null
+	solve_stage = null
 	rooms = null
 
 	player_finished = false
@@ -491,7 +493,10 @@ func send_powerup(card_id: String):
 func use_powerup(card_id: String):
 	var card = CardDatabase.get_card_by_id(card_id)
 	var effect = card.scene.instantiate()
-	build_stage.effect_layer.add_child(effect)
+	if solve_stage == null:
+		build_stage.effect_layer.add_child(effect)
+	else: 
+		solve_stage.effect_layer.add_child(effect)
 
 
 func can_use_powerup(powerup) -> Dictionary:

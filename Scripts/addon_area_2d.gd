@@ -132,6 +132,11 @@ func place_addon():
 	var addon_holder = block.get_node("AddOns")
 
 	addon.reparent(addon_holder)
+	
+	addon.scale = Vector2(
+		1.0 / addon_holder.global_scale.x,
+		1.0 / addon_holder.global_scale.y
+	)
 
 	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation

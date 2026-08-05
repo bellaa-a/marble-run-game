@@ -18,10 +18,16 @@ func _ready() -> void:
 	Multiplayer.rotation_mode = true
 	Multiplayer.opponent_peeking = false
 	Multiplayer.current_stage = 2
+	Multiplayer.solve_stage = self
 	setup_walls()
 	update_blocks()
 	update_addons()
 
+
+func _exit_tree():
+	if Multiplayer.solve_stage == self:
+		Multiplayer.solve_stage = null
+		
 
 func setup_walls():
 	for wall in $Walls.get_children():
