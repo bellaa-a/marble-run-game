@@ -18,13 +18,13 @@ var dragging_obj: Node2D = null
 var dragging_card: Control = null
 
 func _ready():
-	#pipe.global_position = Multiplayer.pipe_position
-	#marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
-	#goal.global_position = Multiplayer.goal_position
+	pipe.global_position = Multiplayer.pipe_position
+	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
+	goal.global_position = Multiplayer.goal_position
 	GameState.game_won = false
 	Multiplayer.current_stage = 1
 	setup_walls()
-	#show_ready_ui()
+	show_ready_ui()
 	await organize_inventory()
 	
 	Multiplayer.build_stage = self
