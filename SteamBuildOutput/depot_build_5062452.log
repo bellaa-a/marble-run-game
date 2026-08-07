@@ -1,0 +1,27 @@
+[2026-08-05 20:30:18]: Starting build for depot 5062452, content path is "/Users/bellalu/marble-run/SteamBuild/", build flags 0x0
+[2026-08-05 20:30:18]: Building file listing for depot 5062452 ...
+[2026-08-05 20:30:18]: Found 16 files for mapping: /Users/bellalu/marble-run/SteamBuild * -> .
+[2026-08-05 20:30:18]: Found 16 files (237 MB) for depot 5062452
+[2026-08-05 20:30:18]: Building depot 5062452, no baseline manifest
+[2026-08-05 20:30:19]: Found 246 new chunks ( 0 used previously ) for depot 5062452, took 0 minutes, 1 seconds
+[2026-08-05 20:30:19]: Changes to baseline manifest 0 :
+[2026-08-05 20:30:19]: Added  : ".DS_Store" 7 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app" 0 KB ,Flags: 64
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents" 0 KB ,Flags: 64
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Frameworks" 0 KB ,Flags: 64
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Frameworks\libgodotsteam.macos.template_debug.dylib" 6348 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Frameworks\libsteam_api.dylib" 417 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Info.plist" 2 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\MacOS" 0 KB ,Flags: 64
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\MacOS\INvent" 199922 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\PkgInfo" 1 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Resources" 0 KB ,Flags: 64
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Resources\icon.icns" 1444 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Resources\INvent.pck" 34897 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\Resources\PrivacyInfo.xcprivacy" 1 KB 
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\_CodeSignature" 0 KB ,Flags: 64
+[2026-08-05 20:30:19]: Added  : "INvent.app\Contents\_CodeSignature\CodeResources" 4 KB 
+[2026-08-05 20:30:19]: Summary: 16 files added (237.34 MB), 0 files changed (0 bytes), 0 files removed (0 bytes)
+[2026-08-05 20:30:19]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 17865496013190036944, 9455 bytes).
+[2026-08-05 20:30:20]: Uploading 246 out of 246 missing chunks.
+[2026-08-05 20:30:51]: Success! New manifestID 3120042165183475439 created and 246 new chunks uploaded.

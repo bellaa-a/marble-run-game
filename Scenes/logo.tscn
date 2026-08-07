@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjb7xplamndqq"]
+[gd_scene load_steps=24 format=3 uid="uid://cjb7xplamndqq"]
 
 [ext_resource type="Script" uid="uid://jbuxrwbou4le" path="res://Scripts/logo.gd" id="1_7fpn8"]
 [ext_resource type="Texture2D" uid="uid://dua7biorhusry" path="res://Stuffy_Bell.png" id="1_lo6vi"]
@@ -133,19 +133,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Logo" type="Node2D" unique_id=451205981]
+[node name="Logo" type="Node2D"]
 script = ExtResource("1_7fpn8")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2074968555]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1747724736]
+[node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -584.0
 offset_top = -341.0
 offset_right = 587.0
 offset_bottom = 330.0
 color = Color(0, 0, 0, 1)
 
-[node name="StuffyBell" type="AnimatedSprite2D" parent="." unique_id=445984015]
+[node name="StuffyBell" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-10.000001, -58.99999)
 scale = Vector2(3.3400002, 3.36)
@@ -153,7 +153,7 @@ sprite_frames = SubResource("SpriteFrames_tcqei")
 frame = 16
 frame_progress = 1.0
 
-[node name="Name" type="Label" parent="." unique_id=885296972]
+[node name="Name" type="Label" parent="."]
 visible = false
 offset_left = -74.0
 offset_top = 17.0
@@ -165,15 +165,11 @@ theme_override_font_sizes/font_size = 24
 text = "StuffyBells."
 horizontal_alignment = 1
 
-[node name="Sneeze" type="AudioStreamPlayer2D" parent="." unique_id=514626480]
+[node name="Sneeze" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ea0d5")
 volume_db = -15.0
 
-[node name="Start" type="Polygon2D" parent="." unique_id=334791084]
-polygon = PackedVector2Array(-20, 30, -20, -30, 20, 0)
-uv = PackedVector2Array(-83, -13.5, -84, 64.5, -16, 29.5)
-
-[node name="Bell" type="AudioStreamPlayer2D" parent="." unique_id=656240096]
+[node name="Bell" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_de2cc")
 pitch_scale = 3.0
 parameters/looping = true

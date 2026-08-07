@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bxhghdpmnpqli"]
+[gd_scene load_steps=10 format=3 uid="uid://bxhghdpmnpqli"]
 
 [ext_resource type="Script" uid="uid://c4fd83xq7hm4p" path="res://Scripts/group.gd" id="1_uo3gk"]
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_f2aes"]
@@ -10,20 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://btponliehcyvu" path="res://Scenes/regular4.tscn" id="9_d1fq0"]
 [ext_resource type="PackedScene" uid="uid://codidabe1xgek" path="res://Scenes/next_group.tscn" id="9_uo3gk"]
 
-[node name="Group1" type="Node2D" unique_id=73723833]
+[node name="Group1" type="Node2D"]
 script = ExtResource("1_uo3gk")
 group_name = "regular"
 next_scene_path = "uid://bmfxtfnkxciv5"
 
-[node name="Boarder" parent="." unique_id=833639440 instance=ExtResource("2_f2aes")]
+[node name="Boarder" parent="." instance=ExtResource("2_f2aes")]
 
-[node name="Globals" parent="." unique_id=173087012 instance=ExtResource("2_oa0ge")]
+[node name="Globals" parent="." instance=ExtResource("2_oa0ge")]
 
-[node name="GroupButtons" parent="." unique_id=1505343875 instance=ExtResource("6_oa0ge")]
+[node name="GroupButtons" parent="." instance=ExtResource("6_oa0ge")]
 level_one_scene = ExtResource("6_w28ao")
 level_two_scene = ExtResource("7_uo3gk")
 level_three_scene = ExtResource("8_2rbwk")
 level_four_scene = ExtResource("9_d1fq0")
 label_text = "1. Baby Steps"
 
-[node name="NextGroup" parent="." unique_id=290489236 instance=ExtResource("9_uo3gk")]
+[node name="NextGroup" parent="." instance=ExtResource("9_uo3gk")]

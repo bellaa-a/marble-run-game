@@ -1,0 +1,23 @@
+"AppBuild"
+{
+    "AppID" "5062450"
+
+    "Desc" "macOS initial build"
+
+    "BuildOutput" "/Users/bellalu/marble-run/SteamBuildOutput"
+
+    "ContentRoot" "/Users/bellalu/marble-run/SteamBuild"
+
+    "Depots"
+    {
+        "5062452"
+        {
+            "FileMapping"
+            {
+                "LocalPath" "*"
+                "DepotPath" "."
+                "recursive" "1"
+            }
+        }
+    }
+}

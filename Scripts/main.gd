@@ -18,7 +18,7 @@ func _ready() -> void:
 
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.set_shadow_mode(false)
-
+	#$Camera2D.make_current()
 
 func _process(_delta: float) -> void:
 	_process_lights()

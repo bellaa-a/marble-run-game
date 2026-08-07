@@ -102,20 +102,6 @@ func generate_draft():
 	first = mixed_pair * 2
 	cards[first].setup(CardDatabase.block_cards.pick_random())
 	cards[first + 1].setup(CardDatabase.addon_cards.pick_random())
-	
-	#for pair in pairs:
-		#first = pair * 2
-		#cards[first].setup(CardDatabase.powerup_cards.pick_random())
-		#cards[first + 1].setup(CardDatabase.powerup_cards.pick_random())
-#
-	#first = powerup_pair * 2
-	#cards[first].setup(CardDatabase.powerup_cards.pick_random())
-	#cards[first + 1].setup(CardDatabase.powerup_cards.pick_random())
-#
-	#first = mixed_pair * 2
-	#cards[first].setup(CardDatabase.powerup_cards.pick_random())
-	#cards[first + 1].setup(CardDatabase.powerup_cards.pick_random())
-
 
 	for i in range(8):
 		cards[i].pair_id = floori(i / 2)
