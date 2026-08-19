@@ -7,7 +7,7 @@ var timer := 0.0
 var next_update := 0.0
 
 var glitching := false
-
+var powerup_sender_id: int
 
 func _ready():
 	randomize()
@@ -18,7 +18,7 @@ func _ready():
 
 	await get_tree().create_timer(20.0).timeout
 	camera.offset = Vector2.ZERO
-	Multiplayer.active_powerup = false
+	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 
 
@@ -35,7 +35,7 @@ func _process(delta):
 
 
 func schedule_next_update():
-	next_update = randf_range(0.1, 0.5)
+	next_update = randf_range(0.5, 1.5)
 
 
 func start_glitch():

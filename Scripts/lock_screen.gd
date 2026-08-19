@@ -44,6 +44,7 @@ var first_card := -1
 var second_card := -1
 var pairs_left = 4
 var checking_pair = false
+var powerup_sender_id: int
 
 
 @onready var suit_buttons = [
@@ -117,7 +118,7 @@ func _on_answer_text_submitted(new_text: String) -> void:
 		return
 
 	if int(new_text) == generated_answer:
-		Multiplayer.active_powerup = false
+		Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 		queue_free()
 	else:
 		math_error.text = "Incorrect"
@@ -226,7 +227,7 @@ func _on_submit_pressed() -> void:
 		if not checkbox.button_pressed:
 			checklist_error.text = funny_checkbox_error()
 			return
-	Multiplayer.active_powerup = false
+	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 
 
@@ -387,7 +388,7 @@ func guess_suit(choice: int):
 		message_label.text = "Correct! I'll let you go for now."
 		
 		await get_tree().create_timer(1.5).timeout
-		Multiplayer.active_powerup = false
+		Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 		queue_free()
 
 	else:
@@ -452,7 +453,7 @@ func _on_submit_typing_pressed():
 	if input_box.text == target_text:
 		typing_error.text = "Perfect. You have achieved enlightenment."
 		await get_tree().create_timer(1.5).timeout
-		Multiplayer.active_powerup = false
+		Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 		queue_free()
 	else:
 		var mistakes = count_differences(input_box.text, target_text)
@@ -582,7 +583,7 @@ func check_memory_pair():
 			memory_message.text = "Nice memory!"
 
 			await get_tree().create_timer(1.0).timeout
-			Multiplayer.active_powerup = false
+			Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 			queue_free()
 
 

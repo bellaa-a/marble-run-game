@@ -1,7 +1,7 @@
 extends Control
 
 @onready var camera = get_tree().current_scene.get_node("Boarder/Camera2D")
-
+var powerup_sender_id: int
 
 func _ready() -> void:
 	await flip_camera(true)
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 	await flip_camera(false)
 	
-	Multiplayer.active_powerup = false
+	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 
 

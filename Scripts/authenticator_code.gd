@@ -2,6 +2,7 @@ extends Control
 
 var verification_code: String = ""
 var time_left := 20
+var powerup_sender_id: int
 
 func _ready():
 	$Timer.text = str(time_left)
@@ -15,6 +16,6 @@ func _on_countdown_timer_timeout():
 	$Timer.text = str(time_left)
 
 	if time_left <= 0:
-		Multiplayer.active_powerup = false
+		Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 		queue_free()
 		

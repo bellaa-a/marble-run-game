@@ -15,12 +15,12 @@ script = ExtResource("1_ugc4w")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 394.28568
-offset_top = 189.99998
-offset_right = 710.28564
-offset_bottom = 237.99998
+offset_left = 402.85718
+offset_top = 582.8572
+offset_right = 1242.8572
+offset_bottom = 702.8572
 rotation = -0.43633232
 theme_override_colors/font_color = Color(1, 0.1254902, 0.09411765, 1)
-theme_override_font_sizes/font_size = 40
-text = "NETWORK ISSUES"
+theme_override_font_sizes/font_size = 100
+text = " CONNECTION ISSUES"
 horizontal_alignment = 1

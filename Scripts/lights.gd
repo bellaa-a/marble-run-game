@@ -11,6 +11,8 @@ extends Control
 @onready var sprite2 = $Player2/Player 
 @onready var username2 = $Player2/Username 
 
+var powerup_sender_id: int
+
 func _ready() -> void:
 	if Multiplayer.opponent_is_host():
 		username1.text = Multiplayer.get_opponent_name()
@@ -20,7 +22,7 @@ func _ready() -> void:
 		await lights_off(player2, eyes2, sprite2)
 	
 	await get_tree().create_timer(20.0).timeout
-	Multiplayer.active_powerup = false
+	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 
 

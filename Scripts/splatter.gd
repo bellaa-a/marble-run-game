@@ -3,6 +3,8 @@ extends Control
 @export var drip_distance := 150.0
 @export var drip_time := 20.0
 
+var powerup_sender_id: int
+
 func _ready():
 	$Splatter.play()
 	splatter($Splatter1)
@@ -13,7 +15,7 @@ func _ready():
 	$Splatter.play()
 	splatter($Splatter3)
 	await get_tree().create_timer(drip_time + 1.4).timeout
-	Multiplayer.active_powerup = false
+	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 	
 	

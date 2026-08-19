@@ -4,12 +4,12 @@ extends Control
 
 var shake_time = 20.0
 var shake_strength = 1.2
-
+var powerup_sender_id: int
 
 func _ready():
 	await get_tree().create_timer(shake_time).timeout
 	camera.offset = Vector2.ZERO
-	Multiplayer.active_powerup = false
+	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 
 

@@ -90,15 +90,24 @@ func generate_draft():
 	
 	var first = 0
 
+	# Normal block pairs
 	for pair in pairs:
 		first = pair * 2
-		cards[first].setup(CardDatabase.block_cards.pick_random())
-		cards[first + 1].setup(CardDatabase.block_cards.pick_random())
+		setup_different_cards(
+			cards[first],
+			cards[first + 1],
+			CardDatabase.block_cards
+		)
 
+	# Powerup pair
 	first = powerup_pair * 2
-	cards[first].setup(CardDatabase.powerup_cards.pick_random())
-	cards[first + 1].setup(CardDatabase.powerup_cards.pick_random())
+	setup_different_cards(
+		cards[first],
+		cards[first + 1],
+		CardDatabase.powerup_cards
+	)
 
+	# Mixed block + addon pair
 	first = mixed_pair * 2
 	cards[first].setup(CardDatabase.block_cards.pick_random())
 	cards[first + 1].setup(CardDatabase.addon_cards.pick_random())
@@ -106,7 +115,6 @@ func generate_draft():
 	for i in range(8):
 		cards[i].pair_id = floori(i / 2)
 		cards[i].card_selected.connect(select_card)
-
 
 func update_pair_access():
 
@@ -309,3 +317,14 @@ func resolve_mystery_card(card):
 	await get_tree().create_timer(1.0).timeout
 
 	return final_powerup
+
+
+func setup_different_cards(card_a, card_b, card_pool):
+	var first_card = card_pool.pick_random()
+	var second_card = card_pool.pick_random()
+
+	while second_card.id == first_card.id:
+		second_card = card_pool.pick_random()
+
+	card_a.setup(first_card)
+	card_b.setup(second_card)

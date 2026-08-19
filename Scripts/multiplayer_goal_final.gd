@@ -86,10 +86,10 @@ func open_goal():
 func _on_finish_state_updated():
 	if Multiplayer.player_finished:
 		Multiplayer.win_lose_result = "You won"
-		Multiplayer.win_lose_message =  "Your marble made it first!"
+		Multiplayer.win_lose_message =  ""
 		Multiplayer.add_stat_to_achievement("NUM_WINS")
 	else:
 		Multiplayer.win_lose_result = "You lost"
-		Multiplayer.win_lose_message =  "Your opponent got there first!"
+		Multiplayer.win_lose_message =  ""
 		
 	transition.fade_to_scene("res://Scenes/replay_stage.tscn")

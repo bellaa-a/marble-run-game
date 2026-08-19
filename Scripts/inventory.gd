@@ -14,6 +14,8 @@ extends Node2D
 	$Card9,
 ]
 
+var powerup_sender_id: int
+
 func _ready() -> void:
 	$ErrorMessage.text = ""
 	load_inventory()

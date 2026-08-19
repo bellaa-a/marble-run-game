@@ -491,14 +491,25 @@ func send_powerup(card_id: String):
 
 @rpc("any_peer", "call_remote", "reliable")
 func use_powerup(card_id: String):
+	var sender_id = multiplayer.get_remote_sender_id()
+
 	var card = CardDatabase.get_card_by_id(card_id)
 	var effect = card.scene.instantiate()
+
+	effect.powerup_sender_id = sender_id
+
 	Multiplayer.add_stat_to_achievement("NUM_POWERUPS")
+
 	if solve_stage == null:
 		build_stage.effect_layer.add_child(effect)
-	else: 
+	else:
 		solve_stage.effect_layer.add_child(effect)
 
+
+@rpc("any_peer", "call_remote", "reliable")
+func powerup_finished():
+	active_powerup = false
+	
 
 func can_use_powerup(powerup) -> Dictionary:
 
@@ -511,7 +522,7 @@ func can_use_powerup(powerup) -> Dictionary:
 	if active_powerup:
 		return {
 			"allowed": false,
-			"message": "Already using a powerup"
+			"message": "Currently using a powerup"
 		}
 
 	match powerup.stage:
