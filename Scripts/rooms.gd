@@ -50,7 +50,6 @@ func _on_option_button_item_selected(index: int) -> void:
 		1:
 			time = 300
 		2:
-			#time = 120
 			time = 60
 	
 	Multiplayer.stage_one_time = time
@@ -58,3 +57,9 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_lobby_id_input_text_submitted(_new_text: String) -> void:
 	_on_join_pressed()
+
+
+func _on_back_pressed() -> void:
+	$Click.play()
+	await $Click.finished
+	transition.fade_to_scene("res://Scenes/start.tscn")

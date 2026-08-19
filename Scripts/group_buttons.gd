@@ -17,20 +17,30 @@ func _ready():
 
 
 func _on_one_pressed() -> void:
-	get_tree().current_scene.get_node("Boarder/Click").play()
+	$Click.play()
+	await $Click.finished
 	transition.fade_to_scene(level_one_scene.resource_path)
 
 
 func _on_two_pressed() -> void:
-	get_tree().current_scene.get_node("Boarder/Click").play()
+	$Click.play()
+	await $Click.finished
 	transition.fade_to_scene(level_two_scene.resource_path)
 
 
 func _on_three_pressed() -> void:
-	get_tree().current_scene.get_node("Boarder/Click").play()
+	$Click.play()
+	await $Click.finished
 	transition.fade_to_scene(level_three_scene.resource_path)
 
 
 func _on_four_pressed() -> void:
-	get_tree().current_scene.get_node("Boarder/Click").play()
+	$Click.play()
+	await $Click.finished
 	transition.fade_to_scene(level_four_scene.resource_path)
+
+
+func _on_back_pressed() -> void:
+	$Click.play()
+	await $Click.finished
+	transition.fade_to_scene("res://Scenes/start.tscn")

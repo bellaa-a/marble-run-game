@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3020f521b40b"]
+[gd_scene load_steps=6 format=3 uid="uid://c3020f521b40b"]
 
 [ext_resource type="Texture2D" uid="uid://cd1yanl2u4nvl" path="res://Assets/YouWin.png" id="1_3mm25"]
 [ext_resource type="Script" uid="uid://bt81rvvk7djs7" path="res://Scripts/win.gd" id="1_g1l0l"]
@@ -8,10 +8,10 @@
 [sub_resource type="Theme" id="Theme_ru4ub"]
 default_font = ExtResource("4_3xxyo")
 
-[node name="Win" type="Node2D" unique_id=375720501]
+[node name="Win" type="Node2D"]
 script = ExtResource("1_g1l0l")
 
-[node name="YouWin" type="TextureRect" parent="." unique_id=1417713188]
+[node name="YouWin" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3mm25")
 
-[node name="NEXT" type="Button" parent="." unique_id=2141697460]
+[node name="NEXT" type="Button" parent="."]
 offset_left = 66.0
 offset_top = -75.0
 offset_right = 115.0
@@ -36,7 +36,7 @@ theme_override_colors/font_hover_color = Color(0.21770102, 0.21770105, 0.2177010
 text = "NEXT"
 flat = true
 
-[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1438025082]
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-270.99997, -108)
 scale = Vector2(1.2927023, 0.5093901)
 stream = ExtResource("5_3xxyo")

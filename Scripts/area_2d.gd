@@ -1,6 +1,7 @@
 extends Area2D
 
 var dragging = false
+var rotated_during_drag = false
 var blocked = false
 var blocked_direction = 0
 var direction_probe = 0.0
@@ -50,6 +51,7 @@ func reset_block():
 	direction_probe = 0.0
 	ENTERED_LOOP = false
 	dragging = false
+	rotated_during_drag = false
 
 
 # ---------------- INPUT ----------------
@@ -73,6 +75,7 @@ func _input_event(_viewport, event, _shape_idx):
 		previous_mouse_angle = initial_mouse_angle
 
 		dragging = true
+		rotated_during_drag = false
 		direction_probe = 0.0
 			
 
@@ -84,8 +87,12 @@ func _input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
+		
+		if dragging and rotated_during_drag:
+			Multiplayer.add_stat_to_achievement("BLOCKS_ROTATED")
 
 		dragging = false
+		rotated_during_drag = false
 		direction_probe = 0.0
 
 # ---------------- MAIN LOOP ----------------
@@ -159,6 +166,7 @@ func _physics_process(delta):
 		
 		if abs(rotation_change) > 0.0001:
 			wake_marble()
+			rotated_during_drag = true
 
 	if colliding and not ENTERED_LOOP:
 		ENTERED_LOOP = true

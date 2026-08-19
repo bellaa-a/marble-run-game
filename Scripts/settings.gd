@@ -83,3 +83,8 @@ func _on_home_pressed() -> void:
 	_on_cancel_pressed()
 	Multiplayer.leave_lobby()
 	transition.fade_to_scene("res://Scenes/start.tscn")
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_on_cancel_pressed()

@@ -493,6 +493,7 @@ func send_powerup(card_id: String):
 func use_powerup(card_id: String):
 	var card = CardDatabase.get_card_by_id(card_id)
 	var effect = card.scene.instantiate()
+	Multiplayer.add_stat_to_achievement("NUM_POWERUPS")
 	if solve_stage == null:
 		build_stage.effect_layer.add_child(effect)
 	else: 
@@ -667,3 +668,26 @@ func sync_addon(addon_id, card_id, block_id, position, rotation, deleted := fals
 		"position": position,
 		"rotation": rotation
 	}
+
+
+func unlock_achievement(api_name: String) -> void:
+	if not Steam.isSteamRunning():
+		print("Steam is not running.")
+		return
+	
+	Steam.setAchievement(api_name)
+	Steam.storeStats()
+	print("Achievement unlocked:", api_name)
+
+
+func reset_achievement(api_name: String) -> void:
+	Steam.clearAchievement(api_name)
+	Steam.storeStats()
+	print("Achievement reset:", api_name)
+
+
+func add_stat_to_achievement(api_name: String) -> void:
+	var current_value = Steam.getStatInt(api_name)
+	current_value += 1
+	Steam.setStatInt(api_name, current_value)
+	Steam.storeStats()

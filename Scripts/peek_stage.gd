@@ -44,7 +44,8 @@ func _on_finish_state_updated():
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	else:
 		Multiplayer.win_lose_result = "You won!"
-		Multiplayer.win_lose_message =  "Your opponent did not complete this stage before the timer ran out."
+		Multiplayer.win_lose_message =  "Your opponent did not complete the first stage before the timer ran out."
+		Multiplayer.add_stat_to_achievement("NUM_WINS")
 		print("opponent didnt finish")
 		transition.fade_to_scene("res://UI/win_lose.tscn")
 

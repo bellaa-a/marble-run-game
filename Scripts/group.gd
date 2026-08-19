@@ -19,3 +19,5 @@ func update_graffiti():
 		var graffiti = get_node("Graffiti%d" % i)
 		graffiti.visible = true
 		
+		if visible_count >= max_graffiti:
+			Multiplayer.unlock_achievement("TATTOOS")

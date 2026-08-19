@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://coqh2ik2cpgqo"]
+[gd_scene load_steps=13 format=3 uid="uid://coqh2ik2cpgqo"]
 
 [ext_resource type="Texture2D" uid="uid://cy5mh1hihae6" path="res://Assets/HoverPLAY.png" id="1_2y0rg"]
 [ext_resource type="Script" uid="uid://chxtsjofp6acv" path="res://Scripts/buttons.gd" id="1_yh7w3"]
 [ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="2_2hqns"]
 [ext_resource type="Texture2D" uid="uid://cnvf2a17cnq4h" path="res://Assets/PLAY.png" id="2_2y0rg"]
 [ext_resource type="Texture2D" uid="uid://b7gsbb6kxqvmw" path="res://Assets/REWIND.png" id="3_2hqns"]
+[ext_resource type="Texture2D" uid="uid://bg36g5dis8044" path="res://Assets/PressedPlay.png" id="4_ljimj"]
 [ext_resource type="Texture2D" uid="uid://bnsvjsj2haa8o" path="res://Assets/HoverREWIND.png" id="4_r3kxo"]
 [ext_resource type="Texture2D" uid="uid://biktqikq1bmaa" path="res://Assets/CLEAR.png" id="6_2hqns"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_b2qy2"]
+[ext_resource type="Texture2D" uid="uid://crggf0l6llk0u" path="res://Assets/PressedRewind.png" id="7_gf7if"]
 [ext_resource type="Texture2D" uid="uid://c4yppehip7tgf" path="res://Assets/HoverCLEAR.png" id="7_r3kxo"]
+[ext_resource type="Texture2D" uid="uid://b2jde6td6uqvk" path="res://Assets/PressedClear.png" id="10_eu1xn"]
 
 [node name="Buttons" type="Node2D"]
 script = ExtResource("1_yh7w3")
@@ -33,7 +36,7 @@ offset_bottom = -176.99997
 rotation = -0.0044149538
 scale = Vector2(1.2200195, 1.2199949)
 texture_normal = ExtResource("2_2y0rg")
-texture_pressed = ExtResource("1_2y0rg")
+texture_pressed = ExtResource("4_ljimj")
 texture_hover = ExtResource("1_2y0rg")
 texture_disabled = ExtResource("1_2y0rg")
 
@@ -44,7 +47,7 @@ offset_right = -308.0
 offset_bottom = -155.0
 scale = Vector2(1.2199805, 1.2199999)
 texture_normal = ExtResource("3_2hqns")
-texture_pressed = ExtResource("4_r3kxo")
+texture_pressed = ExtResource("7_gf7if")
 texture_hover = ExtResource("4_r3kxo")
 texture_disabled = ExtResource("4_r3kxo")
 
@@ -55,7 +58,7 @@ offset_right = -308.0
 offset_bottom = -133.0
 scale = Vector2(1.2199805, 1.2200097)
 texture_normal = ExtResource("6_2hqns")
-texture_pressed = ExtResource("7_r3kxo")
+texture_pressed = ExtResource("10_eu1xn")
 texture_hover = ExtResource("7_r3kxo")
 texture_disabled = ExtResource("7_r3kxo")
 

@@ -5,4 +5,4 @@ func _process(_delta):
 	if not GameState.locked:
 		icon = "⏸"
 
-	$Label.text = "%s %0.2fs" % [icon, GameState.time]
+	$Label.text = "%s %0.1fs" % [icon, GameState.time]

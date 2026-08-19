@@ -12,6 +12,8 @@ func _ready() -> void:
 	message_label.text = Multiplayer.win_lose_message
 	Multiplayer.opponent_home_pressed.connect(_on_opponent_home_pressed)
 	Multiplayer.both_players_restart.connect(_on_both_players_restart)
+	
+	Multiplayer.unlock_achievement("FIRST_MATCH")
 
 
 func _on_timer_timeout() -> void:

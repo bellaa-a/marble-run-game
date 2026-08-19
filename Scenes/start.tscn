@@ -1,52 +1,63 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm3t170dlba0i"]
+[gd_scene load_steps=11 format=3 uid="uid://dm3t170dlba0i"]
 
 [ext_resource type="Script" uid="uid://0n87mon3k4ki" path="res://Scripts/start.gd" id="1_3bxa3"]
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="3_5ogh5"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="3_iceld"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="4_lb6bl"]
-[ext_resource type="FontFile" uid="uid://bi7s0gjdcuryf" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="7_pg4io"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_pg4io"]
-font = ExtResource("7_pg4io")
-font_size = 50
-
-[sub_resource type="Theme" id="Theme_pg4io"]
-default_font = ExtResource("7_pg4io")
-default_font_size = 30
+[ext_resource type="Texture2D" uid="uid://ct8eib03rfb5b" path="res://Assets/Singleplayer.png" id="5_iceld"]
+[ext_resource type="Texture2D" uid="uid://d3dw8gr0ls770" path="res://Assets/PressedSingleplayer.png" id="6_5bn4p"]
+[ext_resource type="Texture2D" uid="uid://buv3qto0gh7q2" path="res://Assets/HoverSingleplayer.png" id="6_7pwkw"]
+[ext_resource type="Texture2D" uid="uid://ft1bemicyb8t" path="res://Assets/Multiplayer.png" id="7_5bn4p"]
+[ext_resource type="Texture2D" uid="uid://cxmvp5d1hipq0" path="res://Assets/HoverMultiplayer.png" id="8_qmsyr"]
+[ext_resource type="Texture2D" uid="uid://bpecc4hwg8hns" path="res://Assets/PressedMultiplayer.png" id="9_qmsyr"]
 
 [node name="Start" type="Node2D"]
 script = ExtResource("1_3bxa3")
 
 [node name="Boarder" parent="." instance=ExtResource("3_5ogh5")]
 
-[node name="Welcome" type="Label" parent="."]
-offset_left = -89.0
-offset_top = -110.0
-offset_right = 91.0
-offset_bottom = -50.0
-text = "WELCOME"
-label_settings = SubResource("LabelSettings_pg4io")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.0838423, -60.947254)
+rotation = 1.5707964
+scale = Vector2(0.3019898, 0.5797584)
+texture = ExtResource("3_iceld")
 
-[node name="Single" type="Button" parent="."]
-offset_left = -88.0
-offset_top = -9.0
-offset_right = 92.0
-offset_bottom = 35.0
-theme = SubResource("Theme_pg4io")
-text = "SINGLE PLAYER"
-flat = true
+[node name="Shadow" type="ColorRect" parent="Sprite2D"]
+offset_left = -201.31183
+offset_top = -273.57983
+offset_right = 215.79205
+offset_bottom = 310.56152
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
 metadata/_edit_use_anchors_ = true
 
-[node name="Double" type="Button" parent="."]
-offset_left = -90.0
-offset_top = 44.0
-offset_right = 90.0
-offset_bottom = 88.0
-theme = SubResource("Theme_pg4io")
-text = "TWO PLAYER"
-flat = true
-metadata/_edit_use_anchors_ = true
+[node name="INvent" type="Label" parent="."]
+offset_left = -129.0
+offset_top = -149.0
+offset_right = 131.0
+offset_bottom = -29.0
+theme_override_font_sizes/font_size = 100
+text = "INvent"
+horizontal_alignment = 1
 
 [node name="Globals" parent="." instance=ExtResource("4_lb6bl")]
+
+[node name="Single" type="TextureButton" parent="."]
+offset_left = -64.0
+offset_top = 47.0
+offset_bottom = 63.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_iceld")
+texture_pressed = ExtResource("6_5bn4p")
+texture_hover = ExtResource("6_7pwkw")
+
+[node name="Double" type="TextureButton" parent="."]
+offset_left = -64.0
+offset_top = 90.0
+offset_bottom = 106.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("7_5bn4p")
+texture_pressed = ExtResource("9_qmsyr")
+texture_hover = ExtResource("8_qmsyr")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Single" to="." method="_on_single_pressed"]

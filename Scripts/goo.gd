@@ -32,9 +32,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		scene.get_node("Buttons").call_deferred("reset_board")
 	else:
 		scene.get_node("LevelButtons/Buttons").call_deferred("reset_board")
+	
+	Multiplayer.unlock_achievement("GOO")
 
 
 func _physics_process(_delta):
+	if !$Area2D.monitoring:
+		return
+
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("marble"):
 			body.linear_velocity *= 0.5

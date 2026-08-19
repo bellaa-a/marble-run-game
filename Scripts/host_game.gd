@@ -19,3 +19,9 @@ func _on_lobby_ready():
 	Multiplayer.set_stage_one_time.rpc(Multiplayer.stage_one_time)
 
 	transition.fade_to_scene("res://Scenes/connected.tscn")
+
+
+func _on_back_pressed() -> void:
+	$Click.play()
+	await $Click.finished
+	transition.fade_to_scene("res://Scenes/rooms.tscn")

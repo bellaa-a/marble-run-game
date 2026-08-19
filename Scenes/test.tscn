@@ -17,8 +17,6 @@
 
 [node name="test" type="Node2D"]
 script = ExtResource("1_ys1qc")
-group_name = null
-scene_type = null
 
 [node name="Boarder" parent="." instance=ExtResource("1_8od7v")]
 
@@ -28,9 +26,6 @@ position = Vector2(3, 146.00002)
 [node name="Wood" parent="." instance=ExtResource("4_0qy5o")]
 position = Vector2(-132, 73)
 
-[node name="Goo1" parent="Wood" instance=ExtResource("5_7nf3m")]
-position = Vector2(-3, -7)
-
 [node name="GravitySwitch" parent="Wood" instance=ExtResource("6_2ocox")]
 position = Vector2(-75, -8)
 
@@ -38,22 +33,26 @@ position = Vector2(-75, -8)
 position = Vector2(82, -7)
 
 [node name="Ice" parent="." instance=ExtResource("8_q8sys")]
-position = Vector2(-256, -66)
+position = Vector2(262, -18)
 scale = Vector2(1.48, 0.8000012)
 
 [node name="OpenGoal" parent="Ice" instance=ExtResource("7_kuf18")]
-position = Vector2(22.972977, -8.749985)
+position = Vector2(27.02703, -87.49986)
 scale = Vector2(0.67567563, 1.2499981)
 
 [node name="GravitySwitch3" parent="Ice" instance=ExtResource("6_2ocox")]
-position = Vector2(-29.729721, -8.749985)
+position = Vector2(1.3513527, 113.74983)
+scale = Vector2(0.67567563, 1.2499981)
+
+[node name="Goo1" parent="Ice" instance=ExtResource("5_7nf3m")]
+position = Vector2(15.540558, 134.99979)
 scale = Vector2(0.67567563, 1.2499981)
 
 [node name="RubberBand" parent="." instance=ExtResource("9_n0wup")]
-position = Vector2(21.999996, -164)
+position = Vector2(236, 130)
 
 [node name="Wood2" parent="." instance=ExtResource("4_0qy5o")]
-position = Vector2(248.00003, 2)
+position = Vector2(14, -56)
 scale = Vector2(0.3645289, 1)
 
 [node name="Wood3" parent="." instance=ExtResource("4_0qy5o")]

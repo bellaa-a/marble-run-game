@@ -61,6 +61,8 @@ func _on_rewind_button_pressed() -> void:
 		$Click.play()
 		await $Click.finished
 	reset_board()
+	
+	GameState.used_rewind_this_level = true
 
 
 func _on_clear_button_pressed() -> void:
@@ -69,6 +71,8 @@ func _on_clear_button_pressed() -> void:
 		
 	$Click.play()
 	await $Click.finished
+	Multiplayer.unlock_achievement("CLEAR")
+	GameState.used_rewind_this_level = false
 	
 	var scene = get_tree().current_scene
 	if scene.group_name == "myself":

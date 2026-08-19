@@ -8,3 +8,10 @@ func _on_settings_pressed() -> void:
 	await $Click.finished
 	var settings = settings_scene.instantiate()
 	add_child(settings)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+
+		if event.keycode == KEY_ESCAPE:
+			_on_settings_pressed()

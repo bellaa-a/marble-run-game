@@ -21,7 +21,9 @@ func _ready() -> void:
 	GameState.locked = false
 	GameState.game_won = false
 	GameState.current_attack = false
+	GameState.used_rewind_this_level = false
 	GameState.myself_turn = 0
+	GameState.level_start_time = Time.get_ticks_msec() / 1000.0
 
 	_apply_block_collision_layers()
 	_apply_turn_state()

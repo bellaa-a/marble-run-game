@@ -28,33 +28,41 @@ func break_ice():
 
 	is_broken = true
 
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
+	for shape in find_children("*", "CollisionShape2D", true, false):
+		shape.set_deferred("disabled", true)
+
+	for area in find_children("*", "Area2D", true, false):
+		area.set_deferred("monitoring", false)
+
 	$OriginalIce.visible = false
 	$BreakingIce.visible = true
 
 	$BreakingIce/IceSound.play()
 	$BreakingIce.play("break")
-	
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	for shape in find_children("*", "CollisionShape2D", true, false):
-		shape.set_deferred("disabled", true)
-	
+
 	await $BreakingIce.animation_finished
-	
+
 	for node in find_children("*", "CanvasItem", true, false):
 		node.visible = false
+
 		if node.is_in_group("goo"):
 			node.set_physics_process(false)
-			node.get_node("Area2D").monitoring = false
-		
+
 	$BreakingIce.visible = false
-	
+
+	Multiplayer.unlock_achievement("BREAK_ICE")
 	
 func reset_ice():
 	is_broken = false
 	
 	for shape in find_children("*", "CollisionShape2D", true, false):
 		shape.set_deferred("disabled", false)
+	
+	for area in find_children("*", "Area2D", true, false):
+		area.set_deferred("monitoring", true)
 		
 	for node in original_visibility:
 		node.visible = original_visibility[node]

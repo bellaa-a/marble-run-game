@@ -257,6 +257,26 @@ rotation = 1.5707964
 scale = Vector2(-0.045, 0.04887487)
 texture = ExtResource("5_g6xpc")
 
+[node name="RubberBand7" parent="." instance=ExtResource("6_g6ofx")]
+position = Vector2(28, 168)
+scale = Vector2(0.7599999, 0.6800009)
+attack = true
+attack_number = 3
+
+[node name="Cuff" type="Sprite2D" parent="RubberBand7"]
+visible = false
+position = Vector2(-60.53779, 1.5405827)
+rotation = -1.5707964
+scale = Vector2(0.044794768, 0.04028103)
+texture = ExtResource("5_g6xpc")
+
+[node name="Cuff2" type="Sprite2D" parent="RubberBand7"]
+visible = false
+position = Vector2(58.898216, 1.1906736)
+rotation = 1.5707964
+scale = Vector2(-0.045, 0.04887487)
+texture = ExtResource("5_g6xpc")
+
 [node name="OpenGoal" parent="." instance=ExtResource("12_6w1nq")]
 position = Vector2(-371, -28)
 rotation = 1.5707964

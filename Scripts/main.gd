@@ -19,6 +19,9 @@ func _ready() -> void:
 	for marble in get_tree().get_nodes_in_group("marble"):
 		marble.set_shadow_mode(false)
 	#$Camera2D.make_current()
+	
+	GameState.used_rewind_this_level = false
+	GameState.level_start_time = Time.get_ticks_msec() / 1000.0
 
 func _process(_delta: float) -> void:
 	_process_lights()

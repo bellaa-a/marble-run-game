@@ -72,6 +72,9 @@ var length_rolled := 0.0
 var num_played := 0
 var times_in_goo := 0
 
+var used_rewind_this_level := false
+var level_start_time := 0.0
+
 
 func _process(delta):
 	if locked:
@@ -100,6 +103,13 @@ func _apply_bus_volume(bus_name: String, value: float):
 func complete_level(group_name: String, level_number: int):
 	if group_name == "tutorial":
 		return
+	
+	if not GameState.used_rewind_this_level:
+		Multiplayer.unlock_achievement("NO_REWIND")
+	
+	var level_time = (Time.get_ticks_msec() / 1000.0) - GameState.level_start_time
+	if level_time < 10.0:
+		Multiplayer.unlock_achievement("SPEED")
 
 	match group_name:
 		"regular":
@@ -107,6 +117,12 @@ func complete_level(group_name: String, level_number: int):
 
 			if regular_progress > LEVELS_PER_WORLD:
 				mirror_progress = max(mirror_progress, 1)
+				
+			if level_number == 1:
+				Multiplayer.unlock_achievement("FIRST_LEVEL")
+			
+			if level_number == 4:
+				Multiplayer.unlock_achievement("FIRST_WORLD")
 
 		"mirror":
 			mirror_progress = max(mirror_progress, level_number + 1)
@@ -131,6 +147,9 @@ func complete_level(group_name: String, level_number: int):
 			
 			if timed_progress > LEVELS_PER_WORLD:
 				break_progress = max(break_progress, 1)
+				
+			if level_number == 4:
+				Multiplayer.unlock_achievement("FIVE_WORLDS")
 		
 		"break":
 			break_progress = max(break_progress, level_number + 1)
@@ -158,6 +177,9 @@ func complete_level(group_name: String, level_number: int):
 		
 		"myself":
 			myself_progress = max(myself_progress, level_number + 1)
+			
+			if level_number == 4:
+				Multiplayer.unlock_achievement("TEN_WORLDS")
 			
 			
 	save_progress()

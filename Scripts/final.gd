@@ -34,7 +34,7 @@ func _ready() -> void:
 	play("final")
 	AudioServer.set_bus_mute(music_bus, false)
 	Music.restart_music()
-
+	
 
 func _on_animation_finished(_anim_name: StringName) -> void:
 	transition.fade_to_scene("res://Scenes/start.tscn")

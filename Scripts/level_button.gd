@@ -26,8 +26,8 @@ func update_button():
 
 	else:
 		# Locked
-		#disabled = true
-		disabled = false
+		disabled = true
+		#disabled = false
 		$Disabled.visible = true
 		$Complete.visible = false
 		$Progress.visible = false

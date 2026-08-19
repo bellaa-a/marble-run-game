@@ -50,6 +50,8 @@ func break_ice():
 		
 	$BreakingIce.visible = false
 	
+	Multiplayer.unlock_achievement("BREAK_ICE")
+	
 	
 func reset_ice():
 	is_broken = false

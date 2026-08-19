@@ -5,7 +5,7 @@ extends StaticBody2D
 
 var marbles_inside := []
 var checking_attack_win := false
-const SETTLED_REQUIRED_TIME := 4.0
+const SETTLED_REQUIRED_TIME := 2.0
 
 var original_marbles_settled_time := 0.0
 

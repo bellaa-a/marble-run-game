@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="4_j2dne"]
 
 [node name="Settings" type="Node2D"]
+process_mode = 2
 script = ExtResource("1_4geyq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -49,25 +50,25 @@ theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background"]
-position = Vector2(1089.0826, 42.792866)
+position = Vector2(74.44138, 47.265026)
 rotation = 1.5707964
-scale = Vector2(0.09288465, 0.06997102)
+scale = Vector2(0.10014834, 0.073973574)
 texture = ExtResource("4_j2dne")
 
 [node name="Shadow" type="ColorRect" parent="CanvasLayer/Background"]
 layout_mode = 0
-offset_left = 1068.0
-offset_top = 24.0
-offset_right = 1109.0
-offset_bottom = 61.0
+offset_left = 52.0
+offset_top = 27.0
+offset_right = 95.0
+offset_bottom = 67.0
 color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
 
 [node name="Home" type="TextureButton" parent="CanvasLayer/Background"]
 layout_mode = 0
-offset_left = 1075.0
-offset_top = 29.0
-offset_right = 1107.0
-offset_bottom = 61.0
+offset_left = 59.98157
+offset_top = 33.91445
+offset_right = 91.98157
+offset_bottom = 65.91446
 scale = Vector2(0.8400391, 0.84000003)
 texture_normal = ExtResource("2_aaqfp")
 texture_hover = ExtResource("3_j2dne")

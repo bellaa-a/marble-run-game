@@ -46,11 +46,11 @@ func update_timer_display():
 		if Multiplayer.opponent_finished:
 			Multiplayer.player_finished_stage.rpc(false)
 			Multiplayer.win_lose_result = "You lost!"
-			Multiplayer.win_lose_message =  "You have to complete this stage before the timer runs out."
+			Multiplayer.win_lose_message =  "You have to complete the first stage before the timer runs out."
 			
 		else:
 			Multiplayer.win_lose_result = "You tied!"
-			Multiplayer.win_lose_message =  "You both did not complete this stage before the timer ran out."
+			Multiplayer.win_lose_message =  "You both did not complete the first stage before the timer ran out."
 			
 		transition.fade_to_scene("res://UI/win_lose.tscn")
 
