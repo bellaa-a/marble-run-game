@@ -491,9 +491,8 @@ func send_powerup(card_id: String):
 
 @rpc("any_peer", "call_remote", "reliable")
 func use_powerup(card_id: String):
-	var sender_id = multiplayer.get_remote_sender_id()
-
 	var card = CardDatabase.get_card_by_id(card_id)
+	var sender_id = multiplayer.get_remote_sender_id()
 	var effect = card.scene.instantiate()
 
 	effect.powerup_sender_id = sender_id
@@ -513,6 +512,12 @@ func powerup_finished():
 
 func can_use_powerup(powerup) -> Dictionary:
 
+	if Multiplayer.player_inventory[powerup.inventory_index]["used"]:
+		return {
+			"allowed": false,
+			"message": ""
+		}
+
 	if opponent_peeking:
 		return {
 			"allowed": false,
@@ -525,7 +530,7 @@ func can_use_powerup(powerup) -> Dictionary:
 			"message": "Currently using a powerup"
 		}
 
-	match powerup.stage:
+	match powerup.card_data.stage:
 
 		Enum.Stage.STAGE1:
 			if current_stage != 1:

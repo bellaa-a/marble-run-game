@@ -299,7 +299,6 @@ func use_card():
 	card_back.visible = true
 	question_mark.visible = false
 	used.visible = true
-	set_interactable(false)
 	
 
 func reset_card():
