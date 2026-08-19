@@ -11,7 +11,8 @@ func minus_life() -> void:
 	if GameState.lives <= 0:
 		update_display()
 		await get_tree().create_timer(0.5).timeout
-		GameState.careful_progress = 1
+		if GameState.careful_progress < 4:
+			GameState.careful_progress = 1
 		GameState.num_died += 1
 		transition.fade_to_scene("res://Scenes/group8.tscn")
 		await get_tree().create_timer(0.5).timeout

@@ -50,7 +50,7 @@ texture = ExtResource("11_8haba")
 
 [node name="Graffiti2" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-236.934, -129.79704)
+position = Vector2(251, 134)
 scale = Vector2(0.3067168, 0.35803902)
 texture = ExtResource("12_evpof")
 
@@ -74,7 +74,7 @@ texture = ExtResource("15_75gfe")
 
 [node name="Graffiti6" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-199.99998, -48)
+position = Vector2(126, 107)
 scale = Vector2(0.21752909, 0.23988757)
 texture = ExtResource("16_ybd86")
 
@@ -92,12 +92,12 @@ texture = ExtResource("18_sigw4")
 
 [node name="Graffiti9" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(254, 132)
+position = Vector2(-243.00006, -117.00003)
 scale = Vector2(0.21752909, 0.23988757)
 texture = ExtResource("19_7dfr7")
 
 [node name="Graffiti10" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(73.99999, 91)
+position = Vector2(-21, 81)
 scale = Vector2(0.34008133, 0.3308813)
 texture = ExtResource("20_equhs")

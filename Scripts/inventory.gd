@@ -34,12 +34,9 @@ func load_inventory():
 			inventory_card["id"]
 		)
 
-		if inventory_card["used"]:
-			hand_cards[i].use_card()
-
 		hand_cards[i].setup(card_data)
 		hand_cards[i].inventory_index = i
-		if inventory_card.used:
+		if inventory_card["used"]:
 			hand_cards[i].use_card()
 		hand_cards[i].show()
 
