@@ -278,7 +278,7 @@ func _on_card_gui_input(event):
 
 			else:
 				if card_data.type == Enum.CardType.POWERUP:
-					powerup_clicked.emit(card_data)
+					powerup_clicked.emit(self)
 
 				dragging = false
 

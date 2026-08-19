@@ -54,24 +54,25 @@ func _on_block_drag_started(card):
 		parent.begin_drag(card)
 
 
-func _on_powerup_clicked(card: DraftCard):
-	
+func _on_powerup_clicked(card):
+
 	var result = Multiplayer.can_use_powerup(card)
+	
 	if not result["allowed"]:
-		$ErrorMessage.text = result["message"]
-		await get_tree().create_timer(1).timeout
-		$ErrorMessage.text = ""
+		if result["message"] != "":
+			$ErrorMessage.text = result["message"]
+			await get_tree().create_timer(1).timeout
+			$ErrorMessage.text = ""
 		return
 
 	Multiplayer.active_powerup = true
-	Multiplayer.send_powerup(card.id)
-	
-	for hand_card in hand_cards:
-		if hand_card.card_data == card:
-			hand_card.use_card()
-			Multiplayer.player_inventory[hand_card.inventory_index]["used"] = true
-			break
 
-	if card.id == "beg":
+	Multiplayer.player_inventory[card.inventory_index]["used"] = true
+
+	Multiplayer.send_powerup(card.card_data.id)
+
+	card.use_card()
+
+	if card.card_data.id == "beg":
 		var authenticator = preload("res://UI/authenticator_code.tscn").instantiate()
 		effect_layer.add_child(authenticator)

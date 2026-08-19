@@ -39,7 +39,7 @@ func _on_block_drag_started(card):
 		parent.begin_drag(card)
 
 
-func _on_powerup_clicked(card: DraftCard):
+func _on_powerup_clicked(card):
 	
 	var result = Multiplayer.can_use_powerup(card)
 	if not result["allowed"]:
