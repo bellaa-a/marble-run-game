@@ -483,8 +483,8 @@ func reset_match():
 
 	layout_received = false
 
-	pipe_position = Vector2.ZERO
-	goal_position = Vector2.ZERO
+	#pipe_position = Vector2.ZERO
+	#goal_position = Vector2.ZERO
 
 	win_lose_result = ""
 	win_lose_message = ""
