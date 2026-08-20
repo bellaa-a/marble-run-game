@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c36f8an08hwm7"]
+
+[ext_resource type="Script" uid="uid://x60c8dfr1j4m" path="res://Scripts/snap_add_ons.gd" id="1_88poc"]
+[ext_resource type="Texture2D" uid="uid://bb6ytd5op4b8i" path="res://Assets/DottedLines.png" id="2_4t828"]
+
+[node name="SnapAddOnsRight" type="Area2D"]
+script = ExtResource("1_88poc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.25, 0.25)
+polygon = PackedVector2Array(-0.75, -11.25, 9.25, -11.25, 2.25, 8.75, -7.75, 8.75)
+
+[node name="Outline" type="Sprite2D" parent="."]
+scale = Vector2(0.009, 0.035)
+skew = 0.34906584
+texture = ExtResource("2_4t828")
+
+[node name="Highlight" type="Polygon2D" parent="."]
+position = Vector2(3.1111116, 4.6981134)
+scale = Vector2(0.6944444, 1.4339622)
+color = Color(0.16078432, 0.8980392, 0, 0.27450982)
+polygon = PackedVector2Array(-5.920001, -10.947369, 8.48, -10.947369, -1.6000009, 3, -16, 3)

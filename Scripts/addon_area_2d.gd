@@ -173,9 +173,9 @@ func place_addon():
 	
 	if current_snap.is_wall:
 		if current_snap.is_left_wall:
-			addon.rotation += deg_to_rad(-90)
-		else:
 			addon.rotation += deg_to_rad(90)
+		else:
+			addon.rotation += deg_to_rad(-90)
 
 	current_snap.occupant = addon
 	attached_snap = current_snap

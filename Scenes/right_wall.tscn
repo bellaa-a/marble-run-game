@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5o4xphb75wfv"]
 
-[ext_resource type="PackedScene" uid="uid://c0ytat4q1h8fn" path="res://UI/snap_add_ons.tscn" id="1_ur7ar"]
+[ext_resource type="PackedScene" uid="uid://dcocumbvitiw7" path="res://UI/snap_add_ons.tscn" id="1_ur7ar"]
 
 [sub_resource type="GDScript" id="GDScript_d155t"]
 script/source = "extends Node2D
@@ -13,20 +13,20 @@ script = SubResource("GDScript_d155t")
 
 [node name="SnapOns" type="Node2D" parent="."]
 
-[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+[node name="SnapAddOns5" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+visible = false
 position = Vector2(0, -100)
-is_wall = true
 
-[node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+[node name="SnapAddOns6" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+visible = false
 position = Vector2(0, -33)
-is_wall = true
 
-[node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+[node name="SnapAddOns7" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+visible = false
 position = Vector2(0, 33)
-is_wall = true
 
-[node name="SnapAddOns4" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+[node name="SnapAddOns8" parent="SnapOns" instance=ExtResource("1_ur7ar")]
+visible = false
 position = Vector2(0, 100)
-is_wall = true
 
 [node name="AddOns" type="Node2D" parent="."]

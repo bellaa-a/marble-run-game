@@ -453,15 +453,17 @@ func _notification(what):
 func reset_match():
 
 	game_started = false
-
 	player_inventory.clear()
 
 	rotation_mode = true
+	stage_one_time = 600.0
 
 	host_ready = false
 	client_ready = false
 
 	opponent_block_positions.clear()
+	opponent_addons.clear()
+	my_addons.clear()
 
 	verification_code = ""
 	code_ready = false
@@ -472,12 +474,22 @@ func reset_match():
 
 	player_finished = false
 	opponent_finished = false
-
 	restart_votes.clear()
-	
+
 	opponent_peeking = false
 	active_powerup = false
 	current_stage = 0
+	dragging_addon = false
+
+	layout_received = false
+
+	pipe_position = Vector2.ZERO
+	goal_position = Vector2.ZERO
+
+	win_lose_result = ""
+	win_lose_message = ""
+
+	GameState.locked = false
 	
 
 func send_powerup(card_id: String):
