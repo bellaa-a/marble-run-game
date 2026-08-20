@@ -46,7 +46,12 @@ func _ready():
 	CardDatabase.load_cards()
 	generate_draft()
 	
-	Multiplayer.player_inventory.append({"id": "open_goal", "used": false, "placed_count": 0})
+	Multiplayer.player_inventory.append({
+		"id": "open_goal",
+		"used": false,
+		"placed_count": 0,
+		"max_count": 1
+	})
 	
 	for card in cards:
 		if card.in_hand:
@@ -164,7 +169,8 @@ func select_card(card):
 	Multiplayer.player_inventory.append({
 		"id": final_card.id,
 		"used": false,
-		"placed_count": 0
+		"placed_count": 0,
+		"max_count": final_card.max_count
 	})
 	await card.move_to_hand(hand_positions[pair])
 
@@ -260,14 +266,16 @@ func show_opponent_cards():
 			Multiplayer.player_inventory.append({
 				"id": resolved_card.id,
 				"used": false,
-				"placed_count": 0
+				"placed_count": 0,
+				"max_count": resolved_card.max_count
 			})
 
 		else:
 			Multiplayer.player_inventory.append({
 				"id": card.id,
 				"used": false,
-				"placed_count": 0
+				"placed_count": 0,
+				"max_count": card.max_count
 			})
 
 	await get_tree().create_timer(0.5).timeout
