@@ -148,6 +148,13 @@ func place_addon():
 	var block_id = block.get_meta("block_id")
 
 	var addon_holder = block.get_node("AddOns")
+	
+	print(
+		"Addon: ", addon_id,
+		" local scale: ", addon.scale,
+		" global scale: ", addon.global_scale,
+		" parent scale: ", addon_holder.global_scale
+	)
 
 	addon.reparent(addon_holder)
 	

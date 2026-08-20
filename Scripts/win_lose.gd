@@ -22,7 +22,6 @@ func _on_timer_timeout() -> void:
 	waiting_label.text = "Waiting for other player" + ".".repeat(frames[frame])
 
 func _on_restart_button_pressed():
-	print("pressed")
 	$Click.play()
 	await $Click.finished
 	Multiplayer.set_restart.rpc()

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://q1u3o6j55dbu"]
+[gd_scene load_steps=9 format=3 uid="uid://q1u3o6j55dbu"]
 
 [ext_resource type="Script" uid="uid://cp1608tmm4m5u" path="res://Scripts/win_lose.gd" id="1_nthap"]
+[ext_resource type="Texture2D" uid="uid://thnnc46v5msl" path="res://Assets/YES.png" id="2_52k85"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="2_dmnoc"]
+[ext_resource type="Texture2D" uid="uid://b5qeuypda43dn" path="res://Assets/PressedYes.png" id="3_dj0he"]
+[ext_resource type="Texture2D" uid="uid://biijjmqi0d48s" path="res://Assets/HoverYES.png" id="4_i2md5"]
+[ext_resource type="Texture2D" uid="uid://cr6qbyf0kx4f5" path="res://Assets/NO.png" id="5_ccv1k"]
+[ext_resource type="Texture2D" uid="uid://c01dn23axn78s" path="res://Assets/PressedNo.png" id="6_dmgky"]
+[ext_resource type="Texture2D" uid="uid://ck5817lgeoqco" path="res://Assets/HoverNO.png" id="7_nt3yh"]
 
 [node name="WinLose" type="Node2D"]
 script = ExtResource("1_nthap")
@@ -28,7 +34,7 @@ offset_left = 246.0
 offset_top = 146.0
 offset_right = 951.0
 offset_bottom = 273.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "Result"
 horizontal_alignment = 1
@@ -39,7 +45,7 @@ offset_left = 109.0
 offset_top = 248.0
 offset_right = 1085.0
 offset_bottom = 311.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Message"
 horizontal_alignment = 1
@@ -47,12 +53,12 @@ autowrap_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 506.0
+offset_left = 509.0
 offset_top = 316.0
-offset_right = 686.0
+offset_right = 689.0
 offset_bottom = 376.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
 text = "Restart?"
 horizontal_alignment = 1
 
@@ -67,27 +73,27 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Waiting for other player..."
 
-[node name="RestartButton" type="Button" parent="CanvasLayer/Control"]
+[node name="RestartButton" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 608.0
-offset_top = 390.0
-offset_right = 668.0
-offset_bottom = 430.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Yes"
-flat = true
+offset_left = 616.0
+offset_top = 400.0
+offset_right = 648.0
+offset_bottom = 416.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_52k85")
+texture_pressed = ExtResource("3_dj0he")
+texture_hover = ExtResource("4_i2md5")
 
-[node name="HomeButton" type="Button" parent="CanvasLayer/Control"]
+[node name="HomeButton" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 523.0
-offset_top = 390.0
-offset_right = 586.0
-offset_bottom = 430.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "No"
-flat = true
+offset_left = 508.0
+offset_top = 400.0
+offset_right = 540.0
+offset_bottom = 416.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_ccv1k")
+texture_pressed = ExtResource("6_dmgky")
+texture_hover = ExtResource("7_nt3yh")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
