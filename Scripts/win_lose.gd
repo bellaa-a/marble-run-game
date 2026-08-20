@@ -35,7 +35,7 @@ func _on_home_button_pressed():
 	if multiplayer.multiplayer_peer:
 		Multiplayer.go_home.rpc()
 	Multiplayer.leave_lobby()
-	#transition.fade_to_scene("res://Scenes/rooms.tscn")
+	transition.fade_to_scene("res://Scenes/rooms.tscn")
 
 
 func _on_opponent_home_pressed():
