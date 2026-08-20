@@ -1,6 +1,8 @@
 extends Area2D
 
 @onready var highlight = $Highlight
+@export var is_wall := false
+@export var is_left_wall := false
 
 var occupant: StaticBody2D = null
 

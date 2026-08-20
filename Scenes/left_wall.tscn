@@ -15,18 +15,22 @@ script = SubResource("GDScript_d155t")
 
 [node name="SnapAddOns" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, -100)
-rotation = 1.5707964
+is_wall = true
+is_left_wall = true
 
 [node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, -33)
-rotation = 1.5707964
+is_wall = true
+is_left_wall = true
 
 [node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, 33)
-rotation = 1.5707964
+is_wall = true
+is_left_wall = true
 
 [node name="SnapAddOns4" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, 100)
-rotation = 1.5707964
+is_wall = true
+is_left_wall = true
 
 [node name="AddOns" type="Node2D" parent="."]

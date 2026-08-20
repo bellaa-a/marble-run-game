@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ytat4q1h8fn"]
 
-[ext_resource type="Script" uid="uid://x60c8dfr1j4m" path="res://Scripts/snap_add_ons.gd" id="1_qn2t3"]
-[ext_resource type="Texture2D" uid="uid://bb6ytd5op4b8i" path="res://Assets/DottedLines.png" id="2_000te"]
+[ext_resource type="Texture2D" uid="uid://bb6ytd5op4b8i" path="res://Assets/DottedLines.png" id="1_lia7a"]
+[ext_resource type="Script" uid="uid://x60c8dfr1j4m" path="res://Scripts/snap_add_ons.gd" id="1_plocg"]
 
-[node name="SnapAddOnsBottom" type="Area2D"]
+[node name="SnapAddOns" type="Area2D"]
 visible = false
-script = ExtResource("1_qn2t3")
+script = ExtResource("1_plocg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.25, 0.25)
@@ -14,7 +14,7 @@ polygon = PackedVector2Array(-10, -4, 17, -4, 11, 3, -16, 3)
 [node name="Outline" type="Sprite2D" parent="."]
 scale = Vector2(0.024251305, 0.014348179)
 skew = 0.6981317
-texture = ExtResource("2_000te")
+texture = ExtResource("1_lia7a")
 
 [node name="Highlight" type="Polygon2D" parent="."]
 position = Vector2(-0.25, 0.25)
