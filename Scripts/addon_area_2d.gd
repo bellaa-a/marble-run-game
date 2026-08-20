@@ -50,6 +50,7 @@ func _input_event(_viewport, event, _shape_idx):
 
 		# remove from block so rotation does not affect it
 		addon.reparent(get_tree().current_scene, true)
+		addon.global_scale = Vector2.ONE
 
 		original_global_position = addon.global_position
 
@@ -156,11 +157,8 @@ func place_addon():
 		" parent scale: ", addon_holder.global_scale
 	)
 
-	var addon_global_scale = addon.global_scale
-
 	addon.reparent(addon_holder, true)
-
-	addon.global_scale = addon_global_scale
+	addon.global_scale = Vector2.ONE
 	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation
 
