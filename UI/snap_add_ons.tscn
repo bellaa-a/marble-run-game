@@ -8,14 +8,14 @@ script = ExtResource("1_plocg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.25, 0.25)
-polygon = PackedVector2Array(-2.75, -6.25, 13.25, -6.25, 4.25, 4.75, -11.75, 4.75)
+polygon = PackedVector2Array(-0.75, -9.25, 8.25, -9.25, 2.25, 7.75, -6.75, 7.75)
 
 [node name="Outline" type="Sprite2D" parent="."]
-scale = Vector2(0.014, 0.024)
-skew = 0.6981317
+scale = Vector2(0.008, 0.03)
+skew = 0.34906584
 texture = ExtResource("1_lia7a")
 
 [node name="Highlight" type="Polygon2D" parent="."]
 position = Vector2(-0.25, 0.25)
 color = Color(0.16078432, 0.8980392, 0, 0.27450982)
-polygon = PackedVector2Array(-2.75, -6.25, 13.25, -6.25, 4.25, 4.75, -11.75, 4.75)
+polygon = PackedVector2Array(-0.75, -9.25, 8.25, -9.25, 2.25, 7.75, -6.75, 7.75)

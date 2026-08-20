@@ -22,15 +22,15 @@ func _on_timer_timeout() -> void:
 	waiting_label.text = "Waiting for other player" + ".".repeat(frames[frame])
 
 func _on_restart_button_pressed():
-	$Click.play()
-	await $Click.finished
+	#$Click.play()
+	#await $Click.finished
 	Multiplayer.set_restart.rpc()
 	$Timer.start()
 
 
 func _on_home_button_pressed():
-	$Click.play()
-	await $Click.finished
+	#$Click.play()
+	#await $Click.finished
 	Multiplayer.go_home.rpc()
 	Multiplayer.leave_lobby()
 	transition.fade_to_scene("res://Scenes/rooms.tscn")
