@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxbo8owj2lr6q"]
+[gd_scene load_steps=3 format=3 uid="uid://cxbo8owj2lr6q"]
 
 [ext_resource type="Script" uid="uid://bud3sew8je50e" path="res://Scripts/invisible.gd" id="1_nn3cn"]
+[ext_resource type="AudioStream" uid="uid://bac5oetfgibhi" path="res://Audio/Poof.mp3" id="2_nn3cn"]
 
 [node name="Invisible" type="Control"]
 layout_mode = 3
@@ -10,3 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nn3cn")
+
+[node name="Poof" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nn3cn")
