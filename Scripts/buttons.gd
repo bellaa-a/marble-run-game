@@ -83,7 +83,7 @@ func _on_clear_button_pressed() -> void:
 			block.get_node("Area2D").reset_block()
 
 func reset_board():
-	GameState.locked = false 
+	GameState.locked = true
 	GameState.game_won = false
 	GameState.time = 0.0
 	shaking = false
@@ -118,6 +118,8 @@ func reset_board():
 		scene.get_node("Fan").visible = false
 		scene.get_node("Fan/Blow").stop()
 		scene.get_node("FanBase").visible = false
+	
+	GameState.locked = false 
 
 
 func start_camera_shake():

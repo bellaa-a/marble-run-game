@@ -9,6 +9,8 @@ var next_update := 0.0
 var glitching := false
 var powerup_sender_id: int
 
+var mouse_frozen := false
+
 func _ready():
 	randomize()
 	schedule_next_update()
@@ -28,52 +30,54 @@ func _process(delta):
 	if timer >= next_update and not glitching:
 		timer = 0.0
 
-		if randf() < 0.15:
+		if randf() < 0.25:
 			start_glitch()
 
 		schedule_next_update()
 
+func _unhandled_input(event):
+	if mouse_frozen:
+		if event is InputEventMouseMotion or event is InputEventMouseButton:
+			get_viewport().set_input_as_handled()
+
 
 func schedule_next_update():
-	next_update = randf_range(0.5, 1.5)
+	next_update = randf_range(0.1, 0.5)
 
 
 func start_glitch():
 	glitching = true
+	mouse_frozen = true
 
 	warning_label.text = "CONNECTION ISSUES"
 
-	var freeze_offset = Vector2(
-		randf_range(-10, 10),
-		randf_range(-10, 10)
-	)
+	await RenderingServer.frame_post_draw
 
-	var tween = create_tween()
+	var image = get_viewport().get_texture().get_image()
+	var texture = ImageTexture.create_from_image(image)
 
-	# snap into frozen/glitched position
-	tween.tween_property(
-		camera,
-		"offset",
-		freeze_offset,
-		0.03
-	)
+	var layer = CanvasLayer.new()
+	layer.layer = 100
+	get_tree().current_scene.add_child(layer)
 
-	# hold the frozen frame
-	tween.tween_interval(randf_range(0.4, 1.0))
+	var screenshot = TextureRect.new()
 
-	# snap back
-	tween.tween_property(
-		camera,
-		"offset",
-		Vector2.ZERO,
-		0.05
-	)
+	screenshot.position = Vector2.ZERO
+	screenshot.size = get_viewport().get_visible_rect().size
 
-	await tween.finished
+	screenshot.texture = texture
+	screenshot.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	screenshot.stretch_mode = TextureRect.STRETCH_SCALE
+	screenshot.mouse_filter = Control.MOUSE_FILTER_STOP
 
-	camera.offset = Vector2.ZERO
+	layer.add_child(screenshot)
+
+	await get_tree().create_timer(randf_range(1.0, 2.0)).timeout
+
+	layer.queue_free()
+
+	mouse_frozen = false
 	glitching = false
-
 
 func start_warning():
 	warning_label.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clt8uic2o2jeu"]
+[gd_scene load_steps=9 format=3 uid="uid://clt8uic2o2jeu"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_8od7v"]
 [ext_resource type="Script" uid="uid://cd16ojv78308x" path="res://Scripts/test.gd" id="1_ys1qc"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c0c3gdmj7mtbn" path="res://Scenes/multiplayer_ice.tscn" id="4_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://uuthvkhnosh0" path="res://Scenes/multiplayer_open_goal.tscn" id="5_0c07c"]
 [ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/left_wall.tscn" id="6_2cgwh"]
+[ext_resource type="PackedScene" uid="uid://doi10eo15gcx5" path="res://UI/network.tscn" id="8_0c07c"]
+[ext_resource type="PackedScene" uid="uid://btymcn03dod42" path="res://Scenes/marble.tscn" id="10_wojap"]
 
 [node name="test" type="Node2D"]
 script = ExtResource("1_ys1qc")
@@ -23,3 +25,8 @@ position = Vector2(128, -29)
 
 [node name="LeftWall" parent="." instance=ExtResource("6_2cgwh")]
 position = Vector2(370, -3)
+
+[node name="Marble" parent="." instance=ExtResource("10_wojap")]
+position = Vector2(-152, -162)
+
+[node name="Network" parent="." instance=ExtResource("8_0c07c")]
