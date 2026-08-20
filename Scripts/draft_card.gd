@@ -10,3 +10,4 @@ extends Resource
 @export var scene : PackedScene
 @export var preview_scene : PackedScene
 @export var block_scale: Vector2 = Vector2(1.0, 1.0)
+@export var max_count: int = 1

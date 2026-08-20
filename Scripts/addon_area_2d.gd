@@ -18,17 +18,35 @@ func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
+
 		print("Addon clicked")
 		Multiplayer.dragging_addon = true
-
 		dragging = true
 
+		var addon = get_parent()
+
 		if attached_snap:
+			var inventory_index = addon.get_meta("inventory_index")
+			var inventory_card = Multiplayer.player_inventory[inventory_index]
+
+			# This addon was already counted as placed,
+			# so remove it from the placed count.
+			inventory_card["placed_count"] -= 1
+
+			# It is no longer fully placed.
+			inventory_card["used"] = false
+
+			# Update the card appearance
+			var inventory = Multiplayer.build_stage.inventory
+
+			for card in inventory.hand_cards:
+				if card.inventory_index == inventory_index:
+					card.reset_card()
+					break
+
 			attached_snap.occupant = null
 			attached_snap.set_highlight(false)
 			attached_snap = null
-
-		var addon = get_parent()
 
 		# remove from block so rotation does not affect it
 		addon.reparent(get_tree().current_scene, true)
@@ -153,8 +171,17 @@ func place_addon():
 		false
 	)
 	current_snap = null
-	found_card.use_card()
-	Multiplayer.player_inventory[inventory_index]["used"] = true
+
+	var inventory_card = Multiplayer.player_inventory[inventory_index]
+
+	inventory_card["placed_count"] += 1
+
+	if inventory_card["placed_count"] >= inventory_card["max_count"]:
+		inventory_card["used"] = true
+		found_card.use_card()
+	else:
+		inventory_card["used"] = false
+		found_card.reset_card()
 
 
 func start_drag():
