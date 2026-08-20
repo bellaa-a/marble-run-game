@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="4_dsjx5"]
 
 [node name="SolveButtons" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_4gq38")
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://coqh2ik2cpgqo" path="res://Scenes/buttons.tscn" id="4_d010b"]
 
 [node name="BuildButtons" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_gy8cp")
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]

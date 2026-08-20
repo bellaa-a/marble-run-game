@@ -75,11 +75,11 @@ text = "Waiting for other player..."
 
 [node name="RestartButton" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 616.0
+offset_left = 600.0
 offset_top = 400.0
-offset_right = 648.0
+offset_right = 632.0
 offset_bottom = 416.0
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("2_52k85")
 texture_pressed = ExtResource("3_dj0he")
 texture_hover = ExtResource("4_i2md5")
@@ -90,7 +90,7 @@ offset_left = 508.0
 offset_top = 400.0
 offset_right = 540.0
 offset_bottom = 416.0
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("5_ccv1k")
 texture_pressed = ExtResource("6_dmgky")
 texture_hover = ExtResource("7_nt3yh")

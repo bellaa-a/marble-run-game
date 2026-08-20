@@ -157,8 +157,16 @@ func place_addon():
 		" parent scale: ", addon_holder.global_scale
 	)
 
-	addon.reparent(addon_holder, true)
+	# Reset exactly like when picking it up
+	addon.reparent(get_tree().current_scene, true)
 	addon.global_scale = Vector2.ONE
+
+	# Now move it to the new parent
+	addon.reparent(addon_holder, true)
+
+	# Force the visual scale back to normal
+	addon.global_scale = Vector2.ONE
+
 	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation
 

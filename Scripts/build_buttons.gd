@@ -1,9 +1,11 @@
 extends Node2D
 
 @onready var timer_label: Label = $TimerLabel
+var win_lose_scene = preload("res://UI/win_lose.tscn")
 
 var time_left := 0.0
 var timer_running := false
+var timer_finished := false
 
 @export var label_text := "Default Text":
 	set(value):
@@ -42,7 +44,9 @@ func update_timer_display():
 	else:
 		timer_label.modulate = Color.WHITE
 	
-	if time_left <= 0:
+	if time_left <= 0 and not timer_finished:
+		timer_finished = true
+		
 		if Multiplayer.opponent_finished:
 			Multiplayer.player_finished_stage.rpc(false)
 			Multiplayer.win_lose_result = "You lost!"
@@ -52,8 +56,9 @@ func update_timer_display():
 			Multiplayer.win_lose_result = "You tied!"
 			Multiplayer.win_lose_message =  "You both did not complete the first stage before the timer ran out."
 			
-		transition.fade_to_scene("res://UI/win_lose.tscn")
-
+		var win_lose = win_lose_scene.instantiate()
+		add_child(win_lose)
+	
 
 func _on_rotation_toggled(toggled_on: bool) -> void:
 	Multiplayer.rotation_mode = toggled_on
