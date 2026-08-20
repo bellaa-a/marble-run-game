@@ -58,6 +58,8 @@ func update_timer_display():
 			
 		var win_lose = win_lose_scene.instantiate()
 		add_child(win_lose)
+		
+		get_tree().paused = true
 	
 
 func _on_rotation_toggled(toggled_on: bool) -> void:

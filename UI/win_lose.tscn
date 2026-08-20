@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ck5817lgeoqco" path="res://Assets/HoverNO.png" id="7_nt3yh"]
 
 [node name="WinLose" type="Node2D"]
+process_mode = 2
 script = ExtResource("1_nthap")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
