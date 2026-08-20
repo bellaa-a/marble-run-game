@@ -162,7 +162,7 @@ func place_addon():
 	addon.global_scale = Vector2.ONE
 
 	# Now move it to the new parent
-	addon.reparent(addon_holder, true)
+	addon.reparent(addon_holder, false)
 
 	# Force the visual scale back to normal
 	addon.global_scale = Vector2.ONE

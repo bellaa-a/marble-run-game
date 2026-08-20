@@ -24,21 +24,23 @@ func _on_timer_timeout() -> void:
 func _on_restart_button_pressed():
 	$Click.play()
 	await $Click.finished
-	Multiplayer.set_restart.rpc()
+	if multiplayer.multiplayer_peer:
+		Multiplayer.set_restart.rpc()
 	$Timer.start()
 
 
 func _on_home_button_pressed():
 	$Click.play()
 	await $Click.finished
-	Multiplayer.intentionally_leaving = true
-	Multiplayer.go_home.rpc()
+	if multiplayer.multiplayer_peer:
+		Multiplayer.go_home.rpc()
 	Multiplayer.leave_lobby()
-	transition.fade_to_scene("res://Scenes/rooms.tscn")
+	#transition.fade_to_scene("res://Scenes/rooms.tscn")
 
 
 func _on_opponent_home_pressed():
-	transition.fade_to_scene("res://UI/player_disconnected.tscn")
+	Multiplayer.leave_lobby()
+	#transition.fade_to_scene("res://UI/player_disconnected.tscn")
 
 
 func _on_both_players_restart():
