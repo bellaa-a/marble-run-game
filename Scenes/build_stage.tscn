@@ -72,4 +72,4 @@ position = Vector2(150, 208)
 position = Vector2(-376, 18)
 
 [node name="RightWall" parent="Walls" instance=ExtResource("12_jm24y")]
-position = Vector2(383, 18)
+position = Vector2(375, 18)
