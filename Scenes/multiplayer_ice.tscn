@@ -82,17 +82,14 @@ bus = &"SFX"
 [node name="SnapOns" type="Node2D" parent="."]
 
 [node name="SnapAddOnsBottom" parent="SnapOns" instance=ExtResource("9_3uvyk")]
-visible = true
 position = Vector2(-30, -4)
 scale = Vector2(0.6, 2)
 
 [node name="SnapAddOnsBottom2" parent="SnapOns" instance=ExtResource("9_3uvyk")]
-visible = true
 position = Vector2(0, -4)
 scale = Vector2(0.6, 2)
 
 [node name="SnapAddOnsBottom3" parent="SnapOns" instance=ExtResource("9_3uvyk")]
-visible = true
 position = Vector2(29, -4)
 scale = Vector2(0.6, 2)
 

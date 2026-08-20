@@ -167,15 +167,19 @@ func place_addon():
 	# Force the visual scale back to normal
 	#addon.global_scale = Vector2.ONE
 	addon.scale = Vector2.ONE / addon_holder.global_scale
-
-	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation
 	
 	if current_snap.is_wall:
+		
+		
 		if current_snap.is_left_wall:
+			addon.position = current_snap.position + Vector2(1,0)
 			addon.rotation += deg_to_rad(90)
 		else:
+			addon.position = current_snap.position - Vector2(3,0)
 			addon.rotation += deg_to_rad(-90)
+	else:
+		addon.position = current_snap.position - Vector2(0, 3)
 
 	current_snap.occupant = addon
 	attached_snap = current_snap
