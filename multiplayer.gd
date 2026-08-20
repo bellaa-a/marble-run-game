@@ -185,7 +185,7 @@ func host_game():
 		print("Already in lobby")
 		return
 
-	reset_match()
+	#reset_match()
 	is_host = true
 
 	print("Creating lobby...")
@@ -256,7 +256,7 @@ func join_game(code: String):
 		print("Already in lobby")
 		return
 
-	reset_match()
+	#reset_match()
 	print("Searching for room:", code)
 
 

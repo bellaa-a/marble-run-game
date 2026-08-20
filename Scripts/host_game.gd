@@ -24,4 +24,5 @@ func _on_lobby_ready():
 func _on_back_pressed() -> void:
 	$Click.play()
 	await $Click.finished
+	Multiplayer.leave_lobby()
 	transition.fade_to_scene("res://Scenes/rooms.tscn")

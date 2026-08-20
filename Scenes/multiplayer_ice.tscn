@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d23mrl2q4r2d0" path="res://Assets/Ice2.png" id="6_8euws"]
 [ext_resource type="Texture2D" uid="uid://baay11rekt1g7" path="res://Assets/Ice3.png" id="7_gw4kq"]
 [ext_resource type="AudioStream" uid="uid://c0xggtlvredx0" path="res://Audio/BreakIce.mp3" id="8_lteko"]
-[ext_resource type="PackedScene" uid="uid://ci12m2y5w4q4u" path="res://UI/snap_add_ons.tscn" id="9_3uvyk"]
+[ext_resource type="PackedScene" uid="uid://dq5x72i8jtocv" path="res://UI/snap_add_ons_bottom.tscn" id="9_3uvyk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fse5i"]
 friction = 0.01
@@ -81,17 +81,20 @@ bus = &"SFX"
 
 [node name="SnapOns" type="Node2D" parent="."]
 
-[node name="SnapAddOns" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+[node name="SnapAddOnsBottom" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+visible = true
 position = Vector2(-30, -4)
-scale = Vector2(0.56, 1.9999995)
+scale = Vector2(0.6, 2)
 
-[node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("9_3uvyk")]
-position = Vector2(1.1920929e-07, -4)
-scale = Vector2(0.56, 1.9999995)
+[node name="SnapAddOnsBottom2" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+visible = true
+position = Vector2(0, -4)
+scale = Vector2(0.6, 2)
 
-[node name="SnapAddOns5" parent="SnapOns" instance=ExtResource("9_3uvyk")]
-position = Vector2(29.000004, -4)
-scale = Vector2(0.56, 1.9999995)
+[node name="SnapAddOnsBottom3" parent="SnapOns" instance=ExtResource("9_3uvyk")]
+visible = true
+position = Vector2(29, -4)
+scale = Vector2(0.6, 2)
 
 [node name="AddOns" type="Node2D" parent="."]
 
