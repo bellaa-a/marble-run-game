@@ -24,7 +24,7 @@ func _ready():
 	GameState.game_won = false
 	Multiplayer.current_stage = 1
 	setup_walls()
-	#show_ready_ui()
+	show_ready_ui()
 	await organize_inventory()
 	
 	Multiplayer.build_stage = self
