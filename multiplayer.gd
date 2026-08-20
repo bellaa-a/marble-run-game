@@ -666,7 +666,7 @@ func set_restart():
 		both_players_restart.emit()
 		
 		
-@rpc("any_peer", "call_local")
+@rpc("any_peer", "call_remote", "reliable")
 func go_home():
 	opponent_home_pressed.emit()
 	

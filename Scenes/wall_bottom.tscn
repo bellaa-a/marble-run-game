@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b00kon7n1lrws"]
+
+[ext_resource type="PackedScene" uid="uid://c0ytat4q1h8fn" path="res://UI/snap_add_ons_bottom.tscn" id="2_4qdye"]
+
+[sub_resource type="GDScript" id="GDScript_d155t"]
+script/source = "extends Node2D
+
+
+"
+
+[node name="WallBottom" type="Node2D"]
+script = SubResource("GDScript_d155t")
+
+[node name="SnapOns" type="Node2D" parent="."]
+
+[node name="SnapAddOnsBottom" parent="SnapOns" instance=ExtResource("2_4qdye")]
+position = Vector2(-114, -4)
+
+[node name="SnapAddOnsBottom2" parent="SnapOns" instance=ExtResource("2_4qdye")]
+position = Vector2(-39, -4)
+
+[node name="SnapAddOnsBottom3" parent="SnapOns" instance=ExtResource("2_4qdye")]
+position = Vector2(36, -4)
+
+[node name="SnapAddOnsBottom4" parent="SnapOns" instance=ExtResource("2_4qdye")]
+position = Vector2(111, -4)
+
+[node name="AddOns" type="Node2D" parent="."]
