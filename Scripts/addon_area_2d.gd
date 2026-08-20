@@ -156,13 +156,11 @@ func place_addon():
 		" parent scale: ", addon_holder.global_scale
 	)
 
-	addon.reparent(addon_holder)
-	
-	addon.scale = Vector2(
-		1.0 / addon_holder.global_scale.x,
-		1.0 / addon_holder.global_scale.y
-	)
+	var addon_global_scale = addon.global_scale
 
+	addon.reparent(addon_holder, true)
+
+	addon.global_scale = addon_global_scale
 	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation
 
