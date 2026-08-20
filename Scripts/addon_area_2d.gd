@@ -165,7 +165,8 @@ func place_addon():
 	addon.reparent(addon_holder, false)
 
 	# Force the visual scale back to normal
-	addon.global_scale = Vector2.ONE
+	#addon.global_scale = Vector2.ONE
+	addon.scale = Vector2.ONE / addon_holder.global_scale
 
 	addon.position = current_snap.position - Vector2(0, 3)
 	addon.rotation = current_snap.rotation
