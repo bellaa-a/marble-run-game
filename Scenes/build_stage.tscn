@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlnj3gmjer15v"]
+[gd_scene load_steps=13 format=3 uid="uid://dlnj3gmjer15v"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_5b1iv"]
 [ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://4envi3nxahn2" path="res://Scenes/multiplayer_marble.tscn" id="4_2fodp"]
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_ebcgw"]
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/build_buttons.tscn" id="6_dnjre"]
-[ext_resource type="PackedScene" uid="uid://cxbo8owj2lr6q" path="res://UI/invisible.tscn" id="7_cqtpl"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
 [ext_resource type="AudioStream" uid="uid://ce8vxfm7ho2jg" path="res://Audio/Ready.mp3" id="9_2fodp"]
 [ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/left_wall.tscn" id="10_yq2la"]
@@ -40,8 +39,6 @@ z_index = 100
 [node name="EffectLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-
-[node name="Invisible" parent="EffectLayer" instance=ExtResource("7_cqtpl")]
 
 [node name="Globals" parent="." instance=ExtResource("7_lln86")]
 z_index = 100
