@@ -145,11 +145,12 @@ script = ExtResource("1_ywme2")
 
 [node name="LightSwitch" parent="." instance=ExtResource("2_a6oa8")]
 position = Vector2(424.2857, 241.42859)
+script = null
 
 [node name="Player1" type="Node2D" parent="."]
 
 [node name="Eyes" type="Polygon2D" parent="Player1"]
-position = Vector2(-32, 81)
+position = Vector2(-30.571426, 81)
 scale = Vector2(0.6, 0.632)
 color = Color(0, 0, 0, 1)
 offset = Vector2(48.333332, -72.78481)
@@ -173,7 +174,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player2" type="Node2D" parent="."]
 
 [node name="Eyes" type="Polygon2D" parent="Player2"]
-position = Vector2(-32, 81)
+position = Vector2(-34.857162, 82.42857)
 scale = Vector2(0.6, 0.632)
 color = Color(0, 0, 0, 1)
 offset = Vector2(48.333332, -72.78481)

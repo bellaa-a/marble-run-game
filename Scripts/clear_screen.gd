@@ -50,6 +50,7 @@ func clear_board(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 
 	# Flip both visuals
 	eyes.scale.x *= -1
+	eyes.position.x -= 5
 	player.scale.x *= -1
 
 	player.play("walk")

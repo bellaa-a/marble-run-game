@@ -74,5 +74,47 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "------"
 horizontal_alignment = 1
 
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 103.0
+offset_right = 785.0
+offset_bottom = 123.0
+rotation = 1.5707964
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "---------------------------------"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 102.0
+offset_right = 394.0
+offset_bottom = 122.0
+rotation = 1.5707964
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "---------------------------------"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 95.0
+offset_right = 642.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "---------------------------------------------------------------------------------"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 254.0
+offset_right = 642.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "---------------------------------------------------------------------------------"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="No" to="." method="_on_no_pressed"]

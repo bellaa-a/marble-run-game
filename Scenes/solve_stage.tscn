@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbmgfpu56bjpo"]
+[gd_scene load_steps=12 format=3 uid="uid://bbmgfpu56bjpo"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_bob5p"]
 [ext_resource type="Script" uid="uid://8f6wko5qbweu" path="res://Scripts/solve_stage.gd" id="1_u4usd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4envi3nxahn2" path="res://Scenes/multiplayer_marble.tscn" id="4_u4usd"]
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_rdcpn"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="6_hljhx"]
+[ext_resource type="PackedScene" uid="uid://b2w578i010fp8" path="res://UI/clear_screen.tscn" id="8_hljhx"]
 [ext_resource type="PackedScene" uid="uid://bn507jcmv3sv8" path="res://Scenes/solve_buttons.tscn" id="8_u4usd"]
 [ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/left_wall.tscn" id="10_rdcpn"]
 
@@ -38,6 +39,8 @@ z_index = 100
 [node name="EffectLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+
+[node name="ClearScreen" parent="EffectLayer" instance=ExtResource("8_hljhx")]
 
 [node name="Globals" parent="." instance=ExtResource("6_hljhx")]
 z_index = 100

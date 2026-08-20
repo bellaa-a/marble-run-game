@@ -21,7 +21,15 @@ func _ready() -> void:
 		username2.text = Multiplayer.get_opponent_name()
 		await lights_off(player2, eyes2, sprite2)
 	
-	await get_tree().create_timer(20.0).timeout
+	await get_tree().create_timer(4.0).timeout
+	
+	if Multiplayer.opponent_is_host():
+		username1.text = Multiplayer.get_opponent_name()
+		await lights_off(player1, eyes1, sprite1)
+	else:
+		username2.text = Multiplayer.get_opponent_name()
+		await lights_off(player2, eyes2, sprite2)
+		
 	Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 	queue_free()
 
@@ -37,8 +45,8 @@ func lights_off(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 
 	await get_tree().create_timer(0.7).timeout
 
-	$LightSwitch.press_switch()
-	$Lights.visible = true
+	press_switch()
+	$Lights.visible = !$Lights.visible
 	$Click.play()
 	await $Click.finished
 
@@ -49,6 +57,7 @@ func lights_off(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 
 	# Flip both visuals
 	eyes.scale.x *= -1
+	eyes.position.x -= 5
 	player.scale.x *= -1
 
 	player.play("walk")
@@ -56,3 +65,13 @@ func lights_off(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 	var tween2 = create_tween()
 	tween2.tween_property(character, "position:x", character.position.x - 170, 3.0)
 	await tween2.finished
+	
+	# flip back
+	eyes.scale.x *= -1
+	eyes.position.x += 5
+	player.scale.x *= -1
+
+
+func press_switch():
+	$LightSwitch/On.visible = !$LightSwitch/On.visible
+	$LightSwitch/Off.visible = !$LightSwitch/Off.visible
