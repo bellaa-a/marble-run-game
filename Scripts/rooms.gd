@@ -6,6 +6,8 @@ func _ready() -> void:
 	Multiplayer.lobby_ready.connect(_on_lobby_ready)
 	Multiplayer.join_status.connect(_on_join_status)
 	Multiplayer.join_failed.connect(_on_join_failed)
+	
+	Multiplayer.stage_one_time = 600.0
 
 func _on_lobby_ready():
 	transition.fade_to_scene("res://Scenes/connected.tscn")

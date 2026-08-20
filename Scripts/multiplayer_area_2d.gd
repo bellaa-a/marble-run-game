@@ -47,10 +47,10 @@ func stop_wind_rotation():
 
 func reset_block():
 	print("reset block")
-	#var block = get_parent()
+	var block = get_parent()
 
 	#block.global_position = start_position
-	#block.global_rotation = start_rotation
+	block.global_rotation = 0.0
 
 	blocked = false
 	blocked_direction = 0

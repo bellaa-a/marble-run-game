@@ -456,7 +456,7 @@ func reset_match():
 	player_inventory.clear()
 
 	rotation_mode = true
-	stage_one_time = 600.0
+	#stage_one_time = 600.0
 
 	host_ready = false
 	client_ready = false
@@ -660,7 +660,7 @@ func reset_finished_stage():
 	opponent_finished = false
 
 
-@rpc("any_peer", "call_local")
+@rpc("any_peer", "call_local", "reliable")
 func set_restart():
 	var id = multiplayer.get_remote_sender_id()
 
@@ -669,12 +669,35 @@ func set_restart():
 
 	restart_votes[id] = true
 
-	if restart_votes.size() == 2:
-		if multiplayer.is_server():
-			randomize_layout()
+	if restart_votes.size() == 2 and multiplayer.is_server():
 		restart_votes.clear()
-		both_players_restart.emit()
-		
+
+		var new_pipe_position = Vector2(
+			randf_range(-250, 250),
+			-220
+		)
+
+		var new_goal_position = Vector2(
+			randf_range(-300, 300),
+			170
+		)
+
+		restart_match.rpc(
+			new_pipe_position,
+			new_goal_position
+		)
+
+
+@rpc("authority", "call_local", "reliable")
+func restart_match(
+	new_pipe_position: Vector2,
+	new_goal_position: Vector2
+):
+	pipe_position = new_pipe_position
+	goal_position = new_goal_position
+
+	both_players_restart.emit()
+	
 		
 @rpc("any_peer", "call_remote", "reliable")
 func go_home():
