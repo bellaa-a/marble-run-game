@@ -14,4 +14,4 @@ icon = ExtResource("1_g8qwo")
 icon_size = Vector2(30, 30)
 scene = ExtResource("2_g8qwo")
 preview_scene = ExtResource("2_m70h2")
-required_count = 2
+max_count = 2

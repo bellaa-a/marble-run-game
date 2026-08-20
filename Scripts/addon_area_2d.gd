@@ -177,6 +177,8 @@ func place_addon():
 	inventory_card["placed_count"] += 1
 
 	if inventory_card["placed_count"] >= inventory_card["max_count"]:
+		print("placed count" + inventory_card["placed_count"])
+		print("max count" + inventory_card["max_count"])
 		inventory_card["used"] = true
 		found_card.use_card()
 	else:
