@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c206axae8o22o"]
 
-[ext_resource type="PackedScene" uid="uid://ci12m2y5w4q4u" path="res://UI/snap_add_ons.tscn" id="1_d155t"]
+[ext_resource type="PackedScene" uid="uid://c0ytat4q1h8fn" path="res://UI/snap_add_ons.tscn" id="1_d155t"]
 
 [sub_resource type="GDScript" id="GDScript_d155t"]
 script/source = "extends Node2D
@@ -8,21 +8,25 @@ script/source = "extends Node2D
 
 "
 
-[node name="Wall" type="Node2D"]
+[node name="LeftWall" type="Node2D"]
 script = SubResource("GDScript_d155t")
 
 [node name="SnapOns" type="Node2D" parent="."]
 
 [node name="SnapAddOns" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, -100)
+rotation = 1.5707964
 
 [node name="SnapAddOns2" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, -33)
+rotation = 1.5707964
 
 [node name="SnapAddOns3" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, 33)
+rotation = 1.5707964
 
 [node name="SnapAddOns4" parent="SnapOns" instance=ExtResource("1_d155t")]
 position = Vector2(0, 100)
+rotation = 1.5707964
 
 [node name="AddOns" type="Node2D" parent="."]

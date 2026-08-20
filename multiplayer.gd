@@ -40,7 +40,7 @@ var current_stage := 0
 var dragging_addon := false
 var win_lose_result : String
 var win_lose_message : String
-
+var intentionally_leaving := false
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -181,6 +181,7 @@ func send_discarded_cards(cards: Array[String]):
 # -------------------------
 
 func host_game():
+	intentionally_leaving = false
 
 	if lobby_id != 0:
 		print("Already in lobby")
@@ -253,6 +254,7 @@ func _on_lobby_created(
 # -------------------------
 
 func join_game(code: String):
+	intentionally_leaving = false
 
 	if lobby_id != 0:
 		print("Already in lobby")
@@ -383,6 +385,9 @@ func _on_lobby_chat_update(
 	print("Making change:", _making_change_id)
 	
 	if _state & Steam.CHAT_MEMBER_STATE_CHANGE_LEFT:
+		if intentionally_leaving:
+			return
+			
 		leave_lobby()
 		get_tree().change_scene_to_file("res://UI/player_disconnected.tscn")
 		return

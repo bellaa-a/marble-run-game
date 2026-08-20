@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bg2nl8qmtakof" path="res://Scenes/inventory.tscn" id="5_rdcpn"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="6_hljhx"]
 [ext_resource type="PackedScene" uid="uid://bn507jcmv3sv8" path="res://Scenes/solve_buttons.tscn" id="8_u4usd"]
-[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/wall.tscn" id="10_rdcpn"]
+[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/left_wall.tscn" id="10_rdcpn"]
 
 [node name="SolveStage" type="Node2D"]
 script = ExtResource("1_u4usd")

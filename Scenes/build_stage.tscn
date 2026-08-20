@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlnj3gmjer15v"]
+[gd_scene load_steps=13 format=3 uid="uid://dlnj3gmjer15v"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_5b1iv"]
 [ext_resource type="Script" uid="uid://73gcyhb88u5p" path="res://Scripts/build_stage.gd" id="1_ebcgw"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cxe0s55b3gbwj" path="res://Scenes/build_buttons.tscn" id="6_dnjre"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="7_lln86"]
 [ext_resource type="AudioStream" uid="uid://ce8vxfm7ho2jg" path="res://Audio/Ready.mp3" id="9_2fodp"]
-[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/wall.tscn" id="10_yq2la"]
+[ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/left_wall.tscn" id="10_yq2la"]
 [ext_resource type="PackedScene" uid="uid://b00kon7n1lrws" path="res://Scenes/wall_bottom.tscn" id="11_iqeln"]
+[ext_resource type="PackedScene" uid="uid://c5o4xphb75wfv" path="res://Scenes/right_wall.tscn" id="12_jm24y"]
 
 [node name="BuildStage" type="Node2D"]
 script = ExtResource("1_ebcgw")
@@ -61,16 +62,14 @@ volume_db = -10.0
 
 [node name="Walls" type="Node2D" parent="."]
 
-[node name="Wall1" parent="Walls" instance=ExtResource("10_yq2la")]
-position = Vector2(-386, 20)
-script = null
-
-[node name="Wall2" parent="Walls" instance=ExtResource("10_yq2la")]
-position = Vector2(383, 20)
-script = null
-
 [node name="WallBottom" parent="Walls" instance=ExtResource("11_iqeln")]
 position = Vector2(-153, 207)
 
 [node name="WallBottom2" parent="Walls" instance=ExtResource("11_iqeln")]
 position = Vector2(150, 208)
+
+[node name="LeftWall" parent="Walls" instance=ExtResource("10_yq2la")]
+position = Vector2(-376, 18)
+
+[node name="RightWall" parent="Walls" instance=ExtResource("12_jm24y")]
+position = Vector2(383, 18)
