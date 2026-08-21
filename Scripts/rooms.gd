@@ -43,9 +43,6 @@ func _on_join_failed(message):
 	
 
 func _on_option_button_item_selected(index: int) -> void:
-	if not multiplayer.is_server():
-		return
-
 	match index:
 		0:
 			time = 600

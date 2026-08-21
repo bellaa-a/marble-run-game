@@ -10,10 +10,28 @@ var frame = 0
 func _ready() -> void:
 	result_label.text = Multiplayer.win_lose_result
 	message_label.text = Multiplayer.win_lose_message
+
+	# Stop gameplay
+	stop_gameplay()
+
 	Multiplayer.opponent_home_pressed.connect(_on_opponent_home_pressed)
 	Multiplayer.both_players_restart.connect(_on_both_players_restart)
-	
+
 	Multiplayer.unlock_achievement("FIRST_MATCH")
+
+
+func stop_gameplay() -> void:
+	# Disable all goals
+	for goal in get_tree().get_nodes_in_group("goal"):
+		var area = goal.get_node_or_null("Area2D")
+		if area:
+			area.set_deferred("monitoring", false)
+			area.set_deferred("monitorable", false)
+
+	# Stop all marbles
+	for marble in get_tree().get_nodes_in_group("marble"):
+		if marble is RigidBody2D:
+			marble.sleeping = true
 
 
 func _on_timer_timeout() -> void:
