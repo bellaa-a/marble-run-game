@@ -1,13 +1,13 @@
 extends Node
 
-var time: float = 600
-
 func _ready() -> void:
 	Multiplayer.lobby_ready.connect(_on_lobby_ready)
 	Multiplayer.join_status.connect(_on_join_status)
 	Multiplayer.join_failed.connect(_on_join_failed)
-	
+
+	# Every time Rooms is opened, default to 10 minutes
 	Multiplayer.stage_one_time = 600.0
+
 
 func _on_lobby_ready():
 	transition.fade_to_scene("res://Scenes/connected.tscn")
@@ -23,12 +23,13 @@ func _on_host_pressed():
 func _on_join_pressed():
 	$Click.play()
 	await $Click.finished
-	
+
 	var code = $LobbyIDInput.text.to_upper().strip_edges()
 
 	if code.length() != 6:
 		$Error.text = "Invalid code format"
 		return
+
 	Multiplayer.join_game(code)
 
 
@@ -40,18 +41,16 @@ func _on_join_status(message):
 func _on_join_failed(message):
 	$Confirm.text = ""
 	$Error.text = message
-	
+
 
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
 		0:
-			time = 600
+			Multiplayer.stage_one_time = 600.0
 		1:
-			time = 300
+			Multiplayer.stage_one_time = 300.0
 		2:
-			time = 60
-	
-	Multiplayer.stage_one_time = time
+			Multiplayer.stage_one_time = 60.0
 
 
 func _on_lobby_id_input_text_submitted(_new_text: String) -> void:

@@ -4,7 +4,8 @@ signal card_selected(card)
 signal block_drag_started(card)
 signal powerup_clicked(card)
 
-@export var in_hand : bool = false
+@export var in_hand: bool = false
+
 @onready var icon: TextureRect = $Icon
 @onready var description: Label = $Description
 @onready var stage: Label = $Stage
@@ -17,138 +18,193 @@ signal powerup_clicked(card)
 var normal_scale := Vector2.ONE
 var draft_scale := Vector2(1.6, 1.6)
 var hover_scale := Vector2(2, 2)
-var normal_position : Vector2
+
+var normal_position: Vector2
 var hover_offset := Vector2(0, -60)
+
 var pair_id: int
+
 var moving_to_hand := false
 var disapearing := false
 var revealing := false
+
 var card_data: DraftCard
+
 var dragging := false
 var drag_threshold := 30
 var mouse_down_pos := Vector2.ZERO
+
 var inventory_index := -1
 var block_dragging := false
+
 var hover_tween: Tween
 var move_tween: Tween
 
 
 func _ready():
 	add_to_group("cards")
+
 	pivot_offset = size / 2
 	normal_position = position
+
 	question_mark.visible = true
 	used.visible = false
-	
-	card_button.mouse_entered.connect(_on_mouse_entered)
-	card_button.mouse_exited.connect(_on_mouse_exited)
+
+	# IMPORTANT:
+	# Hover detection is handled by the card itself,
+	# NOT the Button. This means hover still works
+	# even when the Button is disabled.
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+
+	# The Button is only responsible for clicking.
 	card_button.pressed.connect(_on_pressed)
 	card_button.gui_input.connect(_on_card_gui_input)
-	
+
 
 func _on_pressed():
 	card_selected.emit(self)
-	
+
 
 func setup(card: DraftCard):
 	card_data = card
+
 	card_back.visible = false
 	question_mark.visible = true
 	used.visible = false
-	
+
 	icon.texture = card.icon
 	icon.size = card.icon_size
 	icon.position = (size - icon.size) / 2 - Vector2(0, 20)
-	
+
 	description.text = card.description
 	description.add_theme_font_size_override("font_size", 10)
 	description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	description.add_theme_constant_override("line_spacing", -3)
-	
+
 	stage.text = stage_to_string(card.stage)
+
 	update_type_color()
-	
+
+
 func update_type_color():
 
 	match card_data.type:
 
 		Enum.CardType.BLOCK:
-			type.color = Color("6fa8dc96") # blue
+			type.color = Color("6fa8dc96")
 
 		Enum.CardType.ADDON:
-			type.color = Color("93c47d96") # green
-		
+			type.color = Color("93c47d96")
+
 		Enum.CardType.NECESSARY:
-			type.color = Color("93c47d96") # green
+			type.color = Color("93c47d96")
 
 		Enum.CardType.POWERUP:
-			type.color = Color("fa5e7c96") # orange
+			type.color = Color("fa5e7c96")
+
 
 func stage_to_string(stageName: Enum.Stage) -> String:
+
 	match stageName:
+
 		Enum.Stage.STAGE1:
 			return "I"
+
 		Enum.Stage.STAGE2:
 			return "II"
+
 		Enum.Stage.BOTH:
 			return "I&II"
+
 		_:
 			return ""
-			
-			
-func _on_mouse_entered() -> void:
-	if moving_to_hand or disapearing or revealing:
-		return
 
+
+func _on_mouse_entered() -> void:
+
+	# If the card is in the player's hand,
+	# ALWAYS allow hover behavior.
+	#
+	# This check comes FIRST so that used cards,
+	# non-clickable cards, etc. can still raise.
 	if in_hand:
+
 		for card in get_tree().get_nodes_in_group("cards"):
 			card.raise_card()
-	else:
-		hover_tween = create_tween()
-		hover_tween.set_trans(Tween.TRANS_QUAD)
-		hover_tween.set_ease(Tween.EASE_OUT)
 
-		hover_tween.tween_property(
-			self,
-			"scale",
-			hover_scale,
-			0.15
-		)
-	
-func _on_mouse_exited():
+		return
+
+	# Draft cards still use the old restrictions.
 	if moving_to_hand or disapearing or revealing:
 		return
 
+	if hover_tween:
+		hover_tween.kill()
+
+	hover_tween = create_tween()
+	hover_tween.set_trans(Tween.TRANS_QUAD)
+	hover_tween.set_ease(Tween.EASE_OUT)
+
+	hover_tween.tween_property(
+		self,
+		"scale",
+		hover_scale,
+		0.15
+	)
+
+
+func _on_mouse_exited() -> void:
+
+	# Same idea here:
+	# cards in the hand should ALWAYS be able
+	# to return to their normal position.
 	if in_hand:
+
 		for card in get_tree().get_nodes_in_group("cards"):
 			card.lower_card()
-	else:
-		hover_tween = create_tween()
-		hover_tween.set_trans(Tween.TRANS_QUAD)
-		hover_tween.set_ease(Tween.EASE_OUT)
 
-		hover_tween.tween_property(
-			self,
-			"scale",
-			draft_scale,
-			0.15
-		)
-		
+		return
+
+	# Draft cards still use the old restrictions.
+	if moving_to_hand or disapearing or revealing:
+		return
+
+	if hover_tween:
+		hover_tween.kill()
+
+	hover_tween = create_tween()
+	hover_tween.set_trans(Tween.TRANS_QUAD)
+	hover_tween.set_ease(Tween.EASE_OUT)
+
+	hover_tween.tween_property(
+		self,
+		"scale",
+		draft_scale,
+		0.15
+	)
+
 
 func move_to_hand(target_position: Vector2):
+
 	$Whoosh.play()
+
 	in_hand = true
 	moving_to_hand = true
 	revealing = false
+
 	set_selected_layer(true)
 
-	# cancel hover/other animations
+	# Cancel hover/other animations.
 	if hover_tween:
 		hover_tween.kill()
 
 	normal_position = target_position
 
 	scale = normal_scale
+
+	# The card cannot be clicked while moving.
+	# This does NOT affect hover anymore.
 	set_interactable(false)
 
 	move_tween = create_tween()
@@ -163,12 +219,17 @@ func move_to_hand(target_position: Vector2):
 	)
 
 	await move_tween.finished
+
 	moving_to_hand = false
+
+	# Now it can be clicked again.
 	set_interactable(true)
 
+
 func reveal_card(target_position: Vector2):
+
 	normal_position = position
-	
+
 	show()
 
 	position = target_position
@@ -186,13 +247,16 @@ func reveal_card(target_position: Vector2):
 	)
 
 	await tween.finished
+
 	await get_tree().create_timer(1.0).timeout
-	
-	
+
+
 func disappear():
+
 	disapearing = true
+
 	set_interactable(false)
-	
+
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_IN)
@@ -205,14 +269,18 @@ func disappear():
 	)
 
 	await tween.finished
+
 	disapearing = false
+
 	hide()
-	
+
 
 func set_selectable(value: bool):
+
+	# Cards in the hand are always handled separately.
 	if in_hand:
 		return
-	
+
 	set_interactable(value)
 
 	if not in_hand:
@@ -220,16 +288,19 @@ func set_selectable(value: bool):
 
 
 func set_revealed(value: bool):
+
 	if value == true:
 		$Click.play()
+
 	card_back.visible = not value
 	question_mark.visible = not value
 
 
 func raise_card():
+
 	if not in_hand:
 		return
-		
+
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
@@ -243,9 +314,10 @@ func raise_card():
 
 
 func lower_card():
+
 	if not in_hand:
 		return
-		
+
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.set_ease(Tween.EASE_OUT)
@@ -259,10 +331,14 @@ func lower_card():
 
 
 func set_selected_layer(value: bool):
+
 	if value:
+
 		z_index = 100
 		card_button.z_index = 100
+
 	else:
+
 		z_index = 0
 		card_button.z_index = 0
 
@@ -270,13 +346,16 @@ func set_selected_layer(value: bool):
 func _on_card_gui_input(event):
 
 	if event is InputEventMouseButton:
+
 		if event.button_index == MOUSE_BUTTON_LEFT:
 
 			if event.pressed:
+
 				mouse_down_pos = event.position
 				dragging = true
 
 			else:
+
 				if card_data.type == Enum.CardType.POWERUP:
 					powerup_clicked.emit(self)
 
@@ -293,21 +372,26 @@ func _on_card_gui_input(event):
 
 				dragging = false
 				block_dragging = true
+
 				block_drag_started.emit(self)
 
+
 func use_card():
+
 	card_back.visible = true
 	question_mark.visible = false
 	used.visible = true
-	
+
 
 func reset_card():
+
 	card_back.visible = false
 	question_mark.visible = false
 	used.visible = false
 
 
 func set_interactable(value: bool):
+
 	card_button.disabled = not value
 
 	if value:
