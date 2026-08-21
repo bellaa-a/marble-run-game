@@ -44,7 +44,7 @@ func _process(_delta):
 
 func begin_drag(card):
 
-	if Multiplayer.player_inventory[card.inventory_index]["used"]:
+	if Multiplayer.player_inventory[card.inventory_index]["used"] or GameState.locked:
 		return
 
 	dragging_card = card
