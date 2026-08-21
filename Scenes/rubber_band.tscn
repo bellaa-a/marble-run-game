@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://1re04emd1r08"]
+[gd_scene load_steps=15 format=3 uid="uid://1re04emd1r08"]
 
 [ext_resource type="Texture2D" uid="uid://breucgkme6rhw" path="res://Assets/RubberBand.png" id="1_5p5s2"]
 [ext_resource type="Script" uid="uid://cnsc0kdpgdegm" path="res://Scripts/rubber_band.gd" id="1_atmyl"]
@@ -46,50 +46,50 @@ size = Vector2(119.31822, 7.1428595)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfble"]
 size = Vector2(106.81819, 6.4285707)
 
-[node name="RubberBand" type="AnimatableBody2D" unique_id=558590688]
+[node name="RubberBand" type="AnimatableBody2D"]
 scale = Vector2(0.8799999, 0.8399997)
 collision_layer = 2
-collision_mask = 31
+collision_mask = 159
 physics_material_override = SubResource("PhysicsMaterial_epy5s")
 script = ExtResource("1_atmyl")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1183166885]
+[node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(3.7199993, 3.3999987)
 collision_layer = 2
 collision_mask = 31
 script = ExtResource("2_epy5s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=365271494]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1, 0.9955612)
 shape = SubResource("RectangleShape2D_co01x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1899368006]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.7199993, 3.3999987)
 shape = SubResource("RectangleShape2D_nvbbo")
 
-[node name="OriginalBand" type="Sprite2D" parent="." unique_id=995660132]
+[node name="OriginalBand" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.38)
 texture = ExtResource("1_5p5s2")
 
-[node name="HitBandUp" type="AnimatedSprite2D" parent="." unique_id=1753267241]
+[node name="HitBandUp" type="AnimatedSprite2D" parent="."]
 visible = false
 scale = Vector2(1.25, 1.38)
 sprite_frames = SubResource("SpriteFrames_517xq")
 animation = &"HitUp"
 
-[node name="HitBandDown" type="AnimatedSprite2D" parent="." unique_id=72499472]
+[node name="HitBandDown" type="AnimatedSprite2D" parent="."]
 visible = false
 scale = Vector2(1.25, 1.38)
 sprite_frames = SubResource("SpriteFrames_5ixv1")
 animation = &"HitDown"
 
-[node name="BandSound" type="AudioStreamPlayer2D" parent="." unique_id=1487106807]
+[node name="BandSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(1.25, 1.3800001)
 stream = ExtResource("5_atmyl")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1789417481]
+[node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.39215687)
 offset_left = -79.5455
 offset_top = -88.095245
@@ -98,16 +98,16 @@ offset_bottom = 39.904755
 scale = Vector2(1.25, 1.383)
 texture = ExtResource("6_dhvx1")
 
-[node name="BandUp" type="Area2D" parent="." unique_id=2083853241]
+[node name="BandUp" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BandUp" unique_id=774267292]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BandUp"]
 position = Vector2(0.56818587, -10.714289)
 scale = Vector2(0.9999997, 1)
 shape = SubResource("RectangleShape2D_dhvx1")
 
-[node name="BandDown" type="Area2D" parent="." unique_id=566737090]
+[node name="BandDown" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BandDown" unique_id=1906754862]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BandDown"]
 position = Vector2(-3.409093, 9.166668)
 scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_pfble")

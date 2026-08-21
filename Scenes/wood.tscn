@@ -19,7 +19,7 @@ size = Vector2(31.792374, 6.6102085)
 
 [node name="Wood" type="AnimatableBody2D"]
 collision_layer = 2
-collision_mask = 31
+collision_mask = 159
 physics_material_override = SubResource("PhysicsMaterial_c2iur")
 script = ExtResource("1_4vtod")
 

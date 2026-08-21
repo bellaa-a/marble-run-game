@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="INvent"
-run/main_scene="uid://dm3t170dlba0i"
+run/main_scene="uid://clt8uic2o2jeu"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="uid://djtwn48eyhna1"
 
@@ -44,6 +44,7 @@ theme/custom="uid://dhwd8ewrtbtfr"
 2d_physics/layer_5="Goal"
 2d_physics/layer_6="Addons"
 2d_physics/layer_7="AttackBlocks"
+2d_physics/layer_8="Ceiling (no marble)"
 
 [physics]
 

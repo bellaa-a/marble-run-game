@@ -66,11 +66,11 @@ volume_db = -10.0
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(0, -73)
 rotation = 3.1344461
-collision_layer = 8
-collision_mask = 3
+collision_layer = 128
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(-0.114343196, 15.99959)
+position = Vector2(1.3072718, -42.99176)
 shape = SubResource("WorldBoundaryShape2D_0ej7r")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]

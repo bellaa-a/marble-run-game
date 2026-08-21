@@ -17,6 +17,7 @@ var game_started := false
 var player_inventory: Array[Dictionary] = []
 var rotation_mode := true
 var stage_one_time : float = 600.0
+var stage_one_time_left : float = 0.0
 var host_ready := false
 var client_ready := false
 var opponent_block_positions = {}
@@ -521,6 +522,12 @@ func powerup_finished():
 	
 
 func can_use_powerup(powerup) -> Dictionary:
+	
+	if player_finished or opponent_finished:
+		return {
+			"allowed": false,
+			"message": ""
+		}
 
 	if Multiplayer.player_inventory[powerup.inventory_index]["used"]:
 		return {

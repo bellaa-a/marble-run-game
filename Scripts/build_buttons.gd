@@ -18,6 +18,7 @@ func _ready():
 	$LevelName.text = label_text
 
 	time_left = Multiplayer.stage_one_time
+	Multiplayer.stage_one_time_left = time_left
 	update_timer_display() # Show the initial time immediately
 
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
@@ -30,6 +31,7 @@ func _process(delta):
 	if timer_running and time_left > 0:
 		time_left -= delta
 		time_left = max(time_left, 0)
+		Multiplayer.stage_one_time_left = time_left
 
 	update_timer_display()
 

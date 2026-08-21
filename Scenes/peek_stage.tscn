@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0oofaw77jq5v"]
+[gd_scene load_steps=8 format=3 uid="uid://d0oofaw77jq5v"]
 
 [ext_resource type="Script" uid="uid://bucgn1ud5avuu" path="res://Scripts/peek_stage.gd" id="1_e6r8v"]
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="2_e06u8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkrf5wt6egp3n" path="res://Scenes/pipe.tscn" id="3_q4ycp"]
 [ext_resource type="PackedScene" uid="uid://b2rh5a17f0i7y" path="res://Scenes/multiplayer_goal.tscn" id="4_rv1a0"]
 [ext_resource type="PackedScene" uid="uid://d1mq735g0sp7l" path="res://Scenes/globals.tscn" id="6_rv1a0"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="7_lk4bn"]
 
 [node name="PeekStage" type="Node2D"]
 script = ExtResource("1_e6r8v")
@@ -52,5 +53,26 @@ z_index = 100
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(295.316, -186.85707)
+rotation = 1.5707964
+scale = Vector2(0.06820652, 0.100177206)
+texture = ExtResource("7_lk4bn")
+
+[node name="Shadow3" type="ColorRect" parent="."]
+offset_left = 263.9305
+offset_top = -201.85703
+offset_right = 322.9305
+offset_bottom = -171.99994
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 269.9305
+offset_top = -201.99997
+offset_right = 319.9305
+offset_bottom = -177.99997
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

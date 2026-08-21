@@ -4,17 +4,48 @@ extends Node2D
 @export var scene_type: Enum.SceneType
 @onready var pipe = $Pipe
 @onready var goal = $MultiplayerGoal
+@onready var timer_label: Label = $TimerLabel
 
 var opponent_blocks = {}
 var win_lose_scene = preload("res://UI/win_lose.tscn")
 
+var time_left := 0.0
+var timer_finished := false
+
+
 func _ready():
 	pipe.global_position = Multiplayer.pipe_position
 	goal.global_position = Multiplayer.goal_position
+	
+	time_left = Multiplayer.stage_one_time_left
+	update_timer_display()
+	
 	Multiplayer.opponent_block_updated.connect(update_blocks)
 	Multiplayer.finish_state_updated.connect(_on_finish_state_updated)
 
 	update_blocks()
+
+
+func _process(delta):
+	if time_left > 0:
+		time_left -= delta
+		time_left = max(time_left, 0)
+
+		Multiplayer.stage_one_time_left = time_left
+
+	update_timer_display()
+
+
+func update_timer_display():
+	var minutes = int(time_left) / 60
+	var seconds = int(time_left) % 60
+
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+	if time_left <= 30:
+		timer_label.modulate = Color.RED
+	else:
+		timer_label.modulate = Color.WHITE
 
 
 func update_blocks():
@@ -46,7 +77,7 @@ func _on_finish_state_updated():
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	else:
 		Multiplayer.win_lose_result = "You won!"
-		Multiplayer.win_lose_message =  "Your opponent did not complete the first stage before the timer ran out."
+		Multiplayer.win_lose_message = "Your opponent did not complete the first stage before the timer ran out."
 		Multiplayer.add_stat_to_achievement("NUM_WINS")
 		print("opponent didnt finish")
 		

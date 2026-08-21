@@ -14,7 +14,7 @@ script = ExtResource("1_ys1qc")
 [node name="Boarder" parent="." instance=ExtResource("1_8od7v")]
 
 [node name="Wood" parent="." instance=ExtResource("3_i3aeo")]
-position = Vector2(-116, 56)
+position = Vector2(184, -178)
 
 [node name="Ice" parent="." instance=ExtResource("4_5wyu1")]
 position = Vector2(74, 175)

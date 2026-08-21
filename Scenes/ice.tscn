@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://xbtj68fc8u8d"]
+[gd_scene load_steps=13 format=3 uid="uid://xbtj68fc8u8d"]
 
 [ext_resource type="Script" uid="uid://bfxep1dv8lj8p" path="res://Scripts/ice.gd" id="1_clp2u"]
 [ext_resource type="Texture2D" uid="uid://dk2fpf588vfm0" path="res://Assets/Ice.png" id="1_fse5i"]
@@ -36,28 +36,28 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Ice" type="AnimatableBody2D" unique_id=42388386]
+[node name="Ice" type="AnimatableBody2D"]
 collision_layer = 2
-collision_mask = 31
+collision_mask = 159
 physics_material_override = SubResource("PhysicsMaterial_fse5i")
 script = ExtResource("1_clp2u")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=852735660]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 31
 script = ExtResource("2_uice2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1490085017]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_fse5i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603217338]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_uice2")
 
-[node name="OriginalIce" type="Sprite2D" parent="." unique_id=872494082]
+[node name="OriginalIce" type="Sprite2D" parent="."]
 texture = ExtResource("1_fse5i")
 
-[node name="IceShadow" type="TextureRect" parent="OriginalIce" unique_id=951720922]
+[node name="IceShadow" type="TextureRect" parent="OriginalIce"]
 modulate = Color(1, 1, 1, 0.39215687)
 offset_left = -64.0
 offset_top = -28.0
@@ -66,7 +66,7 @@ offset_bottom = 101.19896
 pivot_offset = Vector2(64, 28)
 texture = ExtResource("8_2oicu")
 
-[node name="BreakingIce" type="AnimatedSprite2D" parent="." unique_id=244059428]
+[node name="BreakingIce" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(0, 35)
 sprite_frames = SubResource("SpriteFrames_rtyq4")
@@ -74,7 +74,7 @@ animation = &"break"
 frame = 2
 frame_progress = 1.0
 
-[node name="IceSound" type="AudioStreamPlayer2D" parent="BreakingIce" unique_id=363435096]
+[node name="IceSound" type="AudioStreamPlayer2D" parent="BreakingIce"]
 stream = ExtResource("7_clp2u")
 bus = &"SFX"
 
