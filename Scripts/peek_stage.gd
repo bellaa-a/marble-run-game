@@ -2,9 +2,11 @@ extends Node2D
 
 @export var group_name: String
 @export var scene_type: Enum.SceneType
-var opponent_blocks = {}
 @onready var pipe = $Pipe
 @onready var goal = $MultiplayerGoal
+
+var opponent_blocks = {}
+var win_lose_scene = preload("res://UI/win_lose.tscn")
 
 func _ready():
 	pipe.global_position = Multiplayer.pipe_position
@@ -47,7 +49,9 @@ func _on_finish_state_updated():
 		Multiplayer.win_lose_message =  "Your opponent did not complete the first stage before the timer ran out."
 		Multiplayer.add_stat_to_achievement("NUM_WINS")
 		print("opponent didnt finish")
-		transition.fade_to_scene("res://UI/win_lose.tscn")
+		
+		var win_lose = win_lose_scene.instantiate()
+		add_child(win_lose)
 
 
 func _on_timer_timeout() -> void:
