@@ -64,19 +64,15 @@ volume_db = -10.0
 
 [node name="Wall1" parent="Walls" instance=ExtResource("10_nopr1")]
 position = Vector2(-153, 207)
-script = null
 
 [node name="Wall2" parent="Walls" instance=ExtResource("10_nopr1")]
 position = Vector2(150, 208)
-script = null
 
 [node name="Wall3" parent="Walls" instance=ExtResource("10_nopr1")]
 position = Vector2(-376, 20)
 rotation = 1.5707964
-script = null
 
 [node name="Wall4" parent="Walls" instance=ExtResource("10_nopr1")]
 position = Vector2(370, 20)
 rotation = -1.5707964
 scale = Vector2(1, -1)
-script = null

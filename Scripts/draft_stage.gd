@@ -311,29 +311,35 @@ func try_finish_draft():
 func resolve_mystery_card(card):
 	if card.card_data.id != "mystery":
 		return card.card_data
+
 	card.set_interactable(false)
-	# Let the player see the mystery card
+
 	await get_tree().create_timer(0.5).timeout
 
-	# Get all non-mystery powerups
 	var possible_powerups = CardDatabase.powerup_cards.filter(
-		func(c): return c.id != "mystery"
+		func(c): return c.id != "mystery" and c.id != "nothing"
 	)
 
-	# Pick the final result
-	var final_powerup = possible_powerups.pick_random()
+	var final_powerup
+
+	if randf() < 1.0 / 3.0:
+		final_powerup = CardDatabase.get_card_by_id("nothing")
+	else:
+		final_powerup = possible_powerups.pick_random()
 
 	# Random flashing animation
 	for i in range(5):
-		card.setup(possible_powerups.pick_random())
+		var flash_card = CardDatabase.powerup_cards.filter(
+			func(c): return c.id != "mystery"
+		).pick_random()
+
+		card.setup(flash_card)
 		await get_tree().create_timer(0.1).timeout
 
-	# Set final card
 	card.setup(final_powerup)
 	await get_tree().create_timer(1.0).timeout
 
 	return final_powerup
-
 
 func setup_different_cards(card_a, card_b, card_pool):
 	var first_card = card_pool.pick_random()

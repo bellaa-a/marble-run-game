@@ -22,7 +22,8 @@
 # blocks move slower while dragging.
 # lock hand (cant click any cards for a bit)
 # "ARE YOU SURE?" — every time they try to move a block, an annoying confirmation appears for 5 seconds.
-# only rotate, can move for a while
+# only rotate, cant move block for a while
+# quacks
 
 extends Node
 

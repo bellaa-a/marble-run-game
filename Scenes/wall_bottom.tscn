@@ -1,15 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b00kon7n1lrws"]
+[gd_scene load_steps=2 format=3 uid="uid://b00kon7n1lrws"]
 
 [ext_resource type="PackedScene" uid="uid://dq5x72i8jtocv" path="res://UI/snap_add_ons_bottom.tscn" id="2_w3qoo"]
 
-[sub_resource type="GDScript" id="GDScript_d155t"]
-script/source = "extends Node2D
-
-
-"
-
 [node name="WallBottom" type="Node2D"]
-script = SubResource("GDScript_d155t")
 
 [node name="SnapOns" type="Node2D" parent="."]
 

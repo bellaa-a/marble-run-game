@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DraftCard" format=3 uid="uid://op1gxwites7s"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=3 format=3 uid="uid://op1gxwites7s"]
 
 [ext_resource type="Texture2D" uid="uid://dimgl7rg2syxg" path="res://Assets/mystery.png" id="1_gkkhx"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="2_1jyi3"]
@@ -8,6 +8,6 @@ script = ExtResource("2_1jyi3")
 id = "mystery"
 type = 2
 stage = 3
-description = "Mystery box."
+description = "Random powerup... with 1 in 3 chance of nothing."
 icon = ExtResource("1_gkkhx")
 icon_size = Vector2(15, 15)
