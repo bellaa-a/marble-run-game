@@ -15,11 +15,13 @@ func _ready() -> void:
 	marble.set_start_position(Multiplayer.pipe_position + Vector2(0, 20))
 	goal.global_position = Multiplayer.goal_position
 	GameState.game_won = false
+	GameState.locked = false
 	Multiplayer.rotation_mode = true
 	Multiplayer.opponent_peeking = false
 	Multiplayer.game_finished = false
 	Multiplayer.current_stage = 2
 	Multiplayer.solve_stage = self
+	Multiplayer.active_powerup = false
 	setup_walls()
 	update_blocks()
 	update_addons()

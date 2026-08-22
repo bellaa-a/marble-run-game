@@ -191,6 +191,7 @@ func _on_both_players_ready():
 	await get_tree().create_timer(2.0).timeout
 	$Ready.play()
 	await get_tree().create_timer(2.0).timeout
+	GameState.locked = false
 
 
 func show_ready_ui():
