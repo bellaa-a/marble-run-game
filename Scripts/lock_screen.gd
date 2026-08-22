@@ -416,27 +416,27 @@ func do_typing():
 	var opponent_name = Multiplayer.get_opponent_name()
 
 	var options = [
-		"I would like to take a moment to appreciate this incredible experience. This is truly an awesome game, created with passion, creativity, and a ridiculous amount of effort by the developer.",
+		"This is an incredible game made with passion, creativity, and an unreasonable amount of effort.",
 
-		"I would like to recognize my opponent, %s. I am thankful that they have given me this opportunity to reflect, compete, and enjoy this moment together. I also remember that the real victory was the friendship and personal growth gained along the way.",
+		"I would like to thank %s for this wonderful opportunity to compete and grow together.",
 
-		"I, the undersigned, admit that %s is an incredibly skilled marble engineer. Should I lose this match, I agree that it was entirely because my opponent was simply built different and not because of luck, bad map generation, or suspicious physics.",
+		"I hereby acknowledge that %s is an incredibly skilled marble engineer.",
 
-		"I acknowledge that all bugs encountered during this match are actually hidden features carefully handcrafted by the developer. Any accidental launches into space, disappearing marbles, or mysterious explosions are considered immersive gameplay experiences.",
+		"All bugs encountered during this match are actually carefully designed features.",
 
-		"Before proceeding, I would like to sincerely thank %s for generously allowing me to participate in what will almost certainly become one of the greatest marble matches in recorded history. I will complain loudly if I lose, but deep down I know it was a skill issue.",
+		"Thank you, %s, for allowing me to participate in this historic marble match.",
 
-		"I hereby agree that if I lose to %s, I will nod respectfully, say 'well played,' and definitely will not spend the next twenty minutes blaming my card draws, the map, the blocks, the gravity, or my internet connection.",
+		"If I lose to %s, I agree to say 'well played' and blame absolutely nothing else.",
 
-		"I understand that staring intensely at the screen does not increase my marble's intelligence. If my strategy fails against %s, I will accept responsibility instead of pretending I had a completely different plan all along.",
+		"I understand that staring at my screen will not make my marble smarter, even against %s.",
 
-		"I certify that I have read absolutely none of the terms and conditions presented before me. Nevertheless, I fully agree that %s is a respectable opponent and that pressing random buttons confidently is a valid competitive strategy.",
+		"I have read none of the terms and conditions, but I agree that %s is a respectable opponent.",
 
-		"I swear that, regardless of the outcome, I will continue telling everyone that I 'almost had it.' Should %s defeat me, I reserve the right to dramatically stare at the replay and claim there was exactly one pixel that changed everything.",
+		"If %s defeats me, I will simply claim that I almost had it.",
 
-		"I acknowledge that every marble has dreams, ambitions, and feelings. I promise to guide mine responsibly and not launch it directly into the nearest wall. If %s wins, I accept that my marble simply chose a different career path.",
+		"I promise to guide my marble responsibly and accept that %s may simply be better than me.",
 
-		"By continuing, I agree to pretend that I carefully calculated every move instead of wildly hoping everything would somehow work out. I also agree that %s looks suspiciously competent, which is frankly a little concerning."
+		"I agree that I carefully calculated every move and definitely did not just get lucky against %s."
 	]
 
 	var text = options.pick_random()
@@ -452,6 +452,8 @@ func do_typing():
 func _on_submit_typing_pressed():
 	if input_box.text == target_text:
 		typing_error.text = "Perfect. You have achieved enlightenment."
+		typing_error.modulate = Color("#5cb85c") # green
+		
 		await get_tree().create_timer(1.5).timeout
 		Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 		queue_free()
@@ -459,7 +461,7 @@ func _on_submit_typing_pressed():
 		var mistakes = count_differences(input_box.text, target_text)
 
 		typing_error.text = "Incorrect. The developer noticed %d mistakes. Please reflect harder." % mistakes
-
+		typing_error.modulate = Color("#d9534f") # red
 
 func count_differences(a: String, b: String) -> int:
 	var count = 0

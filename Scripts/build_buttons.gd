@@ -40,11 +40,11 @@ func update_timer_display():
 	var seconds = int(time_left) % 60
 
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
-
+	
 	if time_left <= 30:
-		timer_label.modulate = Color.RED
+		timer_label.add_theme_color_override("font_color", Color.RED)
 	else:
-		timer_label.modulate = Color.WHITE
+		timer_label.add_theme_color_override("font_color", Color.WHITE)
 	
 	if time_left <= 0 and not timer_finished:
 		timer_finished = true
