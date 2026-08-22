@@ -18,6 +18,12 @@
 # flipped screen (upside down)
 # exchange a card you choose for a random card from your oponent
 
+# Card Tax - randomly remove one unused card.
+# blocks move slower while dragging.
+# lock hand (cant click any cards for a bit)
+# "ARE YOU SURE?" — every time they try to move a block, an annoying confirmation appears for 5 seconds.
+# only rotate, can move for a while
+
 extends Node
 
 var locked = false

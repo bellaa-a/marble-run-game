@@ -106,10 +106,15 @@ func generate_draft():
 
 	# Powerup pair
 	first = powerup_pair * 2
+	
+	var normal_powerups = CardDatabase.powerup_cards.filter(
+		func(c): return c.id != "nothing"
+	)
+
 	setup_different_cards(
 		cards[first],
 		cards[first + 1],
-		CardDatabase.powerup_cards
+		normal_powerups
 	)
 
 	# Mixed block + addon pair

@@ -94,6 +94,8 @@ func stage_to_string(stageName: Enum.Stage) -> String:
 			return "II"
 		Enum.Stage.BOTH:
 			return "I&II"
+		Enum.Stage.NONE:
+			return ""
 		_:
 			return ""
 			

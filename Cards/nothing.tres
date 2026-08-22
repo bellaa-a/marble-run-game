@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DraftCard" load_steps=2 format=3 uid="uid://qdeqwclmvq4u"]
+
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_xiith"]
+
+[resource]
+script = ExtResource("3_xiith")
+id = "nothing"
+type = 2
+stage = 3
+description = "You gambled and got nothing."
+icon_size = Vector2(15, 15)

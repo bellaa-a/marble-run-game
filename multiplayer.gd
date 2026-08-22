@@ -548,6 +548,12 @@ func can_use_powerup(powerup) -> Dictionary:
 			"allowed": false,
 			"message": "Currently using a powerup"
 		}
+	
+	if powerup.card_data.id == "nothing":
+		return {
+			"allowed": false,
+			"message": "Stop trying to do nothing"
+		}
 
 	match powerup.card_data.stage:
 

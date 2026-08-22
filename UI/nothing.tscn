@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fn4ogdldt175"]
+
+[node name="Nothing" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
