@@ -39,7 +39,8 @@ func win_game():
 		get_tree().current_scene.get_node("Buttons")._on_rewind_button_pressed()
 		reset_goal()
 		await get_tree().create_timer(1).timeout
-		get_parent().get_node("Marble").start()
+		#get_parent().get_node("Marble").start()
+		get_tree().current_scene.get_node("Buttons")._on_play_button_pressed()
 
 	else:
 		GameState.game_won = true
