@@ -12,7 +12,8 @@ func _ready() -> void:
 	message_label.text = Multiplayer.win_lose_message
 
 	# Stop gameplay
-	stop_gameplay()
+	if get_tree().current_scene.group_name != "replay":
+		stop_gameplay()
 
 	Multiplayer.opponent_home_pressed.connect(_on_opponent_home_pressed)
 	Multiplayer.both_players_restart.connect(_on_both_players_restart)
