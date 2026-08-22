@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di8cfwpei7tsn"
-path="res://.godot/imported/Firefly_Gemini Flash_Generate a sparkle texture PNG for me. I want a SINGLE sparkle 821875-Photoroom.png-84c339c28b24a628bdb4b6daa31fd229.ctex"
+path="res://.godot/imported/Sparkle.png-7debc0c86cd9794eb68391dfaf33a1f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Firefly_Gemini Flash_Generate a sparkle texture PNG for me. I want a SINGLE sparkle 821875-Photoroom.png"
-dest_files=["res://.godot/imported/Firefly_Gemini Flash_Generate a sparkle texture PNG for me. I want a SINGLE sparkle 821875-Photoroom.png-84c339c28b24a628bdb4b6daa31fd229.ctex"]
+source_file="res://Assets/Sparkle.png"
+dest_files=["res://.godot/imported/Sparkle.png-7debc0c86cd9794eb68391dfaf33a1f8.ctex"]
 
 [params]
 
