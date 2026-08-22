@@ -31,6 +31,7 @@ func _ready():
 	Multiplayer.both_players_ready.connect(_on_both_players_ready)
 	Multiplayer.finish_state_updated.connect(_on_finish_state_updated)
 	Multiplayer.rotation_mode = false
+	Multiplayer.game_finished = false
 
 
 func _exit_tree():

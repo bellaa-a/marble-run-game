@@ -84,6 +84,8 @@ func open_goal():
 
 
 func _on_finish_state_updated():
+	Multiplayer.game_finished = true
+	
 	if Multiplayer.player_finished:
 		Multiplayer.win_lose_result = "You won!"
 		Multiplayer.win_lose_message =  ""

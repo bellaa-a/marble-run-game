@@ -41,6 +41,7 @@ var current_stage := 0
 var dragging_addon := false
 var win_lose_result : String
 var win_lose_message : String
+var game_finished := false
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -475,6 +476,7 @@ func reset_match():
 
 	player_finished = false
 	opponent_finished = false
+	game_finished = false
 	restart_votes.clear()
 
 	opponent_peeking = false
@@ -523,7 +525,7 @@ func powerup_finished():
 
 func can_use_powerup(powerup) -> Dictionary:
 	
-	if player_finished or opponent_finished:
+	if game_finished:
 		return {
 			"allowed": false,
 			"message": ""

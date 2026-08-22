@@ -17,6 +17,7 @@ func _ready() -> void:
 	GameState.game_won = false
 	Multiplayer.rotation_mode = true
 	Multiplayer.opponent_peeking = false
+	Multiplayer.game_finished = false
 	Multiplayer.current_stage = 2
 	Multiplayer.solve_stage = self
 	setup_walls()
