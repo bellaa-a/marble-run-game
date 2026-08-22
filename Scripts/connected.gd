@@ -15,6 +15,11 @@ func _ready():
 	var id2 = Steam.getLobbyMemberByIndex(Multiplayer.lobby_id, 1)
 	$Username2.text = Steam.getFriendPersonaName(id2)
 	
-	await get_tree().create_timer(4).timeout
+	$Sparkle.emitting = true
+	$Sparkle2.emitting = true
+	await get_tree().create_timer(2).timeout
+	$Sparkle.emitting = false
+	$Sparkle2.emitting = false
+	await get_tree().create_timer(2).timeout
 	transition.fade_to_scene("res://Scenes/draft_stage.tscn")
 	

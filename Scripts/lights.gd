@@ -12,6 +12,15 @@ extends Control
 @onready var username2 = $Player2/Username 
 
 var powerup_sender_id: int
+var shader_time := 0.0
+
+func _process(delta):
+	shader_time += delta
+	
+	var shader_material = $Dark.material as ShaderMaterial
+	
+	if shader_material:
+		shader_material.set_shader_parameter("time", shader_time)
 
 func _ready() -> void:
 	if Multiplayer.opponent_is_host():
@@ -21,7 +30,7 @@ func _ready() -> void:
 		username2.text = Multiplayer.get_opponent_name()
 		await lights_off(player2, eyes2, sprite2)
 	
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(18.0).timeout
 	
 	if Multiplayer.opponent_is_host():
 		username1.text = Multiplayer.get_opponent_name()
@@ -46,7 +55,7 @@ func lights_off(character: Node2D, eyes: Polygon2D, player: AnimatedSprite2D):
 	await get_tree().create_timer(0.7).timeout
 
 	press_switch()
-	$Lights.visible = !$Lights.visible
+	$Dark.visible = !$Dark.visible
 	$Click.play()
 	await $Click.finished
 

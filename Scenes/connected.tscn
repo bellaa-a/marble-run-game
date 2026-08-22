@@ -1,10 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh7v6wwd2bcro"]
+[gd_scene load_steps=19 format=3 uid="uid://bh7v6wwd2bcro"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_fd4oj"]
 [ext_resource type="Script" uid="uid://xte1q04lmvk3" path="res://Scripts/connected.gd" id="1_wxpa8"]
+[ext_resource type="Texture2D" uid="uid://47gw3w80y8fd" path="res://Assets/Paper.png" id="3_4odu1"]
 [ext_resource type="Texture2D" uid="uid://b8kpiyoolqs08" path="res://Assets/Player1Wobble.png" id="3_8rano"]
 [ext_resource type="Texture2D" uid="uid://bfg672w4i3vfk" path="res://Assets/Player2Wobble.png" id="4_4odu1"]
 [ext_resource type="AudioStream" uid="uid://b1tu3amfknja6" path="res://Audio/Connected.mp3" id="5_8rano"]
+[ext_resource type="Texture2D" uid="uid://di8cfwpei7tsn" path="res://Scenes/Firefly_Gemini Flash_Generate a sparkle texture PNG for me. I want a SINGLE sparkle 821875-Photoroom.png" id="7_qp72c"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4odu1"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 10, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.01
+scale_max = 0.03
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4odu1"]
 atlas = ExtResource("3_8rano")
@@ -83,21 +97,51 @@ script = ExtResource("1_wxpa8")
 
 [node name="Boarder" parent="." instance=ExtResource("1_fd4oj")]
 
+[node name="Sparkle" type="GPUParticles2D" parent="."]
+position = Vector2(-156, -129)
+amount = 40
+texture = ExtResource("7_qp72c")
+lifetime = 2.0
+randomness = 0.8
+process_material = SubResource("ParticleProcessMaterial_4odu1")
+
+[node name="Sparkle2" type="GPUParticles2D" parent="."]
+position = Vector2(153, 125)
+amount = 40
+texture = ExtResource("7_qp72c")
+lifetime = 2.0
+randomness = 0.8
+process_material = SubResource("ParticleProcessMaterial_4odu1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-0.27169263, -1.6600919)
+rotation = 1.5707964
+scale = Vector2(0.14078501, 0.18656676)
+texture = ExtResource("3_4odu1")
+
+[node name="Shadow" type="ColorRect" parent="Sprite2D2"]
+offset_left = -201.31183
+offset_top = -273.57983
+offset_right = 215.79205
+offset_bottom = 310.56152
+color = Color(0.16862746, 0.14509805, 0.19215687, 0.45882353)
+metadata/_edit_use_anchors_ = true
+
 [node name="Username1" type="Label" parent="."]
-offset_left = -349.0
-offset_top = -81.625
-offset_right = 169.0
-offset_bottom = -45.625
+offset_left = -413.0
+offset_top = -92.625
+offset_right = 105.0
+offset_bottom = -56.625
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Username1"
 horizontal_alignment = 1
 
 [node name="Username2" type="Label" parent="."]
-offset_left = -105.0
-offset_top = 21.0
-offset_right = 347.0
-offset_bottom = 57.0
+offset_left = -70.0
+offset_top = 38.0
+offset_right = 382.0
+offset_bottom = 74.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Username2"
@@ -108,34 +152,33 @@ offset_left = -34.0
 offset_top = -44.0
 offset_right = 36.0
 offset_bottom = 16.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "V.S."
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -112.0
-offset_top = -149.62502
-offset_right = -77.0
-offset_bottom = -136.62502
+offset_left = -176.0
+offset_top = -149.625
+offset_right = -141.0
+offset_bottom = -136.625
 color = Color(0, 0, 0, 1)
 
 [node name="Player1" type="AnimatedSprite2D" parent="."]
-position = Vector2(-97, -129)
+position = Vector2(-161, -129)
 scale = Vector2(0.63793105, 0.59432507)
 sprite_frames = SubResource("SpriteFrames_1125o")
 frame = 1
 frame_progress = 0.6179795
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 103.48935
+offset_left = 138.48935
 offset_top = 104.3623
-offset_right = 138.48935
+offset_right = 173.48935
 offset_bottom = 117.3623
 color = Color(0, 0, 0, 1)
 
 [node name="Player2" type="AnimatedSprite2D" parent="."]
-position = Vector2(120.5, 126.53125)
+position = Vector2(155.5, 126.53125)
 scale = Vector2(0.6148648, 0.55789876)
 sprite_frames = SubResource("SpriteFrames_pj0mx")
 frame = 1

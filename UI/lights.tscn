@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dxmy2dd88tv4a"]
+[gd_scene load_steps=26 format=3 uid="uid://dxmy2dd88tv4a"]
 
 [ext_resource type="Script" uid="uid://cgd68y5xbnb3j" path="res://Scripts/lights.gd" id="1_ywme2"]
 [ext_resource type="PackedScene" uid="uid://nfuerqd5q0hu" path="res://Scenes/light_switch.tscn" id="2_a6oa8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bfrdvgpqikrff" path="res://Assets/Player2Press.png" id="5_5ho1l"]
 [ext_resource type="Texture2D" uid="uid://dmcn0yi8ewcgy" path="res://Assets/Player2Walk.png" id="6_wpprg"]
 [ext_resource type="AudioStream" uid="uid://md61jcp2w41t" path="res://Audio/click.ogg" id="7_e8oni"]
+[ext_resource type="Shader" uid="uid://o4ew48jn1ydt" path="res://Scripts/dark.gdshader" id="8_a6oa8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqthk"]
 atlas = ExtResource("3_acovt")
@@ -132,6 +133,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acovt"]
+shader = ExtResource("8_a6oa8")
+shader_parameter/light_count = 0
+shader_parameter/light_points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_sizes = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/time = 0.0
+
 [node name="Lights" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -197,8 +205,9 @@ horizontal_alignment = 1
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_e8oni")
 
-[node name="Lights" type="ColorRect" parent="."]
+[node name="Dark" type="ColorRect" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_acovt")
 layout_mode = 0
 offset_right = 1711.4285
 offset_bottom = 978.57135

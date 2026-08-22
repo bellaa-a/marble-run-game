@@ -460,7 +460,7 @@ func _on_submit_typing_pressed():
 	else:
 		var mistakes = count_differences(input_box.text, target_text)
 
-		typing_error.text = "Incorrect. The developer noticed %d mistakes. Please reflect harder." % mistakes
+		typing_error.text = "Incorrect. The developer noticed %d mistake(s). Please reflect harder." % mistakes
 		typing_error.modulate = Color("#d9534f") # red
 
 func count_differences(a: String, b: String) -> int:
