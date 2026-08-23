@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://h0seyj8ma8mi"]
+
+[ext_resource type="Texture2D" uid="uid://u4pvsmkny3d3" path="res://Assets/SpeedBoost.png" id="1_osx32"]
+[ext_resource type="PackedScene" uid="uid://cjtvahvlf0wyb" path="res://Scenes/multiplayer_speed_boost.tscn" id="3_gdy54"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="4_d2mrq"]
+
+[resource]
+script = ExtResource("4_d2mrq")
+id = "speed_boost"
+type = 1
+description = "Gives the marble a little speed boost."
+icon = ExtResource("1_osx32")
+icon_size = Vector2(30, 30)
+scene = ExtResource("3_gdy54")
+preview_scene = ExtResource("3_gdy54")

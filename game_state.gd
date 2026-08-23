@@ -25,6 +25,8 @@
 # only rotate, cant move block for a while
 # quacks
 
+# add on: speed boost, slow, magnet
+
 extends Node
 
 var locked = false
@@ -90,7 +92,7 @@ func _process(delta):
 
 func _ready():
 	load_progress()
-	
+
 
 func _notification(what):
 	if what == NOTIFICATION_APPLICATION_FOCUS_IN:

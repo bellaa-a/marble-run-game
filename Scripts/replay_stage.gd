@@ -25,6 +25,8 @@ func _ready() -> void:
 	update_blocks()
 	update_addons()
 	
+	$Buttons._on_rewind_button_pressed()
+	await get_tree().create_timer(1.0).timeout
 	$Buttons._on_play_button_pressed()
 
 

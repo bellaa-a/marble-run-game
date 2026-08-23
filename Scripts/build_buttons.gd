@@ -42,7 +42,7 @@ func update_timer_display():
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 	
 	if time_left <= 30:
-		timer_label.add_theme_color_override("font_color", Color("#d9534f")) # red
+		timer_label.add_theme_color_override("font_color", Color("822726ff")) # red
 	else:
 		timer_label.add_theme_color_override("font_color", Color("312018"))
 	
