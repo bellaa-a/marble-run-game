@@ -8,6 +8,11 @@ var necessary_cards: Array[DraftCard] = []
 
 
 func load_cards():
+	block_cards.clear()
+	addon_cards.clear()
+	powerup_cards.clear()
+	necessary_cards.clear()
+
 	var dir = DirAccess.open(CARD_FOLDER)
 
 	if dir == null:
