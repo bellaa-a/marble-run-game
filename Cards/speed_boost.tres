@@ -8,8 +8,8 @@
 script = ExtResource("4_d2mrq")
 id = "speed_boost"
 type = 1
-description = "Gives the marble a little speed boost."
+description = "Gives marbles a boost."
 icon = ExtResource("1_osx32")
-icon_size = Vector2(30, 30)
+icon_size = Vector2(35, 35)
 scene = ExtResource("3_gdy54")
 preview_scene = ExtResource("3_gdy54")

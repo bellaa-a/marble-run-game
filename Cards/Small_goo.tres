@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DraftCard" load_steps=5 format=3 uid="uid://bs63tpre8y1h2"]
+
+[ext_resource type="Texture2D" uid="uid://dxuoyx6x0r0eg" path="res://Assets/Goo2.png" id="1_gwgfy"]
+[ext_resource type="PackedScene" uid="uid://dqpg5j87gxhsl" path="res://Scenes/goo2.tscn" id="2_gwgfy"]
+[ext_resource type="PackedScene" uid="uid://d3w5qhwwxhflx" path="res://Scenes/multiplayer_goo2.tscn" id="3_gwgfy"]
+[ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="4_g687f"]
+
+[resource]
+script = ExtResource("4_g687f")
+id = "small_goo"
+type = 1
+description = "Small goo. Marble resets if touched."
+icon = ExtResource("1_gwgfy")
+icon_size = Vector2(40, 7)
+scene = ExtResource("3_gwgfy")
+preview_scene = ExtResource("2_gwgfy")

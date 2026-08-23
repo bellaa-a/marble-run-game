@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3w5qhwwxhflx"]
+
+[ext_resource type="Script" uid="uid://biwuwrp6mgege" path="res://Scripts/goo.gd" id="1_6hafr"]
+[ext_resource type="Script" uid="uid://clkihq1wxqg07" path="res://Scripts/addon_area_2d.gd" id="2_f4gil"]
+[ext_resource type="Texture2D" uid="uid://dxuoyx6x0r0eg" path="res://Assets/Goo2.png" id="2_hvcwd"]
+[ext_resource type="AudioStream" uid="uid://rmtmirh7ebgc" path="res://Audio/GooSound.mp3" id="3_f4gil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sid4v"]
+size = Vector2(71, 5)
+
+[node name="Goo2" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 63
+script = ExtResource("1_6hafr")
+
+[node name="DragArea" type="Area2D" parent="."]
+script = ExtResource("2_f4gil")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DragArea"]
+polygon = PackedVector2Array(-2, -3, -13, -2, -18, -2, -29, 1, -26, 3, -9, 5, 13, 4, 24, 3, 25, 4, 32, 4, 33, 3, 42, 1, 40, -1, 27, -2, 15, -4, 2, -4)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-2, -3, -13, -2, -18, -2, -29, 1, -26, 3, -9, 5, 13, 4, 24, 3, 25, 4, 32, 4, 33, 3, 42, 1, 40, -1, 27, -2, 15, -4, 2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 2.5)
+shape = SubResource("RectangleShape2D_sid4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, 0.50000024)
+scale = Vector2(0.18634684, 0.1118421)
+texture = ExtResource("2_hvcwd")
+
+[node name="GooSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f4gil")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

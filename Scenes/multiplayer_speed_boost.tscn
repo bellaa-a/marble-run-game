@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjtvahvlf0wyb"]
+[gd_scene load_steps=7 format=3 uid="uid://cjtvahvlf0wyb"]
 
 [ext_resource type="Script" uid="uid://bbth2mbfc7inn" path="res://Scripts/multiplayer_speed_boost.gd" id="1_gk6yj"]
 [ext_resource type="Script" uid="uid://clkihq1wxqg07" path="res://Scripts/addon_area_2d.gd" id="2_6kc4y"]
 [ext_resource type="Texture2D" uid="uid://u4pvsmkny3d3" path="res://Assets/SpeedBoost.png" id="3_gk6yj"]
-[ext_resource type="Texture2D" uid="uid://3ld536hwbg1o" path="res://Assets/GravitySwitchPressed.png" id="4_wvq22"]
+[ext_resource type="Texture2D" uid="uid://rkagc861jvxi" path="res://Assets/SpeedBoostPressed.png" id="4_gk6yj"]
+[ext_resource type="AudioStream" uid="uid://cyh28u7qpd4dh" path="res://Audio/whoosh.mp3" id="5_6kc4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woben"]
 size = Vector2(35.00009, 34.999424)
@@ -34,11 +35,15 @@ position = Vector2(-1, 2.4999993)
 scale = Vector2(0.0390625, 0.034179684)
 texture = ExtResource("3_gk6yj")
 
-[node name="GravityButtonPressed" type="Sprite2D" parent="."]
+[node name="SpeedBoostPressed" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, 0.5000003)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_wvq22")
+position = Vector2(-1.0000007, 0.84374547)
+scale = Vector2(0.017942583, 0.016671086)
+texture = ExtResource("4_gk6yj")
+
+[node name="Whoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6kc4y")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
