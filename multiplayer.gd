@@ -520,15 +520,12 @@ func use_powerup(card_id: String):
 		solve_stage.effect_layer.add_child(effect)
 
 
-func remove_all_powerups():
-	var effect_layer
+func remove_all_layers():
 
-	if solve_stage == null:
-		effect_layer = build_stage.effect_layer
-	else:
-		effect_layer = solve_stage.effect_layer
-
-	for child in effect_layer.get_children():
+	for child in build_stage.effect_layer.get_children():
+		child.queue_free()
+	
+	for child in build_stage.confirm_layer.get_children():
 		child.queue_free()
 
 	active_powerup = false
