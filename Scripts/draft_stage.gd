@@ -45,6 +45,10 @@ func _ready():
 	add_to_group("draft")
 	CardDatabase.load_cards()
 	generate_draft()
+
+	var minutes = int(Multiplayer.stage_one_time) / 60
+	var seconds = int(Multiplayer.stage_one_time) % 60
+	$TimerLabel.text = "%02d:%02d" % [minutes, seconds]
 	
 	Multiplayer.player_inventory.append({
 		"id": "open_goal",
@@ -322,10 +326,11 @@ func resolve_mystery_card(card):
 
 	var final_powerup
 
-	if randf() < 1.0 / 3.0:
-		final_powerup = CardDatabase.get_card_by_id("nothing")
-	else:
-		final_powerup = possible_powerups.pick_random()
+	final_powerup = CardDatabase.get_card_by_id("nothing")
+	#if randf() < 1.0 / 3.0:
+		#final_powerup = CardDatabase.get_card_by_id("nothing")
+	#else:
+		#final_powerup = possible_powerups.pick_random()
 
 	# Random flashing animation
 	for i in range(5):

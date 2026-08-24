@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DraftCard" load_steps=3 format=3 uid="uid://qdeqwclmvq4u"]
+[gd_resource type="Resource" script_class="DraftCard" load_steps=4 format=3 uid="uid://qdeqwclmvq4u"]
 
 [ext_resource type="Texture2D" uid="uid://bpt2uanjf3igh" path="res://Assets/nothing.png" id="1_vhfgf"]
+[ext_resource type="PackedScene" uid="uid://fn4ogdldt175" path="res://UI/nothing.tscn" id="2_earqn"]
 [ext_resource type="Script" uid="uid://d1ccagrg8ycgc" path="res://Scripts/draft_card.gd" id="3_xiith"]
 
 [resource]
@@ -11,3 +12,4 @@ stage = 3
 description = "You gambled and got nothing."
 icon = ExtResource("1_vhfgf")
 icon_size = Vector2(15, 15)
+scene = ExtResource("2_earqn")
