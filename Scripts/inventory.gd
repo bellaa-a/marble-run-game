@@ -64,6 +64,8 @@ func _on_powerup_clicked(card):
 			await get_tree().create_timer(1).timeout
 			$ErrorMessage.text = ""
 		return
+	
+	$ErrorMessage.text = result["message"]
 
 	Multiplayer.active_powerup = true
 
@@ -76,3 +78,6 @@ func _on_powerup_clicked(card):
 	if card.card_data.id == "beg":
 		var authenticator = preload("res://UI/authenticator_code.tscn").instantiate()
 		effect_layer.add_child(authenticator)
+	
+	await get_tree().create_timer(1).timeout
+	$ErrorMessage.text = ""
