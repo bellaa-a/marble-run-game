@@ -48,6 +48,7 @@ func update_timer_display():
 	
 	if time_left <= 0 and not timer_finished:
 		timer_finished = true
+		Multiplayer.remove_all_powerups()
 		
 		if Multiplayer.opponent_finished:
 			Multiplayer.player_finished_stage.rpc(false)

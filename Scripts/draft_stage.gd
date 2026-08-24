@@ -326,11 +326,10 @@ func resolve_mystery_card(card):
 
 	var final_powerup
 
-	final_powerup = CardDatabase.get_card_by_id("nothing")
-	#if randf() < 1.0 / 3.0:
-		#final_powerup = CardDatabase.get_card_by_id("nothing")
-	#else:
-		#final_powerup = possible_powerups.pick_random()
+	if randf() < 1.0 / 3.0:
+		final_powerup = CardDatabase.get_card_by_id("nothing")
+	else:
+		final_powerup = possible_powerups.pick_random()
 
 	# Random flashing animation
 	for i in range(5):
