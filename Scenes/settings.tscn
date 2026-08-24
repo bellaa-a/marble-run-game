@@ -16,11 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://b4c3fh2dm8fie" path="res://Assets/HoverSave.png" id="11_g8dc3"]
 
 [node name="Settings" type="Node2D"]
-process_mode = 2
+process_mode = 3
 script = ExtResource("1_4geyq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 2
+process_mode = 3
 
 [node name="Background" type="Control" parent="CanvasLayer"]
 layout_mode = 3

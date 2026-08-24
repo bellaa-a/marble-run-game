@@ -5,7 +5,8 @@ extends Node2D
 @onready var click: AudioStreamPlayer2D = $CanvasLayer/General/Click
 
 func _ready():
-	get_tree().paused = true
+	#get_tree().paused = true
+	GameState.locked = true
 
 	music_slider.value = GameState.music_volume
 	sound_slider.value = GameState.sfx_volume
@@ -37,8 +38,9 @@ func _on_save_pressed() -> void:
 	GameState.sfx_volume = sound_slider.value
 	GameState.save_progress()
 
+	#get_tree().paused = false
+	GameState.locked = false
 	queue_free()
-	get_tree().paused = false
 
 # -------------------------
 # CLOSE WITHOUT SAVING
@@ -50,8 +52,9 @@ func _on_cancel_pressed() -> void:
 	GameState._apply_bus_volume("Music", GameState.music_volume)
 	GameState._apply_bus_volume("SFX", GameState.sfx_volume)
 
+	#get_tree().paused = false
+	GameState.locked = false
 	queue_free()
-	get_tree().paused = false
 	
 
 func _on_restart_pressed() -> void:
@@ -74,10 +77,12 @@ func _on_back_pressed() -> void:
 
 func _on_confirm_pressed() -> void:
 	GameState.reset_progress()
-	queue_free()
-	get_tree().paused = false
+	
+	#get_tree().paused = false
+	GameState.locked = false
 	transition.fade_to_scene("res://Scenes/start.tscn", true)
-
+	
+	queue_free()
 
 func _on_home_pressed() -> void:
 	_on_cancel_pressed()
@@ -85,6 +90,8 @@ func _on_home_pressed() -> void:
 	transition.fade_to_scene("res://Scenes/start.tscn")
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		_on_cancel_pressed()
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_ESCAPE:
+			get_viewport().set_input_as_handled()
+			_on_cancel_pressed()
