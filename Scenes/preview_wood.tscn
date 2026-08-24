@@ -16,4 +16,5 @@ offset_top = -67.0
 offset_right = 134.0
 offset_bottom = 62.0
 scale = Vector2(1, 1.0799999)
+mouse_filter = 2
 texture = ExtResource("5_vekbb")

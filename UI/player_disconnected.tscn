@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdtu1cgcv66nm" path="res://Scripts/player_disconnected.gd" id="1_bu72u"]
 
 [node name="PlayerDisconnected" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_bu72u")
 
 [node name="Timer" type="Timer" parent="."]

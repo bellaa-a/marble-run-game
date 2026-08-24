@@ -26,11 +26,8 @@ func flip_camera(upside_down: bool):
 		camera,
 		"zoom",
 		Vector2(3.0, 3.0),
-		0.75
+		2.0
 	)
-
-	await zoom_in.finished
-
 
 	# Flip
 	var flip = create_tween()
@@ -41,9 +38,9 @@ func flip_camera(upside_down: bool):
 		camera,
 		"rotation",
 		target_rotation,
-		1.5
+		2.0
 	)
-
+	await zoom_in.finished
 	await flip.finished
 
 

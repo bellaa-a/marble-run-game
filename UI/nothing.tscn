@@ -65,19 +65,129 @@ parameters/looping = true
 stream = ExtResource("1_xjpqy")
 parameters/looping = true
 
+[node name="Quack4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_xjpqy")
+parameters/looping = true
+
+[node name="Quack5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_xjpqy")
+parameters/looping = true
+
 [node name="Duck" type="AnimatedSprite2D" parent="."]
-position = Vector2(756, 148)
+position = Vector2(868.75, 148.75)
 sprite_frames = SubResource("SpriteFrames_r2lcp")
 animation = &"walk"
 
 [node name="Duck2" type="AnimatedSprite2D" parent="."]
-position = Vector2(788, 173)
-scale = Vector2(0.37804797, 0.36231902)
+position = Vector2(906.75, 147.75002)
+scale = Vector2(0.8963414, 0.7989132)
 sprite_frames = SubResource("SpriteFrames_r2lcp")
 animation = &"walk"
 
 [node name="Duck3" type="AnimatedSprite2D" parent="."]
-position = Vector2(804, 147)
-scale = Vector2(0.5731712, 0.52536255)
+position = Vector2(1063.6875, 157.75)
+scale = Vector2(0.58231527, 0.45289862)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1089.2188, 153.0625)
+scale = Vector2(0.5106684, 0.41485518)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1112.6874, 159.75)
+scale = Vector2(0.4504565, 0.36684796)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck6" type="AnimatedSprite2D" parent="."]
+position = Vector2(1131.6873, 153.75)
+scale = Vector2(0.42035025, 0.31385875)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck7" type="AnimatedSprite2D" parent="."]
+position = Vector2(1149.6875, 157.74998)
+scale = Vector2(0.38090736, 0.28736404)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck8" type="AnimatedSprite2D" parent="."]
+position = Vector2(1165.6874, 157.75002)
+scale = Vector2(0.33679372, 0.24513116)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck9" type="AnimatedSprite2D" parent="."]
+position = Vector2(1179.6012, 157.23926)
+scale = Vector2(0.27322382, 0.20983364)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck10" type="AnimatedSprite2D" parent="."]
+position = Vector2(1200.375, 156.875)
+scale = Vector2(0.21341373, 0.1413044)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck11" type="AnimatedSprite2D" parent="."]
+position = Vector2(1190.9567, 158.30713)
+scale = Vector2(0.2417872, 0.18281545)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck12" type="AnimatedSprite2D" parent="."]
+position = Vector2(1208.375, 158.59106)
+scale = Vector2(0.17682979, 0.13307431)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck13" type="AnimatedSprite2D" parent="."]
+position = Vector2(1216.0371, 158.09106)
+scale = Vector2(0.14452744, 0.11858137)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck14" type="AnimatedSprite2D" parent="."]
+position = Vector2(1224.0371, 158.59106)
+scale = Vector2(0.1445305, 0.104088746)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck15" type="AnimatedSprite2D" parent="."]
+position = Vector2(1232.6876, 160.75)
+scale = Vector2(0.12746763, 0.09948185)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck16" type="AnimatedSprite2D" parent="."]
+position = Vector2(943.75, 153.75)
+scale = Vector2(0.8384146, 0.7182974)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck17" type="AnimatedSprite2D" parent="."]
+position = Vector2(972.15625, 150.14063)
+scale = Vector2(0.8094483, 0.64900386)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck18" type="AnimatedSprite2D" parent="."]
+position = Vector2(1004.9532, 154.44531)
+scale = Vector2(0.72179705, 0.57087874)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck19" type="AnimatedSprite2D" parent="."]
+position = Vector2(1034.7499, 153.75)
+scale = Vector2(0.677972, 0.5028308)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck20" type="AnimatedSprite2D" parent="."]
+position = Vector2(819.75, 140.75)
+scale = Vector2(1.304878, 1.2391304)
 sprite_frames = SubResource("SpriteFrames_r2lcp")
 animation = &"walk"

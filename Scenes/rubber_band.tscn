@@ -96,6 +96,7 @@ offset_top = -88.095245
 offset_right = 48.4545
 offset_bottom = 39.904755
 scale = Vector2(1.25, 1.383)
+mouse_filter = 2
 texture = ExtResource("6_dhvx1")
 
 [node name="BandUp" type="Area2D" parent="."]

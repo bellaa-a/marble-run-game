@@ -16,6 +16,7 @@ var timer_finished := false
 func _ready():
 	pipe.global_position = Multiplayer.pipe_position
 	goal.global_position = Multiplayer.goal_position
+	$Peek.global_position = pipe.global_position + Vector2(13, 15)
 	
 	time_left = Multiplayer.stage_one_time_left
 	update_timer_display()

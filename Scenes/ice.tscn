@@ -64,6 +64,7 @@ offset_top = -28.0
 offset_right = 64.0
 offset_bottom = 101.19896
 pivot_offset = Vector2(64, 28)
+mouse_filter = 2
 texture = ExtResource("8_2oicu")
 
 [node name="BreakingIce" type="AnimatedSprite2D" parent="."]

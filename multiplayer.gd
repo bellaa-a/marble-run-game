@@ -573,6 +573,12 @@ func can_use_powerup(powerup) -> Dictionary:
 				"message": "Fine, I'll send over some quacks."
 			}
 
+		if nothing_attempts >= 5:
+			return {
+				"allowed": false,
+				"message": "Maybe there's more to nothing than meets the eye..."
+			}
+
 		return {
 			"allowed": false,
 			"message": "Stop trying to do nothing"
