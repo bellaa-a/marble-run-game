@@ -8,7 +8,7 @@ var frame = 0
 func _ready() -> void:
 	get_tree().paused = false
 	$Timer.start()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.5).timeout
 	transition.fade_to_scene("res://Scenes/rooms.tscn")
 
 
