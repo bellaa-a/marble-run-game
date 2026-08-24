@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var effect_layer = $EffectLayer
+@onready var confirm_layer = $ConfirmLayer
 @onready var pipe = $Pipe
 @onready var marble = $Marble
 @onready var goal = $MultiplayerGoal
