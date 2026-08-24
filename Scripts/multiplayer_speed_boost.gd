@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const SPEED_BOOST := 4
+const SPEED_BOOST := 2
 
 func _ready():
 	add_to_group("buttons")

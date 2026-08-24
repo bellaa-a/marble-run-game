@@ -24,6 +24,7 @@
 # "ARE YOU SURE?" — every time they try to move a block, an annoying confirmation appears for 5 seconds.
 # only rotate, cant move block for a while
 # quacks
+# limit number of times to run marble
 
 # add on: speed boost, slow, magnet
 

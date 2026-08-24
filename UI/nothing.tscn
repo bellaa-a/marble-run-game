@@ -1,6 +1,83 @@
-[gd_scene format=3 uid="uid://fn4ogdldt175"]
+[gd_scene load_steps=10 format=3 uid="uid://fn4ogdldt175"]
+
+[ext_resource type="Script" uid="uid://cjlake2m880yu" path="res://Scripts/nothing.gd" id="1_4nrdc"]
+[ext_resource type="AudioStream" uid="uid://dqsxg21angk2k" path="res://Audio/Quack.mp3" id="1_xjpqy"]
+[ext_resource type="Texture2D" uid="uid://cd5aoxs0gdh42" path="res://Assets/Duck1.png" id="3_onxvc"]
+[ext_resource type="Texture2D" uid="uid://d3jn37ixm7gy1" path="res://Assets/Duck2.png" id="4_srsvh"]
+[ext_resource type="Texture2D" uid="uid://d0wm5k8m75g82" path="res://Assets/duck3.png" id="5_vtem4"]
+[ext_resource type="Texture2D" uid="uid://2tfq2wmy3lp4" path="res://Assets/Duck4.png" id="6_1p3gp"]
+[ext_resource type="Texture2D" uid="uid://cx1jdlkdunac3" path="res://Assets/duck5.png" id="7_6lgjh"]
+[ext_resource type="Texture2D" uid="uid://bqyjin61kfhny" path="res://Assets/duck6.png" id="8_uxsuy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2lcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_onxvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_srsvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vtem4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1p3gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6lgjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6lgjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uxsuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1p3gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vtem4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_srsvh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 15.0
+}]
 
 [node name="Nothing" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
+script = ExtResource("1_4nrdc")
+
+[node name="Quack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_xjpqy")
+parameters/looping = true
+
+[node name="Quack2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_xjpqy")
+parameters/looping = true
+
+[node name="Quack3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_xjpqy")
+parameters/looping = true
+
+[node name="Duck" type="AnimatedSprite2D" parent="."]
+position = Vector2(756, 148)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck2" type="AnimatedSprite2D" parent="."]
+position = Vector2(788, 173)
+scale = Vector2(0.37804797, 0.36231902)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"
+
+[node name="Duck3" type="AnimatedSprite2D" parent="."]
+position = Vector2(804, 147)
+scale = Vector2(0.5731712, 0.52536255)
+sprite_frames = SubResource("SpriteFrames_r2lcp")
+animation = &"walk"

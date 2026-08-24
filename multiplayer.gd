@@ -42,6 +42,7 @@ var dragging_addon := false
 var win_lose_result : String
 var win_lose_message : String
 var game_finished := false
+var nothing_attempts := 0
 
 const CODE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -493,6 +494,7 @@ func reset_match():
 	win_lose_message = ""
 
 	GameState.locked = false
+	nothing_attempts = 0
 	
 
 func send_powerup(card_id: String):
@@ -550,6 +552,16 @@ func can_use_powerup(powerup) -> Dictionary:
 		}
 	
 	if powerup.card_data.id == "nothing":
+		nothing_attempts += 1
+
+		if nothing_attempts >= 10:
+			nothing_attempts = 0
+			Multiplayer.unlock_achievement("DUCK")
+			return {
+				"allowed": true,
+				"message": "Fine, I'll send over some quacks."
+			}
+
 		return {
 			"allowed": false,
 			"message": "Stop trying to do nothing"
@@ -576,7 +588,7 @@ func can_use_powerup(powerup) -> Dictionary:
 
 	return {
 		"allowed": true,
-		"message": ""
+		"message": "Sent!"
 	}
 	
 	
@@ -710,6 +722,8 @@ func restart_match(
 ):
 	pipe_position = new_pipe_position
 	goal_position = new_goal_position
+	
+	nothing_attempts = 0
 
 	both_players_restart.emit()
 	
