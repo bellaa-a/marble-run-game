@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbmgfpu56bjpo"]
+[gd_scene load_steps=14 format=3 uid="uid://bbmgfpu56bjpo"]
 
 [ext_resource type="PackedScene" uid="uid://b5bu36pmf8anp" path="res://Scenes/boarder.tscn" id="1_bob5p"]
 [ext_resource type="Script" uid="uid://8f6wko5qbweu" path="res://Scripts/solve_stage.gd" id="1_u4usd"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b00kon7n1lrws" path="res://Scenes/wall_bottom.tscn" id="10_ia0j4"]
 [ext_resource type="PackedScene" uid="uid://c206axae8o22o" path="res://Scenes/left_wall.tscn" id="10_rdcpn"]
 [ext_resource type="PackedScene" uid="uid://c5o4xphb75wfv" path="res://Scenes/right_wall.tscn" id="12_aetw5"]
+[ext_resource type="AudioStream" uid="uid://coa7j8yaw55rx" path="res://Audio/Bell.mp3" id="13_aetw5"]
 
 [node name="SolveStage" type="Node2D"]
 script = ExtResource("1_u4usd")
@@ -62,3 +63,7 @@ position = Vector2(-374, 18)
 
 [node name="RightWall" parent="Walls" instance=ExtResource("12_aetw5")]
 position = Vector2(377, 18)
+
+[node name="Bell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_aetw5")
+pitch_scale = 3.0
