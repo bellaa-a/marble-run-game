@@ -32,7 +32,6 @@ func _ready() -> void:
 	
 
 func _on_ready_button_pressed():
-	print("pressed")
 	$Click.play()
 	await $Click.finished
 	Multiplayer.set_ready.rpc(multiplayer.get_unique_id())
@@ -71,8 +70,5 @@ func _on_both_players_ready():
 
 
 func check_both_ready():
-	print("checking both ready")
-	print("host ready: ", Multiplayer.host_ready)
-	print("client ready: ", Multiplayer.client_ready)
 	if Multiplayer.host_ready and Multiplayer.client_ready:
 		_on_both_players_ready()

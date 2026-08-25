@@ -29,6 +29,7 @@ CardDatabase="*res://Scripts/card_database.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [gui]

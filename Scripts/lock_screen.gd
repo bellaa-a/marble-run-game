@@ -452,8 +452,8 @@ func do_typing():
 func _on_submit_typing_pressed():
 	if input_box.text == target_text:
 		typing_error.text = "Perfect. You have achieved enlightenment."
-		typing_error.modulate = Color("#5cb85c") # green
-		
+		typing_error.add_theme_color_override("font_color", Color("#5cb85c"))
+
 		await get_tree().create_timer(1.5).timeout
 		Multiplayer.powerup_finished.rpc_id(powerup_sender_id)
 		queue_free()
@@ -461,8 +461,9 @@ func _on_submit_typing_pressed():
 		var mistakes = count_differences(input_box.text, target_text)
 
 		typing_error.text = "Incorrect. The developer noticed %d mistake(s). Please reflect harder." % mistakes
-		typing_error.modulate = Color("#d9534f") # red
-
+		typing_error.add_theme_color_override("font_color", Color("#d9534f"))
+		
+		
 func count_differences(a: String, b: String) -> int:
 	var count = 0
 	var length = min(a.length(), b.length())

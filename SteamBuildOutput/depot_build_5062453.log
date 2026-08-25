@@ -1,0 +1,15 @@
+[2026-08-24 16:25:34]: Starting build for depot 5062453, content path is "/Users/bellalu/marble-run/SteamBuildWindows/", build flags 0x0
+[2026-08-24 16:25:34]: Building file listing for depot 5062453 ...
+[2026-08-24 16:25:34]: Found 4 files for mapping: /Users/bellalu/marble-run/SteamBuildWindows * -> .
+[2026-08-24 16:25:34]: Found 4 files (131 MB) for depot 5062453
+[2026-08-24 16:25:34]: Building depot 5062453, no baseline manifest
+[2026-08-24 16:25:35]: Found 134 new chunks ( 0 used previously ) for depot 5062453, took 0 minutes, 0 seconds
+[2026-08-24 16:25:35]: Changes to baseline manifest 0 :
+[2026-08-24 16:25:35]: Added  : "INvent.exe" 94403 KB 
+[2026-08-24 16:25:35]: Added  : "INvent.pck" 36351 KB 
+[2026-08-24 16:25:35]: Added  : "libgodotsteam.windows.template_release.x86_64.dll" 3845 KB 
+[2026-08-24 16:25:35]: Added  : "steam_api64.dll" 310 KB 
+[2026-08-24 16:25:35]: Summary: 4 files added (131.75 MB), 0 files changed (0 bytes), 0 files removed (0 bytes)
+[2026-08-24 16:25:35]: Uploading new manifest to depot-ingest.discovery.steamserver.net (handle 7672112459587545178, 4723 bytes).
+[2026-08-24 16:25:35]: Uploading 101 out of 101 missing chunks.
+[2026-08-24 16:25:39]: Success! New manifestID 1579496309359112845 created and 101 new chunks uploaded.

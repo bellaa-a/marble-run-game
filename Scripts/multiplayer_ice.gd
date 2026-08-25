@@ -100,7 +100,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 
 	var speed_before = body.previous_velocity.length()
-	print(speed_before)
 	
 	if speed_before >= break_force_threshold:
 		break_ice()

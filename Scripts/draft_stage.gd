@@ -223,9 +223,6 @@ func send_opponent_cards():
 
 
 func receive_opponent_cards(card_ids: Array[String]):
-
-	print("Received opponent cards:", card_ids)
-
 	# Store exactly what opponent discarded
 	pending_opponent_cards = card_ids
 	opponent_finished_picking = true
@@ -306,7 +303,6 @@ func try_finish_draft():
 	if not opponent_finished_picking:
 		return
 
-	print("Both players finished draft!")
 	$Instructions.visible = false
 
 	# move to next stage here

@@ -67,8 +67,6 @@ func _ready():
 
 	await get_tree().create_timer(1.0).timeout
 
-	print("Steam ID:", Steam.getSteamID())
-
 
 func setup_multiplayer_signals():
 
@@ -98,7 +96,6 @@ func _on_peer_connected(id):
 
 		game_started = true
 
-		print("Starting game setup")
 		randomize_layout()
 
 		lobby_ready.emit()
@@ -106,7 +103,6 @@ func _on_peer_connected(id):
 
 func _on_server_disconnected():
 	get_tree().change_scene_to_file("res://UI/player_disconnected.tscn")
-	print("Server disconnected")
 
 func _process(_delta):
 	Steam.run_callbacks()
@@ -128,8 +124,6 @@ func randomize_layout():
 		170
 	)
 
-	print("Generated layout:", pipe_position, goal_position)
-
 	sync_layout.rpc(
 		pipe_position,
 		goal_position
@@ -148,11 +142,6 @@ func sync_layout(
 	pipe_position = pipe_pos
 	goal_position = goal_pos
 
-	print(
-		"Received layout:",
-		pipe_position,
-		goal_position
-	)
 
 
 	if not layout_received:
@@ -166,12 +155,6 @@ func sync_layout(
 
 @rpc("any_peer", "call_remote", "reliable")
 func send_discarded_cards(cards: Array[String]):
-
-	print(
-		"Received opponent discarded cards:",
-		cards
-	)
-
 	get_tree().call_group(
 		"draft",
 		"receive_opponent_cards",
@@ -185,13 +168,10 @@ func send_discarded_cards(cards: Array[String]):
 
 func host_game():
 	if lobby_id != 0:
-		print("Already in lobby")
 		return
 
 	#reset_match()
 	is_host = true
-
-	print("Creating lobby...")
 
 	Steam.createLobby(
 		Steam.LOBBY_TYPE_PUBLIC,
@@ -205,7 +185,6 @@ func _on_lobby_created(
 ):
 
 	if not success:
-
 		print("Failed to create lobby")
 		return
 
@@ -220,10 +199,6 @@ func _on_lobby_created(
 		lobby_code
 	)
 
-	print("Lobby created:", lobby_id)
-	print("Room Code:", lobby_code)
-
-
 	await get_tree().create_timer(0.5).timeout
 
 
@@ -231,19 +206,10 @@ func _on_lobby_created(
 
 	var result = peer.create_host()
 
-	print("Host result:", result)
-
-
 	if result == OK:
 
 		multiplayer.multiplayer_peer = peer
 		setup_multiplayer_signals()
-
-		print("Steam host started")
-		print(
-			"My peer ID:",
-			multiplayer.get_unique_id()
-		)
 
 	else:
 
@@ -256,12 +222,7 @@ func _on_lobby_created(
 
 func join_game(code: String):
 	if lobby_id != 0:
-		print("Already in lobby")
 		return
-
-	#reset_match()
-	print("Searching for room:", code)
-
 
 	Steam.addRequestLobbyListStringFilter(
 		"code",
@@ -277,11 +238,6 @@ func join_game(code: String):
 func _on_lobby_match_list(
 	lobbies: Array
 ):
-
-	print(
-		"Found rooms:",
-		lobbies.size()
-	)
 
 	if lobbies.size() == 0:
 
@@ -299,10 +255,6 @@ func _on_lobby_match_list(
 		join_failed.emit("Room is full")
 		return
 
-	print(
-		"Joining lobby:",
-		found_lobby
-	)
 	join_status.emit("Joining room...")
 
 	Steam.joinLobby(
@@ -321,47 +273,23 @@ func _on_lobby_joined(
 	if is_host:
 		return
 
-
 	lobby_id = new_lobby_id
-
-
-	print("Joined lobby!")
-	print("Lobby ID:", lobby_id)
-
 
 	lobby_code = Steam.getLobbyData(
 		lobby_id,
 		"code"
 	)
 
-
-	print("Room Code:", lobby_code)
-
-
 	peer = SteamMultiplayerPeer.new()
 
 	var owner_id = Steam.getLobbyOwner(lobby_id)
 
-	print("Lobby owner Steam ID:", owner_id)
-
-
 	var result = peer.create_client(owner_id)
-
-	print("Client result:", result)
-
 
 	if result == OK:
 
 		multiplayer.multiplayer_peer = peer
 		setup_multiplayer_signals()
-
-		print("Steam client started")
-
-		print(
-			"My peer ID:",
-			multiplayer.get_unique_id()
-		)
-
 
 	else:
 
@@ -378,11 +306,7 @@ func _on_lobby_chat_update(
 	_making_change_id,
 	_state
 ):
-	print("Lobby chat update")
-	print("State:", _state)
-	print("Changed:", _changed_id)
-	print("Making change:", _making_change_id)
-	
+
 	if _state & Steam.CHAT_MEMBER_STATE_CHANGE_LEFT:
 		leave_lobby()
 		get_tree().change_scene_to_file("res://UI/player_disconnected.tscn")
@@ -395,11 +319,7 @@ func check_lobby_ready():
 	if lobby_id == 0:
 		return
 
-
 	var members = Steam.getNumLobbyMembers(lobby_id)
-
-	print("Players in lobby:", members)
-
 
 	if members == 2:
 
@@ -435,8 +355,6 @@ func leave_lobby():
 	if lobby_id != 0:
 		Steam.leaveLobby(lobby_id)
 
-	print("Left lobby")
-
 	lobby_id = 0
 	lobby_code = ""
 	is_host = false
@@ -447,7 +365,6 @@ func leave_lobby():
 func _notification(what):
 
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		print("inside multiplayer")
 		leave_lobby()
 
 		get_tree().quit()
@@ -633,7 +550,6 @@ func reset_ready():
 
 @rpc("any_peer", "call_local", "reliable")
 func set_ready(peer_id: int):
-	print("set ready called with peer id: ", peer_id)
 	if peer_id == 1:
 		if !host_ready:
 			host_ready = true
@@ -649,7 +565,6 @@ func set_ready(peer_id: int):
 
 @rpc("any_peer", "call_remote")
 func sync_block_position(block_id, card_id, position, rotation):
-	print("Received:", position)
 	opponent_block_positions[block_id] = {
 		"card_id": card_id,
 		"position": position,
@@ -767,18 +682,15 @@ func sync_addon(addon_id, card_id, block_id, position, rotation, deleted := fals
 
 func unlock_achievement(api_name: String) -> void:
 	if not Steam.isSteamRunning():
-		print("Steam is not running.")
 		return
 	
 	Steam.setAchievement(api_name)
 	Steam.storeStats()
-	print("Achievement unlocked:", api_name)
 
 
 func reset_achievement(api_name: String) -> void:
 	Steam.clearAchievement(api_name)
 	Steam.storeStats()
-	print("Achievement reset:", api_name)
 
 
 func add_stat_to_achievement(api_name: String) -> void:

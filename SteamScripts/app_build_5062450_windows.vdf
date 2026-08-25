@@ -1,0 +1,23 @@
+"AppBuild"
+{
+    "AppID" "5062450"
+
+    "Desc" "Windows initial build"
+
+    "BuildOutput" "/Users/bellalu/marble-run/SteamBuildOutput"
+
+    "ContentRoot" "/Users/bellalu/marble-run/SteamBuildWindows"
+
+    "Depots"
+    {
+        "5062453"
+        {
+            "FileMapping"
+            {
+                "LocalPath" "*"
+                "DepotPath" "."
+                "recursive" "1"
+            }
+        }
+    }
+}

@@ -46,7 +46,6 @@ func stop_wind_rotation():
 	
 
 func reset_block():
-	print("reset block")
 	var block = get_parent()
 
 	#block.global_position = start_position
@@ -396,7 +395,6 @@ func any_movement_collision() -> bool:
 
 func send_position_update():
 	var block = get_parent()
-	print("Sending rotation:", block.rotation)
 	Multiplayer.sync_block_position.rpc(
 		block.get_meta("block_id"),
 		block.get_meta("card_id"),

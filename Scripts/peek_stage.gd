@@ -64,8 +64,6 @@ func update_blocks():
 
 			opponent_blocks[id] = block
 			
-			print("Creating block at:", data["position"])
-
 		else:
 
 			opponent_blocks[id].global_position = \
@@ -74,13 +72,11 @@ func update_blocks():
 
 func _on_finish_state_updated():
 	if Multiplayer.player_finished and Multiplayer.opponent_finished:
-		print("opponent finished")
 		transition.fade_to_scene("res://Scenes/solve_stage.tscn")
 	else:
 		Multiplayer.win_lose_result = "You won!"
 		Multiplayer.win_lose_message = "Your opponent did not complete the first stage before the timer ran out."
 		Multiplayer.add_stat_to_achievement("NUM_WINS")
-		print("opponent didnt finish")
 		
 		var win_lose = win_lose_scene.instantiate()
 		add_child(win_lose)
